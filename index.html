@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Impact Quest — A Research Impact Adventure</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0F1419;--surface:#1A2332;--surface-hover:#243447;--border:#2A3A4E;--text-primary:#E8ECF0;--text-secondary:#8899AA;--text-muted:#556677;--bar-bg:#1E2D3D;--accent:#4ECDC4;--accent-glow:rgba(78,205,196,0.15)}
+body{background:var(--bg);color:var(--text-primary);font-family:'DM Sans',sans-serif;min-height:100vh;padding:20px}
+.container{max-width:720px;margin:0 auto}
+.header{text-align:center;margin-bottom:32px;padding-top:20px}
+.header-label{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:8px;font-weight:600}
+.header h1{font-family:'Playfair Display',serif;font-size:42px;font-weight:800;background:linear-gradient(135deg,#4ECDC4,#45B7D1,#E8A838);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.header-meta{font-size:12px;color:var(--text-muted);margin-top:8px}
+.dashboard{background:var(--surface);border-radius:12px;padding:16px 20px;margin-bottom:24px;border:1px solid var(--border)}
+.dashboard-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.dashboard-title{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:2px;color:var(--text-secondary)}
+.dashboard-total{font-size:13px;font-weight:700;color:var(--accent);background:var(--accent-glow);padding:4px 12px;border-radius:20px}
+.score-row{margin-bottom:10px}
+.score-label{display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px;color:var(--text-secondary)}
+.score-label .val{font-weight:600}
+.score-track{height:8px;border-radius:4px;background:var(--bar-bg);overflow:hidden}
+.score-fill{height:100%;border-radius:4px;transition:width 0.8s cubic-bezier(0.4,0,0.2,1)}
+.content-card{background:var(--surface);border-radius:12px;padding:28px 24px;margin-bottom:24px;border:1px solid var(--border);position:relative;overflow:hidden;opacity:0;animation:fadeIn 0.4s ease forwards}
+.content-card.ending{border-width:2px}
+.content-card .top-line{position:absolute;top:0;left:0;right:0;height:3px}
+.content-title-row{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.content-title-row .emoji{font-size:28px}
+.content-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700}
+.content-title.ending{font-size:26px}
+.narrative{font-size:15px;line-height:1.75;color:var(--text-secondary)}
+.narrative p{margin-bottom:12px}
+.skip-hint{font-size:11px;color:var(--text-muted);font-style:italic;margin-top:8px;cursor:pointer}
+.choices-section{display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
+.choices-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:4px}
+.choice-btn{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 20px;cursor:pointer;text-align:left;color:var(--text-primary);font-size:14px;font-family:'DM Sans',sans-serif;line-height:1.5;transition:all 0.2s ease;display:flex;align-items:center;gap:14px}
+.choice-btn:hover{background:var(--surface-hover);border-color:var(--accent)}
+.choice-letter{min-width:28px;height:28px;border-radius:50%;background:var(--border);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--text-secondary);transition:all 0.2s ease;flex-shrink:0}
+.choice-btn:hover .choice-letter{background:var(--accent);color:#0F1419}
+.ending-box{background:var(--surface);border-radius:12px;padding:24px;border:1px solid var(--border);text-align:center;margin-bottom:32px}
+.ending-score-label{font-size:14px;color:var(--text-secondary);margin-bottom:16px}
+.ending-score-val{font-size:32px;font-weight:800;color:var(--accent);font-family:'Playfair Display',serif}
+.ending-summary{font-size:13px;color:var(--text-muted);margin-bottom:20px}
+.restart-btn{background:var(--accent);border:none;border-radius:8px;padding:12px 32px;cursor:pointer;color:#0F1419;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;transition:transform 0.2s ease}
+.restart-btn:hover{transform:scale(1.05)}
+.journey-log{margin-bottom:32px}
+.journey-log summary{cursor:pointer;font-size:12px;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase;font-weight:600;padding:8px 0}
+.journey-step{padding:8px 16px;margin-bottom:8px;font-size:13px;color:var(--text-secondary);border-left:2px solid var(--border)}
+.journey-step .step-title{font-weight:600;color:var(--text-primary);margin-bottom:2px}
+.loading{text-align:center;padding:80px 20px;color:var(--text-muted);font-size:14px}
+.loading .spinner{display:inline-block;width:24px;height:24px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin 0.8s linear infinite;margin-bottom:16px}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+<div id="app">
+  <div class="container">
+    <div class="loading">
+      <div class="spinner"></div>
+      <div>Loading The Impact Quest...</div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script>
+var e=React.createElement,useState=React.useState,useEffect=React.useEffect,useRef=React.useRef,useCallback=React.useCallback;
+
+var SCORE_LABELS={strategy:"Strategic Thinking",stakeholders:"Stakeholder Relations",significance:"Significance",reach:"Reach",evidence:"Evidence Quality"};
+var SCORE_COLORS={strategy:"#E8A838",stakeholders:"#4ECDC4",significance:"#FF6B6B",reach:"#45B7D1",evidence:"#96CEB4"};
+var ENDING_THEMES={policy:{emoji:"\ud83c\udfdb\ufe0f",color:"#45B7D1"},practitioner:{emoji:"\ud83e\udd1d",color:"#4ECDC4"},cycle:{emoji:"\ud83d\udd04",color:"#E8A838"}};
+
+function TypewriterText(props){
+  var text=props.text,speed=props.speed,onComplete=props.onComplete;
+  var _d=useState(""),displayed=_d[0],setDisplayed=_d[1];
+  var _dn=useState(false),done=_dn[0],setDone=_dn[1];
+  var idx=useRef(0),timer=useRef(null);
+  useEffect(function(){
+    idx.current=0;setDisplayed("");setDone(false);
+    function tick(){idx.current++;setDisplayed(text.slice(0,idx.current));if(idx.current>=text.length){setDone(true);if(onComplete)onComplete();}else{timer.current=setTimeout(tick,speed||8);}}
+    timer.current=setTimeout(tick,speed||8);
+    return function(){clearTimeout(timer.current);};
+  },[text]);
+  var handleSkip=function(){clearTimeout(timer.current);setDisplayed(text);setDone(true);if(onComplete)onComplete();};
+  var pars=displayed.split("\n").map(function(line,i){return e("p",{key:i,style:{margin:"0 0 12px 0",minHeight:line===""?12:"auto"}},line);});
+  return e("div",{onClick:!done?handleSkip:undefined,style:{cursor:done?"default":"pointer"}},pars,!done?e("div",{className:"skip-hint"},"Click to skip animation"):null);
+}
+
+function ScoreBar(props){
+  var pct=Math.min((props.value/props.max)*100,100);
+  return e("div",{className:"score-row"},e("div",{className:"score-label"},e("span",null,props.label),e("span",{className:"val",style:{color:props.color}},props.value)),e("div",{className:"score-track"},e("div",{className:"score-fill",style:{width:pct+"%",background:props.color}})));
+}
+
+function App(props){
+  var GAME_DATA=props.data;
+  var _cn=useState("start"),currentNode=_cn[0],setCurrentNode=_cn[1];
+  var _sc=useState({strategy:0,stakeholders:0,significance:0,reach:0,evidence:0}),scores=_sc[0],setScores=_sc[1];
+  var _hi=useState([]),history=_hi[0],setHistory=_hi[1];
+  var _sh=useState(false),showChoices=_sh[0],setShowChoices=_sh[1];
+  var _ck=useState(0),cardKey=_ck[0],setCardKey=_ck[1];
+  var node=GAME_DATA[currentNode];
+  var maxScore=Math.max(50,Math.max.apply(null,Object.values(scores)));
+  var totalScore=Object.values(scores).reduce(function(a,b){return a+b;},0);
+  var endTheme=node.isEnding?ENDING_THEMES[node.endingType]:null;
+
+  var handleChoice=function(choice){
+    setShowChoices(false);
+    setHistory(function(h){return h.concat([{node:currentNode,choice:choice.text}]);});
+    var nextNode=GAME_DATA[choice.next];
+    if(nextNode&&nextNode.scoreEffect){
+      setScores(function(s){var ns=Object.assign({},s);Object.keys(nextNode.scoreEffect).forEach(function(k){ns[k]=Math.max(0,(ns[k]||0)+nextNode.scoreEffect[k]);});return ns;});
+    }
+    setCurrentNode(choice.next);setCardKey(function(k){return k+1;});window.scrollTo({top:0,behavior:"smooth"});
+  };
+
+  var restart=function(){
+    setCurrentNode("start");setScores({strategy:0,stakeholders:0,significance:0,reach:0,evidence:0});
+    setHistory([]);setShowChoices(false);setCardKey(function(k){return k+1;});window.scrollTo({top:0,behavior:"smooth"});
+  };
+
+  return e("div",{className:"container"},
+    e("div",{className:"header"},
+      e("div",{className:"header-label"},"A Research Impact Adventure"),
+      e("h1",null,"The Impact Quest"),
+      currentNode!=="start"?e("div",{className:"header-meta"},"Chapter "+(history.length+1)+" \u00b7 Decisions made: "+history.length):null
+    ),
+    currentNode!=="start"?e("div",{className:"dashboard"},
+      e("div",{className:"dashboard-header"},e("span",{className:"dashboard-title"},"Impact Dashboard"),e("span",{className:"dashboard-total"},"Total: "+totalScore)),
+      Object.keys(SCORE_LABELS).map(function(key){return e(ScoreBar,{key:key,label:SCORE_LABELS[key],value:scores[key],max:maxScore,color:SCORE_COLORS[key]});})
+    ):null,
+    e("div",{key:cardKey,className:"content-card"+(node.isEnding?" ending":""),style:node.isEnding?{borderColor:endTheme.color}:{}},
+      node.isEnding?e("div",{className:"top-line",style:{background:"linear-gradient(90deg, "+endTheme.color+", transparent)"}}):null,
+      e("div",{className:"content-title-row"},
+        node.isEnding?e("span",{className:"emoji"},endTheme.emoji):null,
+        e("h2",{className:"content-title"+(node.isEnding?" ending":""),style:node.isEnding?{color:endTheme.color}:{}},node.title)
+      ),
+      node.image?e("div",{style:{textAlign:"center",marginBottom:"16px"}},e("img",{src:node.image,alt:"",style:{width:node.imageSize==="small"?"40%":node.imageSize==="medium"?"65%":"100%",maxHeight:node.imageSize==="banner"?"150px":"300px",objectFit:"cover",borderRadius:"8px"}})):null,
+      e("div",{className:"narrative"},e(TypewriterText,{key:currentNode,text:node.narrative,speed:8,onComplete:function(){setShowChoices(true);}}))
+    ),
+    !node.isEnding&&showChoices&&node.choices?e("div",{className:"choices-section"},
+      e("div",{className:"choices-label"},"What do you do?"),
+      node.choices.map(function(choice,i){return e("button",{key:i,className:"choice-btn",onClick:function(){handleChoice(choice);}},e("span",{className:"choice-letter"},String.fromCharCode(65+i)),choice.text);})
+    ):null,
+    node.isEnding&&showChoices?e("div",{className:"ending-box"},
+      e("div",{className:"ending-score-label"},"Final Score: ",e("span",{className:"ending-score-val"},totalScore)),
+      e("div",{className:"ending-summary"},"You made "+history.length+" decisions."+(totalScore>=80?" Outstanding!":totalScore>=50?" Strong foundations.":" Try different choices next time!")),
+      e("button",{className:"restart-btn",onClick:restart},"Play Again")
+    ):null,
+    history.length>0&&showChoices?e("details",{className:"journey-log"},
+      e("summary",null,"Your Journey ("+history.length+" steps)"),
+      e("div",{style:{marginTop:12}},history.map(function(h,i){return e("div",{key:i,className:"journey-step",style:{borderLeftColor:SCORE_COLORS[Object.keys(SCORE_COLORS)[i%5]]}},e("div",{className:"step-title"},GAME_DATA[h.node]?GAME_DATA[h.node].title:""),"\u2192 "+h.choice);}))
+    ):null
+  );
+}
+
+// Load game data from external JSON file and boot the app
+fetch("game-data.json")
+  .then(function(r){return r.json();})
+  .then(function(data){
+    ReactDOM.render(e(App,{data:data}),document.getElementById("app"));
+  })
+  .catch(function(err){
+    document.getElementById("app").innerHTML='<div class="container" style="text-align:center;padding:80px 20px"><h2 style="color:#FF6B6B;margin-bottom:12px">Failed to load game data</h2><p style="color:var(--text-muted)">Make sure game-data.json is in the same folder as this file.</p><p style="color:var(--text-muted);font-size:12px;margin-top:8px">'+err.message+'</p></div>';
+  });
+</script>
+</body>
+</html>
