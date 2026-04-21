@@ -80,6 +80,10 @@ const uid = () => "node_" + Math.random().toString(36).slice(2, 8);
 function Editor() {
   const [nodes, setNodes] = useState(DEFAULT_DATA);
   const [order, setOrder] = useState(() => Object.keys(DEFAULT_DATA));
+  const nodesRef = useRef(nodes);
+  const orderRef = useRef(order);
+  nodesRef.current = nodes;
+  orderRef.current = order;
   const [selected, setSelected] = useState("start");
   const [search, setSearch] = useState("");
   const [toast, setToast] = useState(null);
@@ -344,10 +348,12 @@ function Editor() {
     setSaving(true);
     flash("Saving to GitHub...");
 
-    // Build clean data inline (not via buildClean) to ensure we read current state
+    var currentNodes = nodesRef.current;
+    var currentOrder = orderRef.current;
+
     var clean = {};
-    order.filter(function(id) { return nodes[id]; }).forEach(function(id) {
-      var n = nodes[id];
+    currentOrder.filter(function(id) { return currentNodes[id]; }).forEach(function(id) {
+      var n = currentNodes[id];
       clean[id] = { title: n.title, narrative: n.narrative, choices: (n.choices || []).filter(function(c) { return c.text; }) };
       if (n.image) { clean[id].image = n.image; clean[id].imageSize = n.imageSize || "large"; }
       if (n.scoreEffect && Object.keys(n.scoreEffect).length) clean[id].scoreEffect = n.scoreEffect;
@@ -635,7 +641,7 @@ function Editor() {
                             display: "block",
                             borderRadius: (node.imageSize === "small" || node.imageSize === "medium") ? 6 : 0,
                           }}
-                          onError={e => { e.target.style.display = "none"; }}
+                          onError={e => { e.target.alt = "Image not found"; e.target.style.background = "#ede8da"; e.target.style.minHeight = "60px"; }}
                         />
                       </div>
                       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "6px 10px", background: "#ffffff" }}>
