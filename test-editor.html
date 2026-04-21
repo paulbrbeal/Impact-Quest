@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Editor Test</title>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
+<script type="text/babel">
+function App() {
+  return <div style={{padding: 40, color: "white", background: "#0E1116", minHeight: "100vh"}}>
+    <h1>Editor loads OK</h1>
+    <p>If you can see this, Babel + React is working.</p>
+  </div>;
+}
+ReactDOM.render(<App />, document.getElementById("root"));
+</script>
+</body>
+</html>
