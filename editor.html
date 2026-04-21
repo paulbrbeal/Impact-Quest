@@ -154,9 +154,9 @@ function Editor() {
     reader.readAsDataURL(file);
   }, [ghToken, ghRepo, selected, flash, update]);
 
-  // Auto-load game-data.json from same folder on startup
+  // Auto-load game-data.json from same folder on startup (cache-bust)
   React.useEffect(() => {
-    fetch("game-data.json")
+    fetch("game-data.json?t=" + Date.now())
       .then(r => r.json())
       .then(data => {
         if (data && typeof data === "object" && Object.keys(data).length > 0) {
@@ -337,23 +337,33 @@ function Editor() {
 
   const [saving, setSaving] = useState(false);
 
-  const saveToGitHub = useCallback(() => {
+  const saveToGitHub = () => {
     var cleanToken = (ghToken || "").replace(/[^\x20-\x7E]/g, "").trim();
     if (!cleanToken) { flash("Set up GitHub token in Settings first"); setShowSettings(true); return; }
 
     setSaving(true);
-    var clean = buildClean();
+    flash("Saving to GitHub...");
+
+    // Build clean data inline (not via buildClean) to ensure we read current state
+    var clean = {};
+    order.filter(function(id) { return nodes[id]; }).forEach(function(id) {
+      var n = nodes[id];
+      clean[id] = { title: n.title, narrative: n.narrative, choices: (n.choices || []).filter(function(c) { return c.text; }) };
+      if (n.image) { clean[id].image = n.image; clean[id].imageSize = n.imageSize || "large"; }
+      if (n.scoreEffect && Object.keys(n.scoreEffect).length) clean[id].scoreEffect = n.scoreEffect;
+      if (n.isEnding) { clean[id].isEnding = true; clean[id].endingType = n.endingType || "policy"; }
+    });
+
     var jsonStr = JSON.stringify(clean, null, 2);
     var base64 = btoa(unescape(encodeURIComponent(jsonStr)));
-    var url = "https://api.github.com/repos/" + ghRepo + "/contents/game-data.json";
+    var apiUrl = "https://api.github.com/repos/" + ghRepo + "/contents/game-data.json";
 
-    // Get current file sha first (needed to update)
-    fetch(url, { headers: { "Authorization": "Bearer " + cleanToken } })
+    fetch(apiUrl, { headers: { "Authorization": "Bearer " + cleanToken } })
       .then(function(r) { return r.ok ? r.json() : null; })
       .then(function(existing) {
         var body = { message: "Update game data from editor", content: base64 };
         if (existing && existing.sha) body.sha = existing.sha;
-        return fetch(url, {
+        return fetch(apiUrl, {
           method: "PUT",
           headers: { "Authorization": "Bearer " + cleanToken, "Content-Type": "application/json" },
           body: JSON.stringify(body)
@@ -371,7 +381,7 @@ function Editor() {
         setSaving(false);
         flash("Save failed: " + err.message);
       });
-  }, [ghToken, ghRepo, buildClean, flash]);
+  };
 
   const copyForHTML = () => {
     const clean = buildClean();
