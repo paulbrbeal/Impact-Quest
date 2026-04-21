@@ -89,7 +89,69 @@ function Editor() {
   const [exportText, setExportText] = useState("");
   const [tab, setTab] = useState("content");
   const [loaded, setLoaded] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
+  const [ghToken, setGhToken] = useState(() => sessionStorage.getItem("iq_gh_token") || "");
+  const [ghRepo, setGhRepo] = useState(() => sessionStorage.getItem("iq_gh_repo") || "paulbrbeal/Impact-Quest");
+  const [uploading, setUploading] = useState(false);
   const fileRef = useRef(null);
+  const imgRef = useRef(null);
+
+  // Save GitHub settings to session (cleared when browser tab closes)
+  const saveGhSettings = (token, repo) => {
+    setGhToken(token);
+    setGhRepo(repo);
+    if (token) sessionStorage.setItem("iq_gh_token", token);
+    else sessionStorage.removeItem("iq_gh_token");
+    if (repo) sessionStorage.setItem("iq_gh_repo", repo);
+    else sessionStorage.removeItem("iq_gh_repo");
+  };
+
+  // Upload image to GitHub repo
+  const uploadImage = useCallback((file) => {
+    if (!ghToken) { flash("Set up GitHub token in Settings first"); setShowSettings(true); return; }
+    if (!file) return;
+    const maxSize = 5 * 1024 * 1024;
+    if (file.size > maxSize) { flash("Image too large (max 5MB)"); return; }
+
+    setUploading(true);
+    const reader = new FileReader();
+    reader.onload = function(ev) {
+      const base64 = ev.target.result.split(",")[1];
+      const safeName = file.name.toLowerCase().replace(/[^a-z0-9.\-_]/g, "-");
+      const path = "images/" + safeName;
+      const url = "https://api.github.com/repos/" + ghRepo + "/contents/" + path;
+
+      // Check if file already exists (need its sha to overwrite)
+      fetch(url, { headers: { "Authorization": "Bearer " + ghToken } })
+        .then(function(r) { return r.ok ? r.json() : null; })
+        .then(function(existing) {
+          var body = { message: "Upload image: " + safeName, content: base64 };
+          if (existing && existing.sha) body.sha = existing.sha;
+          return fetch(url, {
+            method: "PUT",
+            headers: { "Authorization": "Bearer " + ghToken, "Content-Type": "application/json" },
+            body: JSON.stringify(body)
+          });
+        })
+        .then(function(r) {
+          if (!r.ok) throw new Error("GitHub API returned " + r.status);
+          return r.json();
+        })
+        .then(function(data) {
+          // Build the GitHub Pages URL
+          var parts = ghRepo.split("/");
+          var pagesUrl = "https://" + parts[0] + ".github.io/" + parts[1] + "/" + path;
+          update(selected, { image: pagesUrl });
+          setUploading(false);
+          flash("Image uploaded!");
+        })
+        .catch(function(err) {
+          setUploading(false);
+          flash("Upload failed: " + err.message);
+        });
+    };
+    reader.readAsDataURL(file);
+  }, [ghToken, ghRepo, selected, flash, update]);
 
   // Auto-load game-data.json from same folder on startup
   React.useEffect(() => {
@@ -367,6 +429,7 @@ function Editor() {
             <button onClick={exportJSON} style={s.btn}>Export</button>
             <button onClick={() => fileRef.current.click()} style={s.btn}>Import</button>
             <button onClick={copyForHTML} style={s.accent}>Generate HTML Game</button>
+            <button onClick={() => setShowSettings(true)} style={{ ...s.btn, fontSize: 11 }}>Settings</button>
             <input ref={fileRef} type="file" accept=".json" onChange={importFile} style={{ display: "none" }} />
           </div>
           <input
@@ -461,12 +524,20 @@ function Editor() {
 
                 {/* Scene Image */}
                 <label style={s.label}>Scene Image (optional)</label>
-                <input
-                  value={node.image || ""}
-                  onChange={e => update(selected, { image: e.target.value })}
-                  placeholder="Paste an image URL (e.g. https://example.com/photo.jpg)"
-                  style={s.inp}
-                />
+                <div style={{ display: "flex", gap: 6, marginBottom: 12 }}>
+                  <input
+                    value={node.image || ""}
+                    onChange={e => update(selected, { image: e.target.value })}
+                    placeholder="Paste a URL or upload an image"
+                    style={{ ...s.inp, marginBottom: 0, flex: 1 }}
+                  />
+                  <button
+                    onClick={() => imgRef.current.click()}
+                    disabled={uploading}
+                    style={{ ...s.accent, opacity: uploading ? 0.6 : 1, whiteSpace: "nowrap" }}
+                  >{uploading ? "Uploading..." : "Upload"}</button>
+                  <input ref={imgRef} type="file" accept="image/*" onChange={e => { if (e.target.files[0]) uploadImage(e.target.files[0]); e.target.value = ""; }} style={{ display: "none" }} />
+                </div>
                 {node.image && (
                   <div style={{ marginBottom: 14 }}>
                     {/* Size selector */}
@@ -732,9 +803,52 @@ function Editor() {
         </div>
       )}
 
+      {/* ── Settings Modal ── */}
+      {showSettings && (
+        <div style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.5)", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 500 }} onClick={() => setShowSettings(false)}>
+          <div style={{ background: "#ffffff", border: "1px solid #d8d2c4", borderRadius: 3, padding: 24, width: 480 }} onClick={e => e.stopPropagation()}>
+            <h3 style={{ fontSize: 20, fontWeight: 400, color: "#0f0e0d", marginBottom: 4, fontFamily: "'Bebas Neue', sans-serif", letterSpacing: 2 }}>GitHub Settings</h3>
+            <p style={{ fontSize: 12, color: "#8c8272", marginBottom: 16, lineHeight: 1.6 }}>
+              Connect to GitHub to upload images directly to your repo. Your token is stored in this browser tab only and cleared when you close it.
+            </p>
+
+            <label style={s.label}>Repository (owner/repo)</label>
+            <input
+              value={ghRepo}
+              onChange={e => setGhRepo(e.target.value)}
+              placeholder="paulbrbeal/Impact-Quest"
+              style={s.inp}
+            />
+
+            <label style={s.label}>Personal Access Token</label>
+            <input
+              type="password"
+              value={ghToken}
+              onChange={e => setGhToken(e.target.value)}
+              placeholder="ghp_xxxxxxxxxxxxxxxxxxxx"
+              style={s.inp}
+            />
+            <div style={{ fontSize: 11, color: "#8c8272", marginTop: -8, marginBottom: 16, lineHeight: 1.6 }}>
+              Create a token at <span style={{ color: "#c4782a" }}>github.com → Settings → Developer settings → Personal access tokens → Fine-grained tokens</span>. Give it <strong>Contents: Read and write</strong> permission on your Impact-Quest repo only.
+            </div>
+
+            {ghToken && (
+              <div style={{ background: "#f0fdf4", border: "1px solid #bbf7d0", borderRadius: 3, padding: "8px 12px", marginBottom: 16, fontSize: 12, color: "#4a6741" }}>
+                Token set. Images will upload to <strong>{ghRepo}</strong>/images/
+              </div>
+            )}
+
+            <div style={{ display: "flex", gap: 8, justifyContent: "flex-end" }}>
+              {ghToken && <button onClick={() => { saveGhSettings("", ghRepo); flash("Token cleared"); }} style={{ ...s.btn, color: "#c0392b" }}>Clear Token</button>}
+              <button onClick={() => { saveGhSettings(ghToken, ghRepo); setShowSettings(false); flash("Settings saved"); }} style={s.accent}>Save</button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* ── Toast ── */}
       {toast && (
-        <div style={{ position: "fixed", bottom: 20, left: "50%", transform: "translateX(-50%)", background: "#ede8da", border: "1px solid #4ECDC4", color: "#c4782a", padding: "7px 18px", borderRadius: 8, fontSize: 13, fontWeight: 600, zIndex: 1000, boxShadow: "0 4px 20px rgba(0,0,0,0.5)" }}>
+        <div style={{ position: "fixed", bottom: 20, left: "50%", transform: "translateX(-50%)", background: "#0f0e0d", border: "1px solid #e8963a", color: "#e8963a", padding: "7px 18px", borderRadius: 3, fontSize: 13, fontWeight: 600, zIndex: 1000, boxShadow: "0 4px 20px rgba(0,0,0,0.2)" }}>
           {toast}
         </div>
       )}
