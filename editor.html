@@ -108,7 +108,8 @@ function Editor() {
 
   // Upload image to GitHub repo
   const uploadImage = useCallback((file) => {
-    if (!ghToken) { flash("Set up GitHub token in Settings first"); setShowSettings(true); return; }
+    var cleanToken = ghToken.replace(/[^\x20-\x7E]/g, "").trim();
+    if (!cleanToken) { flash("Set up GitHub token in Settings first"); setShowSettings(true); return; }
     if (!file) return;
     const maxSize = 5 * 1024 * 1024;
     if (file.size > maxSize) { flash("Image too large (max 5MB)"); return; }
@@ -122,14 +123,14 @@ function Editor() {
       const url = "https://api.github.com/repos/" + ghRepo + "/contents/" + path;
 
       // Check if file already exists (need its sha to overwrite)
-      fetch(url, { headers: { "Authorization": "Bearer " + ghToken } })
+      fetch(url, { headers: { "Authorization": "Bearer " + cleanToken } })
         .then(function(r) { return r.ok ? r.json() : null; })
         .then(function(existing) {
           var body = { message: "Upload image: " + safeName, content: base64 };
           if (existing && existing.sha) body.sha = existing.sha;
           return fetch(url, {
             method: "PUT",
-            headers: { "Authorization": "Bearer " + ghToken, "Content-Type": "application/json" },
+            headers: { "Authorization": "Bearer " + cleanToken, "Content-Type": "application/json" },
             body: JSON.stringify(body)
           });
         })
@@ -334,6 +335,44 @@ function Editor() {
     flash("JSON downloaded!");
   };
 
+  const [saving, setSaving] = useState(false);
+
+  const saveToGitHub = useCallback(() => {
+    var cleanToken = (ghToken || "").replace(/[^\x20-\x7E]/g, "").trim();
+    if (!cleanToken) { flash("Set up GitHub token in Settings first"); setShowSettings(true); return; }
+
+    setSaving(true);
+    var clean = buildClean();
+    var jsonStr = JSON.stringify(clean, null, 2);
+    var base64 = btoa(unescape(encodeURIComponent(jsonStr)));
+    var url = "https://api.github.com/repos/" + ghRepo + "/contents/game-data.json";
+
+    // Get current file sha first (needed to update)
+    fetch(url, { headers: { "Authorization": "Bearer " + cleanToken } })
+      .then(function(r) { return r.ok ? r.json() : null; })
+      .then(function(existing) {
+        var body = { message: "Update game data from editor", content: base64 };
+        if (existing && existing.sha) body.sha = existing.sha;
+        return fetch(url, {
+          method: "PUT",
+          headers: { "Authorization": "Bearer " + cleanToken, "Content-Type": "application/json" },
+          body: JSON.stringify(body)
+        });
+      })
+      .then(function(r) {
+        if (!r.ok) throw new Error("GitHub API returned " + r.status);
+        return r.json();
+      })
+      .then(function() {
+        setSaving(false);
+        flash("Saved to GitHub!");
+      })
+      .catch(function(err) {
+        setSaving(false);
+        flash("Save failed: " + err.message);
+      });
+  }, [ghToken, ghRepo, buildClean, flash]);
+
   const copyForHTML = () => {
     const clean = buildClean();
     const gameDataStr = JSON.stringify(clean, null, 2);
@@ -424,11 +463,12 @@ function Editor() {
             <span style={{ color: "#e8963a" }}>IMPACT</span> QUEST EDITOR
           </div>
           <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 8 }}>
+            <button onClick={saveToGitHub} disabled={saving} style={{ ...s.accent, opacity: saving ? 0.6 : 1 }}>{saving ? "Saving..." : "Save"}</button>
             <button onClick={addNode} style={s.btn}>+ Scene</button>
             <button onClick={sortByFlow} style={s.btn}>Sort by Flow</button>
             <button onClick={exportJSON} style={s.btn}>Export</button>
             <button onClick={() => fileRef.current.click()} style={s.btn}>Import</button>
-            <button onClick={copyForHTML} style={s.accent}>Generate HTML Game</button>
+            <button onClick={copyForHTML} style={s.accent}>Generate HTML</button>
             <button onClick={() => setShowSettings(true)} style={{ ...s.btn, fontSize: 11 }}>Settings</button>
             <input ref={fileRef} type="file" accept=".json" onChange={importFile} style={{ display: "none" }} />
           </div>
