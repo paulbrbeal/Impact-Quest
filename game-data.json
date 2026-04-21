@@ -773,18 +773,21 @@
   "ending_policy_star": {
     "title": "Impact Case Study: Policy Influencer",
     "narrative": "Congratulations! You've developed a strong policy-focused impact case study.\n\nYour research journey shows a clear pathway from academic publication to real-world policy change. You built relationships with decision-makers, engaged at the right time, provided evidence in the right format, and documented everything.\n\nKey lessons from your journey:\n• Strategy matters — random outreach rarely works\n• Listen to what stakeholders need, don't just broadcast your findings\n• Timing is everything in policy engagement\n• Evidence of impact needs to be gathered AS YOU GO, not retrofitted\n• Your Impact Officer is your best friend in this process",
+    "choices": [],
     "isEnding": true,
     "endingType": "policy"
   },
   "ending_practitioner_star": {
     "title": "Impact Case Study: Practice Transformer",
     "narrative": "Congratulations! You've developed a compelling practice-based impact case study.\n\nYour research has genuinely changed how organisations work, leading to better outcomes for communities. You co-produced knowledge with partners, embedded your research into real-world practice, and built evidence of transformative change.\n\nKey lessons from your journey:\n• Co-production with partners creates the strongest impact\n• Deep partnerships beat shallow ones\n• Let practitioners lead — your research supports their expertise\n• Tangible outputs (toolkits, frameworks, redesigned programmes) are powerful evidence\n• Impact takes time — invest in relationships",
+    "choices": [],
     "isEnding": true,
     "endingType": "practitioner"
   },
   "ending_full_circle": {
     "title": "Impact Case Study: The Virtuous Cycle",
     "narrative": "Congratulations! You've achieved something remarkable — a self-sustaining cycle where research drives impact, and impact drives new research.\n\nYour impact case study shows research that didn't just change the world once — it created an ongoing relationship between evidence and practice that continues to generate benefits.\n\nKey lessons from your journey:\n• The best impact isn't a one-off event — it's an ongoing relationship\n• Evaluation of your impact can generate new research questions\n• Follow-on funding can amplify your original investment\n• Building trust with partners creates opportunities you can't plan for\n• Impact and research quality reinforce each other",
+    "choices": [],
     "isEnding": true,
     "endingType": "cycle"
   }
