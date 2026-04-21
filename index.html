@@ -71,6 +71,8 @@ body{background:var(--bg);color:var(--text-primary);font-family:'DM Sans',sans-s
 .ending-summary{font-size:13px;color:var(--text-muted);margin-bottom:20px}
 .restart-btn{background:var(--accent);border:none;border-radius:3px;padding:12px 32px;cursor:pointer;color:var(--ink);font-size:13px;font-weight:700;font-family:'DM Sans',sans-serif;letter-spacing:0.05em;text-transform:uppercase;transition:background 0.2s ease}
 .restart-btn:hover{background:var(--accent-dark)}
+.restart-small-btn{background:none;border:1px solid var(--border);border-radius:3px;padding:6px 16px;cursor:pointer;color:var(--text-muted);font-size:11px;font-weight:600;font-family:'DM Sans',sans-serif;letter-spacing:0.05em;text-transform:uppercase;transition:all 0.2s ease;margin-top:10px}
+.restart-small-btn:hover{border-color:var(--accent);color:var(--accent-dark)}
 
 /* Journey log */
 .journey-log{margin-bottom:32px}
@@ -160,7 +162,8 @@ function App(props){
     e("div",{className:"header"},
       e("div",{className:"header-label"},"A Research Impact Adventure"),
       e("h1",null,"THE ",e("em",null,"IMPACT")," QUEST"),
-      currentNode!=="start"?e("div",{className:"header-meta"},"Chapter "+(history.length+1)+" \u00b7 Decisions made: "+history.length):null
+      currentNode!=="start"?e("div",{className:"header-meta"},"Chapter "+(history.length+1)+" \u00b7 Decisions made: "+history.length):null,
+      currentNode!=="start"?e("button",{className:"restart-small-btn",onClick:restart},"\u2190 Start Again"):null
     ),
     currentNode!=="start"?e("div",{className:"dashboard"},
       e("div",{className:"dashboard-header"},e("span",{className:"dashboard-title"},"Impact Dashboard"),e("span",{className:"dashboard-total"},"Total: "+totalScore)),
