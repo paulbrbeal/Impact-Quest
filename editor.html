@@ -90,8 +90,8 @@ function Editor() {
   const [tab, setTab] = useState("content");
   const [loaded, setLoaded] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
-  const [ghToken, setGhToken] = useState(() => sessionStorage.getItem("iq_gh_token") || "");
-  const [ghRepo, setGhRepo] = useState(() => sessionStorage.getItem("iq_gh_repo") || "paulbrbeal/Impact-Quest");
+  const [ghToken, setGhToken] = useState(() => localStorage.getItem("iq_gh_token") || "");
+  const [ghRepo, setGhRepo] = useState(() => localStorage.getItem("iq_gh_repo") || "paulbrbeal/Impact-Quest");
   const [uploading, setUploading] = useState(false);
   const fileRef = useRef(null);
   const imgRef = useRef(null);
@@ -100,10 +100,10 @@ function Editor() {
   const saveGhSettings = (token, repo) => {
     setGhToken(token);
     setGhRepo(repo);
-    if (token) sessionStorage.setItem("iq_gh_token", token);
-    else sessionStorage.removeItem("iq_gh_token");
-    if (repo) sessionStorage.setItem("iq_gh_repo", repo);
-    else sessionStorage.removeItem("iq_gh_repo");
+    if (token) localStorage.setItem("iq_gh_token", token);
+    else localStorage.removeItem("iq_gh_token");
+    if (repo) localStorage.setItem("iq_gh_repo", repo);
+    else localStorage.removeItem("iq_gh_repo");
   };
 
   // Upload image to GitHub repo
@@ -809,7 +809,7 @@ function Editor() {
           <div style={{ background: "#ffffff", border: "1px solid #d8d2c4", borderRadius: 3, padding: 24, width: 480 }} onClick={e => e.stopPropagation()}>
             <h3 style={{ fontSize: 20, fontWeight: 400, color: "#0f0e0d", marginBottom: 4, fontFamily: "'Bebas Neue', sans-serif", letterSpacing: 2 }}>GitHub Settings</h3>
             <p style={{ fontSize: 12, color: "#8c8272", marginBottom: 16, lineHeight: 1.6 }}>
-              Connect to GitHub to upload images directly to your repo. Your token is stored in this browser tab only and cleared when you close it.
+              Connect to GitHub to upload images directly to your repo. Your token is stored in your browser and persists between visits. It never leaves your device except to talk to GitHub.
             </p>
 
             <label style={s.label}>Repository (owner/repo)</label>
