@@ -79,14 +79,15 @@ const uid = () => "node_" + Math.random().toString(36).slice(2, 8);
 
 function Editor() {
   const [nodes, setNodes] = useState(DEFAULT_DATA);
+  const [order, setOrder] = useState(() => Object.keys(DEFAULT_DATA));
   const [selected, setSelected] = useState("start");
   const [search, setSearch] = useState("");
   const [toast, setToast] = useState(null);
   const [showImport, setShowImport] = useState(false);
   const [importText, setImportText] = useState("");
-  const [showExport, setShowExport] = useState(null); // null | "json" | "html"
+  const [showExport, setShowExport] = useState(null);
   const [exportText, setExportText] = useState("");
-  const [tab, setTab] = useState("content"); // content | scores | preview
+  const [tab, setTab] = useState("content");
   const [loaded, setLoaded] = useState(false);
   const fileRef = useRef(null);
 
@@ -97,6 +98,7 @@ function Editor() {
       .then(data => {
         if (data && typeof data === "object" && Object.keys(data).length > 0) {
           setNodes(data);
+          setOrder(Object.keys(data));
           setSelected(Object.keys(data)[0] || "start");
           setLoaded(true);
         }
@@ -105,7 +107,7 @@ function Editor() {
   }, []);
 
   const node = selected ? nodes[selected] : null;
-  const nodeList = Object.entries(nodes);
+  const nodeList = order.filter(id => nodes[id]).map(id => [id, nodes[id]]);
   const filtered = search
     ? nodeList.filter(([id, n]) => n.title.toLowerCase().includes(search.toLowerCase()) || id.includes(search.toLowerCase()))
     : nodeList;
@@ -120,6 +122,7 @@ function Editor() {
   const addNode = useCallback(() => {
     const id = uid();
     setNodes(prev => ({ ...prev, [id]: { title: "New Scene", narrative: "", choices: [], scoreEffect: {} } }));
+    setOrder(prev => [...prev, id]);
     setSelected(id);
     setSearch("");
     flash("Scene added");
@@ -135,6 +138,7 @@ function Editor() {
       });
       return next;
     });
+    setOrder(prev => prev.filter(x => x !== id));
     setSelected("start");
     flash("Scene deleted");
   }, [flash]);
@@ -143,6 +147,7 @@ function Editor() {
     const src = nodes[id];
     const nid = uid();
     setNodes(prev => ({ ...prev, [nid]: { ...src, title: src.title + " (copy)", choices: (src.choices || []).map(c => ({ ...c })), scoreEffect: { ...(src.scoreEffect || {}) } } }));
+    setOrder(prev => { const i = prev.indexOf(id); const next = [...prev]; next.splice(i + 1, 0, nid); return next; });
     setSelected(nid);
     flash("Duplicated");
   }, [nodes, flash]);
@@ -163,10 +168,64 @@ function Editor() {
     update(selected, { choices });
   };
 
+  // ── Rename node ID ──
+  const renameNode = useCallback((oldId, newId) => {
+    newId = newId.trim().toLowerCase().replace(/[^a-z0-9_]/g, "_");
+    if (!newId || newId === oldId) return;
+    if (nodes[newId]) { flash("ID '" + newId + "' already exists"); return; }
+    setNodes(prev => {
+      const next = {};
+      Object.entries(prev).forEach(([id, n]) => {
+        const key = id === oldId ? newId : id;
+        const updated = { ...n, choices: (n.choices || []).map(c => c.next === oldId ? { ...c, next: newId } : { ...c }) };
+        next[key] = updated;
+      });
+      return next;
+    });
+    setOrder(prev => prev.map(id => id === oldId ? newId : id));
+    setSelected(newId);
+    flash("Renamed to " + newId);
+  }, [nodes, flash]);
+
+  // ── Reorder scenes ──
+  const moveScene = useCallback((id, dir) => {
+    setOrder(prev => {
+      const i = prev.indexOf(id);
+      const j = i + dir;
+      if (j < 0 || j >= prev.length) return prev;
+      const next = [...prev];
+      [next[i], next[j]] = [next[j], next[i]];
+      return next;
+    });
+  }, []);
+
+  // ── Sort by flow (BFS from start) ──
+  const sortByFlow = useCallback(() => {
+    const visited = new Set();
+    const sorted = [];
+    const queue = ["start"];
+    while (queue.length > 0) {
+      const id = queue.shift();
+      if (visited.has(id) || !nodes[id]) continue;
+      visited.add(id);
+      sorted.push(id);
+      (nodes[id].choices || []).forEach(c => {
+        if (c.next && !visited.has(c.next)) queue.push(c.next);
+      });
+    }
+    // Add any orphaned nodes at the end
+    Object.keys(nodes).forEach(id => {
+      if (!visited.has(id)) sorted.push(id);
+    });
+    setOrder(sorted);
+    flash("Sorted by flow");
+  }, [nodes, flash]);
+
   // ── Import / Export ──
   const buildClean = () => {
     const clean = {};
-    Object.entries(nodes).forEach(([id, n]) => {
+    order.filter(id => nodes[id]).forEach(id => {
+      const n = nodes[id];
       clean[id] = { title: n.title, narrative: n.narrative, choices: (n.choices || []).filter(c => c.text) };
       if (n.image) { clean[id].image = n.image; clean[id].imageSize = n.imageSize || "large"; }
       if (n.scoreEffect && Object.keys(n.scoreEffect).length) clean[id].scoreEffect = n.scoreEffect;
@@ -237,6 +296,7 @@ function Editor() {
     try {
       const data = JSON.parse(importText);
       setNodes(data);
+      setOrder(Object.keys(data));
       setSelected(Object.keys(data)[0] || "start");
       setShowImport(false);
       setImportText("");
@@ -252,6 +312,7 @@ function Editor() {
       try {
         const data = JSON.parse(ev.target.result);
         setNodes(data);
+        setOrder(Object.keys(data));
         setSelected(Object.keys(data)[0] || "start");
         flash(Object.keys(data).length + " scenes imported from file");
       } catch(e) { flash("Invalid JSON file"); }
@@ -302,6 +363,7 @@ function Editor() {
           </div>
           <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 8 }}>
             <button onClick={addNode} style={s.btn}>+ Scene</button>
+            <button onClick={sortByFlow} style={s.btn}>Sort by Flow</button>
             <button onClick={exportJSON} style={s.btn}>Export</button>
             <button onClick={() => fileRef.current.click()} style={s.btn}>Import</button>
             <button onClick={copyForHTML} style={s.accent}>Generate HTML Game</button>
@@ -317,11 +379,12 @@ function Editor() {
 
         {/* Scene list */}
         <div style={{ flex: 1, overflowY: "auto", padding: "4px 0" }}>
-          {filtered.map(([id, n]) => {
+          {filtered.map(([id, n], idx) => {
             const isSel = id === selected;
             const isEnd = n.isEnding;
             const choiceCount = (n.choices || []).length;
             const hasOrphan = (n.choices || []).some(c => c.next && !nodes[c.next]);
+            const orderIdx = order.indexOf(id);
             return (
               <div
                 key={id}
@@ -340,6 +403,12 @@ function Editor() {
                   {hasOrphan && <span style={{ fontSize: 8, background: "#c0392b", color: "#fff", padding: "1px 5px", borderRadius: 2, fontWeight: 800, letterSpacing: 0.5 }}>FIX</span>}
                   {n.image && <span style={{ fontSize: 8, background: "#5b7fb5", color: "#fff", padding: "1px 5px", borderRadius: 2, fontWeight: 800, letterSpacing: 0.5 }}>IMG</span>}
                   <span style={{ fontSize: 13, fontWeight: 500, color: isSel ? "#f5f0e8" : "#c8bfaa", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", flex: 1 }}>{n.title}</span>
+                  {isSel && !search && (
+                    <span style={{ display: "flex", gap: 2 }} onClick={e => e.stopPropagation()}>
+                      <button onClick={() => moveScene(id, -1)} disabled={orderIdx === 0} style={{ background: "none", border: "none", color: orderIdx === 0 ? "#3a3530" : "#c8bfaa", cursor: "pointer", fontSize: 11, padding: "0 3px", fontFamily: "inherit" }}>▲</button>
+                      <button onClick={() => moveScene(id, 1)} disabled={orderIdx === order.length - 1} style={{ background: "none", border: "none", color: orderIdx === order.length - 1 ? "#3a3530" : "#c8bfaa", cursor: "pointer", fontSize: 11, padding: "0 3px", fontFamily: "inherit" }}>▼</button>
+                    </span>
+                  )}
                 </div>
                 <div style={{ fontSize: 10, color: "#6b6459", marginTop: 2, display: "flex", gap: 8 }}>
                   <span style={{ fontFamily: "monospace" }}>{id}</span>
@@ -549,7 +618,18 @@ function Editor() {
 
                 <div style={{ marginTop: 20 }}>
                   <label style={s.label}>Node ID</label>
-                  <div style={{ fontFamily: "monospace", fontSize: 12, color: "#c4782a", background: "#ffffff", padding: "8px 12px", borderRadius: 6 }}>{selected}</div>
+                  <div style={{ display: "flex", gap: 6 }}>
+                    <input
+                      id="renameInput"
+                      defaultValue={selected}
+                      key={selected}
+                      placeholder="scene_id"
+                      style={{ ...s.inp, marginBottom: 0, fontFamily: "monospace", fontSize: 12, flex: 1 }}
+                      onKeyDown={e => { if (e.key === "Enter") renameNode(selected, e.target.value); }}
+                    />
+                    <button onClick={() => renameNode(selected, document.getElementById("renameInput").value)} style={s.btn}>Rename</button>
+                  </div>
+                  <div style={{ fontSize: 10, color: "#8c8272", marginTop: 4 }}>Lowercase letters, numbers and underscores only. Press Enter or click Rename.</div>
                 </div>
               </>
             )}
