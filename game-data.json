@@ -15,7 +15,9 @@
         "text": "Contact the local council directly — they need to hear this",
         "next": "cold_call_council"
       }
-    ]
+    ],
+    "image": "https://github.com/paulbrbeal/Impact-Quest/blob/036c3e3c58dfdd077976dd150e0cd7ee02255220/images/impact_titles_2019.png",
+    "imageSize": "large"
   },
   "meet_officer": {
     "title": "Strategic Thinking",
