@@ -581,6 +581,12 @@ function Editor() {
                     placeholder="Paste a URL or upload an image"
                     style={{ ...s.inp, marginBottom: 0, flex: 1 }}
                   />
+                  {node.image && (
+                    <button
+                      onClick={e => { e.stopPropagation(); update(selected, { image: "", imageSize: undefined }); }}
+                      style={{ background: "#fdeeed", border: "1px solid #e8c4c0", color: "#c0392b", padding: "5px 10px", borderRadius: 3, fontSize: 11, cursor: "pointer", fontFamily: "inherit", fontWeight: 600, whiteSpace: "nowrap" }}
+                    >Remove</button>
+                  )}
                   <button
                     onClick={() => imgRef.current.click()}
                     disabled={uploading}
@@ -636,7 +642,7 @@ function Editor() {
                         <span style={{ fontSize: 10, color: "#8c8272", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", flex: 1 }}>
                           {(node.imageSize || "large").charAt(0).toUpperCase() + (node.imageSize || "large").slice(1)} · {node.image.length > 40 ? node.image.slice(0, 40) + "…" : node.image}
                         </span>
-                        <button onClick={() => update(selected, { image: "", imageSize: undefined })} style={{ background: "none", border: "none", color: "#FF6B6B", cursor: "pointer", fontSize: 11, padding: "2px 6px", fontFamily: "inherit" }}>Remove</button>
+                        <button onClick={e => { e.stopPropagation(); update(selected, { image: "", imageSize: undefined }); }} style={{ background: "#fdeeed", border: "1px solid #e8c4c0", color: "#c0392b", cursor: "pointer", fontSize: 11, padding: "2px 8px", borderRadius: 3, fontFamily: "inherit", fontWeight: 600 }}>Remove</button>
                       </div>
                     </div>
                   </div>
