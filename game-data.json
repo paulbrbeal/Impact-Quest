@@ -22,11 +22,11 @@
     "narrative": "Smart move. Your impact officer is enthusiastic. At your next meeting they help you map out a Theory of Change, connecting your research findings to potential real-world outcomes.\n\n “We need to think about WHO could use this research, HOW they'd use it, and what EVIDENCE we'd need to prove it made a difference.”\n\nTogether you identify three potential impact pathways:\n• Policy influence: informing local or national green space policy\n• Practitioner change: helping community organisations design better programmes\n• Public benefit: directly improving wellbeing in target communities\n\nWhich pathway do you want to prioritise first?",
     "choices": [
       {
-        "text": "Policy influence — let's aim high and target policymakers",
+        "text": "Policy influence: let's aim high and target policymakers",
         "next": "policy_route"
       },
       {
-        "text": "Practitioner change — let's work with community organisations on the ground",
+        "text": "Practitioner change: let's work with community organisations on the ground",
         "next": "practitioner_route"
       },
       {
