@@ -85,14 +85,14 @@
   },
   "meet_officer_late": {
     "title": "Better Late Than Never",
-    "narrative": "Sam doesn't judge. “The media coverage actually gives us something to work with,” they say. “But we need to move from awareness to action.”\n\nSam helps you develop a stakeholder map and a proper engagement plan. You identify that your research is most relevant to:\n\n• The council's Public Health team (not Environment — they don't have budget)\n• Three local community organisations already running green space projects\n• A national charity that funds urban greening initiatives\n\n“The key,” Sam says, “is to listen first. Find out what THEY need, then show how your research helps.”",
+    "narrative": "Your impact officer doesn't judge your previous choices.\n\n“The media coverage actually gives us something to work with,” they say. “But we need to move from awareness to action.”\n\nThey help you develop a stakeholder map and a proper engagement plan. You identify that your research is most relevant to:\n\n• The council's Public Health team (not Environment, they don't have budget)\n• Three local community organisations already running green space projects\n• A national charity that funds urban greening initiatives\n\n\"The key, is to find out what THEY need, then show how your research helps.”",
     "choices": [
       {
-        "text": "Start with the community organisations — build from the ground up",
+        "text": "Start with the community organisations, build from the ground up",
         "next": "practitioner_route"
       },
       {
-        "text": "Target the national charity — they could fund a bigger project",
+        "text": "Target the national charity, they could fund a bigger project",
         "next": "charity_route"
       }
     ],
