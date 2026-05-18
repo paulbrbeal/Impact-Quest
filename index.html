@@ -50,12 +50,9 @@ body{background:var(--bg);color:var(--text-primary);font-family:'DM Sans',sans-s
 .ending-score-val{font-size:36px;font-weight:400;color:var(--accent-dark);font-family:'Bebas Neue',sans-serif;letter-spacing:2px}
 .ending-summary{font-size:13px;color:var(--text-muted);margin-bottom:20px}
 .action-btn{border:none;border-radius:3px;padding:12px 24px;cursor:pointer;font-size:13px;font-weight:700;font-family:'DM Sans',sans-serif;letter-spacing:0.05em;text-transform:uppercase;transition:all 0.2s ease;text-decoration:none;display:inline-block}
-.action-btn.primary{background:var(--accent);color:var(--ink)}
-.action-btn.primary:hover{background:var(--accent-dark)}
-.action-btn.dark{background:var(--ink);color:var(--bg)}
-.action-btn.dark:hover{background:#2a2826}
-.action-btn.outline{background:none;border:1px solid var(--border);color:var(--text-secondary)}
-.action-btn.outline:hover{border-color:var(--accent);color:var(--accent-dark)}
+.action-btn.primary{background:var(--accent);color:var(--ink)}.action-btn.primary:hover{background:var(--accent-dark)}
+.action-btn.dark{background:var(--ink);color:var(--bg)}.action-btn.dark:hover{background:#2a2826}
+.action-btn.outline{background:none;border:1px solid var(--border);color:var(--text-secondary)}.action-btn.outline:hover{border-color:var(--accent);color:var(--accent-dark)}
 .restart-small-btn{background:none;border:1px solid var(--border);border-radius:3px;padding:6px 16px;cursor:pointer;color:var(--text-muted);font-size:11px;font-weight:600;font-family:'DM Sans',sans-serif;letter-spacing:0.05em;text-transform:uppercase;transition:all 0.2s ease;margin-top:10px}
 .restart-small-btn:hover{border-color:var(--accent);color:var(--accent-dark)}
 .journey-log{margin-bottom:32px}
@@ -72,8 +69,7 @@ body{background:var(--bg);color:var(--text-primary);font-family:'DM Sans',sans-s
 .reg-input{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text-primary);padding:10px 12px;border-radius:3px;font-size:14px;font-family:'DM Sans',sans-serif;margin-bottom:16px;outline:none}
 .reg-input:focus{border-color:var(--accent)}
 .reg-btn{background:var(--accent);border:none;border-radius:3px;padding:12px 32px;cursor:pointer;color:var(--ink);font-size:13px;font-weight:700;font-family:'DM Sans',sans-serif;letter-spacing:0.05em;text-transform:uppercase;width:100%;transition:background 0.2s}
-.reg-btn:hover{background:var(--accent-dark)}
-.reg-btn:disabled{opacity:0.4;cursor:default}
+.reg-btn:hover{background:var(--accent-dark)}.reg-btn:disabled{opacity:0.4;cursor:default}
 .lb-link{display:inline-block;margin-top:16px;font-size:12px;color:var(--accent-dark);text-decoration:none;font-weight:600;letter-spacing:0.05em;text-transform:uppercase}
 .lb-link:hover{color:var(--accent)}
 .submitted-badge{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:3px;padding:8px 16px;font-size:12px;color:var(--sage);margin-bottom:16px}
@@ -83,7 +79,6 @@ body{background:var(--bg);color:var(--text-primary);font-family:'DM Sans',sans-s
 </head>
 <body>
 <div id="app"><div class="container"><div class="loading"><div class="spinner"></div><div>Loading The Impact Quest...</div></div></div></div>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
 <script>
@@ -92,43 +87,71 @@ var SCORE_LABELS={strategy:"Strategic Thinking",stakeholders:"Stakeholder Relati
 var SCORE_COLORS={strategy:"#E8A838",stakeholders:"#4a6741",significance:"#c0392b",reach:"#5b7fb5",evidence:"#96CEB4"};
 var ENDING_THEMES={policy:{emoji:"\ud83c\udfdb\ufe0f",color:"#5b7fb5"},practitioner:{emoji:"\ud83e\udd1d",color:"#4a6741"},cycle:{emoji:"\ud83d\udd04",color:"#e8963a"}};
 
+// ── LEADERBOARD CONFIG ──
+// Replace PASTE_YOUR_TOKEN_HERE with your GitHub fine-grained personal access token.
+// Token needs Contents: Read and write on the Impact-Quest repo only.
 var LB_REPO = "paulbrbeal/Impact-Quest";
-var LB_TOKEN = "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"; // Replace with your GitHub personal access token
+var LB_TOKEN = "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";
 
-function saveScore(entry, onDone){
-  // Always save locally
-  try{var l=JSON.parse(localStorage.getItem("iq_leaderboard")||"[]");l.push(entry);localStorage.setItem("iq_leaderboard",JSON.stringify(l));}catch(e){}
+function saveScore(entry, onDone) {
+  // 1. Always save to localStorage
+  try { var l = JSON.parse(localStorage.getItem("iq_leaderboard") || "[]"); l.push(entry); localStorage.setItem("iq_leaderboard", JSON.stringify(l)); } catch(err) {}
 
-  // Use hardcoded token, or fall back to editor's saved token
-  var token = (LB_TOKEN !== "PASTE_YOUR_TOKEN_HERE" ? LB_TOKEN : (localStorage.getItem("iq_gh_token")||"")).replace(/[^\x20-\x7E]/g,"").trim();
-  if(!token){if(onDone)onDone("local");return;}
+  // 2. Push to GitHub if token available (hardcoded or from editor settings)
+  var token = "";
+  if (LB_TOKEN && LB_TOKEN !== "PASTE_YOUR_TOKEN_HERE") {
+    token = LB_TOKEN;
+  } else {
+    token = localStorage.getItem("iq_gh_token") || "";
+  }
+  token = token.replace(/[^\x20-\x7E]/g, "").trim();
+  if (!token) { if (onDone) onDone("local"); return; }
 
   var apiUrl = "https://api.github.com/repos/" + LB_REPO + "/contents/leaderboard.json";
-  fetch(apiUrl, {headers:{"Authorization":"Bearer "+token}})
-    .then(function(r){return r.ok?r.json():null;})
-    .then(function(existing){
-      var entries=[];
-      if(existing&&existing.content){
-        try{entries=JSON.parse(atob(existing.content.replace(/\n/g,"")));}catch(e){entries=[];}
+  fetch(apiUrl, { headers: { "Authorization": "Bearer " + token } })
+    .then(function(r) { return r.ok ? r.json() : null; })
+    .then(function(existing) {
+      var entries = [];
+      if (existing && existing.content) {
+        try { entries = JSON.parse(atob(existing.content.replace(/\n/g, ""))); } catch(err) { entries = []; }
       }
       entries.push(entry);
-      var base64=btoa(unescape(encodeURIComponent(JSON.stringify(entries,null,2))));
-      var body={message:"Leaderboard: "+entry.name+" scored "+entry.score,content:base64};
-      if(existing&&existing.sha)body.sha=existing.sha;
-      return fetch(apiUrl,{method:"PUT",headers:{"Authorization":"Bearer "+token,"Content-Type":"application/json"},body:JSON.stringify(body)});
+      var b64 = btoa(unescape(encodeURIComponent(JSON.stringify(entries, null, 2))));
+      var body = { message: "Leaderboard: " + entry.name + " scored " + entry.score, content: b64 };
+      if (existing && existing.sha) body.sha = existing.sha;
+      return fetch(apiUrl, { method: "PUT", headers: { "Authorization": "Bearer " + token, "Content-Type": "application/json" }, body: JSON.stringify(body) });
     })
-    .then(function(r){if(onDone)onDone(r&&r.ok?"github":"local");})
-    .catch(function(){if(onDone)onDone("local");});
+    .then(function(r) { if (onDone) onDone(r && r.ok ? "github" : "local"); })
+    .catch(function() { if (onDone) onDone("local"); });
 }
 
-function TypewriterText(props){var text=props.text,speed=props.speed,onComplete=props.onComplete;var _d=useState(""),displayed=_d[0],setDisplayed=_d[1];var _dn=useState(false),done=_dn[0],setDone=_dn[1];var idx=useRef(0),timer=useRef(null);useEffect(function(){idx.current=0;setDisplayed("");setDone(false);function tick(){idx.current++;setDisplayed(text.slice(0,idx.current));if(idx.current>=text.length){setDone(true);if(onComplete)onComplete();}else{timer.current=setTimeout(tick,speed||8);}}timer.current=setTimeout(tick,speed||8);return function(){clearTimeout(timer.current);};},[text]);var handleSkip=function(){clearTimeout(timer.current);setDisplayed(text);setDone(true);if(onComplete)onComplete();};var pars=displayed.split("\n").map(function(line,i){return e("p",{key:i,style:{margin:"0 0 12px 0",minHeight:line===""?12:"auto"}},line);});return e("div",{onClick:!done?handleSkip:undefined,style:{cursor:done?"default":"pointer"}},pars,!done?e("div",{className:"skip-hint"},"Click to skip animation"):null);}
-function ScoreBar(props){var pct=Math.min((props.value/props.max)*100,100);return e("div",{className:"score-row"},e("div",{className:"score-label"},e("span",null,props.label),e("span",{className:"val",style:{color:props.color}},props.value)),e("div",{className:"score-track"},e("div",{className:"score-fill",style:{width:pct+"%",background:props.color}})));}
+function TypewriterText(props) {
+  var text=props.text, speed=props.speed, onComplete=props.onComplete;
+  var _d=useState(""), displayed=_d[0], setDisplayed=_d[1];
+  var _dn=useState(false), done=_dn[0], setDone=_dn[1];
+  var idx=useRef(0), timer=useRef(null);
+  useEffect(function() {
+    idx.current=0; setDisplayed(""); setDone(false);
+    function tick() { idx.current++; setDisplayed(text.slice(0,idx.current)); if(idx.current>=text.length){setDone(true);if(onComplete)onComplete();}else{timer.current=setTimeout(tick,speed||8);} }
+    timer.current=setTimeout(tick,speed||8);
+    return function(){clearTimeout(timer.current);};
+  },[text]);
+  var handleSkip=function(){clearTimeout(timer.current);setDisplayed(text);setDone(true);if(onComplete)onComplete();};
+  var pars=displayed.split("\n").map(function(line,i){return e("p",{key:i,style:{margin:"0 0 12px 0",minHeight:line===""?12:"auto"}},line);});
+  return e("div",{onClick:!done?handleSkip:undefined,style:{cursor:done?"default":"pointer"}},pars,!done?e("div",{className:"skip-hint"},"Click to skip animation"):null);
+}
 
-function RegScreen(props){
+function ScoreBar(props) {
+  var pct=Math.min((props.value/props.max)*100,100);
+  return e("div",{className:"score-row"},e("div",{className:"score-label"},e("span",null,props.label),e("span",{className:"val",style:{color:props.color}},props.value)),e("div",{className:"score-track"},e("div",{className:"score-fill",style:{width:pct+"%",background:props.color}})));
+}
+
+function RegScreen(props) {
   var _n=useState(""),name=_n[0],setName=_n[1];
   var _d=useState(""),dept=_d[0],setDept=_d[1];
   var canStart=name.trim().length>0;
-  var handleKey=function(ev){if(ev.key==="Enter"&&canStart)props.onStart(name.trim(),dept.trim());};
+  var go=function(){if(canStart)props.onStart(name.trim(),dept.trim());};
+  var handleKey=function(ev){if(ev.key==="Enter")go();};
   return e("div",{className:"container"},
     e("div",{className:"header"},e("div",{className:"header-label"},"A Research Impact Adventure"),e("h1",null,"THE ",e("em",null,"IMPACT")," QUEST")),
     e("div",{className:"reg-card"},
@@ -138,13 +161,13 @@ function RegScreen(props){
       e("input",{className:"reg-input",value:name,onChange:function(ev){setName(ev.target.value);},onKeyDown:handleKey,placeholder:"e.g. Alex Chen",autoFocus:true}),
       e("label",{className:"reg-label"},"Department / School"),
       e("input",{className:"reg-input",value:dept,onChange:function(ev){setDept(ev.target.value);},onKeyDown:handleKey,placeholder:"e.g. Psychology, Computer Science"}),
-      e("button",{className:"reg-btn",disabled:!canStart,onClick:function(){props.onStart(name.trim(),dept.trim());}},"Start the Quest"),
+      e("button",{className:"reg-btn",disabled:!canStart,onClick:go},"Start the Quest"),
       e("a",{className:"lb-link",href:"leaderboard.html"},"\u2192 View Leaderboard")
     )
   );
 }
 
-function App(props){
+function App(props) {
   var GAME_DATA=props.data;
   var _phase=useState("register"),phase=_phase[0],setPhase=_phase[1];
   var _player=useState({name:"",dept:""}),player=_player[0],setPlayer=_player[1];
@@ -155,31 +178,41 @@ function App(props){
   var _ck=useState(0),cardKey=_ck[0],setCardKey=_ck[1];
   var _sub=useState(false),submitted=_sub[0],setSubmitted=_sub[1];
 
-  if(phase==="register")return e(RegScreen,{onStart:function(n,d){setPlayer({name:n,dept:d});setPhase("playing");}});
+  if (phase==="register") return e(RegScreen,{onStart:function(n,d){setPlayer({name:n,dept:d});setPhase("playing");}});
 
   var node=GAME_DATA[currentNode];
+  if (!node) return e("div",{className:"container"},e("p",null,"Error: scene '"+currentNode+"' not found in game data."));
+
   var maxScore=Math.max(50,Math.max.apply(null,Object.values(scores)));
   var totalScore=Object.values(scores).reduce(function(a,b){return a+b;},0);
   var endTheme=node.isEnding?ENDING_THEMES[node.endingType]:null;
 
-  var handleChoice=function(choice){
+  var handleChoice=function(choice) {
+    if (!choice.next || !GAME_DATA[choice.next]) return;
     setShowChoices(false);
     setHistory(function(h){return h.concat([{node:currentNode,choice:choice.text}]);});
     var nextNode=GAME_DATA[choice.next];
-    if(nextNode&&nextNode.scoreEffect){setScores(function(s){var ns=Object.assign({},s);Object.keys(nextNode.scoreEffect).forEach(function(k){ns[k]=Math.max(0,(ns[k]||0)+nextNode.scoreEffect[k]);});return ns;});}
+    if (nextNode && nextNode.scoreEffect) {
+      setScores(function(s){var ns=Object.assign({},s);Object.keys(nextNode.scoreEffect).forEach(function(k){ns[k]=Math.max(0,(ns[k]||0)+nextNode.scoreEffect[k]);});return ns;});
+    }
     setCurrentNode(choice.next);setCardKey(function(k){return k+1;});window.scrollTo({top:0,behavior:"smooth"});
   };
+
   var restart=function(){setCurrentNode("start");setScores({strategy:0,stakeholders:0,significance:0,reach:0,evidence:0});setHistory([]);setShowChoices(false);setSubmitted(false);setCardKey(function(k){return k+1;});window.scrollTo({top:0,behavior:"smooth"});};
-  var restartFull=function(){setPhase("register");restart();};
+  var restartFull=function(){setPhase("register");setCurrentNode("start");setScores({strategy:0,stakeholders:0,significance:0,reach:0,evidence:0});setHistory([]);setShowChoices(false);setSubmitted(false);setCardKey(function(k){return k+1;});window.scrollTo({top:0,behavior:"smooth"});};
 
   // Submit score on ending
-  useEffect(function(){
-    if(node.isEnding&&!submitted&&showChoices){
-      var entry={name:player.name,dept:player.dept,score:totalScore,scores:Object.assign({},scores),ending:node.title,endingType:node.endingType||"unknown",steps:history.length,date:new Date().toISOString()};
-      saveScore(entry);
+  useEffect(function() {
+    if (node.isEnding && !submitted && showChoices) {
+      saveScore({
+        name: player.name, dept: player.dept, score: totalScore,
+        scores: Object.assign({}, scores), ending: node.title,
+        endingType: node.endingType || "unknown", steps: history.length,
+        date: new Date().toISOString()
+      });
       setSubmitted(true);
     }
-  },[node.isEnding,submitted,showChoices]);
+  },[node.isEnding, submitted, showChoices]);
 
   return e("div",{className:"container"},
     e("div",{className:"header"},
@@ -220,6 +253,7 @@ function App(props){
   );
 }
 
+// Load game data from external JSON file and boot the app
 fetch("game-data.json?t="+Date.now()).then(function(r){return r.json();}).then(function(data){ReactDOM.render(e(App,{data:data}),document.getElementById("app"));}).catch(function(err){document.getElementById("app").innerHTML='<div class="container" style="text-align:center;padding:80px 20px"><h2 style="color:var(--rust);margin-bottom:12px">Failed to load game data</h2><p style="color:var(--text-muted)">Make sure game-data.json is in the same folder.</p></div>';});
 </script>
 </body>
