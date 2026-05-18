@@ -469,6 +469,39 @@ function Editor() {
     return "var(--border)";
   };
 
+  // Preview mode
+  const PreviewMode = () => {
+    const pn = nodes[previewNode];
+    if(!pn) return <div className="preview-container"><p>Scene not found.</p></div>;
+    return (
+      <div className="preview-container">
+        <div style={{fontSize:11,color:"var(--text-muted)",marginBottom:12,textTransform:"uppercase",letterSpacing:1}}>
+          Preview Mode — <span className="preview-restart" onClick={()=>setPreviewNode("start")}>Restart</span>
+        </div>
+        <div className="preview-card">
+          <div className="preview-title">{pn.title}</div>
+          {pn.image && <img src={pn.image} alt="" style={{width:"100%",maxHeight:200,objectFit:"cover",borderRadius:3,marginBottom:12}} />}
+          <div className="preview-narrative">{pn.narrative}</div>
+          {pn.isEnding ? (
+            <div style={{textAlign:"center",padding:16}}>
+              <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:24,color:"var(--accent-dark)",letterSpacing:2}}>THE END</div>
+              <div style={{fontSize:12,color:"var(--text-muted)",marginTop:4}}>{pn.title}</div>
+              <span className="preview-restart" onClick={()=>setPreviewNode("start")} style={{marginTop:12,display:"inline-block"}}>Play Again</span>
+            </div>
+          ) : (
+            <div className="preview-choices">
+              {(pn.choices||[]).map((c,i)=>(
+                <div key={i} className="preview-choice" onClick={()=>{if(c.next&&nodes[c.next])setPreviewNode(c.next);}}>
+                  <span className="preview-letter">{String.fromCharCode(65+i)}</span>
+                  {c.text}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  };
 
   return (
     <div className="app">
