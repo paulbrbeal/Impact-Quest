@@ -3,12 +3,162 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Impact Quest Editor</title>
+<title>Impact Quest — Story Editor</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet">
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: #f5f0e8; overflow: hidden; }
-  #root { height: 100vh; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f5f0e8;--surface:#ffffff;--surface-alt:#faf8f4;--border:#d8d2c4;--border-light:#e8e3d9;
+  --text:#0f0e0d;--text-sec:#4a4540;--text-muted:#8c8272;
+  --accent:#e8963a;--accent-dark:#c4782a;--accent-glow:rgba(232,150,58,0.1);
+  --ink:#0f0e0d;--sage:#4a6741;--sage-light:#e8f0e5;--rust:#c0392b;--rust-light:#fdeeed;
+  --blue:#5b7fb5;--blue-light:#eaf0f7;
+  --path-a:#e8963a;--path-b:#5b7fb5;--path-c:#4a6741;
+}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh}
+button{font-family:inherit;cursor:pointer}
+input,textarea,select{font-family:inherit}
+
+/* Layout */
+.app{display:flex;height:100vh;overflow:hidden}
+.sidebar{width:260px;background:var(--ink);color:#c8bfaa;display:flex;flex-direction:column;flex-shrink:0}
+.main{flex:1;overflow-y:auto;padding:24px 32px 80px}
+
+/* Sidebar */
+.sidebar-header{padding:16px;border-bottom:1px solid #2a2826}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:3px;color:#f5f0e8;display:flex;align-items:center;gap:8px}
+.logo em{color:var(--accent);font-style:normal}
+.sidebar-stats{padding:12px 16px;border-bottom:1px solid #2a2826;display:flex;gap:12px;flex-wrap:wrap}
+.stat{text-align:center;flex:1;min-width:50px}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--accent);letter-spacing:1px;line-height:1}
+.stat-lbl{font-size:8px;text-transform:uppercase;letter-spacing:1.5px;color:#6b6459;margin-top:2px}
+.sidebar-actions{padding:12px 16px;border-bottom:1px solid #2a2826;display:flex;flex-wrap:wrap;gap:6px}
+.sb-btn{background:#1a1917;border:1px solid #2a2826;color:#c8bfaa;padding:5px 10px;border-radius:3px;font-size:10px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;transition:all 0.15s}
+.sb-btn:hover{border-color:var(--accent);color:var(--accent)}
+.sb-btn.primary{background:var(--accent);border-color:var(--accent);color:var(--ink)}
+.sb-btn.primary:hover{background:var(--accent-dark)}
+.sidebar-search{padding:8px 16px}
+.sidebar-search input{width:100%;background:#1a1917;border:1px solid #2a2826;color:#c8bfaa;padding:6px 10px;border-radius:3px;font-size:12px;outline:none}
+.sidebar-search input:focus{border-color:var(--accent)}
+.sidebar-search input::placeholder{color:#4a4540}
+.scene-list{flex:1;overflow-y:auto;padding:4px 0}
+.scene-item{padding:6px 16px;cursor:pointer;border-left:3px solid transparent;transition:all 0.1s;display:flex;align-items:center;gap:8px}
+.scene-item:hover{background:#1a1917}
+.scene-item.active{background:#1a1917;border-left-color:var(--accent)}
+.scene-item .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.scene-item .info{flex:1;min-width:0}
+.scene-item .title{font-size:12px;font-weight:500;color:#c8bfaa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.scene-item.active .title{color:#f5f0e8}
+.scene-item .meta{font-size:9px;color:#4a4540;font-family:monospace;margin-top:1px}
+.badge{font-size:7px;padding:1px 4px;border-radius:2px;font-weight:800;letter-spacing:0.5px;flex-shrink:0}
+
+/* Main content */
+.main-header{margin-bottom:24px;display:flex;justify-content:space-between;align-items:flex-start}
+.main-title{font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:3px;color:var(--ink)}
+.main-title em{font-style:normal;color:var(--accent)}
+.view-tabs{display:flex;gap:0;border:1px solid var(--border);border-radius:3px;overflow:hidden}
+.view-tab{padding:6px 16px;font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;background:var(--surface);color:var(--text-muted);border:none;transition:all 0.15s}
+.view-tab:not(:last-child){border-right:1px solid var(--border)}
+.view-tab.active{background:var(--ink);color:var(--bg)}
+.view-tab:hover:not(.active){background:var(--surface-alt)}
+
+/* Scene Card */
+.scene-card{background:var(--surface);border:1px solid var(--border);border-radius:3px;margin-bottom:16px;overflow:hidden;transition:border-color 0.15s}
+.scene-card.expanded{border-color:var(--accent)}
+.scene-card-header{padding:14px 18px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:background 0.1s}
+.scene-card-header:hover{background:var(--surface-alt)}
+.scene-card .expand-arrow{color:var(--text-muted);font-size:11px;transition:transform 0.2s;flex-shrink:0}
+.scene-card.expanded .expand-arrow{transform:rotate(90deg)}
+.scene-card .card-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
+.scene-card .card-title{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:1.5px;color:var(--ink);flex:1}
+.scene-card .card-badges{display:flex;gap:4px;flex-shrink:0}
+.scene-card .card-id{font-size:9px;color:var(--text-muted);font-family:monospace;flex-shrink:0}
+.scene-card .choice-count{font-size:10px;color:var(--text-muted);flex-shrink:0}
+.scene-body{padding:0 18px 18px;display:none}
+.scene-card.expanded .scene-body{display:block}
+
+/* Branch connector */
+.branch-connector{display:flex;align-items:center;padding:0 18px;margin:-8px 0;position:relative}
+.branch-line{width:2px;height:24px;margin-left:23px}
+
+/* Edit fields */
+.field-label{font-size:9px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px;display:block}
+.field-input{width:100%;background:var(--surface-alt);border:1px solid var(--border-light);color:var(--text);padding:8px 10px;border-radius:3px;font-size:13px;outline:none;margin-bottom:12px}
+.field-input:focus{border-color:var(--accent)}
+.field-textarea{width:100%;background:var(--surface-alt);border:1px solid var(--border-light);color:var(--text);padding:10px;border-radius:3px;font-size:13px;outline:none;margin-bottom:12px;resize:vertical;min-height:120px;line-height:1.7}
+.field-textarea:focus{border-color:var(--accent)}
+.field-select{width:100%;background:var(--surface-alt);border:1px solid var(--border-light);color:var(--text);padding:6px 8px;border-radius:3px;font-size:12px;outline:none}
+
+/* Choice cards within scene */
+.choice-card{background:var(--surface-alt);border:1px solid var(--border-light);border-radius:3px;padding:10px 12px;margin-bottom:8px;position:relative}
+.choice-card .choice-letter{font-size:10px;font-weight:800;color:var(--accent-dark);margin-bottom:4px;display:flex;justify-content:space-between;align-items:center}
+.choice-card .choice-actions{display:flex;gap:3px}
+.choice-card .choice-actions button{background:none;border:none;color:var(--text-muted);font-size:10px;padding:2px 4px;cursor:pointer;border-radius:2px}
+.choice-card .choice-actions button:hover{background:var(--border-light)}
+.choice-card .choice-actions .del:hover{background:var(--rust-light);color:var(--rust)}
+.choice-target{display:flex;align-items:center;gap:6px;margin-top:6px}
+.choice-target .arrow{color:var(--accent);font-size:11px}
+.choice-target .target-name{font-size:11px;color:var(--text-sec);cursor:pointer}
+.choice-target .target-name:hover{color:var(--accent-dark);text-decoration:underline}
+
+/* Scores inline */
+.scores-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.score-chip{display:flex;align-items:center;gap:6px;background:var(--surface-alt);border:1px solid var(--border-light);border-radius:3px;padding:4px 8px}
+.score-chip .chip-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.score-chip label{font-size:10px;color:var(--text-muted);font-weight:600}
+.score-chip input{width:48px;background:transparent;border:none;color:var(--text);font-size:13px;font-weight:700;text-align:center;outline:none;font-family:'DM Sans',sans-serif}
+
+/* Image section */
+.img-section{margin-bottom:12px}
+.img-row{display:flex;gap:6px}
+.img-row input{flex:1}
+.img-preview{margin-top:8px;border-radius:3px;overflow:hidden;border:1px solid var(--border-light);position:relative}
+.img-preview img{display:block;max-height:160px;width:100%;object-fit:cover}
+.img-preview .img-controls{display:flex;justify-content:space-between;align-items:center;padding:4px 8px;background:var(--surface-alt)}
+.size-btns{display:flex;gap:3px}
+.size-btn{font-size:9px;padding:2px 6px;border:1px solid var(--border-light);border-radius:2px;background:var(--surface);color:var(--text-muted);cursor:pointer;font-weight:600}
+.size-btn.active{background:var(--accent);border-color:var(--accent);color:var(--ink)}
+.remove-btn{font-size:9px;color:var(--rust);background:var(--rust-light);border:1px solid #e8c4c0;border-radius:2px;padding:2px 6px;cursor:pointer;font-weight:600}
+
+/* Scene footer actions */
+.scene-footer{display:flex;gap:6px;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid var(--border-light);margin-top:8px}
+.scene-footer button{font-size:10px;padding:4px 10px;border-radius:3px;border:1px solid var(--border);background:var(--surface);color:var(--text-muted);font-weight:600;letter-spacing:0.03em}
+.scene-footer button:hover{border-color:var(--accent);color:var(--accent-dark)}
+.scene-footer .del-btn{color:var(--rust);border-color:var(--rust-light)}
+.scene-footer .del-btn:hover{background:var(--rust);color:#fff;border-color:var(--rust)}
+
+/* Settings panel */
+.settings-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.4);display:flex;align-items:center;justify-content:center;z-index:100}
+.settings-panel{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:24px;width:460px;max-height:80vh;overflow-y:auto}
+.settings-panel h2{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:2px;color:var(--ink);margin-bottom:4px}
+.settings-panel p{font-size:12px;color:var(--text-muted);margin-bottom:16px;line-height:1.6}
+.settings-panel .token-status{padding:8px 12px;border-radius:3px;font-size:12px;margin-bottom:12px}
+.token-ok{background:var(--sage-light);border:1px solid #bbf7d0;color:var(--sage)}
+.token-missing{background:var(--rust-light);border:1px solid #e8c4c0;color:var(--rust)}
+
+/* Preview mode */
+.preview-container{max-width:640px;margin:0 auto}
+.preview-card{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:24px;margin-bottom:16px}
+.preview-title{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:2px;border-bottom:2px solid var(--ink);padding-bottom:10px;margin-bottom:14px}
+.preview-narrative{font-size:14px;line-height:1.75;color:var(--text-sec);white-space:pre-line;margin-bottom:16px}
+.preview-choices{display:flex;flex-direction:column;gap:8px}
+.preview-choice{background:var(--surface-alt);border:1px solid var(--border);border-radius:3px;padding:10px 14px;cursor:pointer;font-size:13px;transition:all 0.15s;display:flex;align-items:center;gap:10px}
+.preview-choice:hover{border-color:var(--accent);background:var(--accent-glow)}
+.preview-letter{width:24px;height:24px;border-radius:50%;background:var(--border-light);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--text-muted);flex-shrink:0}
+.preview-choice:hover .preview-letter{background:var(--accent);color:var(--ink)}
+.preview-restart{display:inline-block;margin-top:8px;font-size:11px;color:var(--accent-dark);cursor:pointer;font-weight:600;text-transform:uppercase;letter-spacing:0.05em}
+
+/* Toast */
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);border:1px solid var(--accent);color:var(--accent);padding:7px 18px;border-radius:3px;font-size:13px;font-weight:600;z-index:200;box-shadow:0 4px 20px rgba(0,0,0,0.15)}
+
+/* Scrollbar */
+.scene-list::-webkit-scrollbar,.main::-webkit-scrollbar{width:6px}
+.scene-list::-webkit-scrollbar-track,.main::-webkit-scrollbar-track{background:transparent}
+.scene-list::-webkit-scrollbar-thumb{background:#2a2826;border-radius:3px}
+.main::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+
+/* Hidden file inputs */
+.hidden{display:none}
 </style>
 </head>
 <body>
@@ -19,7 +169,12 @@
 <script type="text/babel">
 const { useState, useCallback, useRef, useEffect } = React;
 
-/* ─── DEFAULT DATA (simplified starter) ─── */
+const SCORE_KEYS = ["strategy","stakeholders","significance","reach","evidence"];
+const SCORE_COLORS = {strategy:"#E8A838",stakeholders:"#4a6741",significance:"#c0392b",reach:"#5b7fb5",evidence:"#96CEB4"};
+const SCORE_LABELS = {strategy:"Strategy",stakeholders:"Stakeholders",significance:"Significance",reach:"Reach",evidence:"Evidence"};
+const ENDING_TYPES = ["none","policy","practitioner","cycle"];
+const uid = () => "node_" + Math.random().toString(36).slice(2,8);
+
 const DEFAULT_DATA = {
   start: {
     title: "The Impact Quest",
@@ -72,854 +227,510 @@ const DEFAULT_DATA = {
   }
 };
 
-const SCORE_KEYS = ["strategy", "stakeholders", "significance", "reach", "evidence"];
-const SCORE_COLORS = { strategy: "#E8A838", stakeholders: "#4ECDC4", significance: "#FF6B6B", reach: "#45B7D1", evidence: "#96CEB4" };
-const ENDING_TYPES = ["none", "policy", "practitioner", "cycle"];
-const uid = () => "node_" + Math.random().toString(36).slice(2, 8);
-
 function Editor() {
   const [nodes, setNodes] = useState(DEFAULT_DATA);
   const [order, setOrder] = useState(() => Object.keys(DEFAULT_DATA));
-  const nodesRef = useRef(nodes);
-  const orderRef = useRef(order);
-  nodesRef.current = nodes;
-  orderRef.current = order;
-  const [selected, setSelected] = useState("start");
+  const nodesRef = useRef(nodes); nodesRef.current = nodes;
+  const orderRef = useRef(order); orderRef.current = order;
+  const [expanded, setExpanded] = useState("start");
   const [search, setSearch] = useState("");
+  const [view, setView] = useState("story"); // story | preview
+  const [previewNode, setPreviewNode] = useState("start");
   const [toast, setToast] = useState(null);
-  const [showImport, setShowImport] = useState(false);
-  const [importText, setImportText] = useState("");
-  const [showExport, setShowExport] = useState(null);
-  const [exportText, setExportText] = useState("");
-  const [tab, setTab] = useState("content");
-  const [loaded, setLoaded] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [ghToken, setGhToken] = useState(() => localStorage.getItem("iq_gh_token") || "");
   const [ghRepo, setGhRepo] = useState(() => localStorage.getItem("iq_gh_repo") || "paulbrbeal/Impact-Quest");
+  const [saving, setSaving] = useState(false);
   const [uploading, setUploading] = useState(false);
   const fileRef = useRef(null);
   const imgRef = useRef(null);
 
-  // Save GitHub settings to session (cleared when browser tab closes)
-  const saveGhSettings = (token, repo) => {
-    setGhToken(token);
-    setGhRepo(repo);
-    if (token) localStorage.setItem("iq_gh_token", token);
-    else localStorage.removeItem("iq_gh_token");
-    if (repo) localStorage.setItem("iq_gh_repo", repo);
-    else localStorage.removeItem("iq_gh_repo");
-  };
+  const flash = useCallback((msg) => { setToast(msg); setTimeout(() => setToast(null), 2500); }, []);
 
-  // Upload image to GitHub repo
-  const uploadImage = useCallback((file) => {
-    var cleanToken = ghToken.replace(/[^\x20-\x7E]/g, "").trim();
-    if (!cleanToken) { flash("Set up GitHub token in Settings first"); setShowSettings(true); return; }
-    if (!file) return;
-    const maxSize = 5 * 1024 * 1024;
-    if (file.size > maxSize) { flash("Image too large (max 5MB)"); return; }
-
-    setUploading(true);
-    const reader = new FileReader();
-    reader.onload = function(ev) {
-      const base64 = ev.target.result.split(",")[1];
-      const safeName = file.name.toLowerCase().replace(/[^a-z0-9.\-_]/g, "-");
-      const path = "images/" + safeName;
-      const url = "https://api.github.com/repos/" + ghRepo + "/contents/" + path;
-
-      // Check if file already exists (need its sha to overwrite)
-      fetch(url, { headers: { "Authorization": "Bearer " + cleanToken } })
-        .then(function(r) { return r.ok ? r.json() : null; })
-        .then(function(existing) {
-          var body = { message: "Upload image: " + safeName, content: base64 };
-          if (existing && existing.sha) body.sha = existing.sha;
-          return fetch(url, {
-            method: "PUT",
-            headers: { "Authorization": "Bearer " + cleanToken, "Content-Type": "application/json" },
-            body: JSON.stringify(body)
-          });
-        })
-        .then(function(r) {
-          if (!r.ok) throw new Error("GitHub API returned " + r.status);
-          return r.json();
-        })
-        .then(function(data) {
-          // Build the GitHub Pages URL
-          var parts = ghRepo.split("/");
-          var pagesUrl = "https://" + parts[0] + ".github.io/" + parts[1] + "/" + path;
-          update(selected, { image: pagesUrl });
-          setUploading(false);
-          flash("Image uploaded!");
-        })
-        .catch(function(err) {
-          setUploading(false);
-          flash("Upload failed: " + err.message);
-        });
-    };
-    reader.readAsDataURL(file);
-  }, [ghToken, ghRepo, selected, flash, update]);
-
-  // Auto-load game-data.json from same folder on startup (cache-bust)
-  React.useEffect(() => {
+  // Auto-load game-data.json
+  useEffect(() => {
     fetch("game-data.json?t=" + Date.now())
       .then(r => r.json())
       .then(data => {
         if (data && typeof data === "object" && Object.keys(data).length > 0) {
           setNodes(data);
           setOrder(Object.keys(data));
-          setSelected(Object.keys(data)[0] || "start");
-          setLoaded(true);
+          setExpanded(Object.keys(data)[0] || "start");
         }
       })
-      .catch(() => { /* no game-data.json found, use defaults */ });
+      .catch(() => {});
   }, []);
 
-  const node = selected ? nodes[selected] : null;
-  const nodeList = order.filter(id => nodes[id]).map(id => [id, nodes[id]]);
-  const filtered = search
-    ? nodeList.filter(([id, n]) => n.title.toLowerCase().includes(search.toLowerCase()) || id.includes(search.toLowerCase()))
-    : nodeList;
+  // Save GitHub settings
+  const saveSettings = (t, r) => {
+    setGhToken(t); setGhRepo(r);
+    if(t) localStorage.setItem("iq_gh_token", t); else localStorage.removeItem("iq_gh_token");
+    if(r) localStorage.setItem("iq_gh_repo", r); else localStorage.removeItem("iq_gh_repo");
+  };
 
-  const flash = useCallback((msg) => { setToast(msg); setTimeout(() => setToast(null), 2200); }, []);
-
-  // ── Node operations ──
+  // Node operations
   const update = useCallback((id, changes) => {
     setNodes(prev => ({ ...prev, [id]: { ...prev[id], ...changes } }));
   }, []);
 
-  const addNode = useCallback(() => {
+  const addNode = () => {
     const id = uid();
-    setNodes(prev => ({ ...prev, [id]: { title: "New Scene", narrative: "", choices: [], scoreEffect: {} } }));
+    setNodes(prev => ({ ...prev, [id]: { title:"New Scene", narrative:"", choices:[], scoreEffect:{} } }));
     setOrder(prev => [...prev, id]);
-    setSelected(id);
-    setSearch("");
+    setExpanded(id);
     flash("Scene added");
-  }, [flash]);
+  };
 
-  const deleteNode = useCallback((id) => {
-    if (id === "start") { flash("Can't delete the start node"); return; }
+  const deleteNode = (id) => {
+    if(id === "start"){ flash("Can't delete the start scene"); return; }
     setNodes(prev => {
-      const next = { ...prev };
-      delete next[id];
-      Object.values(next).forEach(n => {
-        if (n.choices) n.choices = n.choices.map(c => c.next === id ? { ...c, next: "" } : c);
-      });
+      const next = {...prev}; delete next[id];
+      Object.values(next).forEach(n => { if(n.choices) n.choices = n.choices.map(c => c.next===id?{...c,next:""}:c); });
       return next;
     });
-    setOrder(prev => prev.filter(x => x !== id));
-    setSelected("start");
+    setOrder(prev => prev.filter(x => x!==id));
+    if(expanded===id) setExpanded("start");
     flash("Scene deleted");
-  }, [flash]);
+  };
 
-  const dupNode = useCallback((id) => {
-    const src = nodes[id];
-    const nid = uid();
-    setNodes(prev => ({ ...prev, [nid]: { ...src, title: src.title + " (copy)", choices: (src.choices || []).map(c => ({ ...c })), scoreEffect: { ...(src.scoreEffect || {}) } } }));
-    setOrder(prev => { const i = prev.indexOf(id); const next = [...prev]; next.splice(i + 1, 0, nid); return next; });
-    setSelected(nid);
+  const duplicateNode = (id) => {
+    const src = nodes[id]; const nid = uid();
+    setNodes(prev => ({...prev,[nid]:{...src,title:src.title+" (copy)",choices:(src.choices||[]).map(c=>({...c})),scoreEffect:{...(src.scoreEffect||{})}}}));
+    setOrder(prev => { const i=prev.indexOf(id); const n=[...prev]; n.splice(i+1,0,nid); return n; });
+    setExpanded(nid);
     flash("Duplicated");
-  }, [nodes, flash]);
-
-  // ── Choice operations ──
-  const addChoice = () => update(selected, { choices: [...(node.choices || []), { text: "New choice", next: "" }] });
-  const updateChoice = (i, changes) => {
-    const choices = [...node.choices];
-    choices[i] = { ...choices[i], ...changes };
-    update(selected, { choices });
-  };
-  const removeChoice = (i) => update(selected, { choices: node.choices.filter((_, idx) => idx !== i) });
-  const moveChoice = (i, dir) => {
-    const choices = [...node.choices];
-    const j = i + dir;
-    if (j < 0 || j >= choices.length) return;
-    [choices[i], choices[j]] = [choices[j], choices[i]];
-    update(selected, { choices });
   };
 
-  // ── Rename node ID ──
-  const renameNode = useCallback((oldId, newId) => {
-    newId = newId.trim().toLowerCase().replace(/[^a-z0-9_]/g, "_");
-    if (!newId || newId === oldId) return;
-    if (nodes[newId]) { flash("ID '" + newId + "' already exists"); return; }
+  const renameNode = (oldId, newId) => {
+    newId = newId.trim().toLowerCase().replace(/[^a-z0-9_]/g,"_");
+    if(!newId || newId===oldId) return;
+    if(nodes[newId]){ flash("ID already exists"); return; }
     setNodes(prev => {
       const next = {};
-      Object.entries(prev).forEach(([id, n]) => {
-        const key = id === oldId ? newId : id;
-        const updated = { ...n, choices: (n.choices || []).map(c => c.next === oldId ? { ...c, next: newId } : { ...c }) };
-        next[key] = updated;
+      Object.entries(prev).forEach(([id,n]) => {
+        const key = id===oldId?newId:id;
+        next[key] = {...n, choices:(n.choices||[]).map(c => c.next===oldId?{...c,next:newId}:{...c})};
       });
       return next;
     });
-    setOrder(prev => prev.map(id => id === oldId ? newId : id));
-    setSelected(newId);
-    flash("Renamed to " + newId);
-  }, [nodes, flash]);
+    setOrder(prev => prev.map(id => id===oldId?newId:id));
+    if(expanded===oldId) setExpanded(newId);
+    flash("Renamed to "+newId);
+  };
 
-  // ── Reorder scenes ──
-  const moveScene = useCallback((id, dir) => {
-    setOrder(prev => {
-      const i = prev.indexOf(id);
-      const j = i + dir;
-      if (j < 0 || j >= prev.length) return prev;
-      const next = [...prev];
-      [next[i], next[j]] = [next[j], next[i]];
-      return next;
+  // Choice operations
+  const addChoice = (nodeId) => {
+    setNodes(prev => ({...prev,[nodeId]:{...prev[nodeId],choices:[...(prev[nodeId].choices||[]),{text:"New choice",next:""}]}}));
+  };
+  const updateChoice = (nodeId, idx, changes) => {
+    setNodes(prev => {
+      const n = prev[nodeId]; const choices = [...n.choices]; choices[idx]={...choices[idx],...changes};
+      return {...prev,[nodeId]:{...n,choices}};
     });
-  }, []);
-
-  // ── Sort by flow (BFS from start) ──
-  const sortByFlow = useCallback(() => {
-    const visited = new Set();
-    const sorted = [];
-    const queue = ["start"];
-    while (queue.length > 0) {
-      const id = queue.shift();
-      if (visited.has(id) || !nodes[id]) continue;
-      visited.add(id);
-      sorted.push(id);
-      (nodes[id].choices || []).forEach(c => {
-        if (c.next && !visited.has(c.next)) queue.push(c.next);
-      });
-    }
-    // Add any orphaned nodes at the end
-    Object.keys(nodes).forEach(id => {
-      if (!visited.has(id)) sorted.push(id);
+  };
+  const removeChoice = (nodeId, idx) => {
+    setNodes(prev => {
+      const n = prev[nodeId]; return {...prev,[nodeId]:{...n,choices:n.choices.filter((_,i)=>i!==idx)}};
     });
-    setOrder(sorted);
-    flash("Sorted by flow");
-  }, [nodes, flash]);
+  };
+  const moveChoice = (nodeId, idx, dir) => {
+    setNodes(prev => {
+      const n = prev[nodeId]; const choices=[...n.choices]; const j=idx+dir;
+      if(j<0||j>=choices.length) return prev;
+      [choices[idx],choices[j]]=[choices[j],choices[idx]];
+      return {...prev,[nodeId]:{...n,choices}};
+    });
+  };
 
-  // ── Import / Export ──
+  // Reorder
+  const moveScene = (id, dir) => {
+    setOrder(prev => { const i=prev.indexOf(id); const j=i+dir; if(j<0||j>=prev.length) return prev; const n=[...prev]; [n[i],n[j]]=[n[j],n[i]]; return n; });
+  };
+  const sortByFlow = () => {
+    const visited = new Set(); const sorted = []; const queue = ["start"];
+    while(queue.length>0){ const id=queue.shift(); if(visited.has(id)||!nodes[id]) continue; visited.add(id); sorted.push(id); (nodes[id].choices||[]).forEach(c=>{if(c.next&&!visited.has(c.next)) queue.push(c.next);}); }
+    Object.keys(nodes).forEach(id => { if(!visited.has(id)) sorted.push(id); });
+    setOrder(sorted); flash("Sorted by flow");
+  };
+
+  // Build clean export data
   const buildClean = () => {
     const clean = {};
-    order.filter(id => nodes[id]).forEach(id => {
-      const n = nodes[id];
-      clean[id] = { title: n.title, narrative: n.narrative, choices: (n.choices || []).filter(c => c.text) };
-      if (n.image) { clean[id].image = n.image; clean[id].imageSize = n.imageSize || "large"; }
-      if (n.scoreEffect && Object.keys(n.scoreEffect).length) clean[id].scoreEffect = n.scoreEffect;
-      if (n.isEnding) { clean[id].isEnding = true; clean[id].endingType = n.endingType || "policy"; }
+    orderRef.current.filter(id => nodesRef.current[id]).forEach(id => {
+      const n = nodesRef.current[id];
+      clean[id] = { title:n.title, narrative:n.narrative, choices:(n.choices||[]).filter(c=>c.text) };
+      if(n.image){ clean[id].image=n.image; clean[id].imageSize=n.imageSize||"large"; }
+      if(n.scoreEffect && Object.keys(n.scoreEffect).length) clean[id].scoreEffect=n.scoreEffect;
+      if(n.isEnding){ clean[id].isEnding=true; clean[id].endingType=n.endingType||"policy"; }
     });
     return clean;
   };
 
-  const buildFullHTML = (gameDataStr) => {
-    // Fetch the game template from same server and inject data
-    return fetch("index.html")
-      .then(r => r.text())
-      .then(html => {
-        // Replace the fetch-based loader with inline data
-        var marker = '// Load game data from external JSON file and boot the app';
-        var markerIdx = html.indexOf(marker);
-        if (markerIdx === -1) {
-          // Fallback: just return JSON to paste manually
-          return "const GAME_DATA = " + gameDataStr + ";";
-        }
-        // Find the start of the fetch block and the end of the script
-        var fetchStart = html.lastIndexOf('\n', markerIdx);
-        var scriptEnd = html.indexOf('\n<' + '/script>', markerIdx);
-        var before = html.substring(0, fetchStart);
-        var after = html.substring(scriptEnd);
-        // Build inline loader
-        var inlineLoader = '\nvar GAME_DATA = ' + gameDataStr + ';\n';
-        inlineLoader += 'ReactDOM.render(e(App,{data:GAME_DATA}),document.getElementById("app"));\n';
-        return before + inlineLoader + after;
-      });
+  // Save to GitHub
+  const saveToGitHub = () => {
+    const cleanToken = (ghToken||"").replace(/[^\x20-\x7E]/g,"").trim();
+    if(!cleanToken){ flash("Set up token in Settings"); setShowSettings(true); return; }
+    setSaving(true); flash("Saving...");
+    const clean = buildClean();
+    const b64 = btoa(unescape(encodeURIComponent(JSON.stringify(clean,null,2))));
+    const apiUrl = "https://api.github.com/repos/"+ghRepo+"/contents/game-data.json";
+    fetch(apiUrl,{headers:{"Authorization":"Bearer "+cleanToken}})
+      .then(r => r.ok?r.json():null)
+      .then(existing => {
+        const body = {message:"Update game data from editor",content:b64};
+        if(existing&&existing.sha) body.sha=existing.sha;
+        return fetch(apiUrl,{method:"PUT",headers:{"Authorization":"Bearer "+cleanToken,"Content-Type":"application/json"},body:JSON.stringify(body)});
+      })
+      .then(r => { if(!r.ok) throw new Error("API returned "+r.status); return r.json(); })
+      .then(() => { setSaving(false); flash("Saved!"); })
+      .catch(err => { setSaving(false); flash("Save failed: "+err.message); });
   };
 
+  // Export JSON download
   const exportJSON = () => {
     const clean = buildClean();
-    var blob = new Blob([JSON.stringify(clean, null, 2)], { type: "application/json" });
-    var url = URL.createObjectURL(blob);
-    var a = document.createElement("a");
-    a.href = url;
-    a.download = "game-data.json";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-    flash("JSON downloaded!");
+    const blob = new Blob([JSON.stringify(clean,null,2)],{type:"application/json"});
+    const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="game-data.json"; document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    flash("Downloaded!");
   };
 
-  const [saving, setSaving] = useState(false);
-
-  const saveToGitHub = () => {
-    var cleanToken = (ghToken || "").replace(/[^\x20-\x7E]/g, "").trim();
-    if (!cleanToken) { flash("Set up GitHub token in Settings first"); setShowSettings(true); return; }
-
-    setSaving(true);
-    flash("Saving to GitHub...");
-
-    var currentNodes = nodesRef.current;
-    var currentOrder = orderRef.current;
-
-    var clean = {};
-    currentOrder.filter(function(id) { return currentNodes[id]; }).forEach(function(id) {
-      var n = currentNodes[id];
-      clean[id] = { title: n.title, narrative: n.narrative, choices: (n.choices || []).filter(function(c) { return c.text; }) };
-      if (n.image) { clean[id].image = n.image; clean[id].imageSize = n.imageSize || "large"; }
-      if (n.scoreEffect && Object.keys(n.scoreEffect).length) clean[id].scoreEffect = n.scoreEffect;
-      if (n.isEnding) { clean[id].isEnding = true; clean[id].endingType = n.endingType || "policy"; }
-    });
-
-    var jsonStr = JSON.stringify(clean, null, 2);
-    var base64 = btoa(unescape(encodeURIComponent(jsonStr)));
-    var apiUrl = "https://api.github.com/repos/" + ghRepo + "/contents/game-data.json";
-
-    fetch(apiUrl, { headers: { "Authorization": "Bearer " + cleanToken } })
-      .then(function(r) { return r.ok ? r.json() : null; })
-      .then(function(existing) {
-        var body = { message: "Update game data from editor", content: base64 };
-        if (existing && existing.sha) body.sha = existing.sha;
-        return fetch(apiUrl, {
-          method: "PUT",
-          headers: { "Authorization": "Bearer " + cleanToken, "Content-Type": "application/json" },
-          body: JSON.stringify(body)
-        });
-      })
-      .then(function(r) {
-        if (!r.ok) throw new Error("GitHub API returned " + r.status);
-        return r.json();
-      })
-      .then(function() {
-        setSaving(false);
-        flash("Saved to GitHub!");
-      })
-      .catch(function(err) {
-        setSaving(false);
-        flash("Save failed: " + err.message);
-      });
-  };
-
-  const copyForHTML = () => {
-    const clean = buildClean();
-    const gameDataStr = JSON.stringify(clean, null, 2);
-    flash("Generating HTML game...");
-    buildFullHTML(gameDataStr).then(fullHTML => {
-      var blob = new Blob([fullHTML], { type: "text/html" });
-      var url = URL.createObjectURL(blob);
-      var a = document.createElement("a");
-      a.href = url;
-      a.download = "the-impact-quest.html";
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-      flash("Game downloaded!");
-    }).catch(function(e) {
-      flash("Could not generate HTML — try Export JSON instead");
-    });
-  };
-
-  const importJSON = () => {
-    try {
-      const data = JSON.parse(importText);
-      setNodes(data);
-      setOrder(Object.keys(data));
-      setSelected(Object.keys(data)[0] || "start");
-      setShowImport(false);
-      setImportText("");
-      flash(Object.keys(data).length + " scenes imported");
-    } catch(e) { flash("Invalid JSON"); }
-  };
-
+  // Import
   const importFile = (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
+    const file=e.target.files[0]; if(!file) return;
+    const reader=new FileReader();
+    reader.onload=(ev)=>{ try{ const data=JSON.parse(ev.target.result); setNodes(data); setOrder(Object.keys(data)); setExpanded(Object.keys(data)[0]||"start"); flash(Object.keys(data).length+" scenes imported"); }catch(err){ flash("Invalid JSON"); } };
+    reader.readAsText(file); e.target.value="";
+  };
+
+  // Generate HTML
+  const generateHTML = () => {
+    flash("Generating...");
+    const clean = buildClean();
+    const gameDataStr = JSON.stringify(clean,null,2);
+    fetch("index.html").then(r=>r.text()).then(html => {
+      const marker = "// Load game data from external JSON file and boot the app";
+      const markerIdx = html.indexOf(marker);
+      if(markerIdx===-1){ flash("Could not find marker in index.html"); return; }
+      const fetchStart = html.lastIndexOf("\n",markerIdx);
+      const scriptEnd = html.indexOf("\n<"+"/script>",markerIdx);
+      const before = html.substring(0,fetchStart);
+      const after = html.substring(scriptEnd);
+      const inlineLoader = "\nvar GAME_DATA = "+gameDataStr+";\nReactDOM.render(e(App,{data:GAME_DATA}),document.getElementById('app'));\n";
+      const fullHTML = before+inlineLoader+after;
+      const blob = new Blob([fullHTML],{type:"text/html"});
+      const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="the-impact-quest.html"; document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      flash("HTML game downloaded!");
+    }).catch(()=>flash("Failed to generate HTML"));
+  };
+
+  // Upload image
+  const uploadImage = (nodeId, file) => {
+    const cleanToken = (ghToken||"").replace(/[^\x20-\x7E]/g,"").trim();
+    if(!cleanToken){ flash("Set up token in Settings"); setShowSettings(true); return; }
+    if(file.size > 5*1024*1024){ flash("Max 5MB"); return; }
+    setUploading(true);
     const reader = new FileReader();
     reader.onload = (ev) => {
-      try {
-        const data = JSON.parse(ev.target.result);
-        setNodes(data);
-        setOrder(Object.keys(data));
-        setSelected(Object.keys(data)[0] || "start");
-        flash(Object.keys(data).length + " scenes imported from file");
-      } catch(e) { flash("Invalid JSON file"); }
+      const base64 = ev.target.result.split(",")[1];
+      const safeName = file.name.toLowerCase().replace(/[^a-z0-9.\-_]/g,"-");
+      const path = "images/"+safeName;
+      const url = "https://api.github.com/repos/"+ghRepo+"/contents/"+path;
+      fetch(url,{headers:{"Authorization":"Bearer "+cleanToken}})
+        .then(r=>r.ok?r.json():null)
+        .then(existing => {
+          const body={message:"Upload: "+safeName,content:base64};
+          if(existing&&existing.sha) body.sha=existing.sha;
+          return fetch(url,{method:"PUT",headers:{"Authorization":"Bearer "+cleanToken,"Content-Type":"application/json"},body:JSON.stringify(body)});
+        })
+        .then(r=>{ if(!r.ok) throw new Error(""+r.status); return r.json(); })
+        .then(()=>{
+          const parts=ghRepo.split("/");
+          const pagesUrl="https://"+parts[0]+".github.io/"+parts[1]+"/"+path;
+          update(nodeId,{image:pagesUrl});
+          setUploading(false); flash("Uploaded!");
+        })
+        .catch(err=>{ setUploading(false); flash("Upload failed: "+err.message); });
     };
-    reader.readAsText(file);
-    e.target.value = "";
+    reader.readAsDataURL(file);
   };
 
+  // Computed
+  const nodeList = order.filter(id=>nodes[id]).map(id=>[id,nodes[id]]);
+  const filtered = search ? nodeList.filter(([id,n])=>n.title.toLowerCase().includes(search.toLowerCase())||id.includes(search.toLowerCase())) : nodeList;
+  const endings = nodeList.filter(([_,n])=>n.isEnding).length;
+  const orphans = nodeList.filter(([_,n])=>(n.choices||[]).some(c=>c.next&&!nodes[c.next])).length;
+  const withImages = nodeList.filter(([_,n])=>n.image).length;
 
-
-  // ── Inbound links (what leads here) ──
-  const inbound = selected ? nodeList.filter(([id, n]) => (n.choices || []).some(c => c.next === selected)).map(([id]) => id) : [];
-
-  // ── Preview trace ──
-  const getTrace = (startId, maxDepth = 8) => {
-    const trace = [];
-    let current = startId;
-    const visited = new Set();
-    while (current && nodes[current] && !visited.has(current) && trace.length < maxDepth) {
-      visited.add(current);
-      const n = nodes[current];
-      trace.push({ id: current, title: n.title, isEnding: n.isEnding });
-      const firstChoice = (n.choices || [])[0];
-      current = firstChoice ? firstChoice.next : null;
-    }
-    return trace;
+  // Get dot colour for a scene
+  const getDotColor = (id, n) => {
+    if(id==="start") return "var(--accent)";
+    if(n.isEnding) return "var(--sage)";
+    if((n.choices||[]).some(c=>c.next&&!nodes[c.next])) return "var(--rust)";
+    return "var(--border)";
   };
 
-  // ── Styles ──
-  const s = {
-    inp: { width: "100%", background: "#ffffff", border: "1px solid #d8d2c4", color: "#0f0e0d", padding: "8px 10px", borderRadius: 3, fontSize: 13, fontFamily: "'DM Sans', sans-serif", marginBottom: 12, outline: "none", boxSizing: "border-box" },
-    sel: { width: "100%", background: "#ffffff", border: "1px solid #d8d2c4", color: "#0f0e0d", padding: "7px 8px", borderRadius: 3, fontSize: 12, fontFamily: "'DM Sans', sans-serif", outline: "none", boxSizing: "border-box" },
-    label: { display: "block", fontSize: 10, fontWeight: 700, color: "#8c8272", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 5, fontFamily: "'DM Sans', sans-serif" },
-    btn: { background: "#0f0e0d", border: "1px solid #0f0e0d", color: "#f5f0e8", padding: "5px 12px", borderRadius: 3, fontSize: 11, cursor: "pointer", fontFamily: "'DM Sans', sans-serif", fontWeight: 600, letterSpacing: "0.03em" },
-    accent: { background: "#e8963a", border: "1px solid #c4782a", color: "#0f0e0d", padding: "5px 12px", borderRadius: 3, fontSize: 11, cursor: "pointer", fontFamily: "'DM Sans', sans-serif", fontWeight: 700, letterSpacing: "0.03em" },
+  // Scene card component
+  const SceneCard = ({id, n}) => {
+    const isExp = expanded===id;
+    const [renameVal, setRenameVal] = useState(id);
+
+    return (
+      <div className={"scene-card"+(isExp?" expanded":"")}>
+        <div className="scene-card-header" onClick={()=>setExpanded(isExp?null:id)}>
+          <span className="expand-arrow">▶</span>
+          <div className="card-dot" style={{background:getDotColor(id,n)}} />
+          <span className="card-title">{n.title || "Untitled"}</span>
+          <span className="card-id">{id}</span>
+          <div className="card-badges">
+            {id==="start" && <span className="badge" style={{background:"var(--accent)",color:"var(--ink)"}}>START</span>}
+            {n.isEnding && <span className="badge" style={{background:"var(--sage)",color:"#fff"}}>END</span>}
+            {n.image && <span className="badge" style={{background:"var(--blue)",color:"#fff"}}>IMG</span>}
+            {(n.choices||[]).some(c=>c.next&&!nodes[c.next]) && <span className="badge" style={{background:"var(--rust)",color:"#fff"}}>FIX</span>}
+          </div>
+          <span className="choice-count">{(n.choices||[]).length} choice{(n.choices||[]).length!==1?"s":""}</span>
+        </div>
+
+        <div className="scene-body">
+          {/* Title */}
+          <label className="field-label">Title</label>
+          <input className="field-input" value={n.title} onChange={e=>update(id,{title:e.target.value})} />
+
+          {/* Image */}
+          <label className="field-label">Image</label>
+          <div className="img-row">
+            <input className="field-input" style={{marginBottom:0}} value={n.image||""} onChange={e=>update(id,{image:e.target.value})} placeholder="URL or upload" />
+            {n.image && <button className="remove-btn" onClick={()=>update(id,{image:"",imageSize:undefined})}>Remove</button>}
+            <button className="sb-btn primary" style={{fontSize:9,padding:"4px 8px"}} disabled={uploading} onClick={()=>{imgRef.current.dataset.nodeId=id;imgRef.current.click();}}>
+              {uploading?"...":"Upload"}
+            </button>
+          </div>
+          {n.image && (
+            <div className="img-preview" style={{marginTop:8,marginBottom:12}}>
+              <img src={n.image} alt="" style={{width:n.imageSize==="small"?"40%":n.imageSize==="medium"?"65%":"100%"}} onError={e=>{e.target.alt="Not found";e.target.style.background="var(--surface-alt)";e.target.style.minHeight="40px";}} />
+              <div className="img-controls">
+                <div className="size-btns">
+                  {["small","medium","large","banner"].map(s=>(
+                    <button key={s} className={"size-btn"+((n.imageSize||"large")===s?" active":"")} onClick={()=>update(id,{imageSize:s})}>{s}</button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Narrative */}
+          <label className="field-label">Narrative</label>
+          <textarea className="field-textarea" value={n.narrative} onChange={e=>update(id,{narrative:e.target.value})} />
+
+          {/* Scores */}
+          <label className="field-label">Score Effects</label>
+          <div className="scores-row">
+            {SCORE_KEYS.map(k=>(
+              <div className="score-chip" key={k}>
+                <div className="chip-dot" style={{background:SCORE_COLORS[k]}} />
+                <label>{SCORE_LABELS[k]}</label>
+                <input type="number" value={(n.scoreEffect&&n.scoreEffect[k])||0} onChange={e=>{
+                  const v=parseInt(e.target.value)||0; const se={...(n.scoreEffect||{})};
+                  if(v===0) delete se[k]; else se[k]=v; update(id,{scoreEffect:se});
+                }} />
+              </div>
+            ))}
+          </div>
+
+          {/* Ending */}
+          <div style={{display:"flex",gap:12,alignItems:"center",marginBottom:12}}>
+            <label className="field-label" style={{marginBottom:0}}>Ending type</label>
+            <select className="field-select" style={{width:"auto"}} value={n.isEnding?(n.endingType||"policy"):"none"} onChange={e=>{
+              if(e.target.value==="none") update(id,{isEnding:false,endingType:undefined});
+              else update(id,{isEnding:true,endingType:e.target.value});
+            }}>
+              {ENDING_TYPES.map(t=><option key={t} value={t}>{t==="none"?"Not an ending":t.charAt(0).toUpperCase()+t.slice(1)}</option>)}
+            </select>
+          </div>
+
+          {/* Choices */}
+          <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:8}}>
+            <label className="field-label" style={{marginBottom:0}}>Choices ({(n.choices||[]).length})</label>
+            <button className="sb-btn" onClick={()=>addChoice(id)}>+ Choice</button>
+          </div>
+          {(n.choices||[]).map((c,i)=>(
+            <div className="choice-card" key={i}>
+              <div className="choice-letter">
+                <span>Choice {String.fromCharCode(65+i)}</span>
+                <div className="choice-actions">
+                  <button onClick={()=>moveChoice(id,i,-1)} disabled={i===0}>↑</button>
+                  <button onClick={()=>moveChoice(id,i,1)} disabled={i>=(n.choices||[]).length-1}>↓</button>
+                  <button className="del" onClick={()=>removeChoice(id,i)}>✕</button>
+                </div>
+              </div>
+              <input className="field-input" style={{marginBottom:4}} value={c.text} onChange={e=>updateChoice(id,i,{text:e.target.value})} placeholder="Choice text..." />
+              <select className="field-select" value={c.next||""} onChange={e=>{
+                if(e.target.value==="__new__"){
+                  const newId=uid();
+                  setNodes(prev=>({...prev,[newId]:{title:"New Scene",narrative:"",choices:[],scoreEffect:{}}}));
+                  setOrder(prev=>[...prev,newId]);
+                  updateChoice(id,i,{next:newId});
+                  setTimeout(()=>setExpanded(newId),50);
+                } else {
+                  updateChoice(id,i,{next:e.target.value});
+                }
+              }}>
+                <option value="">— Link to scene —</option>
+                {nodeList.filter(([nid])=>nid!==id).map(([nid,nn])=>(
+                  <option key={nid} value={nid}>{nn.title} ({nid})</option>
+                ))}
+                <option value="__new__">+ Create new scene</option>
+              </select>
+              {c.next && nodes[c.next] && (
+                <div className="choice-target">
+                  <span className="arrow">→</span>
+                  <span className="target-name" onClick={()=>setExpanded(c.next)}>{nodes[c.next].title}</span>
+                </div>
+              )}
+            </div>
+          ))}
+
+          {/* Footer */}
+          <div className="scene-footer">
+            <div style={{display:"flex",gap:6}}>
+              <button onClick={()=>duplicateNode(id)}>Duplicate</button>
+              <button onClick={()=>{const v=prompt("New ID:",id);if(v)renameNode(id,v);}}>Rename ID</button>
+              <button onClick={()=>moveScene(id,-1)}>↑ Move Up</button>
+              <button onClick={()=>moveScene(id,1)}>↓ Move Down</button>
+            </div>
+            {id!=="start" && <button className="del-btn" onClick={()=>{if(confirm("Delete '"+n.title+"'?"))deleteNode(id);}}>Delete Scene</button>}
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  // Preview mode
+  const PreviewMode = () => {
+    const pn = nodes[previewNode];
+    if(!pn) return <div className="preview-container"><p>Scene not found.</p></div>;
+    return (
+      <div className="preview-container">
+        <div style={{fontSize:11,color:"var(--text-muted)",marginBottom:12,textTransform:"uppercase",letterSpacing:1}}>
+          Preview Mode — <span className="preview-restart" onClick={()=>setPreviewNode("start")}>Restart</span>
+        </div>
+        <div className="preview-card">
+          <div className="preview-title">{pn.title}</div>
+          {pn.image && <img src={pn.image} alt="" style={{width:"100%",maxHeight:200,objectFit:"cover",borderRadius:3,marginBottom:12}} />}
+          <div className="preview-narrative">{pn.narrative}</div>
+          {pn.isEnding ? (
+            <div style={{textAlign:"center",padding:16}}>
+              <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:24,color:"var(--accent-dark)",letterSpacing:2}}>THE END</div>
+              <div style={{fontSize:12,color:"var(--text-muted)",marginTop:4}}>{pn.title}</div>
+              <span className="preview-restart" onClick={()=>setPreviewNode("start")} style={{marginTop:12,display:"inline-block"}}>Play Again</span>
+            </div>
+          ) : (
+            <div className="preview-choices">
+              {(pn.choices||[]).map((c,i)=>(
+                <div key={i} className="preview-choice" onClick={()=>{if(c.next&&nodes[c.next])setPreviewNode(c.next);}}>
+                  <span className="preview-letter">{String.fromCharCode(65+i)}</span>
+                  {c.text}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    );
   };
 
   return (
-    <div style={{ display: "flex", height: "100vh", fontFamily: "'DM Sans', sans-serif", background: "#f5f0e8", color: "#0f0e0d", overflow: "hidden" }}>
-
-      {/* ── LEFT: Scene List ── */}
-      <div style={{ width: 280, borderRight: "2px solid #0f0e0d", display: "flex", flexDirection: "column", flexShrink: 0, background: "#0f0e0d" }}>
-
-        {/* Toolbar */}
-        <div style={{ padding: "12px 12px 8px", borderBottom: "1px solid #2a2826" }}>
-          <div style={{ fontSize: 22, fontWeight: 700, marginBottom: 10, color: "#f5f0e8", display: "flex", alignItems: "center", gap: 8, fontFamily: "'Bebas Neue', sans-serif", letterSpacing: 2 }}>
-            <span style={{ color: "#e8963a" }}>IMPACT</span> QUEST EDITOR
-          </div>
-          <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 8 }}>
-            <button onClick={saveToGitHub} disabled={saving} style={{ ...s.accent, opacity: saving ? 0.6 : 1 }}>{saving ? "Saving..." : "Save"}</button>
-            <button onClick={addNode} style={s.btn}>+ Scene</button>
-            <button onClick={sortByFlow} style={s.btn}>Sort by Flow</button>
-            <button onClick={exportJSON} style={s.btn}>Export</button>
-            <button onClick={() => fileRef.current.click()} style={s.btn}>Import</button>
-            <button onClick={copyForHTML} style={s.accent}>Generate HTML</button>
-            <button onClick={() => setShowSettings(true)} style={{ ...s.btn, fontSize: 11 }}>Settings</button>
-            <input ref={fileRef} type="file" accept=".json" onChange={importFile} style={{ display: "none" }} />
-          </div>
-          <input
-            value={search}
-            onChange={e => setSearch(e.target.value)}
-            placeholder="Search scenes..."
-            style={{ ...s.inp, marginBottom: 0, fontSize: 12, padding: "6px 10px", background: "#1a1917", border: "1px solid #2a2826", color: "#c8bfaa" }}
-          />
+    <div className="app">
+      {/* Sidebar */}
+      <div className="sidebar">
+        <div className="sidebar-header">
+          <div className="logo"><em>IMPACT</em> QUEST EDITOR</div>
         </div>
-
-        {/* Scene list */}
-        <div style={{ flex: 1, overflowY: "auto", padding: "4px 0" }}>
-          {filtered.map(([id, n], idx) => {
-            const isSel = id === selected;
-            const isEnd = n.isEnding;
-            const choiceCount = (n.choices || []).length;
-            const hasOrphan = (n.choices || []).some(c => c.next && !nodes[c.next]);
-            const orderIdx = order.indexOf(id);
-            return (
-              <div
-                key={id}
-                onClick={() => { setSelected(id); setTab("content"); }}
-                style={{
-                  padding: "8px 14px",
-                  cursor: "pointer",
-                  background: isSel ? "#1a1917" : "transparent",
-                  borderLeft: isSel ? "3px solid #e8963a" : "3px solid transparent",
-                  transition: "all 0.1s",
-                }}
-              >
-                <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                  {id === "start" && <span style={{ fontSize: 8, background: "#e8963a", color: "#0f0e0d", padding: "1px 5px", borderRadius: 2, fontWeight: 800, letterSpacing: 0.5 }}>START</span>}
-                  {isEnd && <span style={{ fontSize: 8, background: "#4a6741", color: "#fff", padding: "1px 5px", borderRadius: 2, fontWeight: 800, letterSpacing: 0.5 }}>END</span>}
-                  {hasOrphan && <span style={{ fontSize: 8, background: "#c0392b", color: "#fff", padding: "1px 5px", borderRadius: 2, fontWeight: 800, letterSpacing: 0.5 }}>FIX</span>}
-                  {n.image && <span style={{ fontSize: 8, background: "#5b7fb5", color: "#fff", padding: "1px 5px", borderRadius: 2, fontWeight: 800, letterSpacing: 0.5 }}>IMG</span>}
-                  <span style={{ fontSize: 13, fontWeight: 500, color: isSel ? "#f5f0e8" : "#c8bfaa", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", flex: 1 }}>{n.title}</span>
-                  {isSel && !search && (
-                    <span style={{ display: "flex", gap: 2 }} onClick={e => e.stopPropagation()}>
-                      <button onClick={() => moveScene(id, -1)} disabled={orderIdx === 0} style={{ background: "none", border: "none", color: orderIdx === 0 ? "#3a3530" : "#c8bfaa", cursor: "pointer", fontSize: 11, padding: "0 3px", fontFamily: "inherit" }}>▲</button>
-                      <button onClick={() => moveScene(id, 1)} disabled={orderIdx === order.length - 1} style={{ background: "none", border: "none", color: orderIdx === order.length - 1 ? "#3a3530" : "#c8bfaa", cursor: "pointer", fontSize: 11, padding: "0 3px", fontFamily: "inherit" }}>▼</button>
-                    </span>
-                  )}
-                </div>
-                <div style={{ fontSize: 10, color: "#6b6459", marginTop: 2, display: "flex", gap: 8 }}>
-                  <span style={{ fontFamily: "monospace" }}>{id}</span>
-                  {choiceCount > 0 && <span>{choiceCount} choice{choiceCount > 1 ? "s" : ""}</span>}
-                </div>
+        <div className="sidebar-stats">
+          <div className="stat"><div className="stat-num">{nodeList.length}</div><div className="stat-lbl">Scenes</div></div>
+          <div className="stat"><div className="stat-num">{endings}</div><div className="stat-lbl">Endings</div></div>
+          <div className="stat"><div className="stat-num">{withImages}</div><div className="stat-lbl">Images</div></div>
+          {orphans>0 && <div className="stat"><div className="stat-num" style={{color:"var(--rust)"}}>{orphans}</div><div className="stat-lbl">Broken</div></div>}
+        </div>
+        <div className="sidebar-actions">
+          <button className="sb-btn primary" disabled={saving} onClick={saveToGitHub}>{saving?"Saving...":"Save"}</button>
+          <button className="sb-btn" onClick={addNode}>+ Scene</button>
+          <button className="sb-btn" onClick={sortByFlow}>Sort</button>
+          <button className="sb-btn" onClick={exportJSON}>Export</button>
+          <button className="sb-btn" onClick={()=>fileRef.current.click()}>Import</button>
+          <button className="sb-btn" onClick={generateHTML}>HTML</button>
+          <button className="sb-btn" onClick={()=>setShowSettings(true)}>⚙</button>
+          <input ref={fileRef} type="file" accept=".json" onChange={importFile} className="hidden" />
+          <input ref={imgRef} type="file" accept="image/*" onChange={e=>{if(e.target.files[0])uploadImage(imgRef.current.dataset.nodeId,e.target.files[0]);e.target.value="";}} className="hidden" />
+        </div>
+        <div className="sidebar-search">
+          <input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Search scenes..." />
+        </div>
+        <div className="scene-list">
+          {filtered.map(([id,n])=>(
+            <div key={id} className={"scene-item"+(expanded===id?" active":"")} onClick={()=>{setExpanded(id);if(view==="preview")setPreviewNode(id);}}>
+              <div className="dot" style={{background:getDotColor(id,n)}} />
+              <div className="info">
+                <div className="title">{n.title}</div>
+                <div className="meta">{id}{(n.choices||[]).length>0?" · "+(n.choices||[]).length+"ch":""}</div>
               </div>
-            );
-          })}
-        </div>
-
-        <div style={{ padding: "8px 14px", borderTop: "1px solid #2a2826", fontSize: 11, color: "#6b6459" }}>
-          {nodeList.length} scenes · {nodeList.filter(([_, n]) => n.isEnding).length} endings
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* ── RIGHT: Editor ── */}
-      <div style={{ flex: 1, overflowY: "auto", background: "#f5f0e8" }}>
-        {node ? (
-          <div style={{ maxWidth: 680, margin: "0 auto", padding: "24px 28px" }}>
-
-            {/* Header */}
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16, paddingBottom: 12, borderBottom: "2px solid #0f0e0d" }}>
-              <h2 style={{ fontSize: 28, fontWeight: 700, color: "#0f0e0d", margin: 0, fontFamily: "'Bebas Neue', sans-serif", letterSpacing: 2 }}>{node.title}</h2>
-              <div style={{ display: "flex", gap: 6 }}>
-                <button onClick={() => dupNode(selected)} style={s.btn} title="Duplicate">Duplicate</button>
-                {selected !== "start" && <button onClick={() => deleteNode(selected)} style={{ ...s.btn, background: "#c0392b", color: "#fff", borderColor: "#c0392b" }}>Delete</button>}
-              </div>
-            </div>
-
-            {/* Tabs */}
-            <div style={{ display: "flex", gap: 0, marginBottom: 20, borderBottom: "1px solid #d8d2c4" }}>
-              {[["content", "Content"], ["scores", "Scores & Settings"], ["preview", "Flow Preview"]].map(([key, label]) => (
-                <button
-                  key={key}
-                  onClick={() => setTab(key)}
-                  style={{
-                    background: "none", border: "none", borderBottom: tab === key ? "3px solid #e8963a" : "3px solid transparent",
-                    color: tab === key ? "#0f0e0d" : "#8c8272", padding: "8px 16px", fontSize: 12, fontWeight: 600, cursor: "pointer", fontFamily: "'DM Sans', sans-serif",
-                    transition: "all 0.15s", letterSpacing: "0.05em", textTransform: "uppercase",
-                  }}
-                >{label}</button>
-              ))}
-            </div>
-
-            {/* ── Content Tab ── */}
-            {tab === "content" && (
-              <>
-                <label style={s.label}>Scene Title</label>
-                <input value={node.title} onChange={e => update(selected, { title: e.target.value })} style={s.inp} />
-
-                {/* Scene Image */}
-                <label style={s.label}>Scene Image (optional)</label>
-                <div style={{ display: "flex", gap: 6, marginBottom: 12 }}>
-                  <input
-                    value={node.image || ""}
-                    onChange={e => update(selected, { image: e.target.value })}
-                    placeholder="Paste a URL or upload an image"
-                    style={{ ...s.inp, marginBottom: 0, flex: 1 }}
-                  />
-                  {node.image && (
-                    <button
-                      onClick={e => { e.stopPropagation(); update(selected, { image: "", imageSize: undefined }); }}
-                      style={{ background: "#fdeeed", border: "1px solid #e8c4c0", color: "#c0392b", padding: "5px 10px", borderRadius: 3, fontSize: 11, cursor: "pointer", fontFamily: "inherit", fontWeight: 600, whiteSpace: "nowrap" }}
-                    >Remove</button>
-                  )}
-                  <button
-                    onClick={() => imgRef.current.click()}
-                    disabled={uploading}
-                    style={{ ...s.accent, opacity: uploading ? 0.6 : 1, whiteSpace: "nowrap" }}
-                  >{uploading ? "Uploading..." : "Upload"}</button>
-                  <input ref={imgRef} type="file" accept="image/*" onChange={e => { if (e.target.files[0]) uploadImage(e.target.files[0]); e.target.value = ""; }} style={{ display: "none" }} />
-                </div>
-                {node.image && (
-                  <div style={{ marginBottom: 14 }}>
-                    {/* Size selector */}
-                    <div style={{ display: "flex", gap: 6, marginBottom: 8 }}>
-                      {[
-                        { key: "small", label: "Small", w: "40%" },
-                        { key: "medium", label: "Medium", w: "65%" },
-                        { key: "large", label: "Large", w: "100%" },
-                        { key: "banner", label: "Banner", w: "100%" },
-                      ].map(opt => {
-                        const current = node.imageSize || "large";
-                        const active = current === opt.key;
-                        return (
-                          <button
-                            key={opt.key}
-                            onClick={() => update(selected, { imageSize: opt.key })}
-                            style={{
-                              ...s.btn,
-                              padding: "4px 10px",
-                              fontSize: 11,
-                              background: active ? "#e8963a" : "#0f0e0d",
-                              color: active ? "#0f0e0d" : "#f5f0e8",
-                              borderColor: active ? "#4ECDC4" : "#d8d2c4",
-                            }}
-                          >{opt.label}</button>
-                        );
-                      })}
-                    </div>
-                    {/* Preview */}
-                    <div style={{ borderRadius: 8, overflow: "hidden", border: "1px solid #d8d2c4" }}>
-                      <div style={{ display: "flex", justifyContent: node.imageSize === "small" || node.imageSize === "medium" ? "center" : "stretch", background: "#ede8da", padding: (node.imageSize === "small" || node.imageSize === "medium") ? 12 : 0 }}>
-                        <img
-                          src={node.image}
-                          alt="Scene image"
-                          style={{
-                            width: node.imageSize === "small" ? "40%" : node.imageSize === "medium" ? "65%" : "100%",
-                            maxHeight: node.imageSize === "banner" ? 120 : 200,
-                            objectFit: "cover",
-                            display: "block",
-                            borderRadius: (node.imageSize === "small" || node.imageSize === "medium") ? 6 : 0,
-                          }}
-                          onError={e => { e.target.alt = "Image not found"; e.target.style.background = "#ede8da"; e.target.style.minHeight = "60px"; }}
-                        />
-                      </div>
-                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "6px 10px", background: "#ffffff" }}>
-                        <span style={{ fontSize: 10, color: "#8c8272", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", flex: 1 }}>
-                          {(node.imageSize || "large").charAt(0).toUpperCase() + (node.imageSize || "large").slice(1)} · {node.image.length > 40 ? node.image.slice(0, 40) + "…" : node.image}
-                        </span>
-                        <button onClick={e => { e.stopPropagation(); update(selected, { image: "", imageSize: undefined }); }} style={{ background: "#fdeeed", border: "1px solid #e8c4c0", color: "#c0392b", cursor: "pointer", fontSize: 11, padding: "2px 8px", borderRadius: 3, fontFamily: "inherit", fontWeight: 600 }}>Remove</button>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                <label style={s.label}>Narrative</label>
-                <textarea
-                  value={node.narrative}
-                  onChange={e => update(selected, { narrative: e.target.value })}
-                  style={{ ...s.inp, minHeight: 200, resize: "vertical", lineHeight: 1.7 }}
-                />
-
-                {/* Choices */}
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10, marginTop: 8 }}>
-                  <label style={{ ...s.label, marginBottom: 0 }}>Choices ({(node.choices || []).length})</label>
-                  <button onClick={addChoice} style={s.btn}>+ Add Choice</button>
-                </div>
-
-                {(node.choices || []).map((c, i) => (
-                  <div key={i} style={{ background: "#ffffff", borderRadius: 8, padding: 14, marginBottom: 10, border: "1px solid #d8d2c4" }}>
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
-                      <span style={{ fontSize: 12, fontWeight: 700, color: "#c4782a" }}>Choice {String.fromCharCode(65 + i)}</span>
-                      <div style={{ display: "flex", gap: 4 }}>
-                        <button onClick={() => moveChoice(i, -1)} disabled={i === 0} style={{ background: "#ede8da", border: "1px solid #d8d2c4", color: "#0f0e0d", padding: "2px 8px", borderRadius: 3, fontSize: 11, cursor: "pointer", fontFamily: "inherit", fontWeight: 600, opacity: i === 0 ? 0.3 : 1 }}>↑</button>
-                        <button onClick={() => moveChoice(i, 1)} disabled={i === node.choices.length - 1} style={{ background: "#ede8da", border: "1px solid #d8d2c4", color: "#0f0e0d", padding: "2px 8px", borderRadius: 3, fontSize: 11, cursor: "pointer", fontFamily: "inherit", fontWeight: 600, opacity: i === node.choices.length - 1 ? 0.3 : 1 }}>↓</button>
-                        <button onClick={() => removeChoice(i)} style={{ background: "#fdeeed", border: "1px solid #e8c4c0", color: "#c0392b", padding: "2px 8px", borderRadius: 3, fontSize: 11, cursor: "pointer", fontFamily: "inherit", fontWeight: 600 }}>✕</button>
-                      </div>
-                    </div>
-                    <input value={c.text} onChange={e => updateChoice(i, { text: e.target.value })} placeholder="What the player sees..." style={{ ...s.inp, marginBottom: 8 }} />
-                    <label style={{ ...s.label, fontSize: 9 }}>Links to</label>
-                    <select value={c.next || ""} onChange={e => updateChoice(i, { next: e.target.value })} style={s.sel}>
-                      <option value="">— Select target scene —</option>
-                      {nodeList.filter(([nid]) => nid !== selected).map(([nid, nn]) => (
-                        <option key={nid} value={nid}>{nn.title} ({nid})</option>
-                      ))}
-                    </select>
-                    {c.next && nodes[c.next] && (
-                      <button onClick={() => { setSelected(c.next); setTab("content"); }} style={{ marginTop: 6, background: "none", border: "none", color: "#c4782a", fontSize: 11, cursor: "pointer", padding: 0, fontFamily: "inherit" }}>
-                        → Go to: {nodes[c.next].title}
-                      </button>
-                    )}
-                  </div>
-                ))}
-
-                {/* Inbound links */}
-                {inbound.length > 0 && (
-                  <div style={{ marginTop: 16, padding: 12, background: "#ffffff", borderRadius: 8, border: "1px solid #d8d2c4" }}>
-                    <label style={{ ...s.label, marginBottom: 8 }}>Scenes that link here ({inbound.length})</label>
-                    <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-                      {inbound.map(id => (
-                        <button key={id} onClick={() => { setSelected(id); setTab("content"); }} style={{ background: "#ede8da", border: "1px solid #d8d2c4", color: "#c4782a", padding: "4px 10px", borderRadius: 5, fontSize: 11, cursor: "pointer", fontFamily: "inherit" }}>
-                          ← {nodes[id] && nodes[id].title}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </>
-            )}
-
-            {/* ── Scores Tab ── */}
-            {tab === "scores" && (
-              <>
-                <label style={s.label}>Ending Scene?</label>
-                <select
-                  value={node.isEnding ? (node.endingType || "policy") : "none"}
-                  onChange={e => {
-                    if (e.target.value === "none") update(selected, { isEnding: false, endingType: undefined });
-                    else update(selected, { isEnding: true, endingType: e.target.value });
-                  }}
-                  style={{ ...s.sel, marginBottom: 16 }}
-                >
-                  {ENDING_TYPES.map(t => <option key={t} value={t}>{t === "none" ? "Not an ending" : t.charAt(0).toUpperCase() + t.slice(1) + " ending"}</option>)}
-                </select>
-
-                <label style={s.label}>Score Effects</label>
-                <p style={{ fontSize: 11, color: "#8c8272", marginBottom: 12, marginTop: 0 }}>Points added (or subtracted) when the player reaches this scene.</p>
-                <div style={{ background: "#ffffff", borderRadius: 8, padding: 16, border: "1px solid #d8d2c4" }}>
-                  {SCORE_KEYS.map(k => (
-                    <div key={k} style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 10 }}>
-                      <div style={{ width: 8, height: 8, borderRadius: "50%", background: SCORE_COLORS[k], flexShrink: 0 }} />
-                      <span style={{ fontSize: 13, color: SCORE_COLORS[k], width: 110, fontWeight: 600 }}>{k.charAt(0).toUpperCase() + k.slice(1)}</span>
-                      <input
-                        type="range" min={-30} max={30} step={5}
-                        value={(node.scoreEffect && node.scoreEffect[k]) || 0}
-                        onChange={e => {
-                          const v = parseInt(e.target.value) || 0;
-                          const se = { ...(node.scoreEffect || {}) };
-                          if (v === 0) delete se[k]; else se[k] = v;
-                          update(selected, { scoreEffect: se });
-                        }}
-                        style={{ flex: 1, accentColor: SCORE_COLORS[k] }}
-                      />
-                      <span style={{ fontSize: 14, fontWeight: 700, color: SCORE_COLORS[k], width: 36, textAlign: "right", fontFamily: "monospace" }}>
-                        {((node.scoreEffect && node.scoreEffect[k]) || 0) > 0 ? "+" : ""}{(node.scoreEffect && node.scoreEffect[k]) || 0}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-
-                <div style={{ marginTop: 20 }}>
-                  <label style={s.label}>Node ID</label>
-                  <div style={{ display: "flex", gap: 6 }}>
-                    <input
-                      id="renameInput"
-                      defaultValue={selected}
-                      key={selected}
-                      placeholder="scene_id"
-                      style={{ ...s.inp, marginBottom: 0, fontFamily: "monospace", fontSize: 12, flex: 1 }}
-                      onKeyDown={e => { if (e.key === "Enter") renameNode(selected, e.target.value); }}
-                    />
-                    <button onClick={() => renameNode(selected, document.getElementById("renameInput").value)} style={s.btn}>Rename</button>
-                  </div>
-                  <div style={{ fontSize: 10, color: "#8c8272", marginTop: 4 }}>Lowercase letters, numbers and underscores only. Press Enter or click Rename.</div>
-                </div>
-              </>
-            )}
-
-            {/* ── Preview Tab ── */}
-            {tab === "preview" && (
-              <>
-                <p style={{ fontSize: 12, color: "#8c8272", marginBottom: 16, marginTop: 0 }}>Shows the path from this scene following the first choice at each step. Click any scene to jump to it.</p>
-                <div style={{ position: "relative", paddingLeft: 20 }}>
-                  {/* Vertical line */}
-                  <div style={{ position: "absolute", left: 9, top: 12, bottom: 12, width: 2, background: "#d8d2c4" }} />
-
-                  {getTrace(selected, 12).map((t, i) => {
-                    const n = nodes[t.id];
-                    const choices = n && n.choices || [];
-                    return (
-                      <div key={t.id + "-" + i} style={{ position: "relative", marginBottom: 4 }}>
-                        {/* Dot */}
-                        <div style={{
-                          position: "absolute", left: -16, top: 12,
-                          width: 12, height: 12, borderRadius: "50%",
-                          background: i === 0 ? "#e8963a" : t.isEnding ? "#4a6741" : "#d8d2c4",
-                          border: "2px solid #f5f0e8",
-                        }} />
-
-                        <div
-                          onClick={() => { setSelected(t.id); setTab("content"); }}
-                          style={{
-                            background: t.id === selected ? "#ede8da" : "#ffffff",
-                            border: t.id === selected ? "2px solid #e8963a" : "1px solid #d8d2c4",
-                            borderRadius: 3, padding: "10px 14px", cursor: "pointer",
-                            transition: "border-color 0.15s",
-                          }}
-                        >
-                          <div style={{ fontSize: 14, fontWeight: 700, color: "#0f0e0d", marginBottom: 2, fontFamily: "'Bebas Neue', sans-serif", letterSpacing: 1 }}>
-                            {t.isEnding && <span style={{ color: "#4a6741", marginRight: 6 }}>🏁</span>}
-                            {t.title}
-                          </div>
-                          <div style={{ fontSize: 10, color: "#8c8272", fontFamily: "monospace", marginBottom: 4 }}>{t.id}</div>
-                          {choices.length > 0 && (
-                            <div style={{ marginTop: 4 }}>
-                              {choices.map((c, ci) => (
-                                <div key={ci} style={{ fontSize: 11, color: ci === 0 ? "#c4782a" : "#8c8272", padding: "1px 0", fontWeight: ci === 0 ? 600 : 400 }}>
-                                  {ci === 0 ? "→ " : "  "}{c.text}{ci === 0 && " (followed)"}
-                                </div>
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </>
-            )}
-
+      {/* Main */}
+      <div className="main">
+        <div className="main-header">
+          <div className="main-title"><em>STORY</em> EDITOR</div>
+          <div className="view-tabs">
+            <button className={"view-tab"+(view==="story"?" active":"")} onClick={()=>setView("story")}>Edit</button>
+            <button className={"view-tab"+(view==="preview"?" active":"")} onClick={()=>{setView("preview");setPreviewNode("start");}}>Preview</button>
           </div>
-        ) : (
-          <div style={{ padding: 40, textAlign: "center", color: "#8c8272" }}>Select a scene to edit</div>
+        </div>
+
+        {view==="story" && (
+          <>
+            {filtered.map(([id,n])=>(
+              <SceneCard key={id} id={id} n={n} />
+            ))}
+            {filtered.length===0 && <div style={{textAlign:"center",color:"var(--text-muted)",padding:40}}>No scenes match your search.</div>}
+          </>
         )}
+
+        {view==="preview" && <PreviewMode />}
       </div>
 
-      {/* ── Import Modal ── */}
-      {showImport && (
-        <div style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.7)", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 500 }} onClick={() => setShowImport(false)}>
-          <div style={{ background: "#ffffff", border: "1px solid #d8d2c4", borderRadius: 12, padding: 24, width: 500 }} onClick={e => e.stopPropagation()}>
-            <h3 style={{ fontSize: 16, fontWeight: 700, color: "#0f0e0d", marginBottom: 12 }}>Import JSON</h3>
-            <textarea value={importText} onChange={e => setImportText(e.target.value)} placeholder="Paste JSON here..." style={{ ...s.inp, minHeight: 200, fontFamily: "monospace", fontSize: 11 }} />
-            <div style={{ display: "flex", gap: 8, justifyContent: "flex-end" }}>
-              <button onClick={() => setShowImport(false)} style={s.btn}>Cancel</button>
-              <button onClick={importJSON} style={s.accent}>Import</button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* ── Export Modal ── */}
-      {showExport && (
-        <div style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.7)", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 500 }} onClick={() => setShowExport(null)}>
-          <div style={{ background: "#ffffff", border: "1px solid #d8d2c4", borderRadius: 12, padding: 24, width: 640, maxHeight: "85vh", display: "flex", flexDirection: "column" }} onClick={e => e.stopPropagation()}>
-            <h3 style={{ fontSize: 16, fontWeight: 700, color: "#0f0e0d", marginBottom: 4 }}>
-              {showExport === "html" ? "Generate Playable HTML" : "Export JSON"}
-            </h3>
-            <p style={{ fontSize: 12, color: "#8c8272", marginBottom: 12, lineHeight: 1.6 }}>
-              {showExport === "html"
-                ? "This is a complete, standalone HTML game file. To save it: click inside the box, press Ctrl+A (select all), then Ctrl+C (copy). Open Notepad, paste it in, then File → Save As → change type to \"All Files\" → name it something.html → Save. Double-click the file to play."
-                : "Select all the text below (Ctrl+A inside the box), copy it (Ctrl+C), and save it as a .json file. Or use this to import into the editor later."
-              }
-            </p>
-            <textarea
-              readOnly
-              value={exportText}
-              onFocus={e => e.target.select()}
-              style={{ ...s.inp, flex: 1, minHeight: 300, fontFamily: "monospace", fontSize: 10, resize: "vertical", marginBottom: 12 }}
-            />
-            <div style={{ display: "flex", gap: 8, justifyContent: "flex-end" }}>
-              <button onClick={() => setShowExport(null)} style={s.btn}>Close</button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* ── Settings Modal ── */}
+      {/* Settings */}
       {showSettings && (
-        <div style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.5)", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 500 }} onClick={() => setShowSettings(false)}>
-          <div style={{ background: "#ffffff", border: "1px solid #d8d2c4", borderRadius: 3, padding: 24, width: 480 }} onClick={e => e.stopPropagation()}>
-            <h3 style={{ fontSize: 20, fontWeight: 400, color: "#0f0e0d", marginBottom: 4, fontFamily: "'Bebas Neue', sans-serif", letterSpacing: 2 }}>GitHub Settings</h3>
-            <p style={{ fontSize: 12, color: "#8c8272", marginBottom: 16, lineHeight: 1.6 }}>
-              Connect to GitHub to upload images directly to your repo. Your token is stored in your browser and persists between visits. It never leaves your device except to talk to GitHub.
-            </p>
-
-            <label style={s.label}>Repository (owner/repo)</label>
-            <input
-              value={ghRepo}
-              onChange={e => setGhRepo(e.target.value)}
-              placeholder="paulbrbeal/Impact-Quest"
-              style={s.inp}
-            />
-
-            <label style={s.label}>Personal Access Token</label>
-            <input
-              type="password"
-              value={ghToken}
-              onChange={e => setGhToken(e.target.value)}
-              placeholder="ghp_xxxxxxxxxxxxxxxxxxxx"
-              style={s.inp}
-            />
-            <div style={{ fontSize: 11, color: "#8c8272", marginTop: -8, marginBottom: 16, lineHeight: 1.6 }}>
-              Create a token at <span style={{ color: "#c4782a" }}>github.com → Settings → Developer settings → Personal access tokens → Fine-grained tokens</span>. Give it <strong>Contents: Read and write</strong> permission on your Impact-Quest repo only.
+        <div className="settings-overlay" onClick={()=>setShowSettings(false)}>
+          <div className="settings-panel" onClick={e=>e.stopPropagation()}>
+            <h2>SETTINGS</h2>
+            <p>Connect to GitHub to save game data and upload images.</p>
+            <label className="field-label">Repository</label>
+            <input className="field-input" value={ghRepo} onChange={e=>setGhRepo(e.target.value)} placeholder="owner/repo" />
+            <label className="field-label">Personal Access Token</label>
+            <input className="field-input" type="password" value={ghToken} onChange={e=>setGhToken(e.target.value)} placeholder="ghp_..." />
+            <div style={{fontSize:10,color:"var(--text-muted)",marginBottom:12,lineHeight:1.6}}>
+              Create at GitHub → Settings → Developer settings → Fine-grained tokens. Needs <strong>Contents: Read and write</strong> on your repo.
             </div>
-
-            {ghToken && (
-              <div style={{ background: "#f0fdf4", border: "1px solid #bbf7d0", borderRadius: 3, padding: "8px 12px", marginBottom: 16, fontSize: 12, color: "#4a6741" }}>
-                Token set. Images will upload to <strong>{ghRepo}</strong>/images/
-              </div>
-            )}
-
-            <div style={{ display: "flex", gap: 8, justifyContent: "flex-end" }}>
-              {ghToken && <button onClick={() => { saveGhSettings("", ghRepo); flash("Token cleared"); }} style={{ ...s.btn, color: "#c0392b" }}>Clear Token</button>}
-              <button onClick={() => { saveGhSettings(ghToken, ghRepo); setShowSettings(false); flash("Settings saved"); }} style={s.accent}>Save</button>
+            <div className={"token-status "+(ghToken?"token-ok":"token-missing")}>
+              {ghToken ? "✓ Token set for "+ghRepo : "No token configured — save and image upload disabled"}
+            </div>
+            <div style={{display:"flex",gap:8,justifyContent:"flex-end",marginTop:12}}>
+              {ghToken && <button className="sb-btn" style={{color:"var(--rust)"}} onClick={()=>{saveSettings("",ghRepo);flash("Token cleared");}}>Clear Token</button>}
+              <button className="sb-btn primary" onClick={()=>{saveSettings(ghToken,ghRepo);setShowSettings(false);flash("Settings saved");}}>Save</button>
             </div>
           </div>
         </div>
       )}
 
-      {/* ── Toast ── */}
-      {toast && (
-        <div style={{ position: "fixed", bottom: 20, left: "50%", transform: "translateX(-50%)", background: "#0f0e0d", border: "1px solid #e8963a", color: "#e8963a", padding: "7px 18px", borderRadius: 3, fontSize: 13, fontWeight: 600, zIndex: 1000, boxShadow: "0 4px 20px rgba(0,0,0,0.2)" }}>
-          {toast}
-        </div>
-      )}
+      {/* Toast */}
+      {toast && <div className="toast">{toast}</div>}
     </div>
   );
 }
 
 ReactDOM.render(React.createElement(Editor), document.getElementById("root"));
-
 </script>
 </body>
 </html>
