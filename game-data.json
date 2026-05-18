@@ -1,18 +1,18 @@
 {
   "start": {
     "title": "The Impact Quest",
-    "narrative": "You're Dr. Alex Chen, a researcher at a UK university. Your team has just published a groundbreaking study on how community-led urban green spaces reduce anxiety and improve social cohesion in deprived neighbourhoods.\n\nThe paper is strong — published in a top journal with robust methodology. But right now, it's just words on a page. Your Head of School has flagged your work as having “REF impact potential” and the university's Impact Officer has reached out.\n\nThe clock is ticking toward REF 2029. What you do next will determine whether this research changes lives — or gathers dust.",
+    "narrative": "You're a researcher at Northumbria university. Your team has just published a ground-breaking study on how community-led urban green spaces reduce anxiety and improve social cohesion in deprived neighbourhoods.\n\nThe paper is strong, published in a top journal with robust methodology. But right now, it's just words on a page. Your Head of School has flagged your work as having “REF impact potential” and the impact team has reached out.\n\nThe clock is ticking toward REF 2029. What you do next will determine whether this research changes lives, or gathers dust.",
     "choices": [
       {
-        "text": "Meet with the Impact Officer to develop a strategy",
+        "text": "Meet with the Impact Officer to start developing your impact strategy",
         "next": "meet_officer"
       },
       {
-        "text": "Go straight to Twitter/X and start promoting the paper",
+        "text": "Go straight to social media and start promoting the paper",
         "next": "social_media_first"
       },
       {
-        "text": "Contact the local council directly — they need to hear this",
+        "text": "Contact the local council directly, they need to hear this and you've got the contacts",
         "next": "cold_call_council"
       }
     ]
