@@ -13,20 +13,16 @@
   --accent:#e8963a;--accent-dark:#c4782a;--accent-glow:rgba(232,150,58,0.1);
   --ink:#0f0e0d;--sage:#4a6741;--sage-light:#e8f0e5;--rust:#c0392b;--rust-light:#fdeeed;
   --blue:#5b7fb5;--blue-light:#eaf0f7;
-  --path-a:#e8963a;--path-b:#5b7fb5;--path-c:#4a6741;
 }
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh}
-button{font-family:inherit;cursor:pointer}
-input,textarea,select{font-family:inherit}
-
-/* Layout */
+button{font-family:inherit;cursor:pointer}input,textarea,select{font-family:inherit}
 .app{display:flex;height:100vh;overflow:hidden}
 .sidebar{width:260px;background:var(--ink);color:#c8bfaa;display:flex;flex-direction:column;flex-shrink:0}
 .main{flex:1;overflow-y:auto;padding:24px 32px 80px}
 
 /* Sidebar */
 .sidebar-header{padding:16px;border-bottom:1px solid #2a2826}
-.logo{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:3px;color:#f5f0e8;display:flex;align-items:center;gap:8px}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:3px;color:#f5f0e8}
 .logo em{color:var(--accent);font-style:normal}
 .sidebar-stats{padding:12px 16px;border-bottom:1px solid #2a2826;display:flex;gap:12px;flex-wrap:wrap}
 .stat{text-align:center;flex:1;min-width:50px}
@@ -35,8 +31,11 @@ input,textarea,select{font-family:inherit}
 .sidebar-actions{padding:12px 16px;border-bottom:1px solid #2a2826;display:flex;flex-wrap:wrap;gap:6px}
 .sb-btn{background:#1a1917;border:1px solid #2a2826;color:#c8bfaa;padding:5px 10px;border-radius:3px;font-size:10px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;transition:all 0.15s}
 .sb-btn:hover{border-color:var(--accent);color:var(--accent)}
-.sb-btn.primary{background:var(--accent);border-color:var(--accent);color:var(--ink)}
-.sb-btn.primary:hover{background:var(--accent-dark)}
+.sb-btn.primary{background:var(--accent);border-color:var(--accent);color:var(--ink)}.sb-btn.primary:hover{background:var(--accent-dark)}
+.sidebar-nav{padding:8px 16px;border-bottom:1px solid #2a2826;display:flex;gap:0}
+.nav-tab{flex:1;padding:6px;font-size:10px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;background:transparent;color:#6b6459;border:none;border-bottom:2px solid transparent;transition:all 0.15s;text-align:center}
+.nav-tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+.nav-tab:hover:not(.active){color:#c8bfaa}
 .sidebar-search{padding:8px 16px}
 .sidebar-search input{width:100%;background:#1a1917;border:1px solid #2a2826;color:#c8bfaa;padding:6px 10px;border-radius:3px;font-size:12px;outline:none}
 .sidebar-search input:focus{border-color:var(--accent)}
@@ -51,18 +50,24 @@ input,textarea,select{font-family:inherit}
 .scene-item.active .title{color:#f5f0e8}
 .scene-item .meta{font-size:9px;color:#4a4540;font-family:monospace;margin-top:1px}
 .badge{font-size:7px;padding:1px 4px;border-radius:2px;font-weight:800;letter-spacing:0.5px;flex-shrink:0}
+/* Story item in sidebar */
+.story-item{padding:8px 16px;cursor:pointer;border-left:3px solid transparent;transition:all 0.1s}
+.story-item:hover{background:#1a1917}
+.story-item.active{background:#1a1917;border-left-color:var(--accent)}
+.story-item .s-title{font-size:12px;font-weight:600;color:#c8bfaa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.story-item.active .s-title{color:#f5f0e8}
+.story-item .s-meta{font-size:9px;color:#4a4540;margin-top:2px}
 
-/* Main content */
+/* Main header */
 .main-header{margin-bottom:24px;display:flex;justify-content:space-between;align-items:flex-start}
 .main-title{font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:3px;color:var(--ink)}
 .main-title em{font-style:normal;color:var(--accent)}
 .view-tabs{display:flex;gap:0;border:1px solid var(--border);border-radius:3px;overflow:hidden}
 .view-tab{padding:6px 16px;font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;background:var(--surface);color:var(--text-muted);border:none;transition:all 0.15s}
 .view-tab:not(:last-child){border-right:1px solid var(--border)}
-.view-tab.active{background:var(--ink);color:var(--bg)}
-.view-tab:hover:not(.active){background:var(--surface-alt)}
+.view-tab.active{background:var(--ink);color:var(--bg)}.view-tab:hover:not(.active){background:var(--surface-alt)}
 
-/* Scene Card */
+/* Scene card */
 .scene-card{background:var(--surface);border:1px solid var(--border);border-radius:3px;margin-bottom:16px;overflow:hidden;transition:border-color 0.15s}
 .scene-card.expanded{border-color:var(--accent)}
 .scene-card-header{padding:14px 18px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:background 0.1s}
@@ -74,14 +79,13 @@ input,textarea,select{font-family:inherit}
 .scene-card .card-badges{display:flex;gap:4px;flex-shrink:0}
 .scene-card .card-id{font-size:9px;color:var(--text-muted);font-family:monospace;flex-shrink:0}
 .scene-card .choice-count{font-size:10px;color:var(--text-muted);flex-shrink:0}
-.scene-body{padding:0 18px 18px;display:none}
-.scene-card.expanded .scene-body{display:block}
+.used-by{font-size:9px;color:var(--blue);margin-left:4px}
 
-/* Branch connector */
-.branch-connector{display:flex;align-items:center;padding:0 18px;margin:-8px 0;position:relative}
-.branch-line{width:2px;height:24px;margin-left:23px}
+/* Story editor card */
+.story-edit-card{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:20px;margin-bottom:16px}
+.story-edit-card h3{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;color:var(--ink);margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid var(--ink)}
 
-/* Edit fields */
+/* Fields */
 .field-label{font-size:9px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px;display:block}
 .field-input{width:100%;background:var(--surface-alt);border:1px solid var(--border-light);color:var(--text);padding:8px 10px;border-radius:3px;font-size:13px;outline:none;margin-bottom:12px}
 .field-input:focus{border-color:var(--accent)}
@@ -89,8 +93,8 @@ input,textarea,select{font-family:inherit}
 .field-textarea:focus{border-color:var(--accent)}
 .field-select{width:100%;background:var(--surface-alt);border:1px solid var(--border-light);color:var(--text);padding:6px 8px;border-radius:3px;font-size:12px;outline:none}
 
-/* Choice cards within scene */
-.choice-card{background:var(--surface-alt);border:1px solid var(--border-light);border-radius:3px;padding:10px 12px;margin-bottom:8px;position:relative}
+/* Choice cards */
+.choice-card{background:var(--surface-alt);border:1px solid var(--border-light);border-radius:3px;padding:10px 12px;margin-bottom:8px}
 .choice-card .choice-letter{font-size:10px;font-weight:800;color:var(--accent-dark);margin-bottom:4px;display:flex;justify-content:space-between;align-items:center}
 .choice-card .choice-actions{display:flex;gap:3px}
 .choice-card .choice-actions button{background:none;border:none;color:var(--text-muted);font-size:10px;padding:2px 4px;cursor:pointer;border-radius:2px}
@@ -98,45 +102,32 @@ input,textarea,select{font-family:inherit}
 .choice-card .choice-actions .del:hover{background:var(--rust-light);color:var(--rust)}
 .choice-target{display:flex;align-items:center;gap:6px;margin-top:6px}
 .choice-target .arrow{color:var(--accent);font-size:11px}
-.choice-target .target-name{font-size:11px;color:var(--text-sec);cursor:pointer}
-.choice-target .target-name:hover{color:var(--accent-dark);text-decoration:underline}
+.choice-target .target-name{font-size:11px;color:var(--text-sec);cursor:pointer}.choice-target .target-name:hover{color:var(--accent-dark);text-decoration:underline}
 
-/* Scores inline */
+/* Scores */
 .scores-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
 .score-chip{display:flex;align-items:center;gap:6px;background:var(--surface-alt);border:1px solid var(--border-light);border-radius:3px;padding:4px 8px}
 .score-chip .chip-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
 .score-chip label{font-size:10px;color:var(--text-muted);font-weight:600}
 .score-chip input{width:48px;background:transparent;border:none;color:var(--text);font-size:13px;font-weight:700;text-align:center;outline:none;font-family:'DM Sans',sans-serif}
 
-/* Image section */
-.img-section{margin-bottom:12px}
-.img-row{display:flex;gap:6px}
-.img-row input{flex:1}
-.img-preview{margin-top:8px;border-radius:3px;overflow:hidden;border:1px solid var(--border-light);position:relative}
+/* Image */
+.img-row{display:flex;gap:6px;margin-bottom:12px}
+.img-preview{margin-bottom:12px;border-radius:3px;overflow:hidden;border:1px solid var(--border-light)}
 .img-preview img{display:block;max-height:160px;width:100%;object-fit:cover}
-.img-preview .img-controls{display:flex;justify-content:space-between;align-items:center;padding:4px 8px;background:var(--surface-alt)}
+.img-controls{display:flex;justify-content:space-between;align-items:center;padding:4px 8px;background:var(--surface-alt)}
 .size-btns{display:flex;gap:3px}
 .size-btn{font-size:9px;padding:2px 6px;border:1px solid var(--border-light);border-radius:2px;background:var(--surface);color:var(--text-muted);cursor:pointer;font-weight:600}
 .size-btn.active{background:var(--accent);border-color:var(--accent);color:var(--ink)}
 .remove-btn{font-size:9px;color:var(--rust);background:var(--rust-light);border:1px solid #e8c4c0;border-radius:2px;padding:2px 6px;cursor:pointer;font-weight:600}
 
-/* Scene footer actions */
+/* Footer */
 .scene-footer{display:flex;gap:6px;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid var(--border-light);margin-top:8px}
 .scene-footer button{font-size:10px;padding:4px 10px;border-radius:3px;border:1px solid var(--border);background:var(--surface);color:var(--text-muted);font-weight:600;letter-spacing:0.03em}
 .scene-footer button:hover{border-color:var(--accent);color:var(--accent-dark)}
-.scene-footer .del-btn{color:var(--rust);border-color:var(--rust-light)}
-.scene-footer .del-btn:hover{background:var(--rust);color:#fff;border-color:var(--rust)}
+.scene-footer .del-btn{color:var(--rust);border-color:var(--rust-light)}.scene-footer .del-btn:hover{background:var(--rust);color:#fff;border-color:var(--rust)}
 
-/* Settings panel */
-.settings-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.4);display:flex;align-items:center;justify-content:center;z-index:100}
-.settings-panel{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:24px;width:460px;max-height:80vh;overflow-y:auto}
-.settings-panel h2{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:2px;color:var(--ink);margin-bottom:4px}
-.settings-panel p{font-size:12px;color:var(--text-muted);margin-bottom:16px;line-height:1.6}
-.settings-panel .token-status{padding:8px 12px;border-radius:3px;font-size:12px;margin-bottom:12px}
-.token-ok{background:var(--sage-light);border:1px solid #bbf7d0;color:var(--sage)}
-.token-missing{background:var(--rust-light);border:1px solid #e8c4c0;color:var(--rust)}
-
-/* Preview mode */
+/* Preview */
 .preview-container{max-width:640px;margin:0 auto}
 .preview-card{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:24px;margin-bottom:16px}
 .preview-title{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:2px;border-bottom:2px solid var(--ink);padding-bottom:10px;margin-bottom:14px}
@@ -146,18 +137,22 @@ input,textarea,select{font-family:inherit}
 .preview-choice:hover{border-color:var(--accent);background:var(--accent-glow)}
 .preview-letter{width:24px;height:24px;border-radius:50%;background:var(--border-light);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--text-muted);flex-shrink:0}
 .preview-choice:hover .preview-letter{background:var(--accent);color:var(--ink)}
-.preview-restart{display:inline-block;margin-top:8px;font-size:11px;color:var(--accent-dark);cursor:pointer;font-weight:600;text-transform:uppercase;letter-spacing:0.05em}
+.preview-restart{font-size:11px;color:var(--accent-dark);cursor:pointer;font-weight:600;text-transform:uppercase;letter-spacing:0.05em}
 
-/* Toast */
+/* Settings */
+.settings-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.4);display:flex;align-items:center;justify-content:center;z-index:100}
+.settings-panel{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:24px;width:460px;max-height:80vh;overflow-y:auto}
+.settings-panel h2{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:2px;color:var(--ink);margin-bottom:4px}
+.settings-panel p{font-size:12px;color:var(--text-muted);margin-bottom:16px;line-height:1.6}
+.token-status{padding:8px 12px;border-radius:3px;font-size:12px;margin-bottom:12px}
+.token-ok{background:var(--sage-light);border:1px solid #bbf7d0;color:var(--sage)}
+.token-missing{background:var(--rust-light);border:1px solid #e8c4c0;color:var(--rust)}
+
 .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);border:1px solid var(--accent);color:var(--accent);padding:7px 18px;border-radius:3px;font-size:13px;font-weight:600;z-index:200;box-shadow:0 4px 20px rgba(0,0,0,0.15)}
-
-/* Scrollbar */
 .scene-list::-webkit-scrollbar,.main::-webkit-scrollbar{width:6px}
 .scene-list::-webkit-scrollbar-track,.main::-webkit-scrollbar-track{background:transparent}
 .scene-list::-webkit-scrollbar-thumb{background:#2a2826;border-radius:3px}
 .main::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
-
-/* Hidden file inputs */
 .hidden{display:none}
 </style>
 </head>
@@ -168,583 +163,351 @@ input,textarea,select{font-family:inherit}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
 <script type="text/babel">
 const { useState, useCallback, useRef, useEffect } = React;
+const SCORE_KEYS=["strategy","stakeholders","significance","reach","evidence"];
+const SCORE_COLORS={strategy:"#E8A838",stakeholders:"#4a6741",significance:"#c0392b",reach:"#5b7fb5",evidence:"#96CEB4"};
+const SCORE_LABELS={strategy:"Strategy",stakeholders:"Stakeholders",significance:"Significance",reach:"Reach",evidence:"Evidence"};
+const ENDING_TYPES=["none","policy","practitioner","cycle"];
+const uid=()=>"node_"+Math.random().toString(36).slice(2,8);
 
-const SCORE_KEYS = ["strategy","stakeholders","significance","reach","evidence"];
-const SCORE_COLORS = {strategy:"#E8A838",stakeholders:"#4a6741",significance:"#c0392b",reach:"#5b7fb5",evidence:"#96CEB4"};
-const SCORE_LABELS = {strategy:"Strategy",stakeholders:"Stakeholders",significance:"Significance",reach:"Reach",evidence:"Evidence"};
-const ENDING_TYPES = ["none","policy","practitioner","cycle"];
-const uid = () => "node_" + Math.random().toString(36).slice(2,8);
-
-const DEFAULT_DATA = {
-  start: {
-    title: "The Impact Quest",
-    narrative: "You're Dr. Alex Chen, a researcher at a UK university. Your team has just published a groundbreaking study on how community-led urban green spaces reduce anxiety and improve social cohesion in deprived neighbourhoods.\n\nThe clock is ticking toward REF 2029. What you do next will determine whether this research changes lives — or gathers dust.",
-    choices: [
-      { text: "Meet with the Impact Officer to develop a strategy", next: "meet_officer" },
-      { text: "Go straight to Twitter/X and start promoting the paper", next: "social_media_first" },
-      { text: "Contact the local council directly", next: "cold_call_council" }
-    ]
-  },
-  meet_officer: {
-    title: "Strategic Thinking",
-    narrative: "Smart move. The Impact Officer, Sam, helps you map out a Theory of Change.\n\nSam asks: \"Which pathway do you want to prioritise first?\"",
-    choices: [
-      { text: "Policy influence — let's aim high", next: "policy_route" },
-      { text: "Practitioner change — work with community orgs", next: "practitioner_route" }
-    ],
-    scoreEffect: { strategy: 10, evidence: 5 }
-  },
-  social_media_first: {
-    title: "Going Viral (Sort Of)",
-    narrative: "You write a Twitter thread. It gets 200 likes. A regional paper writes: \"University boffins discover parks are good for you.\"",
-    choices: [{ text: "Time to get strategic", next: "meet_officer" }],
-    scoreEffect: { reach: 10, significance: -5 }
-  },
-  cold_call_council: {
-    title: "The Cold Shoulder",
-    narrative: "You email the council. Three weeks later: \"Thanks, we'll keep it on file.\"",
-    choices: [
-      { text: "Attend policy engagement training", next: "meet_officer" },
-      { text: "Focus on community organisations", next: "practitioner_route" }
-    ],
-    scoreEffect: { strategy: -5, stakeholders: -5 }
-  },
-  policy_route: {
-    title: "The Policy Pathway",
-    narrative: "You craft a policy brief. The council is refreshing its Health & Wellbeing Strategy.\n\nCongratulations! You've built a strong policy-focused impact case study.",
-    choices: [],
-    scoreEffect: { strategy: 10, stakeholders: 5 },
-    isEnding: true,
-    endingType: "policy"
-  },
-  practitioner_route: {
-    title: "Working With Communities",
-    narrative: "You connect with community organisations. One deep partnership beats three shallow ones.\n\nCongratulations! You've built a practice-based impact case study.",
-    choices: [],
-    scoreEffect: { stakeholders: 10, strategy: 5 },
-    isEnding: true,
-    endingType: "practitioner"
-  }
+const DEFAULT_DATA={
+  stories:{impact_quest:{title:"The Impact Quest",description:"Navigate from publication to real-world impact.",image:"",startScene:"start"}},
+  scenes:{start:{title:"Getting Started",narrative:"Welcome. Edit this scene or import your game data.",choices:[]}}
 };
 
-function Editor() {
-  const [nodes, setNodes] = useState(DEFAULT_DATA);
-  const [order, setOrder] = useState(() => Object.keys(DEFAULT_DATA));
-  const nodesRef = useRef(nodes); nodesRef.current = nodes;
-  const orderRef = useRef(order); orderRef.current = order;
-  const [expanded, setExpanded] = useState("start");
-  const [search, setSearch] = useState("");
-  const [view, setView] = useState("story"); // story | preview
-  const [previewNode, setPreviewNode] = useState("start");
-  const [toast, setToast] = useState(null);
-  const [showSettings, setShowSettings] = useState(false);
-  const [ghToken, setGhToken] = useState(() => localStorage.getItem("iq_gh_token") || "");
-  const [ghRepo, setGhRepo] = useState(() => localStorage.getItem("iq_gh_repo") || "paulbrbeal/Impact-Quest");
-  const [saving, setSaving] = useState(false);
-  const [uploading, setUploading] = useState(false);
-  const [dataVersion, setDataVersion] = useState(0);
-  const fileRef = useRef(null);
-  const imgRef = useRef(null);
+function Editor(){
+  const [data,setData]=useState(DEFAULT_DATA);
+  const dataRef=useRef(data);dataRef.current=data;
+  const [sidebarTab,setSidebarTab]=useState("stories"); // stories | scenes
+  const [selectedStory,setSelectedStory]=useState("");
+  const [expanded,setExpanded]=useState("");
+  const [search,setSearch]=useState("");
+  const [view,setView]=useState("story"); // story | preview
+  const [previewNode,setPreviewNode]=useState("start");
+  const [toast,setToast]=useState(null);
+  const [showSettings,setShowSettings]=useState(false);
+  const [ghToken,setGhToken]=useState(()=>localStorage.getItem("iq_gh_token")||"");
+  const [ghRepo,setGhRepo]=useState(()=>localStorage.getItem("iq_gh_repo")||"paulbrbeal/Impact-Quest");
+  const [saving,setSaving]=useState(false);
+  const [uploading,setUploading]=useState(false);
+  const [dataVersion,setDataVersion]=useState(0);
+  const fileRef=useRef(null);
+  const imgRef=useRef(null);
 
-  const flash = useCallback((msg) => { setToast(msg); setTimeout(() => setToast(null), 2500); }, []);
+  const flash=useCallback((msg)=>{setToast(msg);setTimeout(()=>setToast(null),2500);},[]);
 
-  // Auto-load game-data.json — try GitHub API first (no cache), fall back to Pages
-  useEffect(() => {
-    const token = (localStorage.getItem("iq_gh_token")||"").replace(/[^\x20-\x7E]/g,"").trim();
-    const repo = localStorage.getItem("iq_gh_repo") || "paulbrbeal/Impact-Quest";
-    const loadData = (data) => {
-      if (data && typeof data === "object" && Object.keys(data).length > 0) {
-        setNodes(data); setOrder(Object.keys(data)); setExpanded(Object.keys(data)[0] || "start");
-        setDataVersion(v => v + 1);
-      }
+  // Helpers to update stories and scenes
+  const updateScene=(id,changes)=>{setData(prev=>({...prev,scenes:{...prev.scenes,[id]:{...prev.scenes[id],...changes}}}));};
+  const updateStory=(sid,changes)=>{setData(prev=>({...prev,stories:{...prev.stories,[sid]:{...prev.stories[sid],...changes}}}));};
+
+  // Auto-load
+  useEffect(()=>{
+    const token=(localStorage.getItem("iq_gh_token")||"").replace(/[^\x20-\x7E]/g,"").trim();
+    const repo=localStorage.getItem("iq_gh_repo")||"paulbrbeal/Impact-Quest";
+    const loadData=(d)=>{
+      if(!d||typeof d!=="object") return;
+      // Backwards compat
+      if(!d.stories){d={stories:{default:{title:"The Impact Quest",description:"",startScene:"start"}},scenes:d};}
+      setData(d);setDataVersion(v=>v+1);
+      var firstStory=Object.keys(d.stories)[0]||"";
+      setSelectedStory(firstStory);
+      if(d.stories[firstStory])setExpanded(d.stories[firstStory].startScene||"");
     };
-    if (token) {
-      // Fetch from API — always fresh
-      fetch("https://api.github.com/repos/"+repo+"/contents/game-data.json", {headers:{"Authorization":"Bearer "+token}})
-        .then(r => r.ok ? r.json() : null)
-        .then(resp => {
-          if (resp && resp.content) {
-            const data = JSON.parse(atob(resp.content.replace(/\n/g,"")));
-            loadData(data);
-          }
-        })
-        .catch(() => {
-          // Fall back to Pages
-          fetch("game-data.json?t="+Date.now()).then(r=>r.json()).then(loadData).catch(()=>{});
-        });
+    if(token){
+      fetch("https://api.github.com/repos/"+repo+"/contents/game-data.json",{headers:{"Authorization":"Bearer "+token}})
+        .then(r=>r.ok?r.json():null).then(resp=>{if(resp&&resp.content)loadData(JSON.parse(atob(resp.content.replace(/\n/g,""))));})
+        .catch(()=>{fetch("game-data.json?t="+Date.now()).then(r=>r.json()).then(loadData).catch(()=>{});});
     } else {
       fetch("game-data.json?t="+Date.now()).then(r=>r.json()).then(loadData).catch(()=>{});
     }
-  }, []);
+  },[]);
 
-  // Save GitHub settings
-  const saveSettings = (t, r) => {
-    setGhToken(t); setGhRepo(r);
-    if(t) localStorage.setItem("iq_gh_token", t); else localStorage.removeItem("iq_gh_token");
-    if(r) localStorage.setItem("iq_gh_repo", r); else localStorage.removeItem("iq_gh_repo");
-  };
+  const saveSettings=(t,r)=>{setGhToken(t);setGhRepo(r);if(t)localStorage.setItem("iq_gh_token",t);else localStorage.removeItem("iq_gh_token");if(r)localStorage.setItem("iq_gh_repo",r);else localStorage.removeItem("iq_gh_repo");};
 
-  // Node operations
-  const update = useCallback((id, changes) => {
-    setNodes(prev => ({ ...prev, [id]: { ...prev[id], ...changes } }));
-  }, []);
+  // Story CRUD
+  const addStory=()=>{const sid="story_"+Math.random().toString(36).slice(2,6);setData(prev=>({...prev,stories:{...prev.stories,[sid]:{title:"New Story",description:"",image:"",startScene:""}}}));setSelectedStory(sid);setSidebarTab("stories");};
+  const deleteStory=(sid)=>{if(Object.keys(data.stories).length<=1){flash("Need at least one story");return;}setData(prev=>{const s={...prev.stories};delete s[sid];return{...prev,stories:s};});if(selectedStory===sid)setSelectedStory(Object.keys(data.stories).filter(k=>k!==sid)[0]||"");flash("Story deleted");};
 
-  const addNode = () => {
-    const id = uid();
-    setNodes(prev => ({ ...prev, [id]: { title:"New Scene", narrative:"", choices:[], scoreEffect:{} } }));
-    setOrder(prev => [...prev, id]);
-    setExpanded(id);
-    flash("Scene added");
-  };
-
-  const deleteNode = (id) => {
-    if(id === "start"){ flash("Can't delete the start scene"); return; }
-    setNodes(prev => {
-      const next = {...prev}; delete next[id];
-      Object.values(next).forEach(n => { if(n.choices) n.choices = n.choices.map(c => c.next===id?{...c,next:""}:c); });
-      return next;
+  // Scene CRUD
+  const addScene=()=>{const id=uid();setData(prev=>({...prev,scenes:{...prev.scenes,[id]:{title:"New Scene",narrative:"",choices:[],scoreEffect:{}}}}));setExpanded(id);setSidebarTab("scenes");flash("Scene added");};
+  const deleteScene=(id)=>{setData(prev=>{const s={...prev.scenes};delete s[id];Object.values(s).forEach(n=>{if(n.choices)n.choices=n.choices.map(c=>c.next===id?{...c,next:""}:c);});return{...prev,scenes:s};});if(expanded===id)setExpanded("");flash("Scene deleted");};
+  const duplicateScene=(id)=>{const src=data.scenes[id];const nid=uid();setData(prev=>({...prev,scenes:{...prev.scenes,[nid]:{...src,title:src.title+" (copy)",choices:(src.choices||[]).map(c=>({...c})),scoreEffect:{...(src.scoreEffect||{})}}}}));setExpanded(nid);flash("Duplicated");};
+  const renameScene=(oldId,newId)=>{
+    newId=newId.trim().toLowerCase().replace(/[^a-z0-9_]/g,"_");
+    if(!newId||newId===oldId)return;if(data.scenes[newId]){flash("ID exists");return;}
+    setData(prev=>{
+      const scenes={};Object.entries(prev.scenes).forEach(([id,n])=>{const key=id===oldId?newId:id;scenes[key]={...n,choices:(n.choices||[]).map(c=>c.next===oldId?{...c,next:newId}:{...c})};});
+      const stories={};Object.entries(prev.stories).forEach(([sid,s])=>{stories[sid]={...s,startScene:s.startScene===oldId?newId:s.startScene};});
+      return{...prev,scenes,stories};
     });
-    setOrder(prev => prev.filter(x => x!==id));
-    if(expanded===id) setExpanded("start");
-    flash("Scene deleted");
+    if(expanded===oldId)setExpanded(newId);flash("Renamed");
   };
 
-  const duplicateNode = (id) => {
-    const src = nodes[id]; const nid = uid();
-    setNodes(prev => ({...prev,[nid]:{...src,title:src.title+" (copy)",choices:(src.choices||[]).map(c=>({...c})),scoreEffect:{...(src.scoreEffect||{})}}}));
-    setOrder(prev => { const i=prev.indexOf(id); const n=[...prev]; n.splice(i+1,0,nid); return n; });
-    setExpanded(nid);
-    flash("Duplicated");
-  };
+  // Choice ops
+  const addChoice=(nid)=>{setData(prev=>({...prev,scenes:{...prev.scenes,[nid]:{...prev.scenes[nid],choices:[...(prev.scenes[nid].choices||[]),{text:"New choice",next:""}]}}}));};
+  const updateChoice=(nid,idx,changes)=>{setData(prev=>{const n=prev.scenes[nid];const ch=[...n.choices];ch[idx]={...ch[idx],...changes};return{...prev,scenes:{...prev.scenes,[nid]:{...n,choices:ch}}};});};
+  const removeChoice=(nid,idx)=>{setData(prev=>{const n=prev.scenes[nid];return{...prev,scenes:{...prev.scenes,[nid]:{...n,choices:n.choices.filter((_,i)=>i!==idx)}}};});};
+  const moveChoice=(nid,idx,dir)=>{setData(prev=>{const n=prev.scenes[nid];const ch=[...n.choices];const j=idx+dir;if(j<0||j>=ch.length)return prev;[ch[idx],ch[j]]=[ch[j],ch[idx]];return{...prev,scenes:{...prev.scenes,[nid]:{...n,choices:ch}}};});};
 
-  const renameNode = (oldId, newId) => {
-    newId = newId.trim().toLowerCase().replace(/[^a-z0-9_]/g,"_");
-    if(!newId || newId===oldId) return;
-    if(nodes[newId]){ flash("ID already exists"); return; }
-    setNodes(prev => {
-      const next = {};
-      Object.entries(prev).forEach(([id,n]) => {
-        const key = id===oldId?newId:id;
-        next[key] = {...n, choices:(n.choices||[]).map(c => c.next===oldId?{...c,next:newId}:{...c})};
-      });
-      return next;
+  // Find which stories use a scene (by tracing from startScene)
+  const getSceneStories=(sceneId)=>{
+    const result=[];
+    Object.entries(data.stories).forEach(([sid,story])=>{
+      const visited=new Set();const queue=[story.startScene];
+      while(queue.length>0){const id=queue.shift();if(!id||visited.has(id)||!data.scenes[id])continue;visited.add(id);(data.scenes[id].choices||[]).forEach(c=>{if(c.next)queue.push(c.next);});}
+      if(visited.has(sceneId))result.push({id:sid,title:story.title});
     });
-    setOrder(prev => prev.map(id => id===oldId?newId:id));
-    if(expanded===oldId) setExpanded(newId);
-    flash("Renamed to "+newId);
-  };
-
-  // Choice operations
-  const addChoice = (nodeId) => {
-    setNodes(prev => ({...prev,[nodeId]:{...prev[nodeId],choices:[...(prev[nodeId].choices||[]),{text:"New choice",next:""}]}}));
-  };
-  const updateChoice = (nodeId, idx, changes) => {
-    setNodes(prev => {
-      const n = prev[nodeId]; const choices = [...n.choices]; choices[idx]={...choices[idx],...changes};
-      return {...prev,[nodeId]:{...n,choices}};
-    });
-  };
-  const removeChoice = (nodeId, idx) => {
-    setNodes(prev => {
-      const n = prev[nodeId]; return {...prev,[nodeId]:{...n,choices:n.choices.filter((_,i)=>i!==idx)}};
-    });
-  };
-  const moveChoice = (nodeId, idx, dir) => {
-    setNodes(prev => {
-      const n = prev[nodeId]; const choices=[...n.choices]; const j=idx+dir;
-      if(j<0||j>=choices.length) return prev;
-      [choices[idx],choices[j]]=[choices[j],choices[idx]];
-      return {...prev,[nodeId]:{...n,choices}};
-    });
-  };
-
-  // Reorder
-  const moveScene = (id, dir) => {
-    setOrder(prev => { const i=prev.indexOf(id); const j=i+dir; if(j<0||j>=prev.length) return prev; const n=[...prev]; [n[i],n[j]]=[n[j],n[i]]; return n; });
-  };
-  const sortByFlow = () => {
-    const visited = new Set(); const sorted = []; const queue = ["start"];
-    while(queue.length>0){ const id=queue.shift(); if(visited.has(id)||!nodes[id]) continue; visited.add(id); sorted.push(id); (nodes[id].choices||[]).forEach(c=>{if(c.next&&!visited.has(c.next)) queue.push(c.next);}); }
-    Object.keys(nodes).forEach(id => { if(!visited.has(id)) sorted.push(id); });
-    setOrder(sorted); flash("Sorted by flow");
-  };
-
-  // Build clean export data
-  const buildClean = () => {
-    const clean = {};
-    orderRef.current.filter(id => nodesRef.current[id]).forEach(id => {
-      const n = nodesRef.current[id];
-      clean[id] = { title:n.title, narrative:n.narrative, choices:(n.choices||[]).filter(c=>c.text) };
-      if(n.image){ clean[id].image=n.image; clean[id].imageSize=n.imageSize||"large"; }
-      if(n.scoreEffect && Object.keys(n.scoreEffect).length) clean[id].scoreEffect=n.scoreEffect;
-      if(n.isEnding){ clean[id].isEnding=true; clean[id].endingType=n.endingType||"policy"; }
-    });
-    return clean;
+    return result;
   };
 
   // Save to GitHub
-  const saveToGitHub = () => {
-    // Force blur on any active textarea to capture pending edits
-    if(document.activeElement && document.activeElement.tagName === "TEXTAREA") {
-      document.activeElement.blur();
-    }
-    // Small delay to let onBlur update state
-    setTimeout(() => {
-      const cleanToken = (ghToken||"").replace(/[^\x20-\x7E]/g,"").trim();
-      if(!cleanToken){ flash("Set up token in Settings"); setShowSettings(true); return; }
-      setSaving(true); flash("Saving...");
-      const clean = buildClean();
-      const b64 = btoa(unescape(encodeURIComponent(JSON.stringify(clean,null,2))));
-      const apiUrl = "https://api.github.com/repos/"+ghRepo+"/contents/game-data.json";
-      fetch(apiUrl,{headers:{"Authorization":"Bearer "+cleanToken}})
-        .then(r => r.ok?r.json():null)
-        .then(existing => {
-          const body = {message:"Update game data from editor",content:b64};
-          if(existing&&existing.sha) body.sha=existing.sha;
-          return fetch(apiUrl,{method:"PUT",headers:{"Authorization":"Bearer "+cleanToken,"Content-Type":"application/json"},body:JSON.stringify(body)});
-        })
-        .then(r => { if(!r.ok) throw new Error("API returned "+r.status); return r.json(); })
-        .then(() => { setSaving(false); flash("Saved!"); })
-        .catch(err => { setSaving(false); flash("Save failed: "+err.message); });
-    }, 100);
+  const saveToGitHub=()=>{
+    if(document.activeElement&&document.activeElement.tagName==="TEXTAREA")document.activeElement.blur();
+    setTimeout(()=>{
+      const cleanToken=(ghToken||"").replace(/[^\x20-\x7E]/g,"").trim();
+      if(!cleanToken){flash("Set up token in Settings");setShowSettings(true);return;}
+      setSaving(true);flash("Saving...");
+      const d=dataRef.current;
+      const b64=btoa(unescape(encodeURIComponent(JSON.stringify(d,null,2))));
+      const apiUrl="https://api.github.com/repos/"+ghRepo+"/contents/game-data.json";
+      fetch(apiUrl,{headers:{"Authorization":"Bearer "+cleanToken}}).then(r=>r.ok?r.json():null).then(existing=>{
+        const body={message:"Update game data",content:b64};if(existing&&existing.sha)body.sha=existing.sha;
+        return fetch(apiUrl,{method:"PUT",headers:{"Authorization":"Bearer "+cleanToken,"Content-Type":"application/json"},body:JSON.stringify(body)});
+      }).then(r=>{if(!r.ok)throw new Error("API "+r.status);return r.json();}).then(()=>{setSaving(false);flash("Saved!");}).catch(err=>{setSaving(false);flash("Save failed: "+err.message);});
+    },100);
   };
 
-  // Export JSON download
-  const exportJSON = () => {
-    const clean = buildClean();
-    const blob = new Blob([JSON.stringify(clean,null,2)],{type:"application/json"});
-    const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="game-data.json"; document.body.appendChild(a); a.click(); document.body.removeChild(a);
-    flash("Downloaded!");
-  };
+  const exportJSON=()=>{const blob=new Blob([JSON.stringify(dataRef.current,null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="game-data.json";document.body.appendChild(a);a.click();document.body.removeChild(a);flash("Downloaded!");};
+  const importFile=(e)=>{const file=e.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=(ev)=>{try{const d=JSON.parse(ev.target.result);if(!d.stories)d={stories:{default:{title:"Imported",description:"",startScene:Object.keys(d)[0]||"start"}},scenes:d};setData(d);setDataVersion(v=>v+1);setSelectedStory(Object.keys(d.stories)[0]||"");flash(Object.keys(d.scenes||{}).length+" scenes imported");}catch(err){flash("Invalid JSON");}};reader.readAsText(file);e.target.value="";};
 
-  // Import
-  const importFile = (e) => {
-    const file=e.target.files[0]; if(!file) return;
-    const reader=new FileReader();
-    reader.onload=(ev)=>{ try{ const data=JSON.parse(ev.target.result); setNodes(data); setOrder(Object.keys(data)); setExpanded(Object.keys(data)[0]||"start"); setDataVersion(v=>v+1); flash(Object.keys(data).length+" scenes imported"); }catch(err){ flash("Invalid JSON"); } };
-    reader.readAsText(file); e.target.value="";
-  };
-
-  // Generate HTML
-  const generateHTML = () => {
-    flash("Generating...");
-    const clean = buildClean();
-    const gameDataStr = JSON.stringify(clean,null,2);
-    fetch("index.html").then(r=>r.text()).then(html => {
-      const marker = "// Load game data from external JSON file and boot the app";
-      const markerIdx = html.indexOf(marker);
-      if(markerIdx===-1){ flash("Could not find marker in index.html"); return; }
-      const fetchStart = html.lastIndexOf("\n",markerIdx);
-      const scriptEnd = html.indexOf("\n<"+"/script>",markerIdx);
-      const before = html.substring(0,fetchStart);
-      const after = html.substring(scriptEnd);
-      const inlineLoader = "\nvar GAME_DATA = "+gameDataStr+";\nReactDOM.render(e(App,{data:GAME_DATA}),document.getElementById('app'));\n";
-      const fullHTML = before+inlineLoader+after;
-      const blob = new Blob([fullHTML],{type:"text/html"});
-      const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="the-impact-quest.html"; document.body.appendChild(a); a.click(); document.body.removeChild(a);
-      flash("HTML game downloaded!");
-    }).catch(()=>flash("Failed to generate HTML"));
-  };
-
-  // Upload image
-  const uploadImage = (nodeId, file) => {
-    const cleanToken = (ghToken||"").replace(/[^\x20-\x7E]/g,"").trim();
-    if(!cleanToken){ flash("Set up token in Settings"); setShowSettings(true); return; }
-    if(file.size > 5*1024*1024){ flash("Max 5MB"); return; }
+  const uploadImage=(targetType,targetId,file)=>{
+    const cleanToken=(ghToken||"").replace(/[^\x20-\x7E]/g,"").trim();
+    if(!cleanToken){flash("Set up token in Settings");setShowSettings(true);return;}
+    if(file.size>5*1024*1024){flash("Max 5MB");return;}
     setUploading(true);
-    const reader = new FileReader();
-    reader.onload = (ev) => {
-      const base64 = ev.target.result.split(",")[1];
-      const safeName = file.name.toLowerCase().replace(/[^a-z0-9.\-_]/g,"-");
-      const path = "images/"+safeName;
-      const url = "https://api.github.com/repos/"+ghRepo+"/contents/"+path;
-      fetch(url,{headers:{"Authorization":"Bearer "+cleanToken}})
-        .then(r=>r.ok?r.json():null)
-        .then(existing => {
-          const body={message:"Upload: "+safeName,content:base64};
-          if(existing&&existing.sha) body.sha=existing.sha;
-          return fetch(url,{method:"PUT",headers:{"Authorization":"Bearer "+cleanToken,"Content-Type":"application/json"},body:JSON.stringify(body)});
-        })
-        .then(r=>{ if(!r.ok) throw new Error(""+r.status); return r.json(); })
-        .then(()=>{
-          const parts=ghRepo.split("/");
-          const pagesUrl="https://"+parts[0]+".github.io/"+parts[1]+"/"+path;
-          update(nodeId,{image:pagesUrl});
-          setUploading(false); flash("Uploaded!");
-        })
-        .catch(err=>{ setUploading(false); flash("Upload failed: "+err.message); });
-    };
-    reader.readAsDataURL(file);
+    const reader=new FileReader();reader.onload=(ev)=>{
+      const base64=ev.target.result.split(",")[1];const safeName=file.name.toLowerCase().replace(/[^a-z0-9.\-_]/g,"-");
+      const path="images/"+safeName;const url="https://api.github.com/repos/"+ghRepo+"/contents/"+path;
+      fetch(url,{headers:{"Authorization":"Bearer "+cleanToken}}).then(r=>r.ok?r.json():null).then(existing=>{
+        const body={message:"Upload: "+safeName,content:base64};if(existing&&existing.sha)body.sha=existing.sha;
+        return fetch(url,{method:"PUT",headers:{"Authorization":"Bearer "+cleanToken,"Content-Type":"application/json"},body:JSON.stringify(body)});
+      }).then(r=>{if(!r.ok)throw new Error(""+r.status);return r.json();}).then(()=>{
+        const parts=ghRepo.split("/");const pagesUrl="https://"+parts[0]+".github.io/"+parts[1]+"/"+path;
+        if(targetType==="scene")updateScene(targetId,{image:pagesUrl});
+        else if(targetType==="story")updateStory(targetId,{image:pagesUrl});
+        setUploading(false);flash("Uploaded!");
+      }).catch(err=>{setUploading(false);flash("Upload failed: "+err.message);});
+    };reader.readAsDataURL(file);
   };
 
   // Computed
-  const nodeList = order.filter(id=>nodes[id]).map(id=>[id,nodes[id]]);
-  const filtered = search ? nodeList.filter(([id,n])=>n.title.toLowerCase().includes(search.toLowerCase())||id.includes(search.toLowerCase())) : nodeList;
-  const endings = nodeList.filter(([_,n])=>n.isEnding).length;
-  const orphans = nodeList.filter(([_,n])=>(n.choices||[]).some(c=>c.next&&!nodes[c.next])).length;
-  const withImages = nodeList.filter(([_,n])=>n.image).length;
+  const stories=data.stories||{};
+  const scenes=data.scenes||{};
+  const sceneList=Object.entries(scenes);
+  const storyList=Object.entries(stories);
+  const filteredScenes=search?sceneList.filter(([id,n])=>n.title.toLowerCase().includes(search.toLowerCase())||id.includes(search.toLowerCase())):sceneList;
+  const totalScenes=sceneList.length;
+  const totalEndings=sceneList.filter(([_,n])=>n.isEnding).length;
+  const totalStories=storyList.length;
 
-  // Get dot colour for a scene
-  const getDotColor = (id, n) => {
-    if(id==="start") return "var(--accent)";
-    if(n.isEnding) return "var(--sage)";
-    if((n.choices||[]).some(c=>c.next&&!nodes[c.next])) return "var(--rust)";
-    return "var(--border)";
-  };
+  const getDotColor=(id,n)=>{if(Object.values(stories).some(s=>s.startScene===id))return"var(--accent)";if(n.isEnding)return"var(--sage)";if((n.choices||[]).some(c=>c.next&&!scenes[c.next]))return"var(--rust)";return"var(--border)";};
 
-  // Preview mode
-  const PreviewMode = () => {
-    const pn = nodes[previewNode];
-    if(!pn) return <div className="preview-container"><p>Scene not found.</p></div>;
-    return (
-      <div className="preview-container">
-        <div style={{fontSize:11,color:"var(--text-muted)",marginBottom:12,textTransform:"uppercase",letterSpacing:1}}>
-          Preview Mode — <span className="preview-restart" onClick={()=>setPreviewNode("start")}>Restart</span>
-        </div>
-        <div className="preview-card">
-          <div className="preview-title">{pn.title}</div>
-          {pn.image && <img src={pn.image} alt="" style={{width:"100%",maxHeight:200,objectFit:"cover",borderRadius:3,marginBottom:12}} />}
-          <div className="preview-narrative">{pn.narrative}</div>
-          {pn.isEnding ? (
-            <div style={{textAlign:"center",padding:16}}>
-              <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:24,color:"var(--accent-dark)",letterSpacing:2}}>THE END</div>
-              <div style={{fontSize:12,color:"var(--text-muted)",marginTop:4}}>{pn.title}</div>
-              <span className="preview-restart" onClick={()=>setPreviewNode("start")} style={{marginTop:12,display:"inline-block"}}>Play Again</span>
-            </div>
-          ) : (
-            <div className="preview-choices">
-              {(pn.choices||[]).map((c,i)=>(
-                <div key={i} className="preview-choice" onClick={()=>{if(c.next&&nodes[c.next])setPreviewNode(c.next);}}>
-                  <span className="preview-letter">{String.fromCharCode(65+i)}</span>
-                  {c.text}
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
+  // Preview
+  const PreviewMode=()=>{
+    const story=selectedStory?stories[selectedStory]:null;
+    const pn=scenes[previewNode];
+    if(!pn)return <div className="preview-container"><p>Scene not found. Select a story first.</p></div>;
+    return(<div className="preview-container">
+      <div style={{fontSize:11,color:"var(--text-muted)",marginBottom:12,textTransform:"uppercase",letterSpacing:1}}>
+        Preview{story?" — "+story.title:""} — <span className="preview-restart" onClick={()=>setPreviewNode(story?story.startScene:"start")}>Restart</span>
       </div>
-    );
+      <div className="preview-card">
+        <div className="preview-title">{pn.title}</div>
+        {pn.image&&<img src={pn.image} alt="" style={{width:"100%",maxHeight:200,objectFit:"cover",borderRadius:3,marginBottom:12}} />}
+        <div className="preview-narrative">{pn.narrative}</div>
+        {pn.isEnding?(<div style={{textAlign:"center",padding:16}}><div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:24,color:"var(--accent-dark)",letterSpacing:2}}>THE END</div><span className="preview-restart" onClick={()=>setPreviewNode(story?story.startScene:"start")} style={{marginTop:12,display:"inline-block"}}>Play Again</span></div>
+        ):(<div className="preview-choices">{(pn.choices||[]).map((c,i)=>(<div key={i} className="preview-choice" onClick={()=>{if(c.next&&scenes[c.next])setPreviewNode(c.next);}}><span className="preview-letter">{String.fromCharCode(65+i)}</span>{c.text}</div>))}</div>)}
+      </div>
+    </div>);
   };
 
-  return (
+  return(
     <div className="app">
-      {/* Sidebar */}
       <div className="sidebar">
-        <div className="sidebar-header">
-          <div className="logo"><em>IMPACT</em> QUEST EDITOR</div>
-        </div>
+        <div className="sidebar-header"><div className="logo"><em>IMPACT</em> QUEST</div></div>
         <div className="sidebar-stats">
-          <div className="stat"><div className="stat-num">{nodeList.length}</div><div className="stat-lbl">Scenes</div></div>
-          <div className="stat"><div className="stat-num">{endings}</div><div className="stat-lbl">Endings</div></div>
-          <div className="stat"><div className="stat-num">{withImages}</div><div className="stat-lbl">Images</div></div>
-          {orphans>0 && <div className="stat"><div className="stat-num" style={{color:"var(--rust)"}}>{orphans}</div><div className="stat-lbl">Broken</div></div>}
+          <div className="stat"><div className="stat-num">{totalStories}</div><div className="stat-lbl">Stories</div></div>
+          <div className="stat"><div className="stat-num">{totalScenes}</div><div className="stat-lbl">Scenes</div></div>
+          <div className="stat"><div className="stat-num">{totalEndings}</div><div className="stat-lbl">Endings</div></div>
         </div>
         <div className="sidebar-actions">
           <button className="sb-btn primary" disabled={saving} onClick={saveToGitHub}>{saving?"Saving...":"Save"}</button>
-          <button className="sb-btn" onClick={addNode}>+ Scene</button>
-          <button className="sb-btn" onClick={sortByFlow}>Sort</button>
+          <button className="sb-btn" onClick={addStory}>+ Story</button>
+          <button className="sb-btn" onClick={addScene}>+ Scene</button>
           <button className="sb-btn" onClick={exportJSON}>Export</button>
           <button className="sb-btn" onClick={()=>fileRef.current.click()}>Import</button>
-          <button className="sb-btn" onClick={generateHTML}>HTML</button>
           <button className="sb-btn" onClick={()=>setShowSettings(true)}>⚙</button>
           <input ref={fileRef} type="file" accept=".json" onChange={importFile} className="hidden" />
-          <input ref={imgRef} type="file" accept="image/*" onChange={e=>{if(e.target.files[0])uploadImage(imgRef.current.dataset.nodeId,e.target.files[0]);e.target.value="";}} className="hidden" />
+          <input ref={imgRef} type="file" accept="image/*" onChange={e=>{if(e.target.files[0]){const t=imgRef.current.dataset.targetType;const tid=imgRef.current.dataset.targetId;uploadImage(t,tid,e.target.files[0]);}e.target.value="";}} className="hidden" />
         </div>
-        <div className="sidebar-search">
-          <input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Search scenes..." />
+        <div className="sidebar-nav">
+          <button className={"nav-tab"+(sidebarTab==="stories"?" active":"")} onClick={()=>setSidebarTab("stories")}>Stories</button>
+          <button className={"nav-tab"+(sidebarTab==="scenes"?" active":"")} onClick={()=>setSidebarTab("scenes")}>All Scenes</button>
         </div>
+        {sidebarTab==="scenes"&&<div className="sidebar-search"><input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Search scenes..." /></div>}
         <div className="scene-list">
-          {filtered.map(([id,n])=>(
-            <div key={id} className={"scene-item"+(expanded===id?" active":"")} onClick={()=>{setExpanded(id);if(view==="preview")setPreviewNode(id);}}>
+          {sidebarTab==="stories"&&storyList.map(([sid,s])=>(
+            <div key={sid} className={"story-item"+(selectedStory===sid?" active":"")} onClick={()=>{setSelectedStory(sid);setView("story");if(s.startScene)setExpanded(s.startScene);}}>
+              <div className="s-title">{s.title}</div>
+              <div className="s-meta">{sid} · starts at {s.startScene||"none"}</div>
+            </div>
+          ))}
+          {sidebarTab==="scenes"&&filteredScenes.map(([id,n])=>{
+            const usedBy=getSceneStories(id);
+            return(<div key={id} className={"scene-item"+(expanded===id?" active":"")} onClick={()=>{setExpanded(id);setView("story");}}>
               <div className="dot" style={{background:getDotColor(id,n)}} />
               <div className="info">
                 <div className="title">{n.title}</div>
-                <div className="meta">{id}{(n.choices||[]).length>0?" · "+(n.choices||[]).length+"ch":""}</div>
+                <div className="meta">{id} · {(n.choices||[]).length}ch{usedBy.length>0?" · "+usedBy.length+" stor"+(usedBy.length===1?"y":"ies"):""}</div>
               </div>
-            </div>
-          ))}
+            </div>);
+          })}
         </div>
       </div>
 
-      {/* Main */}
       <div className="main">
         <div className="main-header">
           <div className="main-title"><em>STORY</em> EDITOR</div>
           <div className="view-tabs">
             <button className={"view-tab"+(view==="story"?" active":"")} onClick={()=>setView("story")}>Edit</button>
-            <button className={"view-tab"+(view==="preview"?" active":"")} onClick={()=>{setView("preview");setPreviewNode("start");}}>Preview</button>
+            <button className={"view-tab"+(view==="preview"?" active":"")} onClick={()=>{setView("preview");const s=selectedStory&&stories[selectedStory];setPreviewNode(s?s.startScene:"start");}}>Preview</button>
           </div>
         </div>
 
-        {view==="story" && (
-          <>
-            {filtered.map(([id,n])=>{
-              const isExp = expanded===id;
-              return (
-              <div key={id} className={"scene-card"+(isExp?" expanded":"")}>
-                <div className="scene-card-header" onClick={()=>setExpanded(isExp?null:id)}>
-                  <span className="expand-arrow">▶</span>
-                  <div className="card-dot" style={{background:getDotColor(id,n)}} />
-                  <span className="card-title">{n.title || "Untitled"}</span>
-                  <span className="card-id">{id}</span>
-                  <div className="card-badges">
-                    {id==="start" && <span className="badge" style={{background:"var(--accent)",color:"var(--ink)"}}>START</span>}
-                    {n.isEnding && <span className="badge" style={{background:"var(--sage)",color:"#fff"}}>END</span>}
-                    {n.image && <span className="badge" style={{background:"var(--blue)",color:"#fff"}}>IMG</span>}
-                    {(n.choices||[]).some(c=>c.next&&!nodes[c.next]) && <span className="badge" style={{background:"var(--rust)",color:"#fff"}}>FIX</span>}
-                  </div>
-                  <span className="choice-count">{(n.choices||[]).length} choice{(n.choices||[]).length!==1?"s":""}</span>
-                </div>
-
-                {isExp && (
-                <div className="scene-body" style={{display:"block"}}>
-                  <label className="field-label">Title</label>
-                  <input className="field-input" value={n.title} onChange={e=>update(id,{title:e.target.value})} />
-
-                  <label className="field-label">Image</label>
-                  <div className="img-row">
-                    <input className="field-input" style={{marginBottom:0}} value={n.image||""} onChange={e=>update(id,{image:e.target.value})} placeholder="URL or upload" />
-                    {n.image && <button className="remove-btn" onClick={()=>update(id,{image:"",imageSize:undefined})}>Remove</button>}
-                    <button className="sb-btn primary" style={{fontSize:9,padding:"4px 8px"}} disabled={uploading} onClick={()=>{imgRef.current.dataset.nodeId=id;imgRef.current.click();}}>
-                      {uploading?"...":"Upload"}
-                    </button>
-                  </div>
-                  {n.image && (
-                    <div className="img-preview" style={{marginTop:8,marginBottom:12}}>
-                      <img src={n.image} alt="" style={{width:n.imageSize==="small"?"40%":n.imageSize==="medium"?"65%":"100%"}} onError={e=>{e.target.alt="Not found";e.target.style.background="var(--surface-alt)";e.target.style.minHeight="40px";}} />
-                      <div className="img-controls">
-                        <div className="size-btns">
-                          {["small","medium","large","banner"].map(s=>(
-                            <button key={s} className={"size-btn"+((n.imageSize||"large")===s?" active":"")} onClick={()=>update(id,{imageSize:s})}>{s}</button>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  )}
-
-                  <label className="field-label">Narrative</label>
-                  <textarea className="field-textarea" defaultValue={n.narrative} key={id+"_narr_"+dataVersion} onBlur={e=>update(id,{narrative:e.target.value})} onChange={e=>{
-                    e.target.style.height="auto";e.target.style.height=e.target.scrollHeight+"px";
-                    nodesRef.current={...nodesRef.current,[id]:{...nodesRef.current[id],narrative:e.target.value}};
-                  }} style={{minHeight:Math.max(60,((n.narrative||"").split("\n").length+1)*22+20)+"px"}} />
-
-                  <label className="field-label">Score Effects</label>
-                  <div className="scores-row">
-                    {SCORE_KEYS.map(k=>(
-                      <div className="score-chip" key={k}>
-                        <div className="chip-dot" style={{background:SCORE_COLORS[k]}} />
-                        <label>{SCORE_LABELS[k]}</label>
-                        <input type="number" value={(n.scoreEffect&&n.scoreEffect[k])||0} onChange={e=>{
-                          const v=parseInt(e.target.value)||0; const se={...(n.scoreEffect||{})};
-                          if(v===0) delete se[k]; else se[k]=v; update(id,{scoreEffect:se});
-                        }} />
-                      </div>
-                    ))}
-                  </div>
-
-                  <div style={{display:"flex",gap:12,alignItems:"center",marginBottom:12}}>
-                    <label className="field-label" style={{marginBottom:0}}>Ending type</label>
-                    <select className="field-select" style={{width:"auto"}} value={n.isEnding?(n.endingType||"policy"):"none"} onChange={e=>{
-                      if(e.target.value==="none") update(id,{isEnding:false,endingType:undefined});
-                      else update(id,{isEnding:true,endingType:e.target.value});
-                    }}>
-                      {ENDING_TYPES.map(t=><option key={t} value={t}>{t==="none"?"Not an ending":t.charAt(0).toUpperCase()+t.slice(1)}</option>)}
-                    </select>
-                  </div>
-
-                  <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:8}}>
-                    <label className="field-label" style={{marginBottom:0}}>Choices ({(n.choices||[]).length})</label>
-                    <button className="sb-btn" onClick={()=>addChoice(id)}>+ Choice</button>
-                  </div>
-                  {(n.choices||[]).map((c,i)=>(
-                    <div className="choice-card" key={i}>
-                      <div className="choice-letter">
-                        <span>Choice {String.fromCharCode(65+i)}</span>
-                        <div className="choice-actions">
-                          <button onClick={()=>moveChoice(id,i,-1)} disabled={i===0}>↑</button>
-                          <button onClick={()=>moveChoice(id,i,1)} disabled={i>=(n.choices||[]).length-1}>↓</button>
-                          <button className="del" onClick={()=>removeChoice(id,i)}>✕</button>
-                        </div>
-                      </div>
-                      <input className="field-input" style={{marginBottom:4}} value={c.text} onChange={e=>updateChoice(id,i,{text:e.target.value})} placeholder="Choice text..." />
-                      <select className="field-select" value={c.next||""} onChange={e=>{
-                        if(e.target.value==="__new__"){
-                          const newId=uid();
-                          setNodes(prev=>({...prev,[newId]:{title:"New Scene",narrative:"",choices:[],scoreEffect:{}}}));
-                          setOrder(prev=>[...prev,newId]);
-                          updateChoice(id,i,{next:newId});
-                          setTimeout(()=>setExpanded(newId),50);
-                        } else {
-                          updateChoice(id,i,{next:e.target.value});
-                        }
-                      }}>
-                        <option value="">— Link to scene —</option>
-                        {nodeList.filter(([nid])=>nid!==id).map(([nid,nn])=>(
-                          <option key={nid} value={nid}>{nn.title} ({nid})</option>
-                        ))}
-                        <option value="__new__">+ Create new scene</option>
-                      </select>
-                      {c.next && nodes[c.next] && (
-                        <div className="choice-target">
-                          <span className="arrow">→</span>
-                          <span className="target-name" onClick={()=>setExpanded(c.next)}>{nodes[c.next].title}</span>
-                        </div>
-                      )}
-                    </div>
-                  ))}
-
-                  <div className="scene-footer">
-                    <div style={{display:"flex",gap:6}}>
-                      <button onClick={()=>duplicateNode(id)}>Duplicate</button>
-                      <button onClick={()=>{const v=prompt("New ID:",id);if(v)renameNode(id,v);}}>Rename ID</button>
-                      <button onClick={()=>moveScene(id,-1)}>↑ Move Up</button>
-                      <button onClick={()=>moveScene(id,1)}>↓ Move Down</button>
-                    </div>
-                    {id!=="start" && <button className="del-btn" onClick={()=>{if(confirm("Delete '"+n.title+"'?"))deleteNode(id);}}>Delete Scene</button>}
-                  </div>
-                </div>
-                )}
+        {view==="story"&&(<>
+          {/* Story editor */}
+          {selectedStory&&stories[selectedStory]&&(()=>{
+            const sid=selectedStory;const s=stories[sid];
+            return(<div className="story-edit-card">
+              <h3>{s.title||"Untitled Story"}</h3>
+              <label className="field-label">Story Title</label>
+              <input className="field-input" value={s.title} onChange={e=>updateStory(sid,{title:e.target.value})} />
+              <label className="field-label">Description</label>
+              <input className="field-input" value={s.description||""} onChange={e=>updateStory(sid,{description:e.target.value})} placeholder="Short description for the selection screen" />
+              <label className="field-label">Cover Image</label>
+              <div className="img-row">
+                <input className="field-input" style={{marginBottom:0}} value={s.image||""} onChange={e=>updateStory(sid,{image:e.target.value})} placeholder="URL or upload" />
+                <button className="sb-btn primary" style={{fontSize:9,padding:"4px 8px"}} disabled={uploading} onClick={()=>{imgRef.current.dataset.targetType="story";imgRef.current.dataset.targetId=sid;imgRef.current.click();}}>{uploading?"...":"Upload"}</button>
               </div>
-              );
-            })}
-            {filtered.length===0 && <div style={{textAlign:"center",color:"var(--text-muted)",padding:40}}>No scenes match your search.</div>}
-          </>
-        )}
+              {s.image&&<div className="img-preview" style={{marginTop:8}}><img src={s.image} alt="" /></div>}
+              <div style={{marginTop:12}}><label className="field-label">Start Scene</label>
+              <select className="field-select" value={s.startScene||""} onChange={e=>updateStory(sid,{startScene:e.target.value})}>
+                <option value="">— Select —</option>
+                {sceneList.map(([id,n])=><option key={id} value={id}>{n.title} ({id})</option>)}
+              </select></div>
+              <div style={{marginTop:12,display:"flex",gap:6}}>
+                <button className="sb-btn" style={{fontSize:9}} onClick={()=>{const v=prompt("New story ID:",sid);if(v){const nid=v.trim().toLowerCase().replace(/[^a-z0-9_]/g,"_");if(nid&&nid!==sid&&!stories[nid]){setData(prev=>{const st={};Object.entries(prev.stories).forEach(([k,v])=>{st[k===sid?nid:k]=v;});return{...prev,stories:st};});setSelectedStory(nid);flash("Renamed");}}}}>Rename ID</button>
+                {storyList.length>1&&<button className="sb-btn" style={{fontSize:9,color:"var(--rust)"}} onClick={()=>{if(confirm("Delete story '"+s.title+"'? Scenes will not be deleted."))deleteStory(sid);}}>Delete Story</button>}
+              </div>
+            </div>);
+          })()}
 
-        {view==="preview" && <PreviewMode />}
+          {/* Scene cards */}
+          {filteredScenes.map(([id,n])=>{
+            const isExp=expanded===id;
+            const usedBy=getSceneStories(id);
+            return(
+            <div key={id} className={"scene-card"+(isExp?" expanded":"")}>
+              <div className="scene-card-header" onClick={()=>setExpanded(isExp?"":id)}>
+                <span className="expand-arrow">▶</span>
+                <div className="card-dot" style={{background:getDotColor(id,n)}} />
+                <span className="card-title">{n.title||"Untitled"}</span>
+                <span className="card-id">{id}</span>
+                <div className="card-badges">
+                  {Object.values(stories).some(s=>s.startScene===id)&&<span className="badge" style={{background:"var(--accent)",color:"var(--ink)"}}>START</span>}
+                  {n.isEnding&&<span className="badge" style={{background:"var(--sage)",color:"#fff"}}>END</span>}
+                  {n.image&&<span className="badge" style={{background:"var(--blue)",color:"#fff"}}>IMG</span>}
+                  {(n.choices||[]).some(c=>c.next&&!scenes[c.next])&&<span className="badge" style={{background:"var(--rust)",color:"#fff"}}>FIX</span>}
+                </div>
+                {usedBy.length>0&&<span className="used-by">{usedBy.length} stor{usedBy.length===1?"y":"ies"}</span>}
+                <span className="choice-count">{(n.choices||[]).length} ch</span>
+              </div>
+              {isExp&&(<div style={{padding:"0 18px 18px"}}>
+                <label className="field-label">Title</label>
+                <input className="field-input" value={n.title} onChange={e=>updateScene(id,{title:e.target.value})} />
+
+                <label className="field-label">Image</label>
+                <div className="img-row">
+                  <input className="field-input" style={{marginBottom:0}} value={n.image||""} onChange={e=>updateScene(id,{image:e.target.value})} placeholder="URL or upload" />
+                  {n.image&&<button className="remove-btn" onClick={()=>updateScene(id,{image:"",imageSize:undefined})}>Remove</button>}
+                  <button className="sb-btn primary" style={{fontSize:9,padding:"4px 8px"}} disabled={uploading} onClick={()=>{imgRef.current.dataset.targetType="scene";imgRef.current.dataset.targetId=id;imgRef.current.click();}}>{uploading?"...":"Upload"}</button>
+                </div>
+                {n.image&&(<div className="img-preview" style={{marginTop:8}}>
+                  <img src={n.image} alt="" style={{width:n.imageSize==="small"?"40%":n.imageSize==="medium"?"65%":"100%"}} onError={e=>{e.target.alt="Not found";e.target.style.background="var(--surface-alt)";e.target.style.minHeight="40px";}} />
+                  <div className="img-controls"><div className="size-btns">{["small","medium","large","banner"].map(s=>(<button key={s} className={"size-btn"+((n.imageSize||"large")===s?" active":"")} onClick={()=>updateScene(id,{imageSize:s})}>{s}</button>))}</div></div>
+                </div>)}
+
+                <label className="field-label">Narrative</label>
+                <textarea className="field-textarea" defaultValue={n.narrative} key={id+"_narr_"+dataVersion} onBlur={e=>updateScene(id,{narrative:e.target.value})} onChange={e=>{e.target.style.height="auto";e.target.style.height=e.target.scrollHeight+"px";dataRef.current={...dataRef.current,scenes:{...dataRef.current.scenes,[id]:{...dataRef.current.scenes[id],narrative:e.target.value}}};}} style={{minHeight:Math.max(60,((n.narrative||"").split("\n").length+1)*22+20)+"px"}} />
+
+                <label className="field-label">Score Effects</label>
+                <div className="scores-row">{SCORE_KEYS.map(k=>(<div className="score-chip" key={k}><div className="chip-dot" style={{background:SCORE_COLORS[k]}} /><label>{SCORE_LABELS[k]}</label><input type="number" value={(n.scoreEffect&&n.scoreEffect[k])||0} onChange={e=>{const v=parseInt(e.target.value)||0;const se={...(n.scoreEffect||{})};if(v===0)delete se[k];else se[k]=v;updateScene(id,{scoreEffect:se});}} /></div>))}</div>
+
+                <div style={{display:"flex",gap:12,alignItems:"center",marginBottom:12}}>
+                  <label className="field-label" style={{marginBottom:0}}>Ending</label>
+                  <select className="field-select" style={{width:"auto"}} value={n.isEnding?(n.endingType||"policy"):"none"} onChange={e=>{if(e.target.value==="none")updateScene(id,{isEnding:false,endingType:undefined});else updateScene(id,{isEnding:true,endingType:e.target.value});}}>
+                    {ENDING_TYPES.map(t=><option key={t} value={t}>{t==="none"?"Not an ending":t.charAt(0).toUpperCase()+t.slice(1)}</option>)}
+                  </select>
+                  {usedBy.length>0&&<span style={{fontSize:10,color:"var(--blue)"}}>Used in: {usedBy.map(u=>u.title).join(", ")}</span>}
+                </div>
+
+                <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:8}}>
+                  <label className="field-label" style={{marginBottom:0}}>Choices ({(n.choices||[]).length})</label>
+                  <button className="sb-btn" onClick={()=>addChoice(id)}>+ Choice</button>
+                </div>
+                {(n.choices||[]).map((c,i)=>(<div className="choice-card" key={i}>
+                  <div className="choice-letter"><span>Choice {String.fromCharCode(65+i)}</span><div className="choice-actions"><button onClick={()=>moveChoice(id,i,-1)} disabled={i===0}>↑</button><button onClick={()=>moveChoice(id,i,1)} disabled={i>=(n.choices||[]).length-1}>↓</button><button className="del" onClick={()=>removeChoice(id,i)}>✕</button></div></div>
+                  <input className="field-input" style={{marginBottom:4}} value={c.text} onChange={e=>updateChoice(id,i,{text:e.target.value})} placeholder="Choice text..." />
+                  <select className="field-select" value={c.next||""} onChange={e=>{if(e.target.value==="__new__"){const nid=uid();setData(prev=>({...prev,scenes:{...prev.scenes,[nid]:{title:"New Scene",narrative:"",choices:[],scoreEffect:{}}}}));updateChoice(id,i,{next:nid});setTimeout(()=>setExpanded(nid),50);}else{updateChoice(id,i,{next:e.target.value});}}}>
+                    <option value="">— Link to scene —</option>
+                    {sceneList.filter(([nid])=>nid!==id).map(([nid,nn])=>(<option key={nid} value={nid}>{nn.title} ({nid})</option>))}
+                    <option value="__new__">+ Create new scene</option>
+                  </select>
+                  {c.next&&scenes[c.next]&&(<div className="choice-target"><span className="arrow">→</span><span className="target-name" onClick={()=>setExpanded(c.next)}>{scenes[c.next].title}</span></div>)}
+                </div>))}
+
+                <div className="scene-footer">
+                  <div style={{display:"flex",gap:6}}>
+                    <button onClick={()=>duplicateScene(id)}>Duplicate</button>
+                    <button onClick={()=>{const v=prompt("New ID:",id);if(v)renameScene(id,v);}}>Rename ID</button>
+                  </div>
+                  <button className="del-btn" onClick={()=>{if(confirm("Delete '"+n.title+"'?"))deleteScene(id);}}>Delete</button>
+                </div>
+              </div>)}
+            </div>);
+          })}
+        </>)}
+
+        {view==="preview"&&<PreviewMode />}
       </div>
 
-      {/* Settings */}
-      {showSettings && (
-        <div className="settings-overlay" onClick={()=>setShowSettings(false)}>
-          <div className="settings-panel" onClick={e=>e.stopPropagation()}>
-            <h2>SETTINGS</h2>
-            <p>Connect to GitHub to save game data and upload images.</p>
-            <label className="field-label">Repository</label>
-            <input className="field-input" value={ghRepo} onChange={e=>setGhRepo(e.target.value)} placeholder="owner/repo" />
-            <label className="field-label">Personal Access Token</label>
-            <input className="field-input" type="password" value={ghToken} onChange={e=>setGhToken(e.target.value)} placeholder="ghp_..." />
-            <div style={{fontSize:10,color:"var(--text-muted)",marginBottom:12,lineHeight:1.6}}>
-              Create at GitHub → Settings → Developer settings → Fine-grained tokens. Needs <strong>Contents: Read and write</strong> on your repo.
-            </div>
-            <div className={"token-status "+(ghToken?"token-ok":"token-missing")}>
-              {ghToken ? "✓ Token set for "+ghRepo : "No token configured — save and image upload disabled"}
-            </div>
-            <div style={{display:"flex",gap:8,justifyContent:"flex-end",marginTop:12}}>
-              {ghToken && <button className="sb-btn" style={{color:"var(--rust)"}} onClick={()=>{saveSettings("",ghRepo);flash("Token cleared");}}>Clear Token</button>}
-              <button className="sb-btn primary" onClick={()=>{saveSettings(ghToken,ghRepo);setShowSettings(false);flash("Settings saved");}}>Save</button>
-            </div>
-          </div>
+      {showSettings&&(<div className="settings-overlay" onClick={()=>setShowSettings(false)}><div className="settings-panel" onClick={e=>e.stopPropagation()}>
+        <h2>SETTINGS</h2><p>Connect to GitHub to save and upload images.</p>
+        <label className="field-label">Repository</label><input className="field-input" value={ghRepo} onChange={e=>setGhRepo(e.target.value)} placeholder="owner/repo" />
+        <label className="field-label">Personal Access Token</label><input className="field-input" type="password" value={ghToken} onChange={e=>setGhToken(e.target.value)} placeholder="ghp_..." />
+        <div style={{fontSize:10,color:"var(--text-muted)",marginBottom:12,lineHeight:1.6}}>GitHub → Settings → Developer settings → Tokens (classic) → <strong>repo</strong> scope. Set to No expiration.</div>
+        <div className={"token-status "+(ghToken?"token-ok":"token-missing")}>{ghToken?"✓ Token set":"No token — save disabled"}</div>
+        <div style={{display:"flex",gap:8,justifyContent:"flex-end",marginTop:12}}>
+          {ghToken&&<button className="sb-btn" style={{color:"var(--rust)"}} onClick={()=>{saveSettings("",ghRepo);flash("Cleared");}}>Clear</button>}
+          <button className="sb-btn primary" onClick={()=>{saveSettings(ghToken,ghRepo);setShowSettings(false);flash("Saved");}}>Save</button>
         </div>
-      )}
+      </div></div>)}
 
-      {/* Toast */}
-      {toast && <div className="toast">{toast}</div>}
+      {toast&&<div className="toast">{toast}</div>}
     </div>
   );
 }
 
-ReactDOM.render(React.createElement(Editor), document.getElementById("root"));
+ReactDOM.render(React.createElement(Editor),document.getElementById("root"));
 </script>
 </body>
 </html>
