@@ -70,11 +70,11 @@
         "next": "policy_training"
       },
       {
-        "text": "Try a different approach — find a personal connection at the council",
+        "text": "Try a different approach. Find a personal connection at the council",
         "next": "find_connection"
       },
       {
-        "text": "Forget the council — focus on community organisations instead",
+        "text": "Forget the council and focus on community organisations instead",
         "next": "practitioner_route"
       }
     ],
