@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leaderboard — The Impact Quest</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f5f0e8;--surface:#ffffff;--border:#d8d2c4;
+  --text-primary:#0f0e0d;--text-secondary:#4a4540;--text-muted:#8c8272;
+  --bar-bg:#ede8da;--accent:#e8963a;--accent-dark:#c4782a;--accent-glow:rgba(232,150,58,0.12);
+  --ink:#0f0e0d;--sage:#4a6741;--rust:#c0392b;
+}
+body{background:var(--bg);color:var(--text-primary);font-family:'DM Sans',sans-serif;min-height:100vh;padding:20px}
+.container{max-width:800px;margin:0 auto}
+.header{text-align:center;margin-bottom:32px;padding-top:20px}
+.header-label{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--accent-dark);margin-bottom:8px;font-weight:600}
+.header h1{font-family:'Bebas Neue',sans-serif;font-size:48px;font-weight:400;color:var(--ink);letter-spacing:4px}
+.header h1 em{font-style:normal;color:var(--accent)}
+.header-meta{font-size:12px;color:var(--text-muted);margin-top:8px}
+.back-link{display:inline-block;margin-bottom:20px;font-size:12px;color:var(--accent-dark);text-decoration:none;font-weight:600;letter-spacing:0.05em;text-transform:uppercase}
+.back-link:hover{color:var(--accent)}
+
+/* Podium */
+.podium{display:flex;gap:16px;justify-content:center;align-items:flex-end;margin-bottom:32px;padding:0 20px}
+.podium-item{text-align:center;flex:1;max-width:200px}
+.podium-bar{background:var(--surface);border:1px solid var(--border);border-radius:3px 3px 0 0;padding:16px 12px;position:relative}
+.podium-rank{font-family:'Bebas Neue',sans-serif;font-size:36px;letter-spacing:2px;line-height:1}
+.podium-name{font-size:14px;font-weight:700;color:var(--text-primary);margin-top:6px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.podium-dept{font-size:11px;color:var(--text-muted);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.podium-score{font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--accent-dark);letter-spacing:1px;margin-top:4px}
+.podium-base{border-radius:0 0 3px 3px;padding:4px;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fff}
+.gold .podium-rank{color:#d4a017}
+.gold .podium-base{background:#d4a017}
+.gold .podium-bar{min-height:140px}
+.silver .podium-rank{color:#8a8a8a}
+.silver .podium-base{background:#8a8a8a}
+.silver .podium-bar{min-height:110px}
+.bronze .podium-rank{color:#b87333}
+.bronze .podium-base{background:#b87333}
+.bronze .podium-bar{min-height:90px}
+
+/* Table */
+.lb-card{background:var(--surface);border:1px solid var(--border);border-radius:3px;overflow:hidden;margin-bottom:24px}
+.lb-header{display:flex;padding:10px 16px;background:var(--ink);color:var(--bg);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px}
+.lb-row{display:flex;padding:10px 16px;border-bottom:1px solid var(--bar-bg);font-size:13px;align-items:center;transition:background 0.1s}
+.lb-row:last-child{border-bottom:none}
+.lb-row:hover{background:var(--bar-bg)}
+.lb-row.highlight{background:var(--accent-glow)}
+.col-rank{width:50px;font-weight:700;color:var(--text-muted)}
+.col-name{flex:1;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.col-dept{width:160px;color:var(--text-muted);font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.col-score{width:70px;text-align:right;font-weight:700;color:var(--accent-dark);font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:1px}
+.col-ending{width:140px;font-size:11px;color:var(--text-muted);text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.col-date{width:90px;font-size:11px;color:var(--text-muted);text-align:right}
+
+/* Stats */
+.stats-row{display:flex;gap:16px;margin-bottom:32px;flex-wrap:wrap}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:16px 20px;flex:1;min-width:140px;text-align:center}
+.stat-val{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--accent-dark);letter-spacing:2px;line-height:1}
+.stat-label{font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1.5px;font-weight:700;margin-top:4px}
+
+/* Empty state */
+.empty{text-align:center;padding:60px 20px;color:var(--text-muted)}
+.empty h2{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--ink);letter-spacing:2px;margin-bottom:8px}
+.empty p{font-size:13px;line-height:1.6;margin-bottom:20px}
+.play-btn{display:inline-block;background:var(--accent);color:var(--ink);padding:12px 32px;border-radius:3px;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase}
+.play-btn:hover{background:var(--accent-dark)}
+
+.action-row{display:flex;gap:10px;justify-content:center;margin-bottom:24px;flex-wrap:wrap}
+.action-btn{border:none;border-radius:3px;padding:8px 18px;cursor:pointer;font-size:11px;font-weight:700;font-family:'DM Sans',sans-serif;letter-spacing:0.05em;text-transform:uppercase;transition:all 0.2s;text-decoration:none}
+.action-btn.outline{background:none;border:1px solid var(--border);color:var(--text-muted)}
+.action-btn.outline:hover{border-color:var(--accent);color:var(--accent-dark)}
+.action-btn.danger{background:none;border:1px solid var(--rust);color:var(--rust)}
+.action-btn.danger:hover{background:var(--rust);color:#fff}
+</style>
+</head>
+<body>
+<div class="container">
+  <a href="index.html" class="back-link">&larr; Back to Game</a>
+
+  <div class="header">
+    <div class="header-label">The Impact Quest</div>
+    <h1><em>LEADER</em>BOARD</h1>
+  </div>
+
+  <div id="lb"></div>
+</div>
+
+<script>
+function render() {
+  // Show loading state
+  document.getElementById("lb").innerHTML = '<div class="empty"><p>Loading leaderboard...</p></div>';
+
+  // Fetch remote leaderboard from repo
+  fetch("leaderboard.json?t=" + Date.now())
+    .then(function(r) { return r.ok ? r.json() : []; })
+    .catch(function() { return []; })
+    .then(function(remote) {
+      // Also get local scores
+      var local = [];
+      try { local = JSON.parse(localStorage.getItem("iq_leaderboard") || "[]"); } catch(e) {}
+
+      // Merge and deduplicate (by name+date combo)
+      var seen = {};
+      var entries = [];
+      var all = remote.concat(local);
+      all.forEach(function(e) {
+        var key = (e.name || "") + "|" + (e.date || "") + "|" + (e.score || 0);
+        if (!seen[key]) { seen[key] = true; entries.push(e); }
+      });
+
+      renderBoard(entries);
+    });
+}
+
+function renderBoard(entries) {
+  var el = document.getElementById("lb");
+
+  if (entries.length === 0) {
+    el.innerHTML = '<div class="empty"><h2>NO SCORES YET</h2><p>Complete The Impact Quest to see your name here.</p><a href="index.html" class="play-btn">Play Now</a></div>';
+    return;
+  }
+
+  // Sort by score descending, then by date ascending (earlier = better)
+  entries.sort(function(a, b) { return b.score - a.score || new Date(a.date) - new Date(b.date); });
+
+  var html = "";
+
+  // Stats
+  var totalPlays = entries.length;
+  var avgScore = Math.round(entries.reduce(function(s, e) { return s + e.score; }, 0) / totalPlays);
+  var highScore = entries[0].score;
+  var uniquePlayers = [];
+  entries.forEach(function(e) { if (uniquePlayers.indexOf(e.name) === -1) uniquePlayers.push(e.name); });
+
+  html += '<div class="stats-row">';
+  html += '<div class="stat-card"><div class="stat-val">' + totalPlays + '</div><div class="stat-label">Total Plays</div></div>';
+  html += '<div class="stat-card"><div class="stat-val">' + uniquePlayers.length + '</div><div class="stat-label">Players</div></div>';
+  html += '<div class="stat-card"><div class="stat-val">' + highScore + '</div><div class="stat-label">High Score</div></div>';
+  html += '<div class="stat-card"><div class="stat-val">' + avgScore + '</div><div class="stat-label">Avg Score</div></div>';
+  html += '</div>';
+
+  // Podium (top 3)
+  if (entries.length >= 3) {
+    var top3 = entries.slice(0, 3);
+    html += '<div class="podium">';
+    // Silver (2nd) - left
+    html += '<div class="podium-item silver"><div class="podium-bar"><div class="podium-rank">2ND</div><div class="podium-name">' + esc(top3[1].name) + '</div><div class="podium-dept">' + esc(top3[1].dept || "") + '</div><div class="podium-score">' + top3[1].score + '</div></div><div class="podium-base">Silver</div></div>';
+    // Gold (1st) - center
+    html += '<div class="podium-item gold"><div class="podium-bar"><div class="podium-rank">1ST</div><div class="podium-name">' + esc(top3[0].name) + '</div><div class="podium-dept">' + esc(top3[0].dept || "") + '</div><div class="podium-score">' + top3[0].score + '</div></div><div class="podium-base">Gold</div></div>';
+    // Bronze (3rd) - right
+    html += '<div class="podium-item bronze"><div class="podium-bar"><div class="podium-rank">3RD</div><div class="podium-name">' + esc(top3[2].name) + '</div><div class="podium-dept">' + esc(top3[2].dept || "") + '</div><div class="podium-score">' + top3[2].score + '</div></div><div class="podium-base">Bronze</div></div>';
+    html += '</div>';
+  }
+
+  // Full table
+  html += '<div class="lb-card">';
+  html += '<div class="lb-header"><span class="col-rank">#</span><span class="col-name">Player</span><span class="col-dept">Department</span><span class="col-ending">Ending</span><span class="col-score">Score</span></div>';
+  entries.forEach(function(entry, i) {
+    var dateStr = "";
+    try { var d = new Date(entry.date); dateStr = d.toLocaleDateString("en-GB", {day:"numeric",month:"short"}); } catch(e) {}
+    html += '<div class="lb-row' + (i < 3 ? " highlight" : "") + '">';
+    html += '<span class="col-rank">' + (i + 1) + '</span>';
+    html += '<span class="col-name">' + esc(entry.name) + '</span>';
+    html += '<span class="col-dept">' + esc(entry.dept || "\u2014") + '</span>';
+    html += '<span class="col-ending">' + esc(entry.ending || entry.endingType || "\u2014") + '</span>';
+    html += '<span class="col-score">' + entry.score + '</span>';
+    html += '</div>';
+  });
+  html += '</div>';
+
+  // Actions
+  html += '<div class="action-row">';
+  html += '<a href="index.html" class="action-btn outline">Play Again</a>';
+  html += '<button class="action-btn outline" onclick="exportCSV()">Export CSV</button>';
+  html += '<button class="action-btn danger" onclick="clearBoard()">Clear Leaderboard</button>';
+  html += '</div>';
+
+  el.innerHTML = html;
+}
+
+function esc(str) {
+  var d = document.createElement("div");
+  d.textContent = str;
+  return d.innerHTML;
+}
+
+function exportCSV() {
+  fetch("leaderboard.json?t=" + Date.now())
+    .then(function(r) { return r.ok ? r.json() : []; })
+    .catch(function() { return []; })
+    .then(function(remote) {
+      var local = [];
+      try { local = JSON.parse(localStorage.getItem("iq_leaderboard") || "[]"); } catch(e) {}
+      var seen = {};
+      var entries = [];
+      remote.concat(local).forEach(function(e) {
+        var key = (e.name || "") + "|" + (e.date || "") + "|" + (e.score || 0);
+        if (!seen[key]) { seen[key] = true; entries.push(e); }
+      });
+      if (!entries.length) return;
+      var rows = ["Name,Department,Score,Strategy,Stakeholders,Significance,Reach,Evidence,Ending,Steps,Date"];
+      entries.forEach(function(e) {
+        var s = e.scores || {};
+        rows.push([
+          '"' + (e.name||"").replace(/"/g,'""') + '"',
+          '"' + (e.dept||"").replace(/"/g,'""') + '"',
+          e.score || 0,
+          s.strategy || 0, s.stakeholders || 0, s.significance || 0, s.reach || 0, s.evidence || 0,
+          '"' + (e.ending||e.endingType||"").replace(/"/g,'""') + '"',
+          e.steps || 0,
+          '"' + (e.date||"") + '"'
+        ].join(","));
+      });
+      var blob = new Blob([rows.join("\n")], { type: "text/csv" });
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "impact-quest-leaderboard.csv";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    });
+}
+
+function clearBoard() {
+  if (confirm("Clear all leaderboard data? This cannot be undone.")) {
+    localStorage.removeItem("iq_leaderboard");
+    render();
+  }
+}
+
+render();
+</script>
+</body>
+</html>
