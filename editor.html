@@ -519,7 +519,10 @@ function Editor() {
 
           {/* Narrative */}
           <label className="field-label">Narrative</label>
-          <textarea className="field-textarea" value={n.narrative} onChange={e=>update(id,{narrative:e.target.value})} ref={el=>{if(el){el.style.height="auto";el.style.height=el.scrollHeight+"px";}}} onInput={e=>{e.target.style.height="auto";e.target.style.height=e.target.scrollHeight+"px";}} />
+          <textarea className="field-textarea" value={n.narrative} onChange={e=>{
+            e.target.style.height="auto";e.target.style.height=e.target.scrollHeight+"px";
+            update(id,{narrative:e.target.value});
+          }} style={{minHeight:Math.max(60,((n.narrative||"").split("\n").length+1)*22+20)+"px"}} />
 
           {/* Scores */}
           <label className="field-label">Score Effects</label>
