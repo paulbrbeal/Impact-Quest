@@ -19,15 +19,19 @@
   },
   "meet_officer": {
     "title": "Strategic Thinking",
-    "narrative": "Smart move. The Impact Officer, Sam, is enthusiastic. Over coffee, they help you map out a Theory of Change — connecting your research findings to potential real-world outcomes.\n\nSam explains: “We need to think about WHO could use this research, HOW they'd use it, and what EVIDENCE we'd need to prove it made a difference.”\n\nTogether you identify three potential impact pathways:\n• Policy influence — informing local or national green space policy\n• Practitioner change — helping community organisations design better programmes\n• Public benefit — directly improving wellbeing in target communities\n\nSam asks: “Which pathway do you want to prioritise first?”",
+    "narrative": "Smart move. Your impact officer is enthusiastic and keen to get the ball rolling. They help you map out a Theory of Change, connecting your research findings to potential real-world outcomes.\n\n“We need to think about WHO could use this research, HOW they'd use it, and what EVIDENCE we'd need to prove it made a difference.”\n\nTogether you identify three potential impact pathways:\n• Policy influence: informing local or national green space policy\n• Practitioner change: helping community organisations design better programmes\n• Public benefit: directly improving wellbeing in target communities\n\nWhich pathway do you want to prioritise first?",
     "choices": [
       {
-        "text": "Policy influence — let's aim high and target policymakers",
+        "text": "Policy influence. Let's aim high and target policymakers",
         "next": "policy_route"
       },
       {
-        "text": "Practitioner change — let's work with community organisations on the ground",
+        "text": "Practitioner change. Let's work with community organisations on the ground",
         "next": "practitioner_route"
+      },
+      {
+        "text": "New choice",
+        "next": ""
       },
       {
         "text": "Can we pursue all three at once?",
@@ -185,6 +189,11 @@
       "stakeholders": 10,
       "strategy": 5
     }
+  },
+  "node_t2ixlp": {
+    "title": "Public benefit",
+    "narrative": "",
+    "choices": []
   },
   "all_three": {
     "title": "Ambition vs. Reality",
