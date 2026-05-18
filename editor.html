@@ -469,177 +469,6 @@ function Editor() {
     return "var(--border)";
   };
 
-  // Scene card component
-  const SceneCard = ({id, n}) => {
-    const isExp = expanded===id;
-    const [renameVal, setRenameVal] = useState(id);
-
-    return (
-      <div className={"scene-card"+(isExp?" expanded":"")}>
-        <div className="scene-card-header" onClick={()=>setExpanded(isExp?null:id)}>
-          <span className="expand-arrow">▶</span>
-          <div className="card-dot" style={{background:getDotColor(id,n)}} />
-          <span className="card-title">{n.title || "Untitled"}</span>
-          <span className="card-id">{id}</span>
-          <div className="card-badges">
-            {id==="start" && <span className="badge" style={{background:"var(--accent)",color:"var(--ink)"}}>START</span>}
-            {n.isEnding && <span className="badge" style={{background:"var(--sage)",color:"#fff"}}>END</span>}
-            {n.image && <span className="badge" style={{background:"var(--blue)",color:"#fff"}}>IMG</span>}
-            {(n.choices||[]).some(c=>c.next&&!nodes[c.next]) && <span className="badge" style={{background:"var(--rust)",color:"#fff"}}>FIX</span>}
-          </div>
-          <span className="choice-count">{(n.choices||[]).length} choice{(n.choices||[]).length!==1?"s":""}</span>
-        </div>
-
-        <div className="scene-body">
-          {/* Title */}
-          <label className="field-label">Title</label>
-          <input className="field-input" value={n.title} onChange={e=>update(id,{title:e.target.value})} />
-
-          {/* Image */}
-          <label className="field-label">Image</label>
-          <div className="img-row">
-            <input className="field-input" style={{marginBottom:0}} value={n.image||""} onChange={e=>update(id,{image:e.target.value})} placeholder="URL or upload" />
-            {n.image && <button className="remove-btn" onClick={()=>update(id,{image:"",imageSize:undefined})}>Remove</button>}
-            <button className="sb-btn primary" style={{fontSize:9,padding:"4px 8px"}} disabled={uploading} onClick={()=>{imgRef.current.dataset.nodeId=id;imgRef.current.click();}}>
-              {uploading?"...":"Upload"}
-            </button>
-          </div>
-          {n.image && (
-            <div className="img-preview" style={{marginTop:8,marginBottom:12}}>
-              <img src={n.image} alt="" style={{width:n.imageSize==="small"?"40%":n.imageSize==="medium"?"65%":"100%"}} onError={e=>{e.target.alt="Not found";e.target.style.background="var(--surface-alt)";e.target.style.minHeight="40px";}} />
-              <div className="img-controls">
-                <div className="size-btns">
-                  {["small","medium","large","banner"].map(s=>(
-                    <button key={s} className={"size-btn"+((n.imageSize||"large")===s?" active":"")} onClick={()=>update(id,{imageSize:s})}>{s}</button>
-                  ))}
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Narrative */}
-          <label className="field-label">Narrative</label>
-          <textarea className="field-textarea" value={n.narrative} onChange={e=>{
-            e.target.style.height="auto";e.target.style.height=e.target.scrollHeight+"px";
-            update(id,{narrative:e.target.value});
-          }} style={{minHeight:Math.max(60,((n.narrative||"").split("\n").length+1)*22+20)+"px"}} />
-
-          {/* Scores */}
-          <label className="field-label">Score Effects</label>
-          <div className="scores-row">
-            {SCORE_KEYS.map(k=>(
-              <div className="score-chip" key={k}>
-                <div className="chip-dot" style={{background:SCORE_COLORS[k]}} />
-                <label>{SCORE_LABELS[k]}</label>
-                <input type="number" value={(n.scoreEffect&&n.scoreEffect[k])||0} onChange={e=>{
-                  const v=parseInt(e.target.value)||0; const se={...(n.scoreEffect||{})};
-                  if(v===0) delete se[k]; else se[k]=v; update(id,{scoreEffect:se});
-                }} />
-              </div>
-            ))}
-          </div>
-
-          {/* Ending */}
-          <div style={{display:"flex",gap:12,alignItems:"center",marginBottom:12}}>
-            <label className="field-label" style={{marginBottom:0}}>Ending type</label>
-            <select className="field-select" style={{width:"auto"}} value={n.isEnding?(n.endingType||"policy"):"none"} onChange={e=>{
-              if(e.target.value==="none") update(id,{isEnding:false,endingType:undefined});
-              else update(id,{isEnding:true,endingType:e.target.value});
-            }}>
-              {ENDING_TYPES.map(t=><option key={t} value={t}>{t==="none"?"Not an ending":t.charAt(0).toUpperCase()+t.slice(1)}</option>)}
-            </select>
-          </div>
-
-          {/* Choices */}
-          <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:8}}>
-            <label className="field-label" style={{marginBottom:0}}>Choices ({(n.choices||[]).length})</label>
-            <button className="sb-btn" onClick={()=>addChoice(id)}>+ Choice</button>
-          </div>
-          {(n.choices||[]).map((c,i)=>(
-            <div className="choice-card" key={i}>
-              <div className="choice-letter">
-                <span>Choice {String.fromCharCode(65+i)}</span>
-                <div className="choice-actions">
-                  <button onClick={()=>moveChoice(id,i,-1)} disabled={i===0}>↑</button>
-                  <button onClick={()=>moveChoice(id,i,1)} disabled={i>=(n.choices||[]).length-1}>↓</button>
-                  <button className="del" onClick={()=>removeChoice(id,i)}>✕</button>
-                </div>
-              </div>
-              <input className="field-input" style={{marginBottom:4}} value={c.text} onChange={e=>updateChoice(id,i,{text:e.target.value})} placeholder="Choice text..." />
-              <select className="field-select" value={c.next||""} onChange={e=>{
-                if(e.target.value==="__new__"){
-                  const newId=uid();
-                  setNodes(prev=>({...prev,[newId]:{title:"New Scene",narrative:"",choices:[],scoreEffect:{}}}));
-                  setOrder(prev=>[...prev,newId]);
-                  updateChoice(id,i,{next:newId});
-                  setTimeout(()=>setExpanded(newId),50);
-                } else {
-                  updateChoice(id,i,{next:e.target.value});
-                }
-              }}>
-                <option value="">— Link to scene —</option>
-                {nodeList.filter(([nid])=>nid!==id).map(([nid,nn])=>(
-                  <option key={nid} value={nid}>{nn.title} ({nid})</option>
-                ))}
-                <option value="__new__">+ Create new scene</option>
-              </select>
-              {c.next && nodes[c.next] && (
-                <div className="choice-target">
-                  <span className="arrow">→</span>
-                  <span className="target-name" onClick={()=>setExpanded(c.next)}>{nodes[c.next].title}</span>
-                </div>
-              )}
-            </div>
-          ))}
-
-          {/* Footer */}
-          <div className="scene-footer">
-            <div style={{display:"flex",gap:6}}>
-              <button onClick={()=>duplicateNode(id)}>Duplicate</button>
-              <button onClick={()=>{const v=prompt("New ID:",id);if(v)renameNode(id,v);}}>Rename ID</button>
-              <button onClick={()=>moveScene(id,-1)}>↑ Move Up</button>
-              <button onClick={()=>moveScene(id,1)}>↓ Move Down</button>
-            </div>
-            {id!=="start" && <button className="del-btn" onClick={()=>{if(confirm("Delete '"+n.title+"'?"))deleteNode(id);}}>Delete Scene</button>}
-          </div>
-        </div>
-      </div>
-    );
-  };
-
-  // Preview mode
-  const PreviewMode = () => {
-    const pn = nodes[previewNode];
-    if(!pn) return <div className="preview-container"><p>Scene not found.</p></div>;
-    return (
-      <div className="preview-container">
-        <div style={{fontSize:11,color:"var(--text-muted)",marginBottom:12,textTransform:"uppercase",letterSpacing:1}}>
-          Preview Mode — <span className="preview-restart" onClick={()=>setPreviewNode("start")}>Restart</span>
-        </div>
-        <div className="preview-card">
-          <div className="preview-title">{pn.title}</div>
-          {pn.image && <img src={pn.image} alt="" style={{width:"100%",maxHeight:200,objectFit:"cover",borderRadius:3,marginBottom:12}} />}
-          <div className="preview-narrative">{pn.narrative}</div>
-          {pn.isEnding ? (
-            <div style={{textAlign:"center",padding:16}}>
-              <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:24,color:"var(--accent-dark)",letterSpacing:2}}>THE END</div>
-              <div style={{fontSize:12,color:"var(--text-muted)",marginTop:4}}>{pn.title}</div>
-              <span className="preview-restart" onClick={()=>setPreviewNode("start")} style={{marginTop:12,display:"inline-block"}}>Play Again</span>
-            </div>
-          ) : (
-            <div className="preview-choices">
-              {(pn.choices||[]).map((c,i)=>(
-                <div key={i} className="preview-choice" onClick={()=>{if(c.next&&nodes[c.next])setPreviewNode(c.next);}}>
-                  <span className="preview-letter">{String.fromCharCode(65+i)}</span>
-                  {c.text}
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-      </div>
-    );
-  };
 
   return (
     <div className="app">
@@ -693,9 +522,135 @@ function Editor() {
 
         {view==="story" && (
           <>
-            {filtered.map(([id,n])=>(
-              <SceneCard key={id} id={id} n={n} />
-            ))}
+            {filtered.map(([id,n])=>{
+              const isExp = expanded===id;
+              return (
+              <div key={id} className={"scene-card"+(isExp?" expanded":"")}>
+                <div className="scene-card-header" onClick={()=>setExpanded(isExp?null:id)}>
+                  <span className="expand-arrow">▶</span>
+                  <div className="card-dot" style={{background:getDotColor(id,n)}} />
+                  <span className="card-title">{n.title || "Untitled"}</span>
+                  <span className="card-id">{id}</span>
+                  <div className="card-badges">
+                    {id==="start" && <span className="badge" style={{background:"var(--accent)",color:"var(--ink)"}}>START</span>}
+                    {n.isEnding && <span className="badge" style={{background:"var(--sage)",color:"#fff"}}>END</span>}
+                    {n.image && <span className="badge" style={{background:"var(--blue)",color:"#fff"}}>IMG</span>}
+                    {(n.choices||[]).some(c=>c.next&&!nodes[c.next]) && <span className="badge" style={{background:"var(--rust)",color:"#fff"}}>FIX</span>}
+                  </div>
+                  <span className="choice-count">{(n.choices||[]).length} choice{(n.choices||[]).length!==1?"s":""}</span>
+                </div>
+
+                {isExp && (
+                <div className="scene-body" style={{display:"block"}}>
+                  <label className="field-label">Title</label>
+                  <input className="field-input" value={n.title} onChange={e=>update(id,{title:e.target.value})} />
+
+                  <label className="field-label">Image</label>
+                  <div className="img-row">
+                    <input className="field-input" style={{marginBottom:0}} value={n.image||""} onChange={e=>update(id,{image:e.target.value})} placeholder="URL or upload" />
+                    {n.image && <button className="remove-btn" onClick={()=>update(id,{image:"",imageSize:undefined})}>Remove</button>}
+                    <button className="sb-btn primary" style={{fontSize:9,padding:"4px 8px"}} disabled={uploading} onClick={()=>{imgRef.current.dataset.nodeId=id;imgRef.current.click();}}>
+                      {uploading?"...":"Upload"}
+                    </button>
+                  </div>
+                  {n.image && (
+                    <div className="img-preview" style={{marginTop:8,marginBottom:12}}>
+                      <img src={n.image} alt="" style={{width:n.imageSize==="small"?"40%":n.imageSize==="medium"?"65%":"100%"}} onError={e=>{e.target.alt="Not found";e.target.style.background="var(--surface-alt)";e.target.style.minHeight="40px";}} />
+                      <div className="img-controls">
+                        <div className="size-btns">
+                          {["small","medium","large","banner"].map(s=>(
+                            <button key={s} className={"size-btn"+((n.imageSize||"large")===s?" active":"")} onClick={()=>update(id,{imageSize:s})}>{s}</button>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  <label className="field-label">Narrative</label>
+                  <textarea className="field-textarea" defaultValue={n.narrative} key={id+"_narr"} onBlur={e=>update(id,{narrative:e.target.value})} onChange={e=>{
+                    e.target.style.height="auto";e.target.style.height=e.target.scrollHeight+"px";
+                    nodesRef.current={...nodesRef.current,[id]:{...nodesRef.current[id],narrative:e.target.value}};
+                  }} style={{minHeight:Math.max(60,((n.narrative||"").split("\n").length+1)*22+20)+"px"}} />
+
+                  <label className="field-label">Score Effects</label>
+                  <div className="scores-row">
+                    {SCORE_KEYS.map(k=>(
+                      <div className="score-chip" key={k}>
+                        <div className="chip-dot" style={{background:SCORE_COLORS[k]}} />
+                        <label>{SCORE_LABELS[k]}</label>
+                        <input type="number" value={(n.scoreEffect&&n.scoreEffect[k])||0} onChange={e=>{
+                          const v=parseInt(e.target.value)||0; const se={...(n.scoreEffect||{})};
+                          if(v===0) delete se[k]; else se[k]=v; update(id,{scoreEffect:se});
+                        }} />
+                      </div>
+                    ))}
+                  </div>
+
+                  <div style={{display:"flex",gap:12,alignItems:"center",marginBottom:12}}>
+                    <label className="field-label" style={{marginBottom:0}}>Ending type</label>
+                    <select className="field-select" style={{width:"auto"}} value={n.isEnding?(n.endingType||"policy"):"none"} onChange={e=>{
+                      if(e.target.value==="none") update(id,{isEnding:false,endingType:undefined});
+                      else update(id,{isEnding:true,endingType:e.target.value});
+                    }}>
+                      {ENDING_TYPES.map(t=><option key={t} value={t}>{t==="none"?"Not an ending":t.charAt(0).toUpperCase()+t.slice(1)}</option>)}
+                    </select>
+                  </div>
+
+                  <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:8}}>
+                    <label className="field-label" style={{marginBottom:0}}>Choices ({(n.choices||[]).length})</label>
+                    <button className="sb-btn" onClick={()=>addChoice(id)}>+ Choice</button>
+                  </div>
+                  {(n.choices||[]).map((c,i)=>(
+                    <div className="choice-card" key={i}>
+                      <div className="choice-letter">
+                        <span>Choice {String.fromCharCode(65+i)}</span>
+                        <div className="choice-actions">
+                          <button onClick={()=>moveChoice(id,i,-1)} disabled={i===0}>↑</button>
+                          <button onClick={()=>moveChoice(id,i,1)} disabled={i>=(n.choices||[]).length-1}>↓</button>
+                          <button className="del" onClick={()=>removeChoice(id,i)}>✕</button>
+                        </div>
+                      </div>
+                      <input className="field-input" style={{marginBottom:4}} value={c.text} onChange={e=>updateChoice(id,i,{text:e.target.value})} placeholder="Choice text..." />
+                      <select className="field-select" value={c.next||""} onChange={e=>{
+                        if(e.target.value==="__new__"){
+                          const newId=uid();
+                          setNodes(prev=>({...prev,[newId]:{title:"New Scene",narrative:"",choices:[],scoreEffect:{}}}));
+                          setOrder(prev=>[...prev,newId]);
+                          updateChoice(id,i,{next:newId});
+                          setTimeout(()=>setExpanded(newId),50);
+                        } else {
+                          updateChoice(id,i,{next:e.target.value});
+                        }
+                      }}>
+                        <option value="">— Link to scene —</option>
+                        {nodeList.filter(([nid])=>nid!==id).map(([nid,nn])=>(
+                          <option key={nid} value={nid}>{nn.title} ({nid})</option>
+                        ))}
+                        <option value="__new__">+ Create new scene</option>
+                      </select>
+                      {c.next && nodes[c.next] && (
+                        <div className="choice-target">
+                          <span className="arrow">→</span>
+                          <span className="target-name" onClick={()=>setExpanded(c.next)}>{nodes[c.next].title}</span>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+
+                  <div className="scene-footer">
+                    <div style={{display:"flex",gap:6}}>
+                      <button onClick={()=>duplicateNode(id)}>Duplicate</button>
+                      <button onClick={()=>{const v=prompt("New ID:",id);if(v)renameNode(id,v);}}>Rename ID</button>
+                      <button onClick={()=>moveScene(id,-1)}>↑ Move Up</button>
+                      <button onClick={()=>moveScene(id,1)}>↓ Move Down</button>
+                    </div>
+                    {id!=="start" && <button className="del-btn" onClick={()=>{if(confirm("Delete '"+n.title+"'?"))deleteNode(id);}}>Delete Scene</button>}
+                  </div>
+                </div>
+                )}
+              </div>
+              );
+            })}
             {filtered.length===0 && <div style={{textAlign:"center",color:"var(--text-muted)",padding:40}}>No scenes match your search.</div>}
           </>
         )}
