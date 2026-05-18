@@ -247,18 +247,32 @@ function Editor() {
 
   const flash = useCallback((msg) => { setToast(msg); setTimeout(() => setToast(null), 2500); }, []);
 
-  // Auto-load game-data.json
+  // Auto-load game-data.json — try GitHub API first (no cache), fall back to Pages
   useEffect(() => {
-    fetch("game-data.json?t=" + Date.now())
-      .then(r => r.json())
-      .then(data => {
-        if (data && typeof data === "object" && Object.keys(data).length > 0) {
-          setNodes(data);
-          setOrder(Object.keys(data));
-          setExpanded(Object.keys(data)[0] || "start");
-        }
-      })
-      .catch(() => {});
+    const token = (localStorage.getItem("iq_gh_token")||"").replace(/[^\x20-\x7E]/g,"").trim();
+    const repo = localStorage.getItem("iq_gh_repo") || "paulbrbeal/Impact-Quest";
+    const loadData = (data) => {
+      if (data && typeof data === "object" && Object.keys(data).length > 0) {
+        setNodes(data); setOrder(Object.keys(data)); setExpanded(Object.keys(data)[0] || "start");
+      }
+    };
+    if (token) {
+      // Fetch from API — always fresh
+      fetch("https://api.github.com/repos/"+repo+"/contents/game-data.json", {headers:{"Authorization":"Bearer "+token}})
+        .then(r => r.ok ? r.json() : null)
+        .then(resp => {
+          if (resp && resp.content) {
+            const data = JSON.parse(atob(resp.content.replace(/\n/g,"")));
+            loadData(data);
+          }
+        })
+        .catch(() => {
+          // Fall back to Pages
+          fetch("game-data.json?t="+Date.now()).then(r=>r.json()).then(loadData).catch(()=>{});
+        });
+    } else {
+      fetch("game-data.json?t="+Date.now()).then(r=>r.json()).then(loadData).catch(()=>{});
+    }
   }, []);
 
   // Save GitHub settings
@@ -368,22 +382,29 @@ function Editor() {
 
   // Save to GitHub
   const saveToGitHub = () => {
-    const cleanToken = (ghToken||"").replace(/[^\x20-\x7E]/g,"").trim();
-    if(!cleanToken){ flash("Set up token in Settings"); setShowSettings(true); return; }
-    setSaving(true); flash("Saving...");
-    const clean = buildClean();
-    const b64 = btoa(unescape(encodeURIComponent(JSON.stringify(clean,null,2))));
-    const apiUrl = "https://api.github.com/repos/"+ghRepo+"/contents/game-data.json";
-    fetch(apiUrl,{headers:{"Authorization":"Bearer "+cleanToken}})
-      .then(r => r.ok?r.json():null)
-      .then(existing => {
-        const body = {message:"Update game data from editor",content:b64};
-        if(existing&&existing.sha) body.sha=existing.sha;
-        return fetch(apiUrl,{method:"PUT",headers:{"Authorization":"Bearer "+cleanToken,"Content-Type":"application/json"},body:JSON.stringify(body)});
-      })
-      .then(r => { if(!r.ok) throw new Error("API returned "+r.status); return r.json(); })
-      .then(() => { setSaving(false); flash("Saved!"); })
-      .catch(err => { setSaving(false); flash("Save failed: "+err.message); });
+    // Force blur on any active textarea to capture pending edits
+    if(document.activeElement && document.activeElement.tagName === "TEXTAREA") {
+      document.activeElement.blur();
+    }
+    // Small delay to let onBlur update state
+    setTimeout(() => {
+      const cleanToken = (ghToken||"").replace(/[^\x20-\x7E]/g,"").trim();
+      if(!cleanToken){ flash("Set up token in Settings"); setShowSettings(true); return; }
+      setSaving(true); flash("Saving...");
+      const clean = buildClean();
+      const b64 = btoa(unescape(encodeURIComponent(JSON.stringify(clean,null,2))));
+      const apiUrl = "https://api.github.com/repos/"+ghRepo+"/contents/game-data.json";
+      fetch(apiUrl,{headers:{"Authorization":"Bearer "+cleanToken}})
+        .then(r => r.ok?r.json():null)
+        .then(existing => {
+          const body = {message:"Update game data from editor",content:b64};
+          if(existing&&existing.sha) body.sha=existing.sha;
+          return fetch(apiUrl,{method:"PUT",headers:{"Authorization":"Bearer "+cleanToken,"Content-Type":"application/json"},body:JSON.stringify(body)});
+        })
+        .then(r => { if(!r.ok) throw new Error("API returned "+r.status); return r.json(); })
+        .then(() => { setSaving(false); flash("Saved!"); })
+        .catch(err => { setSaving(false); flash("Save failed: "+err.message); });
+    }, 100);
   };
 
   // Export JSON download
