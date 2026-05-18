@@ -242,6 +242,7 @@ function Editor() {
   const [ghRepo, setGhRepo] = useState(() => localStorage.getItem("iq_gh_repo") || "paulbrbeal/Impact-Quest");
   const [saving, setSaving] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [dataVersion, setDataVersion] = useState(0);
   const fileRef = useRef(null);
   const imgRef = useRef(null);
 
@@ -254,6 +255,7 @@ function Editor() {
     const loadData = (data) => {
       if (data && typeof data === "object" && Object.keys(data).length > 0) {
         setNodes(data); setOrder(Object.keys(data)); setExpanded(Object.keys(data)[0] || "start");
+        setDataVersion(v => v + 1);
       }
     };
     if (token) {
@@ -419,7 +421,7 @@ function Editor() {
   const importFile = (e) => {
     const file=e.target.files[0]; if(!file) return;
     const reader=new FileReader();
-    reader.onload=(ev)=>{ try{ const data=JSON.parse(ev.target.result); setNodes(data); setOrder(Object.keys(data)); setExpanded(Object.keys(data)[0]||"start"); flash(Object.keys(data).length+" scenes imported"); }catch(err){ flash("Invalid JSON"); } };
+    reader.onload=(ev)=>{ try{ const data=JSON.parse(ev.target.result); setNodes(data); setOrder(Object.keys(data)); setExpanded(Object.keys(data)[0]||"start"); setDataVersion(v=>v+1); flash(Object.keys(data).length+" scenes imported"); }catch(err){ flash("Invalid JSON"); } };
     reader.readAsText(file); e.target.value="";
   };
 
@@ -621,7 +623,7 @@ function Editor() {
                   )}
 
                   <label className="field-label">Narrative</label>
-                  <textarea className="field-textarea" defaultValue={n.narrative} key={id+"_narr"} onBlur={e=>update(id,{narrative:e.target.value})} onChange={e=>{
+                  <textarea className="field-textarea" defaultValue={n.narrative} key={id+"_narr_"+dataVersion} onBlur={e=>update(id,{narrative:e.target.value})} onChange={e=>{
                     e.target.style.height="auto";e.target.style.height=e.target.scrollHeight+"px";
                     nodesRef.current={...nodesRef.current,[id]:{...nodesRef.current[id],narrative:e.target.value}};
                   }} style={{minHeight:Math.max(60,((n.narrative||"").split("\n").length+1)*22+20)+"px"}} />
