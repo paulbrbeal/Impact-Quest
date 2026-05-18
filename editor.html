@@ -304,10 +304,28 @@ function Editor(){
   const scenes=data.scenes||{};
   const sceneList=Object.entries(scenes);
   const storyList=Object.entries(stories);
-  const filteredScenes=search?sceneList.filter(([id,n])=>n.title.toLowerCase().includes(search.toLowerCase())||id.includes(search.toLowerCase())):sceneList;
   const totalScenes=sceneList.length;
   const totalEndings=sceneList.filter(([_,n])=>n.isEnding).length;
   const totalStories=storyList.length;
+
+  // Get all scenes reachable from a story's start scene
+  const getStoryScenes=(sid)=>{
+    const story=stories[sid];
+    if(!story||!story.startScene)return new Set();
+    const visited=new Set();const queue=[story.startScene];
+    while(queue.length>0){const id=queue.shift();if(!id||visited.has(id)||!scenes[id])continue;visited.add(id);(scenes[id].choices||[]).forEach(c=>{if(c.next)queue.push(c.next);});}
+    return visited;
+  };
+
+  // Filter scenes: if on Stories tab with a story selected, show only that story's scenes
+  // If on All Scenes tab or searching, show all (filtered by search)
+  const storySceneIds=selectedStory&&sidebarTab==="stories"?getStoryScenes(selectedStory):null;
+  const filteredScenes=(()=>{
+    let list=sceneList;
+    if(storySceneIds)list=list.filter(([id])=>storySceneIds.has(id));
+    if(search)list=list.filter(([id,n])=>n.title.toLowerCase().includes(search.toLowerCase())||id.includes(search.toLowerCase()));
+    return list;
+  })();
 
   const getDotColor=(id,n)=>{if(Object.values(stories).some(s=>s.startScene===id))return"var(--accent)";if(n.isEnding)return"var(--sage)";if((n.choices||[]).some(c=>c.next&&!scenes[c.next]))return"var(--rust)";return"var(--border)";};
 
@@ -412,6 +430,12 @@ function Editor(){
           })()}
 
           {/* Scene cards */}
+          {selectedStory&&stories[selectedStory]&&storySceneIds&&(
+            <div style={{fontSize:11,color:"var(--text-muted)",marginBottom:12,display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+              <span>Showing {filteredScenes.length} scene{filteredScenes.length!==1?"s":""} in <strong style={{color:"var(--text)"}}>{stories[selectedStory].title}</strong></span>
+              <button className="sb-btn" style={{fontSize:9}} onClick={()=>setSidebarTab("scenes")}>View all {totalScenes} scenes</button>
+            </div>
+          )}
           {filteredScenes.map(([id,n])=>{
             const isExp=expanded===id;
             const usedBy=getSceneStories(id);
