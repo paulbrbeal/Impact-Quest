@@ -177,10 +177,28 @@ function App(props) {
   var _sh=useState(false),showChoices=_sh[0],setShowChoices=_sh[1];
   var _ck=useState(0),cardKey=_ck[0],setCardKey=_ck[1];
   var _sub=useState(false),submitted=_sub[0],setSubmitted=_sub[1];
+  var hasSubmitted = useRef(false);
+
+  var node = phase !== "register" ? GAME_DATA[currentNode] : null;
+  var isEnding = node && node.isEnding;
+
+  // Submit score on ending — hook must be called every render (before any returns)
+  useEffect(function() {
+    if (isEnding && !hasSubmitted.current && showChoices) {
+      hasSubmitted.current = true;
+      setSubmitted(true);
+      var totalScore = Object.values(scores).reduce(function(a,b){return a+b;},0);
+      saveScore({
+        name: _player[0].name, dept: _player[0].dept, score: totalScore,
+        scores: Object.assign({}, scores), ending: node.title,
+        endingType: node.endingType || "unknown", steps: history.length,
+        date: new Date().toISOString()
+      });
+    }
+  },[isEnding, showChoices]);
 
   if (phase==="register") return e(RegScreen,{onStart:function(n,d){setPlayer({name:n,dept:d});setPhase("playing");}});
 
-  var node=GAME_DATA[currentNode];
   if (!node) return e("div",{className:"container"},e("p",null,"Error: scene '"+currentNode+"' not found in game data."));
 
   var maxScore=Math.max(50,Math.max.apply(null,Object.values(scores)));
@@ -200,22 +218,6 @@ function App(props) {
 
   var restart=function(){hasSubmitted.current=false;setCurrentNode("start");setScores({strategy:0,stakeholders:0,significance:0,reach:0,evidence:0});setHistory([]);setShowChoices(false);setSubmitted(false);setCardKey(function(k){return k+1;});window.scrollTo({top:0,behavior:"smooth"});};
   var restartFull=function(){hasSubmitted.current=false;setPhase("register");setCurrentNode("start");setScores({strategy:0,stakeholders:0,significance:0,reach:0,evidence:0});setHistory([]);setShowChoices(false);setSubmitted(false);setCardKey(function(k){return k+1;});window.scrollTo({top:0,behavior:"smooth"});};
-
-  // Submit score on ending
-  var isEnding = node && node.isEnding;
-  var hasSubmitted = useRef(false);
-  useEffect(function() {
-    if (isEnding && !hasSubmitted.current && showChoices) {
-      hasSubmitted.current = true;
-      setSubmitted(true);
-      saveScore({
-        name: player.name, dept: player.dept, score: totalScore,
-        scores: Object.assign({}, scores), ending: node.title,
-        endingType: node.endingType || "unknown", steps: history.length,
-        date: new Date().toISOString()
-      });
-    }
-  },[isEnding, showChoices]);
 
   return e("div",{className:"container"},
     e("div",{className:"header"},
