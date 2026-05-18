@@ -198,21 +198,24 @@ function App(props) {
     setCurrentNode(choice.next);setCardKey(function(k){return k+1;});window.scrollTo({top:0,behavior:"smooth"});
   };
 
-  var restart=function(){setCurrentNode("start");setScores({strategy:0,stakeholders:0,significance:0,reach:0,evidence:0});setHistory([]);setShowChoices(false);setSubmitted(false);setCardKey(function(k){return k+1;});window.scrollTo({top:0,behavior:"smooth"});};
-  var restartFull=function(){setPhase("register");setCurrentNode("start");setScores({strategy:0,stakeholders:0,significance:0,reach:0,evidence:0});setHistory([]);setShowChoices(false);setSubmitted(false);setCardKey(function(k){return k+1;});window.scrollTo({top:0,behavior:"smooth"});};
+  var restart=function(){hasSubmitted.current=false;setCurrentNode("start");setScores({strategy:0,stakeholders:0,significance:0,reach:0,evidence:0});setHistory([]);setShowChoices(false);setSubmitted(false);setCardKey(function(k){return k+1;});window.scrollTo({top:0,behavior:"smooth"});};
+  var restartFull=function(){hasSubmitted.current=false;setPhase("register");setCurrentNode("start");setScores({strategy:0,stakeholders:0,significance:0,reach:0,evidence:0});setHistory([]);setShowChoices(false);setSubmitted(false);setCardKey(function(k){return k+1;});window.scrollTo({top:0,behavior:"smooth"});};
 
   // Submit score on ending
+  var isEnding = node && node.isEnding;
+  var hasSubmitted = useRef(false);
   useEffect(function() {
-    if (node.isEnding && !submitted && showChoices) {
+    if (isEnding && !hasSubmitted.current && showChoices) {
+      hasSubmitted.current = true;
+      setSubmitted(true);
       saveScore({
         name: player.name, dept: player.dept, score: totalScore,
         scores: Object.assign({}, scores), ending: node.title,
         endingType: node.endingType || "unknown", steps: history.length,
         date: new Date().toISOString()
       });
-      setSubmitted(true);
     }
-  },[node.isEnding, submitted, showChoices]);
+  },[isEnding, showChoices]);
 
   return e("div",{className:"container"},
     e("div",{className:"header"},
