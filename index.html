@@ -90,6 +90,37 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 .submitted-badge{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:3px;padding:8px 16px;font-size:12px;color:var(--sage);margin-bottom:16px}
 .lb-link{display:inline-block;margin-top:16px;font-size:12px;color:var(--accent-dark);text-decoration:none;font-weight:600;letter-spacing:0.05em;text-transform:uppercase}
 .lb-link:hover{color:var(--accent)}
+/* Tags & Badges */
+.tag-row{display:flex;flex-wrap:wrap;gap:5px;margin-top:12px}
+.tag{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;padding:3px 8px;border-radius:2px;line-height:1}
+.tag-cat{background:var(--bar-bg);color:var(--text-muted);border:1px solid var(--border)}
+.tag-cat[data-cat="strategy"]{background:#fef3c7;color:#92400e;border-color:#fcd34d}
+.tag-cat[data-cat="stakeholders"]{background:#d1fae5;color:#065f46;border-color:#6ee7b7}
+.tag-cat[data-cat="significance"]{background:#fee2e2;color:#991b1b;border-color:#fca5a5}
+.tag-cat[data-cat="reach"]{background:#dbeafe;color:#1e40af;border-color:#93c5fd}
+.tag-cat[data-cat="evidence"]{background:#e0e7ff;color:#3730a3;border-color:#a5b4fc}
+.tag-impact{background:transparent;color:var(--text-muted);border:1px dashed var(--border);font-weight:500}
+.tag-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.phase-indicator{display:inline-flex;align-items:center;gap:6px;font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;font-weight:600;margin-top:6px}
+.phase-pip{width:8px;height:8px;border-radius:50%;border:1.5px solid var(--border);flex-shrink:0}
+.phase-pip.active{background:var(--accent);border-color:var(--accent)}
+.phase-pip.past{background:var(--text-muted);border-color:var(--text-muted)}
+
+/* Journey Analytics (ending screen) */
+.analytics-card{background:var(--surface);border-radius:3px;padding:20px 24px;margin-bottom:24px;border:1px solid var(--border)}
+.analytics-title{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;color:var(--ink);margin-bottom:16px}
+.analytics-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:500px){.analytics-grid{grid-template-columns:1fr}}
+.analytics-section{margin-bottom:16px}
+.analytics-section-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-muted);margin-bottom:8px}
+.analytics-bar-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.analytics-bar-label{font-size:11px;color:var(--text-sec);width:90px;text-align:right;flex-shrink:0}
+.analytics-bar-track{flex:1;height:12px;border-radius:2px;background:var(--bar-bg);overflow:hidden;position:relative}
+.analytics-bar-fill{height:100%;border-radius:2px;transition:width 1s ease}
+.analytics-bar-val{font-size:10px;font-weight:700;width:24px;text-align:left;flex-shrink:0;color:var(--text-muted)}
+.phase-timeline{display:flex;align-items:center;gap:2px;margin-top:8px}
+.phase-block{height:20px;border-radius:2px;flex:1;position:relative;cursor:default}
+.phase-block:hover::after{content:attr(data-label);position:absolute;bottom:100%;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);font-size:9px;padding:2px 6px;border-radius:2px;white-space:nowrap;margin-bottom:4px}
 .loading{text-align:center;padding:80px 20px;color:var(--text-muted);font-size:14px}
 .loading .spinner{display:inline-block;width:24px;height:24px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin 0.8s linear infinite;margin-bottom:16px}
 .no-img-placeholder{height:140px;background:var(--bar-bg);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--border);letter-spacing:2px}
@@ -106,6 +137,12 @@ var e=React.createElement,useState=React.useState,useEffect=React.useEffect,useR
 var SCORE_LABELS={strategy:"Strategic Thinking",stakeholders:"Stakeholder Relations",significance:"Significance",reach:"Reach",evidence:"Evidence Quality"};
 var SCORE_COLORS={strategy:"#E8A838",stakeholders:"#4a6741",significance:"#c0392b",reach:"#5b7fb5",evidence:"#96CEB4"};
 var ENDING_THEMES={policy:{emoji:"\ud83c\udfdb\ufe0f",color:"#5b7fb5"},practitioner:{emoji:"\ud83e\udd1d",color:"#4a6741"},cycle:{emoji:"\ud83d\udd04",color:"#e8963a"}};
+var CAT_LABELS={strategy:"Strategy",stakeholders:"Stakeholders",significance:"Significance",reach:"Reach",evidence:"Evidence"};
+var IMPACT_LABELS={policy:"Policy",practice:"Practice",health:"Health",educational:"Educational",societal:"Societal",economic:"Economic",technological:"Technological"};
+var IMPACT_ICONS={policy:"\ud83c\udfdb",practice:"\ud83d\udee0",health:"\u2764\ufe0f",educational:"\ud83c\udf93",societal:"\ud83c\udf0d",economic:"\ud83d\udcb0",technological:"\u2699\ufe0f"};
+var PHASE_ORDER=["planning","evidence","engagement","translation","adoption","scaling"];
+var PHASE_LABELS={planning:"Planning",evidence:"Evidence",engagement:"Engagement",translation:"Translation",adoption:"Adoption",scaling:"Scaling"};
+var PHASE_COLORS={planning:"#E8A838",evidence:"#a5b4fc",engagement:"#4a6741",translation:"#5b7fb5",adoption:"#c0392b",scaling:"#96CEB4"};
 
 var LB_REPO="paulbrbeal/Impact-Quest";
 
@@ -124,6 +161,110 @@ function saveScore(entry){
 
 function TypewriterText(props){var text=props.text,speed=props.speed,onComplete=props.onComplete;var _d=useState(""),displayed=_d[0],setDisplayed=_d[1];var _dn=useState(false),done=_dn[0],setDone=_dn[1];var idx=useRef(0),timer=useRef(null);useEffect(function(){idx.current=0;setDisplayed("");setDone(false);function tick(){idx.current++;setDisplayed(text.slice(0,idx.current));if(idx.current>=text.length){setDone(true);if(onComplete)onComplete();}else{timer.current=setTimeout(tick,speed||8);}}timer.current=setTimeout(tick,speed||8);return function(){clearTimeout(timer.current);};},[text]);var handleSkip=function(){clearTimeout(timer.current);setDisplayed(text);setDone(true);if(onComplete)onComplete();};var pars=displayed.split("\n").map(function(line,i){return e("p",{key:i,style:{margin:"0 0 12px 0",minHeight:line===""?12:"auto"}},line);});return e("div",{onClick:!done?handleSkip:undefined,style:{cursor:done?"default":"pointer"}},pars,!done?e("div",{className:"skip-hint"},"Click to skip animation"):null);}
 function ScoreBar(props){var pct=Math.min((props.value/props.max)*100,100);return e("div",{className:"score-row"},e("div",{className:"score-label"},e("span",null,props.label),e("span",{className:"val",style:{color:props.color}},props.value)),e("div",{className:"score-track"},e("div",{className:"score-fill",style:{width:pct+"%",background:props.color}})));}
+
+function SceneTags(props){
+  var node=props.node;
+  if(!node||(!node.categories&&!node.impactTypes))return null;
+  var cats=(node.categories||[]);
+  var impacts=(node.impactTypes||[]);
+  return e("div",{className:"tag-row"},
+    cats.map(function(c){return e("span",{key:"c-"+c,className:"tag tag-cat","data-cat":c},CAT_LABELS[c]||c);}),
+    impacts.map(function(t){return e("span",{key:"i-"+t,className:"tag tag-impact"},IMPACT_ICONS[t]||"","\u2009",IMPACT_LABELS[t]||t);})
+  );
+}
+
+function PhaseIndicator(props){
+  var current=props.phase||"engagement";
+  var currentIdx=PHASE_ORDER.indexOf(current);
+  return e("div",{className:"phase-indicator"},
+    PHASE_ORDER.map(function(p,i){
+      var cls="phase-pip";
+      if(i<currentIdx)cls+=" past";
+      if(i===currentIdx)cls+=" active";
+      return e("span",{key:p,className:cls,title:PHASE_LABELS[p]});
+    }),
+    e("span",null,PHASE_LABELS[current]||current)
+  );
+}
+
+function JourneyAnalytics(props){
+  var history=props.history;var scenes=props.scenes;
+  if(!history||history.length===0)return null;
+
+  // Count categories across journey
+  var catCounts={};var impactCounts={};var phaseCounts={};
+  var phaseSequence=[];
+  history.forEach(function(h){
+    var sc=scenes[h.node];if(!sc)return;
+    (sc.categories||[]).forEach(function(c){catCounts[c]=(catCounts[c]||0)+1;});
+    (sc.impactTypes||[]).forEach(function(t){impactCounts[t]=(impactCounts[t]||0)+1;});
+    var p=sc.phase||"engagement";phaseCounts[p]=(phaseCounts[p]||0)+1;
+    phaseSequence.push(p);
+  });
+  // Add current ending node
+  if(props.currentNode&&scenes[props.currentNode]){
+    var endSc=scenes[props.currentNode];
+    (endSc.categories||[]).forEach(function(c){catCounts[c]=(catCounts[c]||0)+1;});
+    (endSc.impactTypes||[]).forEach(function(t){impactCounts[t]=(impactCounts[t]||0)+1;});
+    var ep=endSc.phase||"scaling";phaseCounts[ep]=(phaseCounts[ep]||0)+1;
+    phaseSequence.push(ep);
+  }
+
+  var maxCat=Math.max(1,Math.max.apply(null,Object.values(catCounts).concat([1])));
+  var maxImpact=Math.max(1,Math.max.apply(null,Object.values(impactCounts).concat([1])));
+
+  // Determine dominant category and impact
+  var topCat=Object.entries(catCounts).sort(function(a,b){return b[1]-a[1];})[0];
+  var topImpact=Object.entries(impactCounts).sort(function(a,b){return b[1]-a[1];})[0];
+
+  return e("div",{className:"analytics-card"},
+    e("div",{className:"analytics-title"},"Journey Analytics"),
+    e("div",{className:"analytics-grid"},
+      e("div",{className:"analytics-section"},
+        e("div",{className:"analytics-section-title"},"REF Dimensions"),
+        Object.keys(CAT_LABELS).map(function(key){
+          var val=catCounts[key]||0;
+          var pct=Math.round((val/maxCat)*100);
+          return e("div",{key:key,className:"analytics-bar-row"},
+            e("span",{className:"analytics-bar-label"},CAT_LABELS[key]),
+            e("div",{className:"analytics-bar-track"},e("div",{className:"analytics-bar-fill",style:{width:pct+"%",background:SCORE_COLORS[key]||"#ccc"}})),
+            e("span",{className:"analytics-bar-val"},val)
+          );
+        })
+      ),
+      e("div",{className:"analytics-section"},
+        e("div",{className:"analytics-section-title"},"Impact Types"),
+        Object.keys(IMPACT_LABELS).filter(function(k){return impactCounts[k];}).sort(function(a,b){return (impactCounts[b]||0)-(impactCounts[a]||0);}).map(function(key){
+          var val=impactCounts[key]||0;
+          var pct=Math.round((val/maxImpact)*100);
+          return e("div",{key:key,className:"analytics-bar-row"},
+            e("span",{className:"analytics-bar-label"},IMPACT_ICONS[key]||""," ",IMPACT_LABELS[key]),
+            e("div",{className:"analytics-bar-track"},e("div",{className:"analytics-bar-fill",style:{width:pct+"%",background:PHASE_COLORS[key]||"#8c8272"}})),
+            e("span",{className:"analytics-bar-val"},val)
+          );
+        })
+      )
+    ),
+    e("div",{className:"analytics-section"},
+      e("div",{className:"analytics-section-title"},"Your Impact Journey"),
+      e("div",{className:"phase-timeline"},
+        phaseSequence.map(function(p,i){
+          return e("div",{key:i,className:"phase-block","data-label":(i+1)+". "+PHASE_LABELS[p],style:{background:PHASE_COLORS[p]||"#ccc"}});
+        })
+      ),
+      e("div",{style:{display:"flex",justifyContent:"space-between",marginTop:6}},
+        e("span",{style:{fontSize:9,color:"var(--text-muted)"}},"\u2190 Start"),
+        e("span",{style:{fontSize:9,color:"var(--text-muted)"}},"Ending \u2192")
+      )
+    ),
+    topCat&&topImpact?e("div",{style:{marginTop:12,padding:"10px 14px",background:"var(--bar-bg)",borderRadius:3,fontSize:12,color:"var(--text-sec)",lineHeight:1.6}},
+      "Your journey focused on ",e("strong",null,CAT_LABELS[topCat[0]]),
+      " (",topCat[1]," scenes) with primarily ",
+      e("strong",null,IMPACT_LABELS[topImpact[0]])," impact (",topImpact[1]," scenes).",
+      phaseSequence.length>3?" You moved through "+Object.keys(phaseCounts).length+" phases of impact development.":""
+    ):null
+  );
+}
 
 // Story selection screen
 function StorySelect(props){
@@ -247,8 +388,10 @@ function App(props){
     e("div",{key:cardKey,className:"content-card"+(isEnding?" ending":""),style:isEnding?{borderColor:endTheme.color}:{}},
       isEnding?e("div",{className:"top-line",style:{background:"linear-gradient(90deg, "+endTheme.color+", transparent)"}}):null,
       e("div",{className:"content-title-row"},isEnding?e("span",{className:"emoji"},endTheme.emoji):null,e("h2",{className:"content-title"+(isEnding?" ending":""),style:isEnding?{color:endTheme.color}:{}},node.title)),
-      node.image?e("div",{style:{textAlign:"center",marginBottom:"16px"}},e("img",{src:node.image,alt:"",className:"scene-img",style:{width:node.imageSize==="small"?"40%":node.imageSize==="medium"?"65%":"100%",maxHeight:node.imageSize==="banner"?"150px":"300px",objectFit:"cover"}})):null,
-      e("div",{className:"narrative"},e(TypewriterText,{key:currentNode,text:node.narrative,speed:8,onComplete:function(){setShowChoices(true);}}))
+      node.phase?e(PhaseIndicator,{phase:node.phase}):null,
+      e(SceneTags,{node:node}),
+      node.image?e("div",{style:{textAlign:"center",marginBottom:"16px",marginTop:"16px"}},e("img",{src:node.image,alt:"",className:"scene-img",style:{width:node.imageSize==="small"?"40%":node.imageSize==="medium"?"65%":"100%",maxHeight:node.imageSize==="banner"?"150px":"300px",objectFit:"cover"}})):null,
+      e("div",{className:"narrative",style:{marginTop:12}},e(TypewriterText,{key:currentNode,text:node.narrative,speed:8,onComplete:function(){setShowChoices(true);}}))
     ),
     !isEnding&&showChoices&&node.choices?e("div",{className:"choices-section"},
       e("div",{className:"choices-label"},"What do you do?"),
@@ -264,9 +407,10 @@ function App(props){
         e("a",{className:"action-btn outline",href:"leaderboard.html"},"Leaderboard")
       )
     ):null,
+    isEnding&&showChoices?e(JourneyAnalytics,{history:history,scenes:scenes,currentNode:currentNode}):null,
     history.length>0&&showChoices?e("details",{className:"journey-log"},
       e("summary",null,"Your Journey ("+history.length+" steps)"),
-      e("div",{style:{marginTop:12}},history.map(function(h,i){return e("div",{key:i,className:"journey-step",style:{borderLeftColor:SCORE_COLORS[Object.keys(SCORE_COLORS)[i%5]]}},e("div",{className:"step-title"},scenes[h.node]?scenes[h.node].title:""),"\u2192 "+h.choice);}))
+      e("div",{style:{marginTop:12}},history.map(function(h,i){var sc=scenes[h.node];return e("div",{key:i,className:"journey-step",style:{borderLeftColor:sc&&sc.phase?PHASE_COLORS[sc.phase]:SCORE_COLORS[Object.keys(SCORE_COLORS)[i%5]]}},e("div",{className:"step-title"},sc?sc.title:""),"\u2192 "+h.choice,sc?e("div",{className:"tag-row",style:{marginTop:4}},(sc.categories||[]).map(function(c){return e("span",{key:"c-"+c,className:"tag tag-cat","data-cat":c,style:{fontSize:8,padding:"1px 5px"}},CAT_LABELS[c]||c);})):null);}))
     ):null
   );
 }
