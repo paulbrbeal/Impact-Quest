@@ -8,7 +8,7 @@
     },
     "animal_hoarding": {
       "title": "The Hoarding Gap",
-      "description": "The UK has no legal definition of animal hoarding. Your research could change that â if you can navigate the right stakeholders.",
+      "description": "The UK has no legal definition of animal hoarding. Your research could change that, if you can navigate the right stakeholders.",
       "startScene": "ah_start"
     },
     "bfr": {
