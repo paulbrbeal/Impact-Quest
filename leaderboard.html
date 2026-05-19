@@ -79,9 +79,11 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 <script>
 var LB_HERO_IMAGE="";
 var LB_TAGLINE="Navigate the messy reality of turning research into real-world impact.";
+var LB_REPO="paulbrbeal/Impact-Quest";
 var currentFilter="all";
 
 function loadEntries(callback){
+  var hidden=[];try{hidden=JSON.parse(localStorage.getItem("iq_lb_hidden")||"[]");}catch(e){}
   fetch("leaderboard.json?t="+Date.now()).then(function(r){return r.ok?r.json():[];}).catch(function(){return [];}).then(function(remote){
     if(!Array.isArray(remote))remote=[];
     var local=[];try{local=JSON.parse(localStorage.getItem("iq_leaderboard")||"[]");}catch(e){}
@@ -90,7 +92,7 @@ function loadEntries(callback){
     remote.concat(local).forEach(function(entry){
       if(!entry||!entry.name)return;
       var key=entry.name+"|"+(entry.date||"")+"|"+(entry.score||0);
-      if(!seen[key]){seen[key]=true;entries.push(entry);}
+      if(!seen[key]&&hidden.indexOf(key)===-1){seen[key]=true;entries.push(entry);}
     });
     callback(entries);
   });
@@ -202,7 +204,28 @@ function doExportCSV(){
     var a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="impact-quest-leaderboard.csv";document.body.appendChild(a);a.click();document.body.removeChild(a);
   });
 }
-function doClearBoard(){if(confirm("Clear local leaderboard data?")){localStorage.removeItem("iq_leaderboard");render();}}
+function doClearBoard(){
+  if(!confirm("Clear all leaderboard data? This will clear local scores and (if a GitHub token is set) the remote leaderboard too."))return;
+  // Mark all currently visible entries as hidden (so remote entries that can't be deleted are suppressed)
+  loadEntries(function(entries){
+    var hidden=[];
+    entries.forEach(function(e){hidden.push(e.name+"|"+(e.date||"")+"|"+(e.score||0));});
+    localStorage.setItem("iq_lb_hidden",JSON.stringify(hidden));
+    localStorage.removeItem("iq_leaderboard");
+    // Also clear remote leaderboard.json if token available
+    var token=(localStorage.getItem("iq_gh_token")||"").replace(/[^\x20-\x7E]/g,"").trim();
+    if(token){
+      var apiUrl="https://api.github.com/repos/"+LB_REPO+"/contents/leaderboard.json";
+      fetch(apiUrl,{headers:{"Authorization":"Bearer "+token}}).then(function(r){return r.ok?r.json():null;}).then(function(existing){
+        if(!existing||!existing.sha)return;
+        var b64=btoa("[]");
+        return fetch(apiUrl,{method:"PUT",headers:{"Authorization":"Bearer "+token,"Content-Type":"application/json"},body:JSON.stringify({message:"Clear leaderboard",content:b64,sha:existing.sha})});
+      }).then(function(){render();}).catch(function(){render();});
+    } else {
+      render();
+    }
+  });
+}
 render();
 </script>
 </body>
