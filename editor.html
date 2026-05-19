@@ -205,19 +205,30 @@ function Editor(){
     const repo=localStorage.getItem("iq_gh_repo")||"paulbrbeal/Impact-Quest";
     const loadData=(d)=>{
       if(!d||typeof d!=="object") return;
-      // Backwards compat
       if(!d.stories){d={stories:{default:{title:"The Impact Quest",description:"",startScene:"start"}},scenes:d};}
       setData(d);setDataVersion(v=>v+1);
       var firstStory=Object.keys(d.stories)[0]||"";
       setSelectedStory(firstStory);
       if(d.stories[firstStory])setExpanded(d.stories[firstStory].startScene||"");
     };
+    const loadFromPages=()=>{
+      fetch("game-data.json?t="+Date.now()).then(r=>r.json()).then(loadData).catch(()=>{});
+    };
     if(token){
       fetch("https://api.github.com/repos/"+repo+"/contents/game-data.json",{headers:{"Authorization":"Bearer "+token}})
-        .then(r=>r.ok?r.json():null).then(resp=>{if(resp&&resp.content)loadData(JSON.parse(atob(resp.content.replace(/\n/g,""))));})
-        .catch(()=>{fetch("game-data.json?t="+Date.now()).then(r=>r.json()).then(loadData).catch(()=>{});});
+        .then(function(r){if(!r.ok)throw new Error("API "+r.status);return r.json();})
+        .then(function(resp){
+          if(!resp||!resp.content)throw new Error("No content");
+          var raw=atob(resp.content.replace(/\n/g,""));
+          var d=JSON.parse(raw);
+          loadData(d);
+        })
+        .catch(function(err){
+          console.log("API load failed, falling back to Pages:",err.message);
+          loadFromPages();
+        });
     } else {
-      fetch("game-data.json?t="+Date.now()).then(r=>r.json()).then(loadData).catch(()=>{});
+      loadFromPages();
     }
   },[]);
 
@@ -385,7 +396,8 @@ function Editor(){
               <div className="dot" style={{background:getDotColor(id,n)}} />
               <div className="info">
                 <div className="title">{n.title}</div>
-                <div className="meta">{id} · {(n.choices||[]).length}ch{usedBy.length>0?" · "+usedBy.length+" stor"+(usedBy.length===1?"y":"ies"):""}</div>
+                <div className="meta">{id} · {(n.choices||[]).length}ch{usedBy.length>0?" · "+usedBy.length+" stor"+(usedBy.length===1?"y":"ies"):""}{n.phase?" · "+n.phase:""}</div>
+                {(n.categories||[]).length>0&&<div style={{display:"flex",gap:2,marginTop:2,flexWrap:"wrap"}}>{(n.categories||[]).map(c=><span key={c} style={{fontSize:7,fontWeight:700,textTransform:"uppercase",letterSpacing:0.3,padding:"1px 4px",borderRadius:1,background:c==="strategy"?"#fef3c7":c==="stakeholders"?"#d1fae5":c==="significance"?"#fee2e2":c==="reach"?"#dbeafe":"#e0e7ff",color:c==="strategy"?"#92400e":c==="stakeholders"?"#065f46":c==="significance"?"#991b1b":c==="reach"?"#1e40af":"#3730a3"}}>{c.slice(0,4)}</span>)}</div>}
               </div>
             </div>);
           })}
@@ -475,6 +487,33 @@ function Editor(){
 
                 <label className="field-label">Score Effects</label>
                 <div className="scores-row">{SCORE_KEYS.map(k=>(<div className="score-chip" key={k}><div className="chip-dot" style={{background:SCORE_COLORS[k]}} /><label>{SCORE_LABELS[k]}</label><input type="number" value={(n.scoreEffect&&n.scoreEffect[k])||0} onChange={e=>{const v=parseInt(e.target.value)||0;const se={...(n.scoreEffect||{})};if(v===0)delete se[k];else se[k]=v;updateScene(id,{scoreEffect:se});}} /></div>))}</div>
+
+                <label className="field-label">Categories</label>
+                <div style={{display:"flex",flexWrap:"wrap",gap:4,marginBottom:12}}>
+                  {["strategy","stakeholders","significance","reach","evidence"].map(c=>{
+                    const active=(n.categories||[]).includes(c);
+                    return <button key={c} style={{fontSize:9,fontWeight:600,textTransform:"uppercase",letterSpacing:0.5,padding:"3px 8px",borderRadius:2,cursor:"pointer",border:active?"1px solid var(--accent)":"1px solid var(--border)",background:active?"var(--accent-glow)":"transparent",color:active?"var(--accent-dark)":"var(--text-muted)",fontFamily:"inherit"}} onClick={()=>{const cats=new Set(n.categories||[]);if(active)cats.delete(c);else cats.add(c);updateScene(id,{categories:[...cats]});}}>{c}</button>;
+                  })}
+                </div>
+
+                <label className="field-label">Impact Types</label>
+                <div style={{display:"flex",flexWrap:"wrap",gap:4,marginBottom:12}}>
+                  {["policy","practice","health","educational","societal","economic","technological"].map(t=>{
+                    const active=(n.impactTypes||[]).includes(t);
+                    return <button key={t} style={{fontSize:9,fontWeight:600,textTransform:"uppercase",letterSpacing:0.5,padding:"3px 8px",borderRadius:2,cursor:"pointer",border:active?"1px solid var(--sage)":"1px solid var(--border)",background:active?"#d1fae533":"transparent",color:active?"var(--sage)":"var(--text-muted)",fontFamily:"inherit"}} onClick={()=>{const types=new Set(n.impactTypes||[]);if(active)types.delete(t);else types.add(t);updateScene(id,{impactTypes:[...types]});}}>{t}</button>;
+                  })}
+                </div>
+
+                <label className="field-label">Phase</label>
+                <select className="field-select" style={{width:"auto",marginBottom:12}} value={n.phase||""} onChange={e=>updateScene(id,{phase:e.target.value||undefined})}>
+                  <option value="">None</option>
+                  <option value="planning">Planning</option>
+                  <option value="evidence">Evidence</option>
+                  <option value="engagement">Engagement</option>
+                  <option value="translation">Translation</option>
+                  <option value="adoption">Adoption</option>
+                  <option value="scaling">Scaling</option>
+                </select>
 
                 <div style={{display:"flex",gap:12,alignItems:"center",marginBottom:12}}>
                   <label className="field-label" style={{marginBottom:0}}>Ending</label>
