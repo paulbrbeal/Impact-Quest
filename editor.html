@@ -381,6 +381,7 @@ function Editor(){
         <div className="sidebar-nav">
           <button className={"nav-tab"+(sidebarTab==="stories"?" active":"")} onClick={()=>setSidebarTab("stories")}>Stories</button>
           <button className={"nav-tab"+(sidebarTab==="scenes"?" active":"")} onClick={()=>setSidebarTab("scenes")}>All Scenes</button>
+          <button className={"nav-tab"+(sidebarTab==="ieo"?" active":"")} onClick={()=>setSidebarTab("ieo")}>IEO Advice</button>
         </div>
         {sidebarTab==="scenes"&&<div className="sidebar-search"><input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Search scenes..." /></div>}
         <div className="scene-list">
@@ -549,6 +550,62 @@ function Editor(){
             </div>);
           })}
         </>)}
+
+        {view==="editor"&&sidebarTab==="ieo"&&(()=>{
+          const ieo=dataRef.current.ieoAdvice||{};
+          const updateIEO=(path,value)=>{
+            setData(prev=>{
+              const newIeo={...(prev.ieoAdvice||{})};
+              const parts=path.split(".");
+              if(parts.length===1)newIeo[parts[0]]=value;
+              else{newIeo[parts[0]]={...(newIeo[parts[0]]||{})};newIeo[parts[0]][parts[1]]=value;}
+              return{...prev,ieoAdvice:newIeo};
+            });
+          };
+          const mkArea=(label,path,val)=>(<div key={path} style={{marginBottom:16}}>
+            <label className="field-label">{label}</label>
+            <textarea className="field-textarea" style={{minHeight:80}} defaultValue={val||""} onBlur={e=>updateIEO(path,e.target.value)} />
+          </div>);
+          return(<div style={{padding:"0 24px 24px"}}>
+            <h3 style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:22,letterSpacing:2,color:"var(--ink)",marginBottom:4}}>IEO ADVICE CONTENT</h3>
+            <p style={{fontSize:11,color:"var(--text-muted)",marginBottom:20,lineHeight:1.6}}>Edit the text your Impact & Engagement Officer shows during gameplay. The game dynamically selects which advice to show based on the player's progress, scores, and current scene.</p>
+
+            <h4 style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:16,letterSpacing:1.5,color:"var(--ink)",marginBottom:8,borderBottom:"1px solid var(--border)",paddingBottom:4}}>GREETINGS</h4>
+            <p style={{fontSize:10,color:"var(--text-muted)",marginBottom:12}}>Shown based on how far the player is into the story.</p>
+            {mkArea("Opening scene (0 decisions)","greetings.start",(ieo.greetings||{}).start)}
+            {mkArea("Early game (1-2 decisions)","greetings.early",(ieo.greetings||{}).early)}
+            {mkArea("Mid game (3-5 decisions)","greetings.mid",(ieo.greetings||{}).mid)}
+            {mkArea("Late game (6+ decisions)","greetings.late",(ieo.greetings||{}).late)}
+
+            <h4 style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:16,letterSpacing:1.5,color:"var(--ink)",marginBottom:8,marginTop:24,borderBottom:"1px solid var(--border)",paddingBottom:4}}>PHASE ADVICE</h4>
+            <p style={{fontSize:10,color:"var(--text-muted)",marginBottom:12}}>Shown based on the current scene's phase tag.</p>
+            {["planning","evidence","engagement","translation","adoption","scaling"].map(p=>mkArea(p.charAt(0).toUpperCase()+p.slice(1),"phaseAdvice."+p,(ieo.phaseAdvice||{})[p]))}
+
+            <h4 style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:16,letterSpacing:1.5,color:"var(--ink)",marginBottom:8,marginTop:24,borderBottom:"1px solid var(--border)",paddingBottom:4}}>CATEGORY TIPS</h4>
+            <p style={{fontSize:10,color:"var(--text-muted)",marginBottom:12}}>Shown based on the scene's REF dimension tags. The tip for the player's weakest dimension is prioritised.</p>
+            {["strategy","stakeholders","significance","reach","evidence"].map(c=>mkArea(c.charAt(0).toUpperCase()+c.slice(1),"categoryTips."+c,(ieo.categoryTips||{})[c]))}
+
+            <h4 style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:16,letterSpacing:1.5,color:"var(--ink)",marginBottom:8,marginTop:24,borderBottom:"1px solid var(--border)",paddingBottom:4}}>SCORE NUDGES</h4>
+            <p style={{fontSize:10,color:"var(--text-muted)",marginBottom:12}}>Shown when score imbalances are detected. Use {"{weak}"} and {"{strong}"} as placeholders for dimension names.</p>
+            {mkArea("Zero gap (one dimension at 0, another strong)","scoreNudges.zeroGap",(ieo.scoreNudges||{}).zeroGap)}
+            {mkArea("Low gap (one dimension much weaker than strongest)","scoreNudges.lowGap",(ieo.scoreNudges||{}).lowGap)}
+            {mkArea("Balanced (scores are even)","scoreNudges.balanced",(ieo.scoreNudges||{}).balanced)}
+
+            <h4 style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:16,letterSpacing:1.5,color:"var(--ink)",marginBottom:8,marginTop:24,borderBottom:"1px solid var(--border)",paddingBottom:4}}>CLOSING LINES</h4>
+            <p style={{fontSize:10,color:"var(--text-muted)",marginBottom:12}}>One is randomly picked each time. Add/edit lines below (one per box).</p>
+            {(ieo.closingLines||[]).map((line,i)=>(<div key={i} style={{display:"flex",gap:8,marginBottom:8,alignItems:"start"}}>
+              <textarea className="field-textarea" style={{minHeight:50,flex:1}} defaultValue={line} onBlur={e=>{
+                setData(prev=>{const cl=[...(prev.ieoAdvice||{}).closingLines||[]];cl[i]=e.target.value;return{...prev,ieoAdvice:{...(prev.ieoAdvice||{}),closingLines:cl}};});
+              }} />
+              <button className="sb-btn" style={{color:"var(--rust)",fontSize:9,flexShrink:0}} onClick={()=>{
+                setData(prev=>{const cl=[...(prev.ieoAdvice||{}).closingLines||[]];cl.splice(i,1);return{...prev,ieoAdvice:{...(prev.ieoAdvice||{}),closingLines:cl}};});
+              }}>×</button>
+            </div>))}
+            <button className="sb-btn" onClick={()=>{
+              setData(prev=>{const cl=[...(prev.ieoAdvice||{}).closingLines||[],""];return{...prev,ieoAdvice:{...(prev.ieoAdvice||{}),closingLines:cl}};});
+            }}>+ Add closing line</button>
+          </div>);
+        })()}
 
         {view==="preview"&&<PreviewMode />}
       </div>
