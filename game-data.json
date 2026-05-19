@@ -38,6 +38,10 @@
         {
           "text": "Contact the local council directly, they need to hear this straight away",
           "next": "cold_call_council"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "categories": [
@@ -64,11 +68,15 @@
         {
           "text": "Can we pursue all three at once?",
           "next": "all_three"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "strategy": 10,
-        "evidence": 5
+        "strategy": 5,
+        "evidence": 3
       },
       "categories": [
         "strategy",
@@ -96,11 +104,15 @@
         {
           "text": "A community group has commented on the article. Reach out to them",
           "next": "community_contact"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "reach": 10,
-        "significance": -5
+        "reach": 5,
+        "significance": -3
       },
       "categories": [
         "strategy",
@@ -127,11 +139,15 @@
         {
           "text": "Forget the council — focus on community organisations instead",
           "next": "practitioner_route"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "strategy": -5,
-        "stakeholders": -5
+        "strategy": -3,
+        "stakeholders": -3
       },
       "categories": [
         "significance",
@@ -154,11 +170,15 @@
         {
           "text": "Target the national charity — they could fund a bigger project",
           "next": "charity_route"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "strategy": 8,
-        "stakeholders": 5
+        "strategy": 4,
+        "stakeholders": 3
       },
       "categories": [
         "stakeholders",
@@ -181,12 +201,16 @@
         {
           "text": "A council officer saw the BBC piece and got in touch — follow up",
           "next": "council_inbound"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "reach": 15,
-        "significance": -10,
-        "evidence": -5
+        "reach": 8,
+        "significance": -5,
+        "evidence": -3
       },
       "categories": [
         "strategy",
@@ -214,11 +238,15 @@
         {
           "text": "Invite Priya to give a guest lecture at the university",
           "next": "guest_lecture"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "stakeholders": 15,
-        "significance": 10
+        "stakeholders": 8,
+        "significance": 5
       },
       "categories": [
         "stakeholders",
@@ -245,11 +273,15 @@
         {
           "text": "Both — submit the response AND request the meeting",
           "next": "consultation_and_meeting"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "strategy": 10,
-        "stakeholders": 5
+        "strategy": 5,
+        "stakeholders": 3
       },
       "categories": [
         "strategy"
@@ -275,11 +307,15 @@
         {
           "text": "Try to support all three — you can manage it",
           "next": "overcommit"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "stakeholders": 10,
-        "strategy": 5
+        "stakeholders": 5,
+        "strategy": 3
       },
       "categories": [
         "stakeholders"
@@ -300,10 +336,14 @@
         {
           "text": "Practitioner change — community groups are already interested",
           "next": "practitioner_route"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "strategy": 5
+        "strategy": 3
       },
       "categories": [
         "strategy",
@@ -325,11 +365,15 @@
         {
           "text": "Ask your Public Health colleague for an introduction to the council team",
           "next": "warm_intro"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "strategy": 15,
-        "stakeholders": 5
+        "strategy": 8,
+        "stakeholders": 3
       },
       "categories": [
         "strategy"
@@ -353,11 +397,15 @@
         {
           "text": "Ask Janet what evidence gaps the council has — tailor your input to their needs",
           "next": "needs_led"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "stakeholders": 15,
-        "strategy": 10
+        "stakeholders": 8,
+        "strategy": 5
       },
       "categories": [
         "strategy",
@@ -382,11 +430,15 @@
         {
           "text": "Ask what specific evidence gaps the council needs filled",
           "next": "needs_led"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "stakeholders": 15,
-        "strategy": 10
+        "stakeholders": 8,
+        "strategy": 5
       },
       "categories": [
         "strategy",
@@ -413,11 +465,15 @@
         {
           "text": "Meet with Janet at the council to discuss next steps and document the connection",
           "next": "needs_led"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "significance": 15,
-        "reach": 10
+        "significance": 8,
+        "reach": 5
       },
       "categories": [
         "significance",
@@ -441,12 +497,16 @@
         {
           "text": "Stick to what your research actually shows — don't overreach",
           "next": "stay_focused"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "strategy": 15,
-        "stakeholders": 10,
-        "evidence": 10
+        "strategy": 8,
+        "stakeholders": 5,
+        "evidence": 5
       },
       "categories": [
         "strategy",
@@ -471,10 +531,14 @@
         {
           "text": "Suggest a pilot project to test your approach in one neighbourhood first",
           "next": "pilot_project"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "stakeholders": 10
+        "stakeholders": 5
       },
       "categories": [
         "strategy",
@@ -501,12 +565,16 @@
         {
           "text": "Apply for follow-on funding to scale the toolkit nationally",
           "next": "scale_up"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "significance": 20,
-        "evidence": 15,
-        "stakeholders": 10
+        "significance": 11,
+        "evidence": 8,
+        "stakeholders": 5
       },
       "categories": [
         "stakeholders",
@@ -530,12 +598,16 @@
         {
           "text": "Help Park Life present this at a national community health conference",
           "next": "conference_impact"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "significance": 20,
-        "evidence": 10,
-        "reach": 5
+        "significance": 11,
+        "evidence": 5,
+        "reach": 3
       },
       "categories": [
         "significance",
@@ -558,11 +630,15 @@
         {
           "text": "Reconnect with Park Life CIC — they had the clearest need",
           "next": "programme_redesign"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "strategy": -15,
-        "stakeholders": -10
+        "strategy": -8,
+        "stakeholders": -5
       },
       "categories": [
         "strategy",
@@ -584,11 +660,15 @@
         {
           "text": "Prepare a polished briefing document first, then meet",
           "next": "council_presentation"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "stakeholders": 15,
-        "reach": 5
+        "stakeholders": 8,
+        "reach": 3
       },
       "categories": [
         "stakeholders",
@@ -611,12 +691,16 @@
         {
           "text": "Focus on getting a letter from the council confirming the research influence",
           "next": "evidence_letter"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "significance": 20,
-        "reach": 10,
-        "stakeholders": 5
+        "significance": 11,
+        "reach": 5,
+        "stakeholders": 3
       },
       "categories": [
         "significance",
@@ -639,12 +723,16 @@
         {
           "text": "Focus only on what your research covers (points 2 and 3) — stay credible",
           "next": "stay_focused"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "strategy": 15,
-        "stakeholders": 15,
-        "significance": 10
+        "strategy": 8,
+        "stakeholders": 8,
+        "significance": 5
       },
       "categories": [
         "strategy",
@@ -668,11 +756,15 @@
         {
           "text": "Accept, but also maintain the local community partnerships",
           "next": "dual_track"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "reach": 20,
-        "stakeholders": 10
+        "reach": 11,
+        "stakeholders": 5
       },
       "categories": [
         "stakeholders",
@@ -695,12 +787,16 @@
         {
           "text": "Negotiate a research partnership within the funded project",
           "next": "embedded_research"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "significance": 25,
-        "evidence": 20,
-        "reach": 10
+        "significance": 14,
+        "evidence": 11,
+        "reach": 5
       },
       "categories": [
         "significance",
@@ -724,11 +820,15 @@
         {
           "text": "Actually, could this lead to a Knowledge Transfer Partnership?",
           "next": "ktp_idea"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "stakeholders": 5,
-        "significance": -5
+        "stakeholders": 3,
+        "significance": -3
       },
       "categories": [
         "stakeholders"
@@ -749,12 +849,16 @@
         {
           "text": "Offer to evaluate the new programme — creating a research cycle",
           "next": "ending_full_circle"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "significance": 25,
-        "evidence": 20,
-        "reach": 15
+        "significance": 14,
+        "evidence": 11,
+        "reach": 8
       },
       "categories": [
         "significance",
@@ -779,12 +883,16 @@
         {
           "text": "Apply for funding to address the evidence gaps Janet identified",
           "next": "new_research"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "strategy": 15,
-        "significance": 15,
-        "evidence": 10
+        "strategy": 8,
+        "significance": 8,
+        "evidence": 5
       },
       "categories": [
         "strategy",
@@ -803,13 +911,17 @@
         {
           "text": "Document everything — cabinet papers, press coverage, the funding decision",
           "next": "ending_policy_star"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "significance": 25,
-        "reach": 20,
-        "evidence": 15,
-        "strategy": 5
+        "significance": 14,
+        "reach": 11,
+        "evidence": 8,
+        "strategy": 3
       },
       "categories": [
         "significance",
@@ -828,13 +940,17 @@
         {
           "text": "This is perfect — document the pilot-to-programme journey as your impact narrative",
           "next": "ending_full_circle"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "significance": 20,
-        "evidence": 20,
-        "reach": 10,
-        "strategy": 15
+        "significance": 11,
+        "evidence": 11,
+        "reach": 5,
+        "strategy": 8
       },
       "categories": [
         "strategy",
@@ -855,13 +971,17 @@
         {
           "text": "Present to the Board and secure documentary evidence of influence",
           "next": "ending_policy_star"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "significance": 25,
-        "evidence": 15,
-        "reach": 15,
-        "stakeholders": 10
+        "significance": 14,
+        "evidence": 8,
+        "reach": 8,
+        "stakeholders": 5
       },
       "categories": [
         "stakeholders",
@@ -882,14 +1002,18 @@
         {
           "text": "Compile the impact case study with Sam's help",
           "next": "ending_policy_star"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "significance": 25,
-        "evidence": 25,
-        "reach": 20,
-        "strategy": 10,
-        "stakeholders": 10
+        "significance": 14,
+        "evidence": 14,
+        "reach": 11,
+        "strategy": 5,
+        "stakeholders": 5
       },
       "categories": [
         "strategy",
@@ -911,11 +1035,15 @@
         {
           "text": "Continue building the case — what other evidence should we gather?",
           "next": "ending_policy_star"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "evidence": 25,
-        "significance": 10
+        "evidence": 14,
+        "significance": 5
       },
       "categories": [
         "significance",
@@ -934,12 +1062,16 @@
         {
           "text": "Write up the impact case study",
           "next": "ending_practitioner_star"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "evidence": 25,
-        "significance": 10,
-        "strategy": 10
+        "evidence": 14,
+        "significance": 5,
+        "strategy": 5
       },
       "categories": [
         "strategy",
@@ -959,12 +1091,16 @@
         {
           "text": "Document the full adoption story for the impact case study",
           "next": "ending_practitioner_star"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "reach": 25,
-        "evidence": 15,
-        "significance": 10
+        "reach": 14,
+        "evidence": 8,
+        "significance": 5
       },
       "categories": [
         "significance",
@@ -984,12 +1120,16 @@
         {
           "text": "This is a landmark impact story — write it up",
           "next": "ending_practitioner_star"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "reach": 30,
-        "significance": 25,
-        "evidence": 15
+        "reach": 16,
+        "significance": 14,
+        "evidence": 8
       },
       "categories": [
         "significance",
@@ -1009,13 +1149,17 @@
         {
           "text": "Compile the impact case study",
           "next": "ending_practitioner_star"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "reach": 30,
-        "significance": 25,
-        "evidence": 20,
-        "stakeholders": 15
+        "reach": 16,
+        "significance": 14,
+        "evidence": 11,
+        "stakeholders": 8
       },
       "categories": [
         "stakeholders",
@@ -1035,13 +1179,17 @@
         {
           "text": "Write the impact case study — you've got a compelling dual narrative",
           "next": "ending_practitioner_star"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "reach": 20,
-        "significance": 20,
-        "strategy": 15,
-        "stakeholders": 10
+        "reach": 11,
+        "significance": 11,
+        "strategy": 8,
+        "stakeholders": 5
       },
       "categories": [
         "strategy",
@@ -1061,12 +1209,16 @@
         {
           "text": "Document this as your impact case study — it's a powerful narrative",
           "next": "ending_full_circle"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "evidence": 25,
-        "significance": 20,
-        "strategy": 15
+        "evidence": 14,
+        "significance": 11,
+        "strategy": 8
       },
       "categories": [
         "strategy",
@@ -1086,13 +1238,17 @@
         {
           "text": "This KTP story IS the impact case study — write it up",
           "next": "ending_practitioner_star"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "significance": 30,
-        "evidence": 20,
-        "reach": 15,
-        "stakeholders": 15
+        "significance": 16,
+        "evidence": 11,
+        "reach": 8,
+        "stakeholders": 8
       },
       "categories": [
         "stakeholders",
@@ -1112,12 +1268,16 @@
         {
           "text": "Document this spreading influence for the impact case study",
           "next": "ending_practitioner_star"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "reach": 20,
-        "significance": 15,
-        "evidence": 10
+        "reach": 11,
+        "significance": 8,
+        "evidence": 5
       },
       "categories": [
         "stakeholders",
@@ -1138,12 +1298,16 @@
         {
           "text": "Write the impact case study — you've got a strong regional narrative",
           "next": "ending_policy_star"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "reach": 25,
-        "significance": 20,
-        "evidence": 15
+        "reach": 14,
+        "significance": 11,
+        "evidence": 8
       },
       "categories": [
         "significance",
@@ -1163,12 +1327,16 @@
         {
           "text": "Write up the full impact story",
           "next": "ending_full_circle"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "strategy": 20,
-        "significance": 15,
-        "evidence": 15
+        "strategy": 11,
+        "significance": 8,
+        "evidence": 8
       },
       "categories": [
         "strategy",
@@ -1189,11 +1357,15 @@
         {
           "text": "Add this to the evidence portfolio and finalise the case study",
           "next": "ending_policy_star"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "gc_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "evidence": 25,
-        "strategy": 10
+        "evidence": 14,
+        "strategy": 5
       },
       "categories": [
         "strategy",
@@ -1260,6 +1432,10 @@
         {
           "text": "Focus on publishing more papers to strengthen the evidence base",
           "next": "ah_more_papers"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "ah_ieo_checkin"
         }
       ],
       "categories": [
@@ -1274,8 +1450,8 @@
       ],
       "phase": "evidence",
       "scoreEffect": {
-        "strategy": 4,
-        "evidence": 4
+        "strategy": 3,
+        "evidence": 3
       }
     },
     "ah_strategy": {
@@ -1293,11 +1469,15 @@
         {
           "text": "Convene a multi-agency working group through the UK Hoarding Partnership",
           "next": "ah_working_group"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "ah_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "strategy": 6,
-        "evidence": 3
+        "strategy": 5,
+        "evidence": 2
       },
       "categories": [
         "strategy",
@@ -1327,10 +1507,14 @@
         {
           "text": "Build your profile through media engagement so they come to you",
           "next": "ah_media_first"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "ah_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "reach": 3
+        "reach": 2
       },
       "categories": [
         "stakeholders",
@@ -1359,10 +1543,14 @@
         {
           "text": "Try a media strategy to raise public awareness of the issue",
           "next": "ah_media_first"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "ah_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "evidence": 8
+        "evidence": 6
       },
       "categories": [
         "strategy",
@@ -1391,11 +1579,15 @@
         {
           "text": "Keep the media momentum going — more coverage means more pressure for change",
           "next": "ah_media_campaign"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "ah_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "reach": 8,
-        "significance": 3
+        "reach": 6,
+        "significance": 2
       },
       "categories": [
         "strategy",
@@ -1425,11 +1617,15 @@
         {
           "text": "Co-present with an RSPCA inspector who deals with these cases on the ground",
           "next": "ah_co_present"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "ah_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "stakeholders": 6,
-        "strategy": 3
+        "stakeholders": 5,
+        "strategy": 2
       },
       "categories": [
         "stakeholders",
@@ -1457,11 +1653,15 @@
         {
           "text": "Invite a practitioner to co-author your next academic paper",
           "next": "ah_co_author"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "ah_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "stakeholders": 8,
-        "significance": 3
+        "stakeholders": 6,
+        "significance": 2
       },
       "categories": [
         "stakeholders"
@@ -1488,10 +1688,14 @@
         {
           "text": "Focus on the APPG route instead — parliament can mandate the coordination you need",
           "next": "ah_appg_relationship"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "ah_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "stakeholders": 3
+        "stakeholders": 2
       },
       "categories": [
         "stakeholders"
@@ -1517,11 +1721,15 @@
         {
           "text": "Bring in the RSPCA as a co-submitter to strengthen the case",
           "next": "ah_rspca_partner"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "ah_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "stakeholders": 6,
-        "strategy": 6
+        "stakeholders": 5,
+        "strategy": 5
       },
       "categories": [
         "strategy",
@@ -1549,12 +1757,16 @@
         {
           "text": "Share it with Defra officials through the RSPCA's existing government contacts",
           "next": "ah_defra_early"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "ah_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "stakeholders": 8,
-        "reach": 3,
-        "strategy": 3
+        "stakeholders": 6,
+        "reach": 2,
+        "strategy": 2
       },
       "categories": [
         "stakeholders",
@@ -1581,11 +1793,15 @@
         {
           "text": "Use the momentum to approach the APPG formally — you now have public backing",
           "next": "ah_appg_relationship"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "ah_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "reach": 8,
-        "significance": 6
+        "reach": 6,
+        "significance": 5
       },
       "categories": [
         "stakeholders",
@@ -1614,11 +1830,15 @@
         {
           "text": "Pivot to developing a practical framework the APPG can include in their recommendations",
           "next": "ah_framework_dev"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "ah_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "evidence": 6,
-        "reach": 3
+        "evidence": 5,
+        "reach": 2
       },
       "categories": [
         "stakeholders",
@@ -1646,12 +1866,16 @@
         {
           "text": "Recommend a pilot programme linking prosecution with mental health support",
           "next": "ah_pilot_programme"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "ah_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "significance": 8,
-        "stakeholders": 3,
-        "reach": 6
+        "significance": 6,
+        "stakeholders": 2,
+        "reach": 5
       },
       "categories": [
         "strategy",
@@ -1681,13 +1905,17 @@
         {
           "text": "Propose a research-informed pilot programme that combines enforcement with support",
           "next": "ah_pilot_programme"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "ah_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "stakeholders": 8,
-        "significance": 6,
-        "reach": 6,
-        "evidence": 3
+        "stakeholders": 6,
+        "significance": 5,
+        "reach": 5,
+        "evidence": 2
       },
       "categories": [
         "stakeholders",
@@ -1715,12 +1943,16 @@
         {
           "text": "Pursue the DPH connection — public health framing could be powerful",
           "next": "ah_public_health"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "ah_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "strategy": 6,
-        "stakeholders": 6,
-        "evidence": 3
+        "strategy": 5,
+        "stakeholders": 5,
+        "evidence": 2
       },
       "categories": [
         "strategy",
@@ -1749,12 +1981,16 @@
         {
           "text": "Develop the practitioner network into a sustainable community of practice",
           "next": "ah_community_of_practice"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "ah_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "evidence": 6,
-        "reach": 6,
-        "stakeholders": 6
+        "evidence": 5,
+        "reach": 5,
+        "stakeholders": 5
       },
       "categories": [
         "stakeholders",
@@ -1784,11 +2020,15 @@
         {
           "text": "Build on this to develop a practitioner-facing toolkit",
           "next": "ah_toolkit"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "ah_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "evidence": 6,
-        "stakeholders": 6
+        "evidence": 5,
+        "stakeholders": 5
       },
       "categories": [
         "stakeholders",
@@ -1816,12 +2056,16 @@
         {
           "text": "Build a broader coalition to maintain pressure for change",
           "next": "ah_community_of_practice"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "ah_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "evidence": 3,
-        "significance": 6,
-        "reach": 3
+        "evidence": 2,
+        "significance": 5,
+        "reach": 2
       },
       "categories": [
         "stakeholders",
@@ -1847,12 +2091,16 @@
         {
           "text": "Ask them to support a Private Member's Bill or amendment to the Animal Welfare Act",
           "next": "ah_legislative"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "ah_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "significance": 6,
-        "reach": 6,
-        "stakeholders": 3
+        "significance": 5,
+        "reach": 5,
+        "stakeholders": 2
       },
       "categories": [
         "stakeholders",
@@ -1884,12 +2132,16 @@
         {
           "text": "Play the long game — build impact across policy, practice, and public awareness simultaneously",
           "next": "ah_ending_longterm"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "ah_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "reach": 6,
-        "strategy": 6,
-        "significance": 3
+        "reach": 5,
+        "strategy": 5,
+        "significance": 2
       },
       "categories": [
         "strategy",
@@ -1918,11 +2170,15 @@
         {
           "text": "Engage the APPG to create parliamentary pressure alongside the evidence",
           "next": "ah_appg_relationship"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "ah_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "strategy": 6,
-        "stakeholders": 3
+        "strategy": 5,
+        "stakeholders": 2
       },
       "categories": [
         "strategy",
@@ -1950,12 +2206,16 @@
         {
           "text": "Expand the public health approach into a national framework",
           "next": "ah_framework_dev"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "ah_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "significance": 6,
-        "stakeholders": 6,
-        "reach": 3
+        "significance": 5,
+        "stakeholders": 5,
+        "reach": 2
       },
       "categories": [
         "strategy",
@@ -1984,12 +2244,16 @@
         {
           "text": "Publish it through the Chartered Institute of Environmental Health for national reach",
           "next": "ah_cieh_publish"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "ah_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "strategy": 6,
-        "evidence": 3,
-        "significance": 3
+        "strategy": 5,
+        "evidence": 2,
+        "significance": 2
       },
       "categories": [
         "strategy",
@@ -2018,12 +2282,16 @@
         {
           "text": "Use the pilot as the basis for a national framework",
           "next": "ah_ending_framework"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "ah_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "evidence": 8,
-        "significance": 6,
-        "stakeholders": 3
+        "evidence": 6,
+        "significance": 5,
+        "stakeholders": 2
       },
       "categories": [
         "stakeholders",
@@ -2051,12 +2319,16 @@
         {
           "text": "Develop the toolkit into a certified training programme",
           "next": "ah_training"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "ah_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "reach": 8,
-        "stakeholders": 3,
-        "significance": 3
+        "reach": 6,
+        "stakeholders": 2,
+        "significance": 2
       },
       "categories": [
         "stakeholders",
@@ -2083,11 +2355,15 @@
         {
           "text": "Commission the community to develop national training standards",
           "next": "ah_training"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "ah_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "stakeholders": 8,
-        "significance": 3
+        "stakeholders": 6,
+        "significance": 2
       },
       "categories": [
         "stakeholders"
@@ -2115,12 +2391,16 @@
         {
           "text": "Build on this by developing a multi-agency pilot",
           "next": "ah_pilot_programme"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "ah_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "significance": 8,
-        "reach": 6,
-        "stakeholders": 6
+        "significance": 6,
+        "reach": 5,
+        "stakeholders": 5
       },
       "categories": [
         "stakeholders",
@@ -2150,12 +2430,16 @@
         {
           "text": "Document this as the policy impact it is",
           "next": "ah_ending_policy"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "ah_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "significance": 8,
-        "reach": 6,
-        "strategy": 3
+        "significance": 6,
+        "reach": 5,
+        "strategy": 2
       },
       "categories": [
         "stakeholders",
@@ -2184,11 +2468,15 @@
         {
           "text": "Expand to more local authorities while maintaining rigorous evaluation",
           "next": "ah_expanded_pilot"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "ah_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "evidence": 8,
-        "significance": 6
+        "evidence": 6,
+        "significance": 5
       },
       "categories": [
         "strategy",
@@ -2216,12 +2504,16 @@
         {
           "text": "Secure funding to expand the pilot nationally",
           "next": "ah_expanded_pilot"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "ah_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "evidence": 8,
-        "significance": 6,
-        "stakeholders": 3
+        "evidence": 6,
+        "significance": 5,
+        "stakeholders": 2
       },
       "categories": [
         "significance",
@@ -2244,12 +2536,16 @@
         {
           "text": "Use the CIEH endorsement to push for the framework to become statutory guidance",
           "next": "ah_ending_policy"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "ah_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "reach": 8,
-        "significance": 6,
-        "stakeholders": 3
+        "reach": 6,
+        "significance": 5,
+        "stakeholders": 2
       },
       "categories": [
         "significance",
@@ -2273,12 +2569,16 @@
         {
           "text": "Run a parallel track — keep building practitioner adoption while Defra deliberates",
           "next": "ah_ending_framework"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "ah_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "significance": 8,
-        "stakeholders": 6,
-        "strategy": 6
+        "significance": 6,
+        "stakeholders": 5,
+        "strategy": 5
       },
       "categories": [
         "strategy",
@@ -2304,12 +2604,16 @@
         {
           "text": "Use the training programme as evidence of impact alongside the policy work",
           "next": "ah_ending_policy"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "ah_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "stakeholders": 6,
-        "reach": 6,
-        "significance": 6
+        "stakeholders": 5,
+        "reach": 5,
+        "significance": 5
       },
       "categories": [
         "stakeholders",
@@ -2334,12 +2638,16 @@
         {
           "text": "Develop a comprehensive framework informed by international best practice",
           "next": "ah_ending_framework"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "ah_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "evidence": 8,
-        "strategy": 3,
-        "significance": 3
+        "evidence": 6,
+        "strategy": 2,
+        "significance": 2
       },
       "categories": [
         "stakeholders",
@@ -2363,12 +2671,16 @@
         {
           "text": "Publish the results for voluntary national adoption",
           "next": "ah_ending_framework"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "ah_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "evidence": 8,
-        "reach": 6,
-        "significance": 6
+        "evidence": 6,
+        "reach": 5,
+        "significance": 5
       },
       "categories": [
         "stakeholders",
@@ -2388,9 +2700,9 @@
       "narrative": "Your sustained engagement with parliament, Defra, and practitioners has paid off. Working with the APPG, you draft a formal recommendation for a UK legal definition of animal hoarding. The definition draws directly from your research: a pattern of accumulating animals beyond the capacity to provide minimum standards of care, characterised by denial of the inability to provide care, and associated with significant risks to human health, animal welfare, and public safety.\n\nCongratulations! You've achieved policy-level impact.",
       "choices": [],
       "scoreEffect": {
-        "strategy": 10,
-        "significance": 13,
-        "reach": 7
+        "strategy": 8,
+        "significance": 10,
+        "reach": 5
       },
       "isEnding": true,
       "endingType": "policy",
@@ -2413,9 +2725,9 @@
       "narrative": "Your multi-agency framework has been adopted by local authorities across the country. Through the Chartered Institute of Environmental Health, the UK Hoarding Partnership, and your practitioner networks, the framework has become the standard approach to animal hoarding cases.\n\n34 local authorities have formally embedded it in their protocols.\n\nCongratulations! You've built a practice-based impact case study. The law hasn't changed yet — but practice has. And in the messy, multi-agency world of animal hoarding, that's where lives are changed: on the doorstep, in the referral, in the conversation between an environmental health officer and a mental health nurse that never used to happen.",
       "choices": [],
       "scoreEffect": {
-        "stakeholders": 12,
-        "significance": 10,
-        "reach": 11
+        "stakeholders": 9,
+        "significance": 8,
+        "reach": 9
       },
       "isEnding": true,
       "endingType": "practitioner",
@@ -2435,10 +2747,10 @@
       "narrative": "Your work has seeded change across multiple fronts. The APPG report recommends a definition. Defra is reviewing the framework. Forty-three MPs signed an Early Day Motion citing your research. Local authorities are piloting your multi-agency approach. The RSPCA, CIEH, and Hoarding UK are all using your evidence.\n\nNo single moment captures the impact — it's the accumulation of evidence, relationships, and engagement over years.\n\nCongratulations! You've played the long game — building impact across policy, practice, and public awareness simultaneously. This is the virtuous cycle of research impact: evidence drives engagement, engagement drives change, and change drives the demand for more evidence.",
       "choices": [],
       "scoreEffect": {
-        "strategy": 14,
-        "significance": 7,
-        "reach": 7,
-        "stakeholders": 5
+        "strategy": 11,
+        "significance": 5,
+        "reach": 5,
+        "stakeholders": 4
       },
       "isEnding": true,
       "endingType": "cycle",
@@ -2470,6 +2782,10 @@
         {
           "text": "Focus on strengthening the clinical evidence base — the space agencies will need rock-solid proof",
           "next": "bfr_more_evidence"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "bfr_ieo_checkin"
         }
       ],
       "categories": [
@@ -2483,8 +2799,8 @@
       ],
       "phase": "planning",
       "scoreEffect": {
-        "strategy": 5,
-        "evidence": 5
+        "strategy": 4,
+        "evidence": 4
       }
     },
     "bfr_strategy": {
@@ -2502,10 +2818,14 @@
         {
           "text": "Go all-in on space — it's the most transformative opportunity and you don't want to dilute focus",
           "next": "bfr_space_focus"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "bfr_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "strategy": 4,
+        "strategy": 3,
         "evidence": 2
       },
       "categories": [
@@ -2535,6 +2855,10 @@
         {
           "text": "Run operational feasibility studies outside the lab to address the reviewers' concerns",
           "next": "bfr_operational_testing"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "bfr_ieo_checkin"
         }
       ],
       "scoreEffect": {
@@ -2571,10 +2895,14 @@
         {
           "text": "Run a bed rest study — the closest analogue to spaceflight deconditioning",
           "next": "bfr_bed_rest_study"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "bfr_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "evidence": 6
+        "evidence": 5
       },
       "categories": [
         "strategy",
@@ -2606,11 +2934,15 @@
         {
           "text": "Deepen the military integration — get BFR into the Defence Medical Rehabilitation Centre",
           "next": "bfr_mod_deep"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "bfr_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "stakeholders": 4,
-        "evidence": 4,
+        "stakeholders": 3,
+        "evidence": 3,
         "reach": 2
       },
       "categories": [
@@ -2638,10 +2970,14 @@
         {
           "text": "Approach international sports bodies — FIFA, IOC — about incorporating BFR into their guidelines",
           "next": "bfr_international_sport"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "bfr_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "reach": 6,
+        "reach": 5,
         "stakeholders": 2,
         "significance": 2
       },
@@ -2670,11 +3006,15 @@
         {
           "text": "Enter the Humans in Space Challenge — a global competition for space health innovation",
           "next": "bfr_humans_in_space"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "bfr_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "significance": 6,
-        "reach": 4
+        "significance": 5,
+        "reach": 3
       },
       "categories": [
         "strategy",
@@ -2698,10 +3038,14 @@
         {
           "text": "Approach UKSA with the operational evidence for funding",
           "next": "bfr_uksa_approach"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "bfr_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "evidence": 6,
+        "evidence": 5,
         "strategy": 2
       },
       "categories": [
@@ -2729,11 +3073,15 @@
         {
           "text": "Test extensively in analogue environments first — bed rest studies, parabolic flights",
           "next": "bfr_analogue_testing"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "bfr_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "evidence": 4,
-        "stakeholders": 4,
+        "evidence": 3,
+        "stakeholders": 3,
         "strategy": 2
       },
       "categories": [
@@ -2765,11 +3113,15 @@
         {
           "text": "Use UKSA funding to establish a PhD programme in BFR spaceflight countermeasures",
           "next": "bfr_phd_programme"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "bfr_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "significance": 6,
-        "reach": 4,
+        "significance": 4,
+        "reach": 3,
         "stakeholders": 2
       },
       "categories": [
@@ -2796,10 +3148,14 @@
         {
           "text": "Focus on the space strand — the device is nearly ready for testing",
           "next": "bfr_device_partner"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "bfr_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "strategy": 6,
+        "strategy": 5,
         "stakeholders": 2
       },
       "categories": [
@@ -2828,6 +3184,10 @@
         {
           "text": "Develop a commercial product alongside the space work — the revenue could fund future research",
           "next": "bfr_commercial_product"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "bfr_ieo_checkin"
         }
       ],
       "scoreEffect": {
@@ -2858,11 +3218,15 @@
         {
           "text": "Maintain both — the multi-sector narrative is the strongest impact story",
           "next": "bfr_parallel_impact"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "bfr_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "reach": 6,
-        "significance": 4,
+        "reach": 5,
+        "significance": 3,
         "stakeholders": 2
       },
       "categories": [
@@ -2894,11 +3258,15 @@
         {
           "text": "Present the analogue data at the Spaceflight Human Optimisation Summit",
           "next": "bfr_conference_circuit"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "bfr_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "evidence": 6,
-        "strategy": 4
+        "evidence": 5,
+        "strategy": 3
       },
       "categories": [
         "strategy",
@@ -2925,12 +3293,16 @@
         {
           "text": "Ensure the clinical and sport impact streams are documented alongside the space success",
           "next": "bfr_ending_multisector"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "bfr_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "significance": 6,
-        "reach": 6,
-        "evidence": 4
+        "significance": 4,
+        "reach": 4,
+        "evidence": 3
       },
       "categories": [
         "significance",
@@ -2960,12 +3332,16 @@
         {
           "text": "Ensure the parallel impact streams are maintained and documented",
           "next": "bfr_ending_multisector"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "bfr_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "evidence": 6,
-        "significance": 6,
-        "stakeholders": 4
+        "evidence": 5,
+        "significance": 5,
+        "stakeholders": 3
       },
       "categories": [
         "stakeholders",
@@ -2996,10 +3372,14 @@
         {
           "text": "Track NHS adoption as it accelerates nationally",
           "next": "bfr_nhs_adoption"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "bfr_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "reach": 4,
+        "reach": 3,
         "stakeholders": 2,
         "significance": 2
       },
@@ -3026,10 +3406,14 @@
         {
           "text": "Balance both — the multi-sector impact story is stronger for including commercial outcomes",
           "next": "bfr_parallel_impact"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "bfr_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "reach": 4,
+        "reach": 3,
         "stakeholders": 2
       },
       "categories": [
@@ -3054,12 +3438,16 @@
         {
           "text": "Document the sport impact as the primary REF case study",
           "next": "bfr_ending_sport"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "bfr_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "significance": 6,
-        "reach": 6,
-        "stakeholders": 4
+        "significance": 5,
+        "reach": 5,
+        "stakeholders": 3
       },
       "categories": [
         "strategy",
@@ -3085,11 +3473,15 @@
         {
           "text": "Document everything for REF — the multi-sector narrative is the case study",
           "next": "bfr_ending_multisector"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "bfr_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "strategy": 6,
-        "significance": 4,
+        "strategy": 5,
+        "significance": 3,
         "reach": 2
       },
       "categories": [
@@ -3117,12 +3509,16 @@
         {
           "text": "Ensure the Earth-based impact streams are documented for REF alongside the space work",
           "next": "bfr_ending_multisector"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "bfr_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "stakeholders": 6,
-        "reach": 6,
-        "strategy": 4
+        "stakeholders": 4,
+        "reach": 4,
+        "strategy": 3
       },
       "categories": [
         "strategy",
@@ -3147,12 +3543,16 @@
         {
           "text": "Document the full journey from clinic to cosmos for REF",
           "next": "bfr_ending_multisector"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "bfr_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "significance": 6,
-        "evidence": 4,
-        "stakeholders": 4
+        "significance": 5,
+        "evidence": 3,
+        "stakeholders": 3
       },
       "categories": [
         "stakeholders",
@@ -3171,10 +3571,10 @@
       "narrative": "You've built one of the most comprehensive multi-sector impact stories in the REF. Your blood flow restriction exercise research has transformed practice across four domains:\n\nIn clinical rehabilitation, NHS and private physiotherapy services across the UK have adopted your BFR protocols. Patients recovering from surgery and injury are regaining strength faster with less pain.\n\nIn elite sport, Premier League clubs, international football federations, and Olympic training centres use your techniques.\n\nCongratulations! From a rehabilitation clinic in Newcastle to orbit around the Earth — your research has changed how humans maintain physical capability in the most demanding environments on (and off) the planet. This is what multi-sector research impact looks like.",
       "choices": [],
       "scoreEffect": {
-        "strategy": 8,
-        "significance": 6,
-        "reach": 6,
-        "evidence": 3
+        "strategy": 4,
+        "significance": 5,
+        "reach": 5,
+        "evidence": 2
       },
       "isEnding": true,
       "endingType": "cycle",
@@ -3197,9 +3597,9 @@
       "narrative": "Your dedicated ISS study produces definitive results. Over a six-month mission, astronauts using BFR exercise alongside standard protocols show significantly less muscle atrophy and bone density loss than historical controls using standard exercise alone.\n\nThe findings are published in Nature Medicine. NASA and ESA formally add BFR to their recommended countermeasure portfolio for long-duration spaceflight.\n\nCongratulations! You've achieved the ultimate validation — your technique works in space. The ISS study represents a landmark in exercise physiology research, and its ripple effects across clinical practice, sport, and military medicine will be felt for decades.",
       "choices": [],
       "scoreEffect": {
-        "evidence": 11,
-        "significance": 8,
-        "reach": 6
+        "evidence": 5,
+        "significance": 6,
+        "reach": 5
       },
       "isEnding": true,
       "endingType": "policy",
@@ -3221,10 +3621,10 @@
       "narrative": "The international consortium you've built is now at the centre of human spaceflight health planning. Northumbria University, ESA, NASA, the Canadian Space Agency, UKSA, and your industry partners are developing the exercise countermeasure systems that will protect astronaut health on missions to the Moon under the Artemis programme — and eventually to Mars.\n\nYour BFR device, which started as a clinical rehabilitation tool, has been adapted into a multi-gravity exercise system.\n\nCongratulations! You've built a research programme that is literally changing how humanity prepares for life beyond Earth. From Newcastle to the cosmos — that's a journey worth mapping for REF.",
       "choices": [],
       "scoreEffect": {
-        "strategy": 8,
-        "stakeholders": 8,
-        "significance": 8,
-        "reach": 8
+        "strategy": 4,
+        "stakeholders": 6,
+        "significance": 6,
+        "reach": 6
       },
       "isEnding": true,
       "endingType": "practitioner",
@@ -3246,9 +3646,9 @@
       "narrative": "Your BFR research has transformed sports rehabilitation worldwide. The evidence is comprehensive: twelve Premier League clubs, three international football federations, two Olympic training centres, and FIFA's medical committee have adopted your protocols.\n\nPlayers recovering from ACL injuries return to competition significantly faster with lower re-injury rates. Post-match recovery protocols using BFR reduce markers of muscle damage.\n\nCongratulations! You've demonstrated that a single exercise physiology innovation can transform rehabilitation practice from elite sport to everyday healthcare. The evidence base you've built is unassailable, and the impact is measured in faster recovery times for thousands of athletes and patients.",
       "choices": [],
       "scoreEffect": {
-        "reach": 11,
-        "significance": 8,
-        "stakeholders": 6
+        "reach": 7,
+        "significance": 6,
+        "stakeholders": 5
       },
       "isEnding": true,
       "endingType": "policy",
@@ -3280,10 +3680,14 @@
         {
           "text": "Present the data at the Spaceflight Human Optimisation Summit in Texas",
           "next": "bfr_conference_circuit"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "bfr_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "evidence": 6,
+        "evidence": 5,
         "significance": 2
       },
       "categories": [
@@ -3311,11 +3715,15 @@
         {
           "text": "Build a multi-agency consortium including NASA, CSA, and ESA",
           "next": "bfr_consortium"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "bfr_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "stakeholders": 4,
-        "reach": 4
+        "stakeholders": 3,
+        "reach": 3
       },
       "categories": [
         "stakeholders",
@@ -3343,11 +3751,15 @@
         {
           "text": "Build the broader consortium including CSA and commercial partners",
           "next": "bfr_consortium"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "bfr_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "stakeholders": 6,
-        "evidence": 4,
+        "stakeholders": 4,
+        "evidence": 3,
         "significance": 2
       },
       "categories": [
@@ -3375,11 +3787,15 @@
         {
           "text": "Use the NHS evidence to strengthen the multi-sector impact narrative",
           "next": "bfr_parallel_impact"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "bfr_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "significance": 4,
-        "reach": 4,
+        "significance": 3,
+        "reach": 3,
         "evidence": 2
       },
       "categories": [
@@ -3406,11 +3822,15 @@
         {
           "text": "Use the NICE recommendation to drive international clinical adoption",
           "next": "bfr_international_clinical"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "bfr_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "significance": 6,
-        "reach": 6,
+        "significance": 5,
+        "reach": 5,
         "evidence": 2
       },
       "categories": [
@@ -3435,11 +3855,15 @@
         {
           "text": "Push for the space mission — clinical impact is secure, now add the headline",
           "next": "bfr_commercial_flight"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "bfr_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "reach": 6,
-        "significance": 4
+        "reach": 5,
+        "significance": 3
       },
       "categories": [
         "significance",
@@ -3466,12 +3890,16 @@
         {
           "text": "Explore collaboration between military and space BFR programmes",
           "next": "bfr_consortium"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "bfr_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "stakeholders": 4,
-        "evidence": 4,
-        "significance": 4
+        "stakeholders": 3,
+        "evidence": 3,
+        "significance": 3
       },
       "categories": [
         "strategy",
@@ -3496,11 +3924,15 @@
         {
           "text": "Build the team further — recruit a postdoc to bridge clinical and space research",
           "next": "bfr_build_team"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "bfr_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "evidence": 4,
-        "strategy": 4,
+        "evidence": 3,
+        "strategy": 3,
         "stakeholders": 2
       },
       "categories": [
@@ -3528,12 +3960,16 @@
         {
           "text": "Build relationships with the competition partners for long-term collaboration",
           "next": "bfr_consortium"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "bfr_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "significance": 6,
-        "reach": 4,
-        "stakeholders": 4
+        "significance": 5,
+        "reach": 3,
+        "stakeholders": 3
       },
       "categories": [
         "stakeholders",
@@ -3562,6 +3998,10 @@
         {
           "text": "Go big — write a funding bid for a national simulation programme",
           "next": "sbl_big_bid"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "sbl_ieo_checkin"
         }
       ],
       "categories": [
@@ -3575,8 +4015,8 @@
       ],
       "phase": "planning",
       "scoreEffect": {
-        "strategy": 5,
-        "evidence": 5
+        "strategy": 4,
+        "evidence": 4
       }
     },
     "sbl_pilot": {
@@ -3594,10 +4034,14 @@
         {
           "text": "Share the approach with departmental colleagues to get buy-in for embedding it",
           "next": "sbl_departmental"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "sbl_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "evidence": 4,
+        "evidence": 3,
         "strategy": 2
       },
       "categories": [
@@ -3625,10 +4069,14 @@
         {
           "text": "Go straight to piloting — you've learned enough to start",
           "next": "sbl_pilot"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "sbl_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "strategy": 4,
+        "strategy": 3,
         "evidence": 2
       },
       "categories": [
@@ -3657,6 +4105,10 @@
         {
           "text": "Approach the EEF through your existing Senior Associate role for advice on what they'd fund",
           "next": "sbl_eef_connection"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "sbl_ieo_checkin"
         }
       ],
       "scoreEffect": {
@@ -3687,10 +4139,14 @@
         {
           "text": "Pilot it across multiple scenario types to test versatility",
           "next": "sbl_scenario_suite"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "sbl_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "strategy": 4,
+        "strategy": 3,
         "evidence": 2,
         "significance": 2
       },
@@ -3723,10 +4179,14 @@
         {
           "text": "Embed it formally in Northumbria's ITE programme and gather longitudinal data",
           "next": "sbl_embed"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "sbl_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "significance": 4,
+        "significance": 3,
         "stakeholders": 2,
         "evidence": 2
       },
@@ -3755,11 +4215,15 @@
         {
           "text": "Approach the Education Endowment Foundation about a funded evaluation",
           "next": "sbl_eef_connection"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "sbl_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "evidence": 4,
-        "reach": 4
+        "evidence": 3,
+        "reach": 3
       },
       "categories": [
         "reach",
@@ -3786,10 +4250,14 @@
         {
           "text": "Start with the willing colleagues and let the results speak for themselves",
           "next": "sbl_scenario_suite"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "sbl_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "stakeholders": 4,
+        "stakeholders": 3,
         "strategy": 2
       },
       "categories": [
@@ -3816,11 +4284,15 @@
         {
           "text": "Do both — university strategy for institutional support, teacher education for research impact",
           "next": "sbl_embed"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "sbl_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "stakeholders": 6,
-        "strategy": 4
+        "stakeholders": 5,
+        "strategy": 3
       },
       "categories": [
         "strategy",
@@ -3847,11 +4319,15 @@
         {
           "text": "Propose a small-scale EEF feasibility study as an intermediate step",
           "next": "sbl_eef_feasibility"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "sbl_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "strategy": 6,
-        "stakeholders": 4
+        "strategy": 5,
+        "stakeholders": 3
       },
       "categories": [
         "strategy",
@@ -3880,11 +4356,15 @@
         {
           "text": "Develop a toolkit so other universities can replicate the programme structure",
           "next": "sbl_toolkit_dev"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "sbl_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "evidence": 4,
-        "significance": 4,
+        "evidence": 3,
+        "significance": 3,
         "strategy": 2
       },
       "categories": [
@@ -3911,11 +4391,15 @@
         {
           "text": "Share the findings nationally to build momentum",
           "next": "sbl_national_share"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "sbl_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "evidence": 6,
-        "significance": 4
+        "evidence": 5,
+        "significance": 3
       },
       "categories": [
         "strategy",
@@ -3943,10 +4427,14 @@
         {
           "text": "Focus on gathering strong evidence from the embedded programme for external publication",
           "next": "sbl_publish_pilot"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "sbl_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "stakeholders": 4,
+        "stakeholders": 3,
         "strategy": 2
       },
       "categories": [
@@ -3972,11 +4460,15 @@
         {
           "text": "Focus on the VR approach — it's more scalable and generates more interest",
           "next": "sbl_vr_full"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "sbl_ieo_checkin"
         }
       ],
       "scoreEffect": {
         "evidence": 2,
-        "significance": 4,
+        "significance": 3,
         "reach": 2
       },
       "categories": [
@@ -4005,11 +4497,15 @@
         {
           "text": "Organise a national conference to bring everyone together",
           "next": "sbl_national_conference"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "sbl_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "reach": 6,
-        "stakeholders": 4
+        "reach": 5,
+        "stakeholders": 3
       },
       "categories": [
         "stakeholders",
@@ -4037,10 +4533,14 @@
         {
           "text": "Seek funding for a collaborative multi-site research project",
           "next": "sbl_multisite_study"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "sbl_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "stakeholders": 4,
+        "stakeholders": 3,
         "reach": 2
       },
       "categories": [
@@ -4068,11 +4568,15 @@
         {
           "text": "Iterate the toolkit based on user feedback and develop version 2.0",
           "next": "sbl_toolkit_v2"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "sbl_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "reach": 6,
-        "significance": 4,
+        "reach": 5,
+        "significance": 3,
         "stakeholders": 2
       },
       "categories": [
@@ -4105,11 +4609,15 @@
         {
           "text": "Develop a VR platform accessible to all network members",
           "next": "sbl_vr_full"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "sbl_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "reach": 5,
-        "stakeholders": 5
+        "reach": 4,
+        "stakeholders": 4
       },
       "categories": [
         "strategy",
@@ -4139,12 +4647,16 @@
         {
           "text": "Scale adoption through the National Simulation Network using the EEF evidence",
           "next": "sbl_network_launch"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "sbl_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "evidence": 5,
-        "significance": 5,
-        "reach": 3
+        "evidence": 4,
+        "significance": 4,
+        "reach": 2
       },
       "categories": [
         "significance",
@@ -4172,11 +4684,15 @@
         {
           "text": "Share the findings with the National Simulation Network to drive adoption",
           "next": "sbl_network_launch"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "sbl_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "evidence": 6,
-        "significance": 6
+        "evidence": 5,
+        "significance": 5
       },
       "categories": [
         "significance",
@@ -4203,11 +4719,15 @@
         {
           "text": "Focus on the evidence — run a formal evaluation of VR vs live vs hybrid",
           "next": "sbl_vr_evaluation"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "sbl_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "evidence": 4,
-        "significance": 4,
+        "evidence": 3,
+        "significance": 3,
         "strategy": 2
       },
       "categories": [
@@ -4236,11 +4756,15 @@
         {
           "text": "Share the comparative evidence to help network members choose the right approach",
           "next": "sbl_network_launch"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "sbl_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "evidence": 6,
-        "strategy": 4
+        "evidence": 5,
+        "strategy": 3
       },
       "categories": [
         "strategy",
@@ -4268,11 +4792,15 @@
         {
           "text": "Present at DfE to show innovative approaches to teacher preparation",
           "next": "sbl_dfe_engage"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "sbl_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "reach": 4,
-        "significance": 4
+        "reach": 3,
+        "significance": 3
       },
       "categories": [
         "significance",
@@ -4299,11 +4827,15 @@
         {
           "text": "Develop a post-conference collaborative research bid with interested universities",
           "next": "sbl_multisite_study"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "sbl_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "stakeholders": 6,
-        "reach": 4
+        "stakeholders": 5,
+        "reach": 3
       },
       "categories": [
         "stakeholders",
@@ -4331,12 +4863,16 @@
         {
           "text": "Submit the evidence base to the EEF for a full-scale evaluation",
           "next": "sbl_eef_feasibility"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "sbl_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "evidence": 6,
-        "reach": 4,
-        "significance": 4
+        "evidence": 5,
+        "reach": 3,
+        "significance": 3
       },
       "categories": [
         "significance",
@@ -4364,11 +4900,15 @@
         {
           "text": "Use the adoption data to make the case to DfE for formal recognition",
           "next": "sbl_dfe_engage"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "sbl_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "reach": 6,
-        "significance": 4
+        "reach": 5,
+        "significance": 3
       },
       "categories": [
         "significance",
@@ -4395,10 +4935,14 @@
         {
           "text": "Use the momentum to push for DfE recognition",
           "next": "sbl_dfe_engage"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "sbl_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "reach": 4,
+        "reach": 3,
         "significance": 2,
         "stakeholders": 2
       },
@@ -4423,12 +4967,16 @@
         {
           "text": "Use the evidence to drive universal adoption through the network",
           "next": "sbl_ending_standards"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "sbl_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "evidence": 5,
-        "significance": 5,
-        "reach": 5
+        "evidence": 4,
+        "significance": 4,
+        "reach": 4
       },
       "categories": [
         "significance",
@@ -4451,12 +4999,16 @@
         {
           "text": "Use the trained facilitator network to push for formal recognition",
           "next": "sbl_dfe_engage"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "sbl_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "stakeholders": 4,
-        "reach": 4,
-        "significance": 4
+        "stakeholders": 3,
+        "reach": 3,
+        "significance": 3
       },
       "categories": [
         "stakeholders",
@@ -4481,11 +5033,15 @@
         {
           "text": "Combine VR data with live simulation evidence for a comprehensive policy case",
           "next": "sbl_dfe_engage"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "sbl_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "reach": 6,
-        "significance": 4
+        "reach": 5,
+        "significance": 3
       },
       "categories": [
         "significance",
@@ -4509,13 +5065,17 @@
         {
           "text": "Document the standards adoption as the core REF impact narrative",
           "next": "sbl_ending_standards"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "sbl_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "strategy": 4,
-        "significance": 6,
-        "reach": 4,
-        "stakeholders": 4
+        "strategy": 3,
+        "significance": 5,
+        "reach": 3,
+        "stakeholders": 3
       },
       "categories": [
         "strategy",
@@ -4545,12 +5105,16 @@
         {
           "text": "Focus on documenting the full impact journey for REF",
           "next": "sbl_ending_standards"
+        },
+        {
+          "text": "Check in with your Impact & Engagement Officer",
+          "next": "sbl_ieo_checkin"
         }
       ],
       "scoreEffect": {
-        "significance": 5,
-        "reach": 5,
-        "strategy": 3
+        "significance": 4,
+        "reach": 4,
+        "strategy": 2
       },
       "categories": [
         "strategy",
@@ -4569,9 +5133,9 @@
       "narrative": "Your freely available Simulation-Based Learning Toolkit has been adopted by teacher education programmes across the UK and internationally. Twenty-seven universities use your scenarios and framework. Over 1,200 student teachers have experienced simulation-based preparation using your materials.\n\nThe toolkit's open-access model has demonstrated something important: impact doesn't require commercialisation.\n\nCongratulations! You've achieved practice-based impact at national scale. From a single pilot simulation with drama students playing upset parents, you've built a replicable, evidence-based approach to teacher preparation that's being adopted across the country — addressing the preparation gap that contributes to the teaching profession's retention crisis.",
       "choices": [],
       "scoreEffect": {
-        "reach": 7,
-        "significance": 7,
-        "stakeholders": 5
+        "reach": 6,
+        "significance": 6,
+        "stakeholders": 4
       },
       "isEnding": true,
       "endingType": "practitioner",
@@ -4591,10 +5155,10 @@
       "narrative": "From a single pilot simulation in a repurposed seminar room, you've built a national framework that's reshaping how the UK prepares its teachers.\n\nThe National Simulation Network, which you chair, now includes twenty-five universities. The national quality standards you co-developed are referenced by Ofsted in their ITT inspection framework and endorsed by the Chartered College of Teaching and UCET.\n\nCongratulations! You've achieved systemic impact. The teacher retention crisis won't be solved by one intervention alone — but giving new teachers safe, supported space to practise the hardest parts of the job before they encounter them for real is a powerful, evidence-based contribution. And you've built the infrastructure to sustain it.",
       "choices": [],
       "scoreEffect": {
-        "strategy": 7,
-        "significance": 7,
-        "reach": 7,
-        "stakeholders": 3
+        "strategy": 6,
+        "significance": 6,
+        "reach": 6,
+        "stakeholders": 2
       },
       "isEnding": true,
       "endingType": "cycle",
@@ -4616,10 +5180,10 @@
       "narrative": "Your sustained engagement with evidence, practice, and policy has achieved something rare: a new pedagogical approach has been recognised in national education policy within a single REF cycle.\n\nThe Department for Education's updated ITT guidance explicitly references simulation-based learning.\n\nCongratulations! You've achieved policy-level impact in education. From an idea borrowed from medical simulation and adapted through rigorous, practice-informed research, you've helped create a nationally recognised approach to teacher preparation that addresses one of education's most pressing challenges. Student teachers across the country are entering the profession better prepared, more confident, and more likely to stay.",
       "choices": [],
       "scoreEffect": {
-        "significance": 7,
-        "reach": 7,
-        "evidence": 7,
-        "strategy": 3
+        "significance": 6,
+        "reach": 6,
+        "evidence": 6,
+        "strategy": 2
       },
       "isEnding": true,
       "endingType": "policy",
@@ -4634,6 +5198,109 @@
         "educational"
       ],
       "phase": "evidence"
+    },
+    "gc_ieo_checkin": {
+      "title": "Your Impact & Engagement Officer",
+      "narrative": "You sit down with your Impact & Engagement Officer. They listen to where you are and what you've been doing, then pull out a whiteboard.\n\n\"Remember, you don't have to do this alone. That's what the I&E team is here for. Let's think about where you are and what the best next move is.\"\n\nThey sketch out three pathways: building policy connections, engaging with communities and practitioners, or strengthening your evidence portfolio. \"These aren't mutually exclusive, but you need to lead with one. What feels right given where you've got to?\"",
+      "choices": [
+        {
+          "text": "Focus on policy — connect with decision-makers who can drive systemic change",
+          "next": "policy_training"
+        },
+        {
+          "text": "Focus on practitioners — work with the people delivering services on the ground",
+          "next": "practitioner_route"
+        },
+        {
+          "text": "Focus on evidence — make the case so strong that stakeholders come to you",
+          "next": "strong_evidence"
+        }
+      ],
+      "categories": [
+        "strategy"
+      ],
+      "impactTypes": [
+        "practice"
+      ],
+      "phase": "planning"
+    },
+    "ah_ieo_checkin": {
+      "title": "Your Impact & Engagement Officer",
+      "narrative": "You sit down with your Impact & Engagement Officer. You explain where your animal hoarding research has got to — the evidence, the stakeholder conversations, the gaps.\n\n\"This is exactly the kind of thing the I&E team exists for,\" they say. \"You've got strong research. The question is how to translate it into change. Let me help you think about this strategically.\"\n\nThey map out three routes: engaging the APPG and parliamentary contacts for policy influence, building practitioner coalitions for practice change, or developing a practical framework that stakeholders can adopt.\n\n\"Which of these feels most urgent right now?\"",
+      "choices": [
+        {
+          "text": "The APPG route — we need to get the research in front of parliamentarians",
+          "next": "ah_appg_relationship"
+        },
+        {
+          "text": "Practitioners first — the people dealing with cases need tools now",
+          "next": "ah_practitioners"
+        },
+        {
+          "text": "Build a framework — give people something concrete they can implement",
+          "next": "ah_framework_dev"
+        }
+      ],
+      "categories": [
+        "strategy"
+      ],
+      "impactTypes": [
+        "policy",
+        "practice"
+      ],
+      "phase": "planning"
+    },
+    "bfr_ieo_checkin": {
+      "title": "Your Impact & Engagement Officer",
+      "narrative": "You sit down with your Impact & Engagement Officer. You talk through the BFR research — the clinical evidence, the sport connections, the space opportunity, the device development.\n\n\"This is a multi-sector impact story,\" they say. \"That's rare and valuable. But you need to be strategic about which sector you lead with. Each one builds credibility for the others.\"\n\nThey sketch out the options: pushing toward space through UKSA and international partnerships, deepening the sport evidence that gives you visibility, or focusing on the device development that makes everything else possible.\n\n\"What's the priority right now?\"",
+      "choices": [
+        {
+          "text": "The space pathway — UKSA and international partnerships are the headline",
+          "next": "bfr_uksa_approach"
+        },
+        {
+          "text": "Sport evidence — football clubs give us fast results and public visibility",
+          "next": "bfr_sport"
+        },
+        {
+          "text": "Device development — nothing else works without flight-ready hardware",
+          "next": "bfr_device_partner"
+        }
+      ],
+      "categories": [
+        "strategy"
+      ],
+      "impactTypes": [
+        "health",
+        "technological"
+      ],
+      "phase": "planning"
+    },
+    "sbl_ieo_checkin": {
+      "title": "Your Impact & Engagement Officer",
+      "narrative": "You sit down with your Impact & Engagement Officer. You explain the simulation-based learning work — the pilot results, the interest from other universities, the policy possibilities.\n\n\"This has real legs,\" they say. \"But you need to decide: are you building evidence, building a network, or building tools? All three matter, but the order you do them in shapes the impact story.\"\n\nThey help you map the options: strengthening the evidence base through formal evaluation, building the national network to scale adoption, or developing practical resources that lower the barrier for other institutions.\n\n\"Where are you going to get the most traction right now?\"",
+      "choices": [
+        {
+          "text": "Evidence — we need the EEF or a formal evaluation to give this credibility",
+          "next": "sbl_eef_feasibility"
+        },
+        {
+          "text": "Network — bring other universities together and build collective momentum",
+          "next": "sbl_network_launch"
+        },
+        {
+          "text": "Toolkit — give people practical resources they can use tomorrow",
+          "next": "sbl_toolkit_dev"
+        }
+      ],
+      "categories": [
+        "strategy"
+      ],
+      "impactTypes": [
+        "educational",
+        "practice"
+      ],
+      "phase": "planning"
     }
   }
 }
