@@ -16,5 +16,23 @@
     "storyTitle": "The Hoarding Gap",
     "steps": 5,
     "date": "2026-05-19T12:39:10.330Z"
+  },
+  {
+    "name": "test",
+    "dept": "",
+    "score": 118,
+    "scores": {
+      "strategy": 13,
+      "stakeholders": 15,
+      "significance": 35,
+      "reach": 35,
+      "evidence": 20
+    },
+    "ending": "Impact Case Study: Practice Transformer",
+    "endingType": "practitioner",
+    "storyId": "impact_quest",
+    "storyTitle": "The Green Corridor",
+    "steps": 6,
+    "date": "2026-05-19T12:39:31.610Z"
   }
 ]
