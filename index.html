@@ -108,13 +108,10 @@ var SCORE_COLORS={strategy:"#E8A838",stakeholders:"#4a6741",significance:"#c0392
 var ENDING_THEMES={policy:{emoji:"\ud83c\udfdb\ufe0f",color:"#5b7fb5"},practitioner:{emoji:"\ud83e\udd1d",color:"#4a6741"},cycle:{emoji:"\ud83d\udd04",color:"#e8963a"}};
 
 var LB_REPO="paulbrbeal/Impact-Quest";
-var LB_TOKEN="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";
 
 function saveScore(entry){
   try{var l=JSON.parse(localStorage.getItem("iq_leaderboard")||"[]");l.push(entry);localStorage.setItem("iq_leaderboard",JSON.stringify(l));}catch(err){}
-  var token="";
-  if(LB_TOKEN&&LB_TOKEN!=="PASTE_YOUR_TOKEN_HERE"){token=LB_TOKEN;}else{token=localStorage.getItem("iq_gh_token")||"";}
-  token=token.replace(/[^\x20-\x7E]/g,"").trim();
+  var token=(localStorage.getItem("iq_gh_token")||"").replace(/[^\x20-\x7E]/g,"").trim();
   if(!token)return;
   var apiUrl="https://api.github.com/repos/"+LB_REPO+"/contents/leaderboard.json";
   fetch(apiUrl,{headers:{"Authorization":"Bearer "+token}}).then(function(r){return r.ok?r.json():null;}).then(function(existing){
