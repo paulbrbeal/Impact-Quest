@@ -16,5 +16,23 @@
     "storyTitle": "The Simulation Lab",
     "steps": 11,
     "date": "2026-05-19T12:35:59.828Z"
+  },
+  {
+    "name": "test 2",
+    "dept": "",
+    "score": 170,
+    "scores": {
+      "strategy": 25,
+      "stakeholders": 45,
+      "significance": 30,
+      "reach": 45,
+      "evidence": 25
+    },
+    "ending": "Impact Case Study: Into the Framework",
+    "endingType": "policy",
+    "storyId": "sbl",
+    "storyTitle": "The Simulation Lab",
+    "steps": 7,
+    "date": "2026-05-19T12:36:36.651Z"
   }
 ]
