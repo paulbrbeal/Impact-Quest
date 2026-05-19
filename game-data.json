@@ -50,18 +50,18 @@
     },
     "social_media_first": {
       "title": "Going Viral (Sort Of)",
-      "narrative": "You write a Twitter thread about your research. It gets 200 likes, a few retweets from other academics, and one reply from someone saying âthis is obvious lol.â\n\nA journalist from a regional paper picks it up and writes a short piece: âUniversity boffins discover parks are good for you.â It's not exactly the nuanced coverage you hoped for.\n\nThe reach is broad but shallow. You've raised awareness, but awareness alone isn't impact â at least not the kind REF panels are looking for. You need to show your research actually CHANGED something.\n\nYour Impact Officer, Sam, sends you a gentle email: âGreat to see the media coverage! Shall we meet to discuss turning this attention into something more strategic?â",
+      "narrative": "You write a LinkedIn post about your research. It gets 200 likes, a few reshares from other academics, and one reply from someone saying \"this is obvious.\"\n\nA journalist from a regional paper picks it up and writes a short piece: \"University boffins discover parks are good for you.\" It's not exactly the nuanced coverage you hoped for.\n\nThe reach is broad but shallow. You've raised awareness, but awareness alone isn't impact, at least not the kind REF panels are looking for. You need to show your research actually CHANGED something.\n\nYour Impact Officer sends you a gentle email: \"Great to see the media coverage! Shall we meet to discuss turning this attention into something more strategic?\"",
       "choices": [
         {
-          "text": "Take Sam up on the offer â time to get strategic",
+          "text": "Take your Impact Officer up on the offer, it's time to get strategic",
           "next": "meet_officer_late"
         },
         {
-          "text": "Double down on media â pitch to national outlets",
+          "text": "Double down on media and pitch to national outlets",
           "next": "media_blitz"
         },
         {
-          "text": "A community group has commented on the article â reach out to them",
+          "text": "A community group has commented on the article. Reach out to them",
           "next": "community_contact"
         }
       ],
