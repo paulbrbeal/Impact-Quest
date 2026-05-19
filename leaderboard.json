@@ -34,5 +34,23 @@
     "storyTitle": "The Impact Quest",
     "steps": 5,
     "date": "2026-05-19T12:26:25.537Z"
+  },
+  {
+    "name": "test",
+    "dept": "",
+    "score": 100,
+    "scores": {
+      "strategy": 0,
+      "stakeholders": 10,
+      "significance": 30,
+      "reach": 25,
+      "evidence": 35
+    },
+    "ending": "Impact Case Study: Practice Transformer",
+    "endingType": "practitioner",
+    "storyId": "impact_quest",
+    "storyTitle": "The Impact Quest",
+    "steps": 6,
+    "date": "2026-05-19T12:27:35.506Z"
   }
 ]
