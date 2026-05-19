@@ -4635,5 +4635,40 @@
       ],
       "phase": "evidence"
     }
+  },
+  "ieoAdvice": {
+    "greetings": {
+      "start": "Good to see you before you dive in. This is exactly what the I&E team is here for — helping you think strategically before you start making moves.",
+      "early": "You're just getting started — that's a great time to check in. The decisions you make early on shape everything that follows.",
+      "mid": "You're building momentum. Let's make sure you're heading in the right direction and not missing any opportunities.",
+      "late": "You've made quite a few decisions now. Let's take stock of where you are and what the strongest next move might be."
+    },
+    "phaseAdvice": {
+      "planning": "You're still in the planning phase. That's fine — rushing into engagement without a strategy is one of the most common mistakes researchers make. Take your time mapping stakeholders and pathways. A good Theory of Change now saves months of wasted effort later.",
+      "evidence": "You're focused on building evidence. Strong evidence is the foundation of everything, but don't forget that the best evidence in the world doesn't create impact on its own. You need people who'll champion it, use it, and act on it. Think about who those people are while you're building the case.",
+      "engagement": "You're in active engagement with stakeholders. This is where relationships are built. Remember: listen at least as much as you present. Understanding their priorities is as important as sharing your findings. The best impact stories come from genuine two-way relationships, not one-way presentations.",
+      "translation": "You're translating research into practical outputs — frameworks, toolkits, guidelines. These are what practitioners actually use day-to-day. Make sure they're co-designed with the people who'll use them, not just handed down from the university. Co-production isn't just good practice, it's better impact.",
+      "adoption": "Your work is being adopted by others. This is exciting but fragile — early adoption needs nurturing. Stay close to the people implementing your work, learn from their experience, and be ready to iterate. The first version is rarely the final one.",
+      "scaling": "You're at the scaling stage — this is where individual impact becomes systemic change. Think about sustainability: what happens when you're not personally driving this? Networks, standards, and institutional embedding are what make impact last beyond a single project."
+    },
+    "categoryTips": {
+      "strategy": "Think about your Theory of Change. Can you draw a clear line from your research to the change you want to see in the world? If you can't explain it in two sentences, it's not sharp enough yet. That's what we can help with.",
+      "stakeholders": "Who are the people with the power to make change happen? Not just who's interested in your research — who can actually act on it? Policymakers, practitioners, commissioners, professional bodies. Map them, understand their priorities, and build relationships before you need them.",
+      "significance": "For REF, significance means the degree of change your research has brought about. A small change affecting many people, or a large change affecting fewer people, are both valid — but you need to be clear which you're aiming for and have evidence to demonstrate it.",
+      "reach": "Reach isn't just about numbers — it's about how far beyond academia your work extends. Media coverage, policy citations, practice adoption, public awareness — each extends your reach in different ways. Think about which channels matter most for your particular research.",
+      "evidence": "Impact evidence needs to be more than 'people liked our workshop.' Think about what actually changed as a result of engaging with your research. Behaviour change, policy change, practice change, new products or services — that's what REF panels are looking for. Start collecting evidence now, not retrospectively."
+    },
+    "scoreNudges": {
+      "zeroGap": "I notice your {weak} score is still at zero while {strong} is looking healthy. A balanced impact case study needs breadth across multiple dimensions — think about whether your next move could start addressing that gap.",
+      "lowGap": "Your {strong} is your real strength so far, but {weak} could use some attention. REF panels look for impact that demonstrates both depth and breadth. Is there a choice here that could build that weaker dimension?",
+      "balanced": "Your scores are nicely balanced across the dimensions — that's a good sign. It means you're building a well-rounded impact case study. Keep it up."
+    },
+    "closingLines": [
+      "Remember, you don't have to figure this out alone. That's what the I&E team is here for.",
+      "We're always here when you need to think something through. Don't wait until you're stuck.",
+      "Come back any time — even if it's just to think out loud. That's half of what these conversations are for.",
+      "The best researchers I work with check in regularly, not just when they hit a wall. Keep it up.",
+      "Impact isn't a solo sport. The more you bring us in, the stronger the case study will be."
+    ]
   }
 }
