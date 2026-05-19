@@ -52,5 +52,23 @@
     "storyTitle": "The Impact Quest",
     "steps": 6,
     "date": "2026-05-19T12:27:35.506Z"
+  },
+  {
+    "name": "test",
+    "dept": "",
+    "score": 130,
+    "scores": {
+      "strategy": 30,
+      "stakeholders": 20,
+      "significance": 25,
+      "reach": 55,
+      "evidence": 0
+    },
+    "ending": "Impact Case Study: The Long Game",
+    "endingType": "cycle",
+    "storyId": "animal_hoarding",
+    "storyTitle": "The Hoarding Gap",
+    "steps": 6,
+    "date": "2026-05-19T12:27:52.153Z"
   }
 ]
