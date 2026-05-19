@@ -190,70 +190,65 @@ function SceneTags(props){
   );
 }
 
-function getIEOAdvice(node, scores, history, scenes) {
+function getIEOAdvice(node, scores, history, scenes, ieoData) {
   var cats = node.categories || [];
   var phase = node.phase || "engagement";
-  var impacts = node.impactTypes || [];
   var stepCount = history.length;
+  var adv = ieoData || {};
+  var greetings = adv.greetings || {};
+  var phaseAdv = adv.phaseAdvice || {};
+  var catTips = adv.categoryTips || {};
+  var nudges = adv.scoreNudges || {};
+  var closings = adv.closingLines || [];
   
-  // Find weakest and strongest score dimensions
+  // Pick greeting based on progress
+  var greeting = "";
+  if (stepCount === 0) greeting = greetings.start || "Good to see you before you dive in.";
+  else if (stepCount <= 2) greeting = greetings.early || "You\u2019re just getting started.";
+  else if (stepCount <= 5) greeting = greetings.mid || "You\u2019re building momentum.";
+  else greeting = greetings.late || "You\u2019ve made quite a few decisions. Let\u2019s take stock.";
+  
+  // Phase advice
+  var phaseText = phaseAdv[phase] || phaseAdv.engagement || "Think about where you are in the impact journey and what the logical next step is.";
+  
+  // Score nudge
   var sortedScores = Object.entries(scores).sort(function(a,b){return a[1]-b[1];});
   var weakest = sortedScores[0];
   var strongest = sortedScores[sortedScores.length - 1];
-  
-  // Build contextual advice
-  var greeting = "";
-  if (stepCount === 0) greeting = "Good to see you before you dive in.";
-  else if (stepCount <= 2) greeting = "You\u2019re just getting started \u2014 that\u2019s a great time to check in.";
-  else if (stepCount <= 5) greeting = "You\u2019re building momentum. Let\u2019s make sure you\u2019re heading in the right direction.";
-  else greeting = "You\u2019ve made quite a few decisions now. Let\u2019s take stock of where you are.";
-  
-  // Phase-based advice
-  var phaseAdvice = {
-    planning: "You\u2019re still in the planning phase. That\u2019s fine \u2014 rushing into engagement without a strategy is one of the most common mistakes researchers make. Take your time mapping stakeholders and pathways.",
-    evidence: "You\u2019re focused on building evidence. Strong evidence is the foundation of everything, but don\u2019t forget that the best evidence in the world doesn\u2019t create impact on its own \u2014 you need engagement too.",
-    engagement: "You\u2019re in active engagement with stakeholders. This is where relationships are built. Remember: listen at least as much as you present. Understanding their priorities is as important as sharing your findings.",
-    translation: "You\u2019re translating research into practical outputs. Frameworks, toolkits, guidelines \u2014 these are what practitioners actually use. Make sure they\u2019re co-designed with the people who\u2019ll use them.",
-    adoption: "Your work is being adopted. This is exciting but fragile \u2014 early adoption needs nurturing. Stay close to the people implementing your work and learn from their experience.",
-    scaling: "You\u2019re at the scaling stage. This is where individual impact becomes systemic change. Think about sustainability \u2014 what happens when you\u2019re not personally driving this?"
-  };
-  
-  // Score-based nudge
   var scoreNudge = "";
   if (stepCount >= 3) {
     if (weakest[1] === 0 && strongest[1] > 10) {
-      scoreNudge = "I notice your " + SCORE_LABELS[weakest[0]] + " score is still at zero while " + SCORE_LABELS[strongest[0]] + " is strong. A balanced impact case study needs breadth \u2014 think about whether your next move could address that gap.";
+      scoreNudge = (nudges.zeroGap || "Your {weak} is at zero while {strong} is strong. Consider addressing that gap.")
+        .replace("{weak}", SCORE_LABELS[weakest[0]]).replace("{strong}", SCORE_LABELS[strongest[0]]);
     } else if (weakest[1] < strongest[1] * 0.3 && strongest[1] > 5) {
-      scoreNudge = "Your " + SCORE_LABELS[strongest[0]] + " is looking strong, but " + SCORE_LABELS[weakest[0]] + " could use attention. REF panels look for impact across multiple dimensions.";
+      scoreNudge = (nudges.lowGap || "Your {strong} is strong but {weak} could use attention.")
+        .replace("{weak}", SCORE_LABELS[weakest[0]]).replace("{strong}", SCORE_LABELS[strongest[0]]);
+    } else if (strongest[1] > 0 && weakest[1] >= strongest[1] * 0.5) {
+      scoreNudge = nudges.balanced || "";
     }
   }
   
-  // Category-specific tips
-  var catTips = {
-    strategy: "Think about your Theory of Change. Can you draw a clear line from your research to the change you want to see? If not, that\u2019s what we need to work on.",
-    stakeholders: "Who are the people with the power to make change happen? Not just who\u2019s interested in your research \u2014 who can actually act on it?",
-    significance: "For REF, significance means the degree of change. A small change affecting many people, or a large change affecting fewer people, are both valid \u2014 but you need to be clear which you\u2019re aiming for.",
-    reach: "Reach isn\u2019t just about numbers. It\u2019s about how far beyond academia your work extends. Media, policy, practice, public awareness \u2014 each extends your reach in different ways.",
-    evidence: "Impact evidence needs to be more than \u2018people liked our workshop\u2019. Think about what changed as a result of your research. Behaviour change, policy change, practice change \u2014 that\u2019s what counts."
-  };
-  
+  // Category tip - pick one relevant to weakest dimension
   var relevantTip = "";
   if (cats.length > 0) {
-    // Pick the cat tip most relevant to the weakest score
     var tipCat = cats.indexOf(weakest[0]) >= 0 ? weakest[0] : cats[0];
     relevantTip = catTips[tipCat] || "";
   }
   
+  // Random closing line
+  var closing = closings.length > 0 ? closings[Math.floor(Math.random() * closings.length)] : "";
+  
   return {
     greeting: greeting,
-    phaseAdvice: phaseAdvice[phase] || phaseAdvice.engagement,
+    phaseAdvice: phaseText,
     scoreNudge: scoreNudge,
-    relevantTip: relevantTip
+    relevantTip: relevantTip,
+    closing: closing
   };
 }
 
 function IEOPanel(props) {
-  var advice = getIEOAdvice(props.node, props.scores, props.history, props.scenes);
+  var advice = getIEOAdvice(props.node, props.scores, props.history, props.scenes, props.ieoData);
   return e("div", {className: "ieo-panel"},
     e("div", {className: "ieo-panel-header"},
       e("div", {className: "ieo-panel-avatar"}, "\ud83d\udcac"),
@@ -264,7 +259,8 @@ function IEOPanel(props) {
       e("p", null, advice.greeting),
       e("p", null, advice.phaseAdvice),
       advice.scoreNudge ? e("p", null, e("strong", null, "A nudge: "), advice.scoreNudge) : null,
-      advice.relevantTip ? e("div", {className: "ieo-tip"}, "\ud83d\udca1 ", advice.relevantTip) : null
+      advice.relevantTip ? e("div", {className: "ieo-tip"}, "\ud83d\udca1 ", advice.relevantTip) : null,
+      advice.closing ? e("p", {style: {fontStyle: "italic", marginTop: 12, color: "var(--text-muted)"}}, advice.closing) : null
     ),
     e("button", {className: "ieo-dismiss", onClick: props.onClose}, "Thanks \u2014 back to my choices")
   );
@@ -496,7 +492,7 @@ function App(props){
       node.choices.map(function(choice,i){return e("button",{key:i,className:"choice-btn",onClick:function(){handleChoice(choice);}},e("span",{className:"choice-letter"},String.fromCharCode(65+i)),choice.text);}),
       !showIEO?e("button",{className:"ieo-btn",onClick:function(){setShowIEO(true);}},e("span",{className:"ieo-icon"},"\ud83d\udcac"),"Check in with your Impact & Engagement Officer"):null
     ):null,
-    showIEO&&showChoices&&!isEnding?e(IEOPanel,{node:node,scores:scores,history:history,scenes:scenes,onClose:function(){setShowIEO(false);}}):null,
+    showIEO&&showChoices&&!isEnding?e(IEOPanel,{node:node,scores:scores,history:history,scenes:scenes,ieoData:GAME.ieoAdvice||{},onClose:function(){setShowIEO(false);}}):null,
     isEnding&&showChoices?e("div",{className:"ending-box"},
       submitted?e("div",{className:"submitted-badge"},"\u2713 Score submitted to leaderboard"):null,
       e("div",{className:"ending-score-label"},"Final Score: ",e("span",{className:"ending-score-val"},totalScore)),
