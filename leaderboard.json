@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "name": "test",
+    "dept": "",
+    "score": 280,
+    "scores": {
+      "strategy": 40,
+      "stakeholders": 30,
+      "significance": 75,
+      "reach": 60,
+      "evidence": 75
+    },
+    "ending": "Impact Case Study: Setting the Standard",
+    "endingType": "cycle",
+    "storyId": "sbl",
+    "storyTitle": "The Simulation Lab",
+    "steps": 11,
+    "date": "2026-05-19T12:35:59.828Z"
+  }
+]
