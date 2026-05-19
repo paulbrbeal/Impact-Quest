@@ -1,0 +1,20 @@
+[
+  {
+    "name": "test",
+    "dept": "",
+    "score": 110,
+    "scores": {
+      "strategy": 15,
+      "stakeholders": 10,
+      "significance": 35,
+      "reach": 25,
+      "evidence": 25
+    },
+    "ending": "Impact Case Study: Practice Transformer",
+    "endingType": "practitioner",
+    "storyId": "impact_quest",
+    "storyTitle": "The Impact Quest",
+    "steps": 5,
+    "date": "2026-05-19T10:28:03.007Z"
+  }
+]
