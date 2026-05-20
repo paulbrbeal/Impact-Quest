@@ -15,7 +15,8 @@
     "bfr": {
       "title": "From Clinic to Cosmos",
       "description": "Your Blood Flow Restriction research works in rehab clinics. Now NASA and ESA want it for space. Can you scale from lab to orbit?",
-      "startScene": "bfr_start"
+      "startScene": "bfr_start",
+      "image": "https://paulbrbeal.github.io/Impact-Quest/images/bfr.jpg"
     },
     "sbl": {
       "title": "The Simulation Lab",
