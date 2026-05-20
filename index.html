@@ -473,7 +473,8 @@ function App(props){
       e("h1",null,"THE ",e("em",null,"IMPACT")," QUEST"),
       e("div",{className:"header-meta",style:{marginTop:8}},"Playing as ",e("strong",null,player.name),player.dept?" \u00b7 "+player.dept:""),
       currentNode!==(story?story.startScene:"start")?e("div",{className:"header-meta"},"Chapter "+(history.length+1)+" \u00b7 Decisions made: "+history.length):null,
-      currentNode!==(story?story.startScene:"start")?e("button",{className:"restart-small-btn",onClick:restart},"\u2190 Start Again"):null
+      currentNode!==(story?story.startScene:"start")?e("button",{className:"restart-small-btn",onClick:restart},"\u2190 Start Again"):null,
+      hasStories&&Object.keys(stories).length>1?e("button",{className:"restart-small-btn",onClick:restartFull,style:{marginLeft:8}},"\u2190 Choose Story"):null
     ),
     currentNode!==(story?story.startScene:"start")?e("div",{className:"dashboard"},
       e("div",{className:"dashboard-header"},e("span",{className:"dashboard-title"},"Impact Dashboard"),e("span",{className:"dashboard-total"},"Total: "+totalScore)),
