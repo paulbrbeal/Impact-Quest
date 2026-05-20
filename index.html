@@ -414,7 +414,7 @@ function App(props){
   var _cn=useState(""),currentNode=_cn[0],setCurrentNode=_cn[1];
   var _sc=useState({strategy:0,stakeholders:0,significance:0,reach:0,evidence:0}),scores=_sc[0],setScores=_sc[1];
   var _hi=useState([]),history=_hi[0],setHistory=_hi[1];
-  var _sh=useState(false),showChoices=_sh[0],setShowChoices=_sh[1];
+  var _sh=useState(true),showChoices=_sh[0],setShowChoices=_sh[1];
   var _ck=useState(0),cardKey=_ck[0],setCardKey=_ck[1];
   var _sub=useState(false),submitted=_sub[0],setSubmitted=_sub[1];
   var _ieo=useState(false),showIEO=_ieo[0],setShowIEO=_ieo[1];
@@ -459,7 +459,7 @@ function App(props){
 
   var handleChoice=function(choice){
     if(!choice.next||!scenes[choice.next])return;
-    setShowChoices(false);setShowIEO(false);setHistory(function(h){return h.concat([{node:currentNode,choice:choice.text}]);});
+    setShowChoices(true);setShowIEO(false);setHistory(function(h){return h.concat([{node:currentNode,choice:choice.text}]);});
     var nextNode=scenes[choice.next];
     if(nextNode&&nextNode.scoreEffect){setScores(function(s){var ns=Object.assign({},s);Object.keys(nextNode.scoreEffect).forEach(function(k){ns[k]=Math.max(0,(ns[k]||0)+nextNode.scoreEffect[k]);});return ns;});}
     setCurrentNode(choice.next);setCardKey(function(k){return k+1;});window.scrollTo({top:0,behavior:"smooth"});
@@ -485,7 +485,7 @@ function App(props){
       node.phase?e(PhaseIndicator,{phase:node.phase}):null,
       e(SceneTags,{node:node}),
       node.image?e("div",{style:{textAlign:"center",marginBottom:"16px",marginTop:"16px"}},e("img",{src:node.image,alt:"",className:"scene-img",style:{width:node.imageSize==="small"?"40%":node.imageSize==="medium"?"65%":"100%",maxHeight:node.imageSize==="banner"?"150px":"300px",objectFit:"cover"}})):null,
-      e("div",{className:"narrative",style:{marginTop:12}},e(TypewriterText,{key:currentNode,text:node.narrative,speed:8,onComplete:function(){setShowChoices(true);}}))
+      e("div",{className:"narrative",style:{marginTop:12}},node.narrative.split("\n").map(function(line,i){return e("p",{key:i,style:{margin:"0 0 12px 0",minHeight:line===""?12:"auto"}},line);}))
     ),
     !isEnding&&showChoices&&node.choices?e("div",{className:"choices-section"},
       e("div",{className:"choices-label"},"What do you do?"),
