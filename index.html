@@ -464,8 +464,8 @@ function App(props){
     if(nextNode&&nextNode.scoreEffect){setScores(function(s){var ns=Object.assign({},s);Object.keys(nextNode.scoreEffect).forEach(function(k){ns[k]=Math.max(0,(ns[k]||0)+nextNode.scoreEffect[k]);});return ns;});}
     setCurrentNode(choice.next);setCardKey(function(k){return k+1;});window.scrollTo({top:0,behavior:"smooth"});
   };
-  var restart=function(){hasSubmitted.current=false;var startScene=story?story.startScene:"start";setCurrentNode(startScene);setScores({strategy:0,stakeholders:0,significance:0,reach:0,evidence:0});setHistory([]);setShowChoices(false);setSubmitted(false);setCardKey(function(k){return k+1;});window.scrollTo({top:0,behavior:"smooth"});};
-  var restartFull=function(){hasSubmitted.current=false;setPhase(hasStories&&Object.keys(stories).length>1?"select":"register");setStoryId(hasStories&&Object.keys(stories).length===1?Object.keys(stories)[0]:"");setCurrentNode("");setScores({strategy:0,stakeholders:0,significance:0,reach:0,evidence:0});setHistory([]);setShowChoices(false);setSubmitted(false);setCardKey(function(k){return k+1;});window.scrollTo({top:0,behavior:"smooth"});};
+  var restart=function(){hasSubmitted.current=false;var startScene=story?story.startScene:"start";setCurrentNode(startScene);setScores({strategy:0,stakeholders:0,significance:0,reach:0,evidence:0});setHistory([]);setShowChoices(true);setSubmitted(false);setCardKey(function(k){return k+1;});window.scrollTo({top:0,behavior:"smooth"});};
+  var restartFull=function(){hasSubmitted.current=false;setPhase(hasStories&&Object.keys(stories).length>1?"select":"register");setStoryId(hasStories&&Object.keys(stories).length===1?Object.keys(stories)[0]:"");setCurrentNode("");setScores({strategy:0,stakeholders:0,significance:0,reach:0,evidence:0});setHistory([]);setShowChoices(true);setSubmitted(false);setCardKey(function(k){return k+1;});window.scrollTo({top:0,behavior:"smooth"});};
 
   return e("div",{className:"container"},
     e("div",{className:"header"},
