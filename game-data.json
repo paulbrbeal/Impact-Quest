@@ -2697,7 +2697,8 @@
       "impactTypes": [
         "technological"
       ],
-      "phase": "engagement"
+      "phase": "engagement",
+      "image": "https://paulbrbeal.github.io/Impact-Quest/images/rocket.jpg"
     },
     "bfr_operational_testing": {
       "title": "Beyond the Lab",
