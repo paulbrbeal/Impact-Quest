@@ -485,7 +485,7 @@ function App(props){
       e("div",{className:"content-title-row"},isEnding?e("span",{className:"emoji"},endTheme.emoji):null,e("h2",{className:"content-title"+(isEnding?" ending":""),style:isEnding?{color:endTheme.color}:{}},node.title)),
       node.phase?e(PhaseIndicator,{phase:node.phase}):null,
       e(SceneTags,{node:node}),
-      (node.image||(story&&story.image))?e("div",{style:{textAlign:"center",marginBottom:"16px",marginTop:"16px"}},e("img",{src:node.image||(story&&story.image),alt:"",className:"scene-img",style:{width:node.imageSize==="small"?"40%":node.imageSize==="medium"?"65%":"100%",maxHeight:node.imageSize==="banner"?"150px":"300px",objectFit:"cover"}})):null,
+      (node.image||(story&&story.image))?e("div",{style:{textAlign:"center",marginBottom:"16px",marginTop:"16px"}},e("img",{src:node.image||(story&&story.image),alt:"",className:"scene-img",style:node.imageSize==="banner"?{width:"100%",maxHeight:"150px",objectFit:"cover"}:{width:node.imageSize==="small"?"40%":node.imageSize==="medium"?"65%":"100%",maxWidth:"100%",height:"auto",objectFit:"contain"}})):null,
       e("div",{className:"narrative",style:{marginTop:12}},node.narrative.split("\n").map(function(line,i){return e("p",{key:i,style:{margin:"0 0 12px 0",minHeight:line===""?12:"auto"}},line);}))
     ),
     !isEnding&&showChoices&&node.choices?e("div",{className:"choices-section"},
