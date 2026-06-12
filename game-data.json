@@ -3458,7 +3458,8 @@
       "impactTypes": [
         "health"
       ],
-      "phase": "scaling"
+      "phase": "scaling",
+      "image": "https://paulbrbeal.github.io/Impact-Quest/images/medical-guide.jpg"
     },
     "bfr_international_clinical": {
       "title": "Global Clinical Impact",
