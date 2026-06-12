@@ -3521,7 +3521,8 @@
         "practice",
         "health"
       ],
-      "phase": "translation"
+      "phase": "translation",
+      "image": "https://paulbrbeal.github.io/Impact-Quest/images/mod.jpg"
     },
     "bfr_phd_programme": {
       "title": "Building the Next Generation",
@@ -3549,7 +3550,8 @@
       "impactTypes": [
         "educational"
       ],
-      "phase": "planning"
+      "phase": "planning",
+      "image": "https://paulbrbeal.github.io/Impact-Quest/images/next-generation.jpg"
     },
     "bfr_humans_in_space": {
       "title": "The Humans in Space Challenge",
