@@ -2798,7 +2798,8 @@
         "economic",
         "technological"
       ],
-      "phase": "evidence"
+      "phase": "evidence",
+      "image": "https://paulbrbeal.github.io/Impact-Quest/images/space.jpg"
     },
     "bfr_build_team": {
       "title": "Expanding the Team",
@@ -2826,7 +2827,8 @@
       "impactTypes": [
         "technological"
       ],
-      "phase": "evidence"
+      "phase": "evidence",
+      "image": "https://paulbrbeal.github.io/Impact-Quest/images/phd-student.jpg"
     },
     "bfr_commercial": {
       "title": "Commercialisation Challenge",
@@ -2856,7 +2858,8 @@
         "economic",
         "technological"
       ],
-      "phase": "engagement"
+      "phase": "engagement",
+      "image": "https://paulbrbeal.github.io/Impact-Quest/images/business-market.jpg"
     },
     "bfr_international_sport": {
       "title": "Global Sports Impact",
@@ -2888,7 +2891,8 @@
         "health",
         "educational"
       ],
-      "phase": "engagement"
+      "phase": "engagement",
+      "image": "https://paulbrbeal.github.io/Impact-Quest/images/all-sports.jpg"
     },
     "bfr_analogue_testing": {
       "title": "Simulating Space",
