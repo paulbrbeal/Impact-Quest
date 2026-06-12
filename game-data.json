@@ -2594,7 +2594,8 @@
         "health",
         "technological"
       ],
-      "phase": "evidence"
+      "phase": "evidence",
+      "image": "https://paulbrbeal.github.io/Impact-Quest/images/evidence.jpg"
     },
     "bfr_mod": {
       "title": "Military Precision",
@@ -2630,7 +2631,8 @@
         "practice",
         "health"
       ],
-      "phase": "translation"
+      "phase": "translation",
+      "image": "images/MOD.jpg"
     },
     "bfr_sport": {
       "title": "Match Day Science",
@@ -2662,7 +2664,8 @@
         "practice",
         "health"
       ],
-      "phase": "translation"
+      "phase": "translation",
+      "image": "https://paulbrbeal.github.io/Impact-Quest/images/football.jpg"
     },
     "bfr_space_focus": {
       "title": "All Eggs in One Rocket",
