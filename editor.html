@@ -398,7 +398,7 @@ function Editor(){
               <div className="info">
                 <div className="title">{n.title}</div>
                 <div className="meta">{id} · {(n.choices||[]).length}ch{usedBy.length>0?" · "+usedBy.length+" stor"+(usedBy.length===1?"y":"ies"):""}{n.phase?" · "+n.phase:""}</div>
-                {(n.categories||[]).length>0&&<div style={{display:"flex",gap:2,marginTop:2,flexWrap:"wrap"}}>{(n.categories||[]).map(c=><span key={c} style={{fontSize:7,fontWeight:700,textTransform:"uppercase",letterSpacing:0.3,padding:"1px 4px",borderRadius:1,background:c==="strategy"?"#fef3c7":c==="stakeholders"?"#d1fae5":c==="significance"?"#fee2e2":c==="reach"?"#dbeafe":"#e0e7ff",color:c==="strategy"?"#92400e":c==="stakeholders"?"#065f46":c==="significance"?"#991b1b":c==="reach"?"#1e40af":"#3730a3"}}>{c.slice(0,4)}</span>)}</div>}
+                {(n.categories||[]).length>0&&<div style={{display:"flex",gap:2,marginTop:2,flexWrap:"wrap"}}>{(n.categories||[]).map(c=><span key={c} style={{fontSize:7,fontWeight:700,textTransform:"uppercase",letterSpacing:0.3,padding:"1px 4px",borderRadius:1,background:c==="strategy"?"#fef3c7":c==="stakeholders"?"#d1fae5":c==="significance"?"#fee2e2":c==="reach"?"#dbeafe":"#d8efe0",color:c==="strategy"?"#92400e":c==="stakeholders"?"#065f46":c==="significance"?"#991b1b":c==="reach"?"#1e40af":"#1f5c3d"}}>{c.slice(0,4)}</span>)}</div>}
               </div>
             </div>);
           })}
