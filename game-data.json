@@ -3243,7 +3243,8 @@
         "health",
         "technological"
       ],
-      "phase": "evidence"
+      "phase": "evidence",
+      "image": "https://paulbrbeal.github.io/Impact-Quest/images/iss.jpg"
     },
     "bfr_ending_consortium": {
       "title": "Impact Case Study: Beyond Low Earth Orbit",
