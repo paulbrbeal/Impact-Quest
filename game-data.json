@@ -2963,7 +2963,8 @@
         "economic",
         "technological"
       ],
-      "phase": "translation"
+      "phase": "translation",
+      "image": "https://paulbrbeal.github.io/Impact-Quest/images/space-x.jpg"
     },
     "bfr_iss_proposal": {
       "title": "The ISS Experiment",
