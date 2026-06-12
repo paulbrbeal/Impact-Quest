@@ -2148,10 +2148,10 @@
     },
     "bfr_sport": {
       "title": "Match Day Science",
-      "narrative": "You formalise your relationships with Premier League football clubs. Three clubs agree to participate in a structured study of BFR for post-match recovery and ACL rehabilitation. The physiotherapy teams are enthusiastic  -  they've been using your informal protocols and want the evidence to back up what they're seeing.\n\nThe results are compelling. Players using BFR protocols return to full training 15-20% faster after ACL reconstruction. Post-match muscle soreness markers are significantly lower with BFR recovery sessions.\n\nHow do you leverage this momentum?",
+      "narrative": "You formalise your relationships with Premier League football clubs. Three clubs agree to participate in a structured study of BFR for post-match recovery and ACL rehabilitation. The physiotherapy teams are enthusiastic. They've been using your informal protocols and want the evidence to back up what they're seeing.\n\nThe results are compelling. Players using BFR protocols return to full training 15-20% faster after ACL reconstruction. Post-match muscle soreness markers are significantly lower with BFR recovery sessions.\n\nHow do you leverage this momentum?",
       "choices": [
         {
-          "text": "Connect the sport evidence to your UKSA proposal  -  show this works across populations",
+          "text": "Connect the sport evidence to your UKSA proposal. Show this works across populations",
           "next": "bfr_uksa_approach"
         },
         {
@@ -2159,7 +2159,7 @@
           "next": "bfr_commercial"
         },
         {
-          "text": "Approach international sports bodies  -  FIFA, IOC  -  about incorporating BFR into their guidelines",
+          "text": "Approach international sports bodies (FIFA, IOC) about incorporating BFR into their guidelines",
           "next": "bfr_international_sport"
         }
       ],
@@ -2181,7 +2181,7 @@
     },
     "bfr_space_focus": {
       "title": "All Eggs in One Rocket",
-      "narrative": "You dedicate your entire research programme to the space application. It's a bold bet. You enter a global space innovation competition run by a South Korean health technology company in partnership with Axiom Space.\n\nYour proposal  -  developing a space-ready BFR device  -  wins. The prize includes funding and support from space industry partners including Axiom Space and the Aurelia Institute.\n\nWinning the competition makes headlines, but those other sectors represented additional impact pathways you've left unexplored.",
+      "narrative": "You dedicate your entire research programme to the space application. It's a bold bet. You enter a global space innovation competition run by a South Korean health technology company in partnership with Axiom Space.\n\nYour proposal, developing a space-ready BFR device, wins. The prize includes funding and support from space industry partners including Axiom Space and the Aurelia Institute.\n\nWinning the competition makes headlines, but those other sectors represented additional impact pathways you've left unexplored.",
       "choices": [
         {
           "text": "Bring in collaborators to pursue the clinical and sport pathways simultaneously",
@@ -2192,7 +2192,7 @@
           "next": "bfr_device_partner"
         },
         {
-          "text": "Enter the Humans in Space Challenge  -  a global competition for space health innovation",
+          "text": "Enter the Humans in Space Challenge. A global competition for space health innovation",
           "next": "bfr_humans_in_space"
         }
       ],
@@ -2242,7 +2242,7 @@
     },
     "bfr_device_partner": {
       "title": "Engineering the Solution",
-      "narrative": "You partner with Delfi Medical Innovations, a Vancouver-based company that manufactures the world's leading automatic tourniquet systems. Their Personalised Tourniquet System (PTS) is already the gold-standard equipment for BFR exercise on Earth  -  it provides automatic, personalised pressure prescription with surgical-grade accuracy.\n\nTogether, you face the engineering challenge of adapting clinical equipment for space.\n\nThe device needs testing. Where and how?",
+      "narrative": "You partner with Delfi Medical Innovations, a Vancouver-based company that manufactures the world's leading automatic tourniquet systems. Their Personalised Tourniquet System (PTS) is already the gold-standard equipment for BFR exercise on Earth. It provides automatic, personalised pressure prescription with surgical-grade accuracy.\n\nTogether, you face the engineering challenge of adapting clinical equipment for space.\n\nThe device needs testing. Where and how?",
       "choices": [
         {
           "text": "Apply to test on a commercial spaceflight mission",
@@ -2318,7 +2318,7 @@
           "next": "bfr_uksa_approach"
         },
         {
-          "text": "Focus on the device - it is nearly ready for testing",
+          "text": "Focus on the device. It is nearly ready for testing",
           "next": "bfr_ending_multisector"
         }
       ],
@@ -2340,10 +2340,10 @@
     },
     "bfr_commercial": {
       "title": "Commercialisation Challenge",
-      "narrative": "You explore commercial partnerships to bring BFR technology to a wider market. Sports performance companies and physiotherapy chains express interest. A university enterprise team helps you map the intellectual property landscape.\n\nBut commercialisation is complex. Patent protection, licensing agreements, quality assurance, regulatory compliance for medical devices, market development  -  it's a completely different skill set from research.\n\nYou need to decide: do you spend your limited time on commercial development, or focus on what you do best  -  the research that drives everything?",
+      "narrative": "You explore commercial partnerships to bring BFR technology to a wider market. Sports performance companies and physiotherapy chains express interest. A university enterprise team helps you map the intellectual property landscape.\n\nBut commercialisation is complex. Patent protection, licensing agreements, quality assurance, regulatory compliance for medical devices, market development, it's a completely different skill set from research.\n\nYou need to decide: do you spend your limited time on commercial development, or focus on what you do best, the research that drives everything?",
       "choices": [
         {
-          "text": "Focus on the research - space is where the transformative impact is",
+          "text": "Focus on the research. Space is where the transformative impact is",
           "next": "bfr_uksa_approach"
         },
         {
@@ -2378,15 +2378,15 @@
       "narrative": "You present your BFR research at international sports medicine conferences. The evidence from Premier League clubs attracts attention from football associations, Olympic training centres, and elite sports institutes around the world.\n\nFIFA's medical committee invites you to contribute to their guidelines on post-injury rehabilitation. The IOC's medical and scientific commission cites your research in their review of recovery techniques.\n\nThe sport impact is building rapidly. The question is whether to ride this wave or redirect toward the space application.",
       "choices": [
         {
-          "text": "Use the sport credibility to strengthen the space proposal  -  show multi-sector validation",
+          "text": "Use the sport credibility to strengthen the space proposal. Show multi-sector validation",
           "next": "bfr_uksa_approach"
         },
         {
-          "text": "Develop the sport impact fully  -  it may be stronger for REF than the space work",
+          "text": "Develop the sport impact fully. It may be stronger for REF than the space work",
           "next": "bfr_sport_deep"
         },
         {
-          "text": "Maintain both  -  the multi-sector narrative is the strongest impact story",
+          "text": "Maintain both. The multi-sector narrative is the strongest impact story",
           "next": "bfr_parallel_impact"
         }
       ],
