@@ -2,13 +2,13 @@
   "stories": {
     "impact_quest": {
       "title": "The Green Corridor",
-      "description": "Your research proves urban green spaces reduce anxiety in deprived neighbourhoods. The paper is published, now can you turn it into real-world change before REF 2029?",
+      "description": "Your research proves urban green spaces reduce anxiety in deprived neighbourhoods. The paper is published  -  now can you turn it into real-world change before REF 2029?",
       "image": "https://paulbrbeal.github.io/Impact-Quest/images/community-garden.jpg",
       "startScene": "start"
     },
     "animal_hoarding": {
       "title": "The Hoarding Gap",
-      "description": "The UK has no legal definition of animal hoarding. Your research could change that, if you can navigate the right stakeholders.",
+      "description": "The UK has no legal definition of animal hoarding. Your research could change that  -  if you can navigate the right stakeholders.",
       "startScene": "ah_start",
       "image": "https://paulbrbeal.github.io/Impact-Quest/images/hoarding.jpg"
     },
@@ -57,21 +57,21 @@
       "narrative": "Smart move. Your Impact Officer is enthusiastic. At your next meeting they help you map out a Theory of Change, connecting your research findings to potential real-world outcomes.\n\n\"We need to think about WHO could use this research, HOW they'd use it, and what EVIDENCE we'd need to prove it made a difference.\"\n\nTogether you identify three potential impact pathways:\n- Policy influence: informing local or national green space policy\n- Practitioner change: helping community organisations design better programmes\n- Public benefit: directly improving wellbeing in target communities\n\nWhich pathway do you want to prioritise first?",
       "choices": [
         {
-          "text": "Policy influence: let's aim high and target policymakers",
+          "text": "Policy influence - target policymakers and try to shape council strategy",
           "next": "policy_route"
         },
         {
-          "text": "Practitioner change: let's work with community organisations on the ground",
+          "text": "Practitioner change - work with community organisations to change how they operate",
           "next": "practitioner_route"
         },
         {
-          "text": "Can we pursue all three at once?",
-          "next": "all_three"
+          "text": "Public benefit - focus on getting these findings directly to the communities and people who benefit",
+          "next": "public_benefit_route"
         }
       ],
       "scoreEffect": {
-        "strategy": 5,
-        "evidence": 3
+        "strategy": 10,
+        "evidence": 6
       },
       "categories": [
         "strategy",
@@ -102,8 +102,8 @@
         }
       ],
       "scoreEffect": {
-        "reach": 5,
-        "significance": -3
+        "reach": 10,
+        "significance": -6
       },
       "categories": [
         "strategy",
@@ -133,8 +133,8 @@
         }
       ],
       "scoreEffect": {
-        "strategy": -3,
-        "stakeholders": -3
+        "strategy": -6,
+        "stakeholders": -6
       },
       "categories": [
         "significance",
@@ -160,8 +160,8 @@
         }
       ],
       "scoreEffect": {
-        "strategy": 4,
-        "stakeholders": 3
+        "strategy": 8,
+        "stakeholders": 6
       },
       "categories": [
         "stakeholders",
@@ -187,9 +187,9 @@
         }
       ],
       "scoreEffect": {
-        "reach": 8,
-        "significance": -5,
-        "evidence": -3
+        "reach": 15,
+        "significance": -10,
+        "evidence": -6
       },
       "categories": [
         "strategy",
@@ -220,8 +220,8 @@
         }
       ],
       "scoreEffect": {
-        "stakeholders": 8,
-        "significance": 5
+        "stakeholders": 15,
+        "significance": 10
       },
       "categories": [
         "stakeholders",
@@ -251,8 +251,8 @@
         }
       ],
       "scoreEffect": {
-        "strategy": 5,
-        "stakeholders": 3
+        "strategy": 10,
+        "stakeholders": 6
       },
       "categories": [
         "strategy"
@@ -281,36 +281,11 @@
         }
       ],
       "scoreEffect": {
-        "stakeholders": 5,
-        "strategy": 3
+        "stakeholders": 10,
+        "strategy": 6
       },
       "categories": [
         "stakeholders"
-      ],
-      "impactTypes": [
-        "societal"
-      ],
-      "phase": "engagement"
-    },
-    "all_three": {
-      "title": "Ambition vs. Reality",
-      "narrative": "Sam pauses. \"I love the ambition, but let me be honest  -  trying to do everything at once usually means nothing gets done well. REF panels can spot a mile-wide, inch-deep impact narrative immediately.\"\n\n\"The strongest impact case studies tell a focused story: clear pathway, strong evidence, demonstrable change. We can absolutely pursue multiple pathways eventually, but let's nail one first.\"\n\nThis is good advice. Which pathway has the most potential right now?",
-      "choices": [
-        {
-          "text": "Policy influence  -  there's a council consultation coming up",
-          "next": "policy_route"
-        },
-        {
-          "text": "Practitioner change  -  community groups are already interested",
-          "next": "practitioner_route"
-        }
-      ],
-      "scoreEffect": {
-        "strategy": 3
-      },
-      "categories": [
-        "strategy",
-        "reach"
       ],
       "impactTypes": [
         "societal"
@@ -331,8 +306,8 @@
         }
       ],
       "scoreEffect": {
-        "strategy": 8,
-        "stakeholders": 3
+        "strategy": 15,
+        "stakeholders": 6
       },
       "categories": [
         "strategy"
@@ -359,8 +334,8 @@
         }
       ],
       "scoreEffect": {
-        "stakeholders": 8,
-        "strategy": 5
+        "stakeholders": 15,
+        "strategy": 10
       },
       "categories": [
         "strategy",
@@ -388,8 +363,8 @@
         }
       ],
       "scoreEffect": {
-        "stakeholders": 8,
-        "strategy": 5
+        "stakeholders": 15,
+        "strategy": 10
       },
       "categories": [
         "strategy",
@@ -419,8 +394,8 @@
         }
       ],
       "scoreEffect": {
-        "significance": 8,
-        "reach": 5
+        "significance": 15,
+        "reach": 10
       },
       "categories": [
         "significance",
@@ -447,9 +422,9 @@
         }
       ],
       "scoreEffect": {
-        "strategy": 8,
-        "stakeholders": 5,
-        "evidence": 5
+        "strategy": 15,
+        "stakeholders": 10,
+        "evidence": 10
       },
       "categories": [
         "strategy",
@@ -477,7 +452,7 @@
         }
       ],
       "scoreEffect": {
-        "stakeholders": 5
+        "stakeholders": 10
       },
       "categories": [
         "strategy",
@@ -507,9 +482,9 @@
         }
       ],
       "scoreEffect": {
-        "significance": 11,
-        "evidence": 8,
-        "stakeholders": 5
+        "significance": 21,
+        "evidence": 15,
+        "stakeholders": 10
       },
       "categories": [
         "stakeholders",
@@ -536,9 +511,9 @@
         }
       ],
       "scoreEffect": {
-        "significance": 11,
-        "evidence": 5,
-        "reach": 3
+        "significance": 21,
+        "evidence": 10,
+        "reach": 6
       },
       "categories": [
         "significance",
@@ -564,8 +539,8 @@
         }
       ],
       "scoreEffect": {
-        "strategy": -8,
-        "stakeholders": -5
+        "strategy": -15,
+        "stakeholders": -10
       },
       "categories": [
         "strategy",
@@ -590,8 +565,8 @@
         }
       ],
       "scoreEffect": {
-        "stakeholders": 8,
-        "reach": 3
+        "stakeholders": 15,
+        "reach": 6
       },
       "categories": [
         "stakeholders",
@@ -617,9 +592,9 @@
         }
       ],
       "scoreEffect": {
-        "significance": 11,
-        "reach": 5,
-        "stakeholders": 3
+        "significance": 21,
+        "reach": 10,
+        "stakeholders": 6
       },
       "categories": [
         "significance",
@@ -645,9 +620,9 @@
         }
       ],
       "scoreEffect": {
-        "strategy": 8,
-        "stakeholders": 8,
-        "significance": 5
+        "strategy": 15,
+        "stakeholders": 15,
+        "significance": 10
       },
       "categories": [
         "strategy",
@@ -674,8 +649,8 @@
         }
       ],
       "scoreEffect": {
-        "reach": 11,
-        "stakeholders": 5
+        "reach": 21,
+        "stakeholders": 10
       },
       "categories": [
         "stakeholders",
@@ -689,7 +664,7 @@
     },
     "funding_bid": {
       "title": "Empowering Partners",
-      "narrative": "You help GreenSpace Collective write a funding bid to the National Lottery, using your research as the evidence base. The bid makes a compelling case: here's the research showing this approach works, and here's the community organisation ready to deliver it.\n\nThe bid is successful  -  ÃÂÃÂ£150,000 over three years. Priya is ecstatic. Your research has directly enabled this community organisation to expand their life-changing work.\n\nThis is tangible, evidenced impact. The funding decision letter explicitly cites your research as key supporting evidence.",
+      "narrative": "You help GreenSpace Collective write a funding bid to the National Lottery, using your research as the evidence base. The bid makes a compelling case: here's the research showing this approach works, and here's the community organisation ready to deliver it.\n\nThe bid is successful  -  £150,000 over three years. Priya is ecstatic. Your research has directly enabled this community organisation to expand their life-changing work.\n\nThis is tangible, evidenced impact. The funding decision letter explicitly cites your research as key supporting evidence.",
       "choices": [
         {
           "text": "Document this carefully  -  the funding letter is gold-standard evidence",
@@ -701,9 +676,9 @@
         }
       ],
       "scoreEffect": {
-        "significance": 14,
-        "evidence": 11,
-        "reach": 5
+        "significance": 27,
+        "evidence": 21,
+        "reach": 10
       },
       "categories": [
         "significance",
@@ -730,8 +705,8 @@
         }
       ],
       "scoreEffect": {
-        "stakeholders": 3,
-        "significance": -3
+        "stakeholders": 6,
+        "significance": -6
       },
       "categories": [
         "stakeholders"
@@ -743,7 +718,7 @@
     },
     "cost_benefit": {
       "title": "Strengthening the Case",
-      "narrative": "Your Health Economics colleague helps produce a cost-benefit analysis showing that every ÃÂÃÂ£1 invested in community-led green spaces generates ÃÂÃÂ£3.20 in health and social benefits.\n\nThe DPH's eyes light up: \"THIS is what I can take to cabinet. They don't understand wellbeing scores, but they understand return on investment.\"\n\nThe council commits ÃÂÃÂ£500,000 to a new Community Green Space Programme, explicitly citing your research and the cost-benefit analysis in the cabinet paper.\n\nThis is major policy impact with clear evidence.",
+      "narrative": "Your Health Economics colleague helps produce a cost-benefit analysis showing that every £1 invested in community-led green spaces generates £3.20 in health and social benefits.\n\nThe DPH's eyes light up: \"THIS is what I can take to cabinet. They don't understand wellbeing scores, but they understand return on investment.\"\n\nThe council commits £500,000 to a new Community Green Space Programme, explicitly citing your research and the cost-benefit analysis in the cabinet paper.\n\nThis is major policy impact with clear evidence.",
       "choices": [
         {
           "text": "Secure copies of the cabinet paper and decision documents",
@@ -755,9 +730,9 @@
         }
       ],
       "scoreEffect": {
-        "significance": 14,
-        "evidence": 11,
-        "reach": 8
+        "significance": 27,
+        "evidence": 21,
+        "reach": 15
       },
       "categories": [
         "significance",
@@ -785,9 +760,9 @@
         }
       ],
       "scoreEffect": {
-        "strategy": 8,
-        "significance": 8,
-        "evidence": 5
+        "strategy": 15,
+        "significance": 15,
+        "evidence": 10
       },
       "categories": [
         "strategy",
@@ -801,7 +776,7 @@
     },
     "bold_recommendation": {
       "title": "Fortune Favours the Bold",
-      "narrative": "The DPH pushes back initially: \"Community-led? We can't just hand over money without accountability.\"\n\nBut you're prepared. You present your evidence showing community-led approaches have better outcomes AND better cost-effectiveness than top-down provision. You share the GreenSpace Collective's data.\n\nThree months later, the council announces a ÃÂÃÂ£300,000 Community Green Space Fund  -  ring-fenced for community organisations in deprived wards. Your research is cited as the evidence base.\n\nLocal headlines read: \"Council backs community green spaces after university research.\"",
+      "narrative": "The DPH pushes back initially: \"Community-led? We can't just hand over money without accountability.\"\n\nBut you're prepared. You present your evidence showing community-led approaches have better outcomes AND better cost-effectiveness than top-down provision. You share the GreenSpace Collective's data.\n\nThree months later, the council announces a £300,000 Community Green Space Fund  -  ring-fenced for community organisations in deprived wards. Your research is cited as the evidence base.\n\nLocal headlines read: \"Council backs community green spaces after university research.\"",
       "choices": [
         {
           "text": "Document everything  -  cabinet papers, press coverage, the funding decision",
@@ -809,10 +784,10 @@
         }
       ],
       "scoreEffect": {
-        "significance": 14,
-        "reach": 11,
-        "evidence": 8,
-        "strategy": 3
+        "significance": 27,
+        "reach": 21,
+        "evidence": 15,
+        "strategy": 6
       },
       "categories": [
         "significance",
@@ -834,10 +809,10 @@
         }
       ],
       "scoreEffect": {
-        "significance": 11,
-        "evidence": 11,
-        "reach": 5,
-        "strategy": 8
+        "significance": 21,
+        "evidence": 21,
+        "reach": 10,
+        "strategy": 15
       },
       "categories": [
         "strategy",
@@ -861,10 +836,10 @@
         }
       ],
       "scoreEffect": {
-        "significance": 14,
-        "evidence": 8,
-        "reach": 8,
-        "stakeholders": 5
+        "significance": 27,
+        "evidence": 15,
+        "reach": 15,
+        "stakeholders": 10
       },
       "categories": [
         "stakeholders",
@@ -880,7 +855,7 @@
     },
     "advisory_panel": {
       "title": "Embedded Influence",
-      "narrative": "You join the advisory panel. Over 18 months, your research shapes multiple council decisions about green space investment and design. You keep meticulous records of meetings, recommendations made, and actions taken.\n\nThe council's Green Space Action Plan explicitly acknowledges your advisory role and cites your research 14 times. The plan redirects ÃÂÃÂ£2 million in capital spending toward community-led projects.\n\nSam is delighted: \"This is textbook policy impact. You've got the evidence trail, the policy documents, the scale  -  this could be a flagship case study.\"",
+      "narrative": "You join the advisory panel. Over 18 months, your research shapes multiple council decisions about green space investment and design. You keep meticulous records of meetings, recommendations made, and actions taken.\n\nThe council's Green Space Action Plan explicitly acknowledges your advisory role and cites your research 14 times. The plan redirects £2 million in capital spending toward community-led projects.\n\nSam is delighted: \"This is textbook policy impact. You've got the evidence trail, the policy documents, the scale  -  this could be a flagship case study.\"",
       "choices": [
         {
           "text": "Compile the impact case study with Sam's help",
@@ -888,11 +863,11 @@
         }
       ],
       "scoreEffect": {
-        "significance": 14,
-        "evidence": 14,
-        "reach": 11,
-        "strategy": 5,
-        "stakeholders": 5
+        "significance": 27,
+        "evidence": 27,
+        "reach": 21,
+        "strategy": 10,
+        "stakeholders": 10
       },
       "categories": [
         "strategy",
@@ -917,8 +892,8 @@
         }
       ],
       "scoreEffect": {
-        "evidence": 14,
-        "significance": 5
+        "evidence": 27,
+        "significance": 10
       },
       "categories": [
         "significance",
@@ -940,9 +915,9 @@
         }
       ],
       "scoreEffect": {
-        "evidence": 14,
-        "significance": 5,
-        "strategy": 5
+        "evidence": 27,
+        "significance": 10,
+        "strategy": 10
       },
       "categories": [
         "strategy",
@@ -965,9 +940,9 @@
         }
       ],
       "scoreEffect": {
-        "reach": 14,
-        "evidence": 8,
-        "significance": 5
+        "reach": 27,
+        "evidence": 15,
+        "significance": 10
       },
       "categories": [
         "significance",
@@ -990,9 +965,9 @@
         }
       ],
       "scoreEffect": {
-        "reach": 16,
-        "significance": 14,
-        "evidence": 8
+        "reach": 31,
+        "significance": 27,
+        "evidence": 15
       },
       "categories": [
         "significance",
@@ -1007,7 +982,7 @@
     },
     "national_framework": {
       "title": "Systemic Change",
-      "narrative": "You co-develop GreenFutures' new evaluation framework. It's adopted as standard practice across their ÃÂÃÂ£10 million annual grants portfolio, meaning every project they fund is now assessed using criteria derived from your research.\n\nThis is systemic impact  -  your research has changed how an entire sector operates. The framework is subsequently picked up by two other national funders.\n\nSam is thrilled: \"National reach, multiple beneficiaries, clear evidence of change in practice. This is REF gold.\"",
+      "narrative": "You co-develop GreenFutures' new evaluation framework. It's adopted as standard practice across their £10 million annual grants portfolio, meaning every project they fund is now assessed using criteria derived from your research.\n\nThis is systemic impact  -  your research has changed how an entire sector operates. The framework is subsequently picked up by two other national funders.\n\nSam is thrilled: \"National reach, multiple beneficiaries, clear evidence of change in practice. This is REF gold.\"",
       "choices": [
         {
           "text": "Compile the impact case study",
@@ -1015,10 +990,10 @@
         }
       ],
       "scoreEffect": {
-        "reach": 16,
-        "significance": 14,
-        "evidence": 11,
-        "stakeholders": 8
+        "reach": 31,
+        "significance": 27,
+        "evidence": 21,
+        "stakeholders": 15
       },
       "categories": [
         "stakeholders",
@@ -1041,10 +1016,10 @@
         }
       ],
       "scoreEffect": {
-        "reach": 11,
-        "significance": 11,
-        "strategy": 8,
-        "stakeholders": 5
+        "reach": 21,
+        "significance": 21,
+        "strategy": 15,
+        "stakeholders": 10
       },
       "categories": [
         "strategy",
@@ -1067,9 +1042,9 @@
         }
       ],
       "scoreEffect": {
-        "evidence": 14,
-        "significance": 11,
-        "strategy": 8
+        "evidence": 27,
+        "significance": 21,
+        "strategy": 15
       },
       "categories": [
         "strategy",
@@ -1092,10 +1067,10 @@
         }
       ],
       "scoreEffect": {
-        "significance": 16,
-        "evidence": 11,
-        "reach": 8,
-        "stakeholders": 8
+        "significance": 31,
+        "evidence": 21,
+        "reach": 15,
+        "stakeholders": 15
       },
       "categories": [
         "stakeholders",
@@ -1118,9 +1093,9 @@
         }
       ],
       "scoreEffect": {
-        "reach": 11,
-        "significance": 8,
-        "evidence": 5
+        "reach": 21,
+        "significance": 15,
+        "evidence": 10
       },
       "categories": [
         "stakeholders",
@@ -1144,9 +1119,9 @@
         }
       ],
       "scoreEffect": {
-        "reach": 14,
-        "significance": 11,
-        "evidence": 8
+        "reach": 27,
+        "significance": 21,
+        "evidence": 15
       },
       "categories": [
         "significance",
@@ -1169,9 +1144,9 @@
         }
       ],
       "scoreEffect": {
-        "strategy": 11,
-        "significance": 8,
-        "evidence": 8
+        "strategy": 21,
+        "significance": 15,
+        "evidence": 15
       },
       "categories": [
         "strategy",
@@ -1195,8 +1170,8 @@
         }
       ],
       "scoreEffect": {
-        "evidence": 14,
-        "strategy": 5
+        "evidence": 27,
+        "strategy": 10
       },
       "categories": [
         "strategy",
@@ -1277,8 +1252,8 @@
       ],
       "phase": "evidence",
       "scoreEffect": {
-        "strategy": 3,
-        "evidence": 3
+        "strategy": 4,
+        "evidence": 4
       }
     },
     "ah_strategy": {
@@ -1299,8 +1274,8 @@
         }
       ],
       "scoreEffect": {
-        "strategy": 5,
-        "evidence": 2
+        "strategy": 7,
+        "evidence": 3
       },
       "categories": [
         "strategy",
@@ -1333,7 +1308,7 @@
         }
       ],
       "scoreEffect": {
-        "reach": 2
+        "reach": 3
       },
       "categories": [
         "stakeholders",
@@ -1365,7 +1340,7 @@
         }
       ],
       "scoreEffect": {
-        "evidence": 6
+        "evidence": 10
       },
       "categories": [
         "strategy",
@@ -1397,8 +1372,8 @@
         }
       ],
       "scoreEffect": {
-        "reach": 6,
-        "significance": 2
+        "reach": 10,
+        "significance": 3
       },
       "categories": [
         "strategy",
@@ -1431,8 +1406,8 @@
         }
       ],
       "scoreEffect": {
-        "stakeholders": 5,
-        "strategy": 2
+        "stakeholders": 7,
+        "strategy": 3
       },
       "categories": [
         "stakeholders",
@@ -1450,21 +1425,17 @@
       "narrative": "You organise a practitioner roundtable at Northumbria's city campus. The room brings together people who rarely sit around the same table: environmental health officers, RSPCA inspectors, social workers, housing officers, and a mental health professional who specialises in hoarding.\n\nTheir stories confirm and extend your quantitative findings. An environmental health officer describes entering a terraced house with over 100 cats: \"The ammonia hit you before you opened the door. But there's no protocol for this.\n\nWhat do you do with this practitioner engagement?",
       "choices": [
         {
-          "text": "Write a co-produced report with practitioners and submit it to the APPG",
+          "text": "Write a co-produced report and submit to the APPG",
           "next": "ah_joint_report"
         },
         {
-          "text": "Develop a multi-agency response framework based on what you've heard",
-          "next": "ah_framework_dev"
-        },
-        {
-          "text": "Invite a practitioner to co-author your next academic paper",
-          "next": "ah_co_author"
+          "text": "Develop a multi-agency response framework",
+          "next": "ah_ending_framework"
         }
       ],
       "scoreEffect": {
-        "stakeholders": 6,
-        "significance": 2
+        "stakeholders": 10,
+        "significance": 3
       },
       "categories": [
         "stakeholders"
@@ -1494,7 +1465,7 @@
         }
       ],
       "scoreEffect": {
-        "stakeholders": 2
+        "stakeholders": 3
       },
       "categories": [
         "stakeholders"
@@ -1523,8 +1494,8 @@
         }
       ],
       "scoreEffect": {
-        "stakeholders": 5,
-        "strategy": 5
+        "stakeholders": 7,
+        "strategy": 7
       },
       "categories": [
         "strategy",
@@ -1555,9 +1526,9 @@
         }
       ],
       "scoreEffect": {
-        "stakeholders": 6,
-        "reach": 2,
-        "strategy": 2
+        "stakeholders": 10,
+        "reach": 3,
+        "strategy": 3
       },
       "categories": [
         "stakeholders",
@@ -1574,21 +1545,17 @@
       "narrative": "You and your partners launch a coordinated media campaign. The RSPCA's press office pitches the story; you provide the academic credibility. The angle: \"UK law doesn't recognise animal hoarding  -  here's why that matters.\"\n\nA national newspaper runs a feature. Radio 4's You and Yours covers the issue. A regional BBC news programme films a piece at Northumbria, interviewing you alongside an RSPCA inspector.\n\nMeanwhile, an animal welfare charity asks if you'd contribute to their policy manifesto ahead of the next election.",
       "choices": [
         {
-          "text": "Engage the MP  -  individual parliamentarians can table questions and push for action",
+          "text": "Engage the MP - individual parliamentarians can table questions",
           "next": "ah_mp_engage"
         },
         {
-          "text": "Contribute to the charity's manifesto  -  this plants seeds for future government policy",
-          "next": "ah_manifesto"
-        },
-        {
-          "text": "Use the momentum to approach the APPG formally  -  you now have public backing",
-          "next": "ah_appg_relationship"
+          "text": "Use the momentum to approach the APPG formally",
+          "next": "ah_case_studies"
         }
       ],
       "scoreEffect": {
-        "reach": 6,
-        "significance": 5
+        "reach": 10,
+        "significance": 7
       },
       "categories": [
         "stakeholders",
@@ -1607,21 +1574,17 @@
       "narrative": "You present a thorough, data-led session to the APPG. Prevalence rates, geospatial analysis, recidivism statistics, demographic breakdowns, species distribution, deprivation indices.\n\nThe parliamentarians are polite. Some take notes. But when you reach the methodology slide, attention drifts. A backbencher checks their phone. The Chair looks at the clock.\n\nYour data is cited in the APPG's subsequent notes, but you're not invited back for the recommendation-drafting stage. You need to find another way to influence the final report.",
       "choices": [
         {
-          "text": "Follow up with practitioner case studies and request another slot",
-          "next": "ah_practitioners"
+          "text": "Follow up with practitioner case studies",
+          "next": "ah_case_studies"
         },
         {
-          "text": "Submit detailed written evidence with case narratives alongside the data",
-          "next": "ah_written_evidence"
-        },
-        {
-          "text": "Pivot to developing a practical framework the APPG can include in their recommendations",
-          "next": "ah_framework_dev"
+          "text": "Develop a practical framework",
+          "next": "ah_ending_framework"
         }
       ],
       "scoreEffect": {
-        "evidence": 5,
-        "reach": 2
+        "evidence": 7,
+        "reach": 3
       },
       "categories": [
         "stakeholders",
@@ -1639,22 +1602,18 @@
       "narrative": "You present the data framed by anonymised but vivid case studies. You open with the numbers  -  66 cases, 44 animals on average, 39% recidivism  -  then bring them to life.\n\nCase 14: A woman in her fifties, living alone in a terraced house in the North West. Environmental health were called after neighbours reported a persistent smell. Officers found 47 cats, 12 of which were dead. The woman was prosecuted, the surviving cats rehomed.\n\nThe APPG asks if you'd be willing to contribute directly to their report recommendations.",
       "choices": [
         {
-          "text": "Draft specific policy recommendations focused on a legal definition",
+          "text": "Draft specific policy recommendations for a legal definition",
           "next": "ah_ending_policy"
         },
         {
-          "text": "Propose a comprehensive multi-agency response framework alongside the definition",
-          "next": "ah_framework_dev"
-        },
-        {
-          "text": "Recommend a pilot programme linking prosecution with mental health support",
-          "next": "ah_pilot_programme"
+          "text": "Propose a multi-agency response framework alongside the definition",
+          "next": "ah_ending_framework"
         }
       ],
       "scoreEffect": {
-        "significance": 6,
-        "stakeholders": 2,
-        "reach": 5
+        "significance": 10,
+        "stakeholders": 3,
+        "reach": 7
       },
       "categories": [
         "strategy",
@@ -1674,23 +1633,19 @@
       "narrative": "You co-present with an experienced RSPCA inspector who has attended dozens of animal hoarding cases over a fifteen-year career. You provide the research context; they provide the operational reality.\n\nThe combination is devastating. Your data shows a 39% recidivism rate; the inspector describes attending the same property three times over five years.\n\nYou're invited to contribute to the APPG's draft report.",
       "choices": [
         {
-          "text": "Focus the recommendations on establishing a legal definition of animal hoarding",
+          "text": "Focus the recommendations on establishing a legal definition",
           "next": "ah_ending_policy"
         },
         {
           "text": "Recommend a multi-agency framework alongside the definition",
-          "next": "ah_framework_dev"
-        },
-        {
-          "text": "Propose a research-informed pilot programme that combines enforcement with support",
-          "next": "ah_pilot_programme"
+          "next": "ah_ending_framework"
         }
       ],
       "scoreEffect": {
-        "stakeholders": 6,
-        "significance": 5,
-        "reach": 5,
-        "evidence": 2
+        "stakeholders": 10,
+        "significance": 7,
+        "reach": 7,
+        "evidence": 3
       },
       "categories": [
         "stakeholders",
@@ -1708,22 +1663,18 @@
       "narrative": "Before trying to reconvene the multi-agency group, you produce a clear position paper through the UK Hoarding Partnership. It's titled: \"Animal Hoarding in England: The Case for a Coordinated Response.\"\n\nThe paper sets out three concrete goals the group would work toward:\n1. An agreed working definition of animal hoarding for UK use\n2. A multi-agency referral and response protocol\n3.\n\nThe position paper also attracts attention beyond the group. A local authority Director of Public Health shares it with colleagues across the region.",
       "choices": [
         {
-          "text": "Use the group to develop the multi-agency framework collaboratively",
-          "next": "ah_framework_dev"
-        },
-        {
-          "text": "Submit the position paper to the APPG as a basis for recommendations",
+          "text": "Submit the position paper to the APPG",
           "next": "ah_appg_relationship"
         },
         {
-          "text": "Pursue the DPH connection  -  public health framing could be powerful",
-          "next": "ah_public_health"
+          "text": "Use it to develop the multi-agency framework",
+          "next": "ah_ending_framework"
         }
       ],
       "scoreEffect": {
-        "strategy": 5,
-        "stakeholders": 5,
-        "evidence": 2
+        "strategy": 7,
+        "stakeholders": 7,
+        "evidence": 3
       },
       "categories": [
         "strategy",
@@ -1742,22 +1693,18 @@
       "narrative": "You co-produce a report with practitioners: \"No Definition, No Response: The Case for Recognising Animal Hoarding in UK Law.\"\n\nThe report combines your quantitative evidence  -  the 66 cases, the demographic patterns, the recidivism data  -  with qualitative testimony from environmental health officers, RSPCA inspectors, and housing professionals.\n\nThen a Defra policy official contacts you asking for more information. \"We're reviewing animal welfare enforcement frameworks,\" they write. \"Your report raises issues we hadn't fully considered.\"",
       "choices": [
         {
-          "text": "Pursue the Defra connection  -  they're the department that writes animal welfare legislation",
+          "text": "Pursue the Defra connection",
           "next": "ah_defra_engage"
         },
         {
-          "text": "Push for the APPG to formally recommend a legal definition in their next report",
+          "text": "Push for the APPG to recommend a legal definition",
           "next": "ah_ending_policy"
-        },
-        {
-          "text": "Develop the practitioner network into a sustainable community of practice",
-          "next": "ah_community_of_practice"
         }
       ],
       "scoreEffect": {
-        "evidence": 5,
-        "reach": 5,
-        "stakeholders": 5
+        "evidence": 7,
+        "reach": 7,
+        "stakeholders": 7
       },
       "categories": [
         "stakeholders",
@@ -1771,69 +1718,6 @@
         "societal"
       ],
       "phase": "translation"
-    },
-    "ah_co_author": {
-      "title": "Research as Partnership",
-      "narrative": "You invite a senior RSPCA inspector and an environmental health officer to co-author your next paper. It takes longer than a solo publication  -  your co-authors aren't used to academic writing conventions, and you spend time translating between operational language and research methodology.\n\nBut the result is genuinely richer. The paper is published in a public health journal and has credibility with both academics and practitioners because it's authentically co-produced.\n\nYour co-authors become advocates for your research in their own professional worlds  -  amplifying its reach in ways you couldn't achieve from a university office.",
-      "choices": [
-        {
-          "text": "Use the paper and its practitioner networks to approach the APPG",
-          "next": "ah_appg_relationship"
-        },
-        {
-          "text": "Develop the co-production approach into a multi-agency framework",
-          "next": "ah_framework_dev"
-        },
-        {
-          "text": "Build on this to develop a practitioner-facing toolkit",
-          "next": "ah_toolkit"
-        }
-      ],
-      "scoreEffect": {
-        "evidence": 5,
-        "stakeholders": 5
-      },
-      "categories": [
-        "stakeholders",
-        "reach",
-        "evidence"
-      ],
-      "impactTypes": [
-        "health",
-        "educational"
-      ],
-      "phase": "evidence"
-    },
-    "ah_written_evidence": {
-      "title": "Putting It in Writing",
-      "narrative": "You submit comprehensive written evidence to the APPG, weaving together your quantitative data with powerful anonymised case narratives. The document runs to twelve pages, carefully structured to lead with the problem, present the evidence, and close with specific recommendations.\n\nThe APPG secretariat confirms receipt and notes that your submission will be circulated to all group members ahead of their next meeting.\n\nBut citations are not yet impact. The recommendations need to lead somewhere.",
-      "choices": [
-        {
-          "text": "Engage with Defra to translate the APPG recommendations into policy action",
-          "next": "ah_defra_engage"
-        },
-        {
-          "text": "Develop a practical framework that shows how the recommendations could be implemented",
-          "next": "ah_framework_dev"
-        },
-        {
-          "text": "Build a broader coalition to maintain pressure for change",
-          "next": "ah_community_of_practice"
-        }
-      ],
-      "scoreEffect": {
-        "evidence": 2,
-        "significance": 5,
-        "reach": 2
-      },
-      "categories": [
-        "stakeholders",
-        "significance"
-      ],
-      "impactTypes": [
-        "policy"
-      ],
-      "phase": "engagement"
     },
     "ah_mp_engage": {
       "title": "A Parliamentary Champion",
@@ -1850,12 +1734,16 @@
         {
           "text": "Ask them to support a Private Member's Bill or amendment to the Animal Welfare Act",
           "next": "ah_legislative"
+        },
+        {
+          "text": "Ask them to support a broader policy agenda - play the long game",
+          "next": "ah_ending_longterm"
         }
       ],
       "scoreEffect": {
-        "significance": 5,
-        "reach": 5,
-        "stakeholders": 2
+        "significance": 7,
+        "reach": 7,
+        "stakeholders": 3
       },
       "categories": [
         "stakeholders",
@@ -1867,44 +1755,6 @@
         "practice"
       ],
       "phase": "translation"
-    },
-    "ah_manifesto": {
-      "title": "Seeds for the Future",
-      "narrative": "You contribute a section on animal hoarding to the charity's animal welfare manifesto. Your research provides the evidence base; they frame it as a call to action for the next government.\n\nThe manifesto is published and shared widely among animal welfare organisations, parliamentary candidates, and policy networks.\n\nMeanwhile, the issue is now firmly on the radar of multiple organisations. You've helped shift animal hoarding from an obscure academic topic to a recognised policy gap.",
-      "choices": [
-        {
-          "text": "Keep building momentum through the APPG and parliamentary engagement",
-          "next": "ah_appg_relationship"
-        },
-        {
-          "text": "Focus on developing a practical framework so you have a ready-made solution when the political will arrives",
-          "next": "ah_framework_dev"
-        },
-        {
-          "text": "Expand the research programme to provide even stronger evidence for the next policy window",
-          "next": "ah_expanded_research"
-        },
-        {
-          "text": "Play the long game  -  build impact across policy, practice, and public awareness simultaneously",
-          "next": "ah_ending_longterm"
-        }
-      ],
-      "scoreEffect": {
-        "reach": 5,
-        "strategy": 5,
-        "significance": 2
-      },
-      "categories": [
-        "strategy",
-        "stakeholders",
-        "reach",
-        "evidence"
-      ],
-      "impactTypes": [
-        "policy",
-        "societal"
-      ],
-      "phase": "evidence"
     },
     "ah_defra_early": {
       "title": "Going to the Source",
@@ -1924,8 +1774,8 @@
         }
       ],
       "scoreEffect": {
-        "strategy": 5,
-        "stakeholders": 2
+        "strategy": 7,
+        "stakeholders": 3
       },
       "categories": [
         "strategy",
@@ -1937,74 +1787,6 @@
         "practice"
       ],
       "phase": "evidence"
-    },
-    "ah_public_health": {
-      "title": "The Public Health Angle",
-      "narrative": "You reframe your research through a public health lens. Animal hoarding isn't just an animal welfare issue  -  it's a public health emergency. The ammonia from animal waste causes respiratory disease. Zoonotic infections spread in hoarding environments. The person hoarding is often experiencing severe mental ill-health. Neighbours' quality of life is affected.\n\nYou present this framing to the regional Director of Public Health network.\n\nYou're building impact from the ground up  -  changing practice at local authority level.",
-      "choices": [
-        {
-          "text": "Document the local authority pilots as evidence of practice change for REF",
-          "next": "ah_document_pilots"
-        },
-        {
-          "text": "Use the DPH endorsement to strengthen your case to the APPG",
-          "next": "ah_ending_policy"
-        },
-        {
-          "text": "Expand the public health approach into a national framework",
-          "next": "ah_framework_dev"
-        }
-      ],
-      "scoreEffect": {
-        "significance": 5,
-        "stakeholders": 5,
-        "reach": 2
-      },
-      "categories": [
-        "strategy",
-        "stakeholders",
-        "significance",
-        "reach"
-      ],
-      "impactTypes": [
-        "health",
-        "societal"
-      ],
-      "phase": "adoption"
-    },
-    "ah_framework_dev": {
-      "title": "Building the Framework",
-      "narrative": "Drawing on your research, practitioner engagement, and (if you've pursued it) policy conversations, you develop a proposed Multi-Agency Animal Hoarding Response Framework.\n\nThe framework is built on four pillars:\n1. Definition: A clear working definition of animal hoarding for UK use, based on your research criteria\n2. Recognition: Guidance for frontline workers on identifying animal hoarding cases\n3.\n\nNow you need to get it adopted. Where do you target?",
-      "choices": [
-        {
-          "text": "Pilot the framework with two or three local authorities",
-          "next": "ah_la_pilot"
-        },
-        {
-          "text": "Submit it to the APPG as a ready-made policy recommendation",
-          "next": "ah_ending_policy"
-        },
-        {
-          "text": "Publish it through the Chartered Institute of Environmental Health for national reach",
-          "next": "ah_cieh_publish"
-        }
-      ],
-      "scoreEffect": {
-        "strategy": 5,
-        "evidence": 2,
-        "significance": 2
-      },
-      "categories": [
-        "strategy",
-        "stakeholders"
-      ],
-      "impactTypes": [
-        "policy",
-        "practice",
-        "health",
-        "societal"
-      ],
-      "phase": "engagement"
     },
     "ah_pilot_programme": {
       "title": "Testing the Alternative",
@@ -2024,9 +1806,9 @@
         }
       ],
       "scoreEffect": {
-        "evidence": 6,
-        "significance": 5,
-        "stakeholders": 2
+        "evidence": 10,
+        "significance": 7,
+        "stakeholders": 3
       },
       "categories": [
         "stakeholders",
@@ -2038,70 +1820,6 @@
         "health"
       ],
       "phase": "adoption"
-    },
-    "ah_toolkit": {
-      "title": "Practical Tools for Practitioners",
-      "narrative": "You develop a practitioner toolkit: \"Recognising and Responding to Animal Hoarding: A Guide for Frontline Professionals.\"\n\nThe toolkit includes a screening checklist, a decision flowchart, a referral template, and a brief summary of the research evidence.\n\nPractitioners report it's the first tool they've seen that treats animal hoarding as a distinct pattern rather than a one-off. One says: \"For the first time, I had something to show my manager when I said 'this isn't just someone with too many cats  -  this is hoarding.'\"",
-      "choices": [
-        {
-          "text": "Use the adoption data to approach the APPG about national rollout",
-          "next": "ah_ending_policy"
-        },
-        {
-          "text": "Document the practice change as REF impact evidence",
-          "next": "ah_ending_framework"
-        },
-        {
-          "text": "Develop the toolkit into a certified training programme",
-          "next": "ah_training"
-        }
-      ],
-      "scoreEffect": {
-        "reach": 6,
-        "stakeholders": 2,
-        "significance": 2
-      },
-      "categories": [
-        "stakeholders",
-        "reach"
-      ],
-      "impactTypes": [
-        "practice",
-        "health"
-      ],
-      "phase": "translation"
-    },
-    "ah_community_of_practice": {
-      "title": "Building a Movement",
-      "narrative": "You establish a Community of Practice on animal hoarding through the UK Hoarding Partnership. It meets quarterly, mixing researchers, practitioners, charity representatives, and policy professionals.\n\nThe community becomes self-sustaining. Members share case experiences, discuss emerging challenges, and collectively develop good practice. Your research remains the foundation, but the knowledge is growing through practice.\n\nThe question is whether you consolidate this practitioner impact or push for policy change.",
-      "choices": [
-        {
-          "text": "Use the community's collective voice to push for a legal definition",
-          "next": "ah_ending_policy"
-        },
-        {
-          "text": "Focus on documenting and scaling the practice change",
-          "next": "ah_ending_framework"
-        },
-        {
-          "text": "Commission the community to develop national training standards",
-          "next": "ah_training"
-        }
-      ],
-      "scoreEffect": {
-        "stakeholders": 6,
-        "significance": 2
-      },
-      "categories": [
-        "stakeholders"
-      ],
-      "impactTypes": [
-        "policy",
-        "practice",
-        "health",
-        "societal"
-      ],
-      "phase": "translation"
     },
     "ah_parliamentary_roundtable": {
       "title": "In the Palace of Westminster",
@@ -2121,9 +1839,9 @@
         }
       ],
       "scoreEffect": {
-        "significance": 6,
-        "reach": 5,
-        "stakeholders": 5
+        "significance": 10,
+        "reach": 7,
+        "stakeholders": 7
       },
       "categories": [
         "stakeholders",
@@ -2156,9 +1874,9 @@
         }
       ],
       "scoreEffect": {
-        "significance": 6,
-        "reach": 5,
-        "strategy": 2
+        "significance": 10,
+        "reach": 7,
+        "strategy": 3
       },
       "categories": [
         "stakeholders",
@@ -2172,116 +1890,27 @@
       ],
       "phase": "translation"
     },
-    "ah_document_pilots": {
-      "title": "Evidence of Change",
-      "narrative": "You systematically document the local authority pilots. Before-and-after data shows improved inter-agency communication, faster case resolution, and  -  critically  -  zero recidivism in the pilot areas during the monitoring period.\n\nPractitioners report feeling more confident and better supported. One environmental health officer says: \"For the first time, when I attend a hoarding case, I have a pathway to follow rather than making it up as I go.\"\n\nBut you also have an opportunity to scale beyond these pilot areas.",
-      "choices": [
-        {
-          "text": "Publish the pilot results and push for national adoption of the framework",
-          "next": "ah_ending_framework"
-        },
-        {
-          "text": "Use the pilot evidence to strengthen the case for a legal definition",
-          "next": "ah_ending_policy"
-        },
-        {
-          "text": "Expand to more local authorities while maintaining rigorous evaluation",
-          "next": "ah_expanded_pilot"
-        }
-      ],
-      "scoreEffect": {
-        "evidence": 6,
-        "significance": 5
-      },
-      "categories": [
-        "strategy",
-        "stakeholders",
-        "significance",
-        "evidence"
-      ],
-      "impactTypes": [
-        "health"
-      ],
-      "phase": "adoption"
-    },
-    "ah_la_pilot": {
-      "title": "Testing on the Ground",
-      "narrative": "Three local authorities agree to pilot your Multi-Agency Animal Hoarding Response Framework. Each adapts it to their local context  -  one is urban, one suburban, one rural  -  which gives you a natural quasi-experimental design.\n\nOver twelve months, the pilot areas handle 14 animal hoarding cases using the new framework. Compared to the previous year, inter-agency referral rates triple, time to case resolution drops by 40%, and mental health assessments are completed in every case (compared to 15% previously).\n\nThe evaluation report is ready. Where does it go?",
-      "choices": [
-        {
-          "text": "Submit to the APPG and Defra as evidence that the framework works",
-          "next": "ah_ending_policy"
-        },
-        {
-          "text": "Publish through practitioner networks for wider voluntary adoption",
-          "next": "ah_ending_framework"
-        },
-        {
-          "text": "Secure funding to expand the pilot nationally",
-          "next": "ah_expanded_pilot"
-        }
-      ],
-      "scoreEffect": {
-        "evidence": 6,
-        "significance": 5,
-        "stakeholders": 2
-      },
-      "categories": [
-        "significance",
-        "evidence"
-      ],
-      "impactTypes": [
-        "practice",
-        "health"
-      ],
-      "phase": "translation"
-    },
-    "ah_cieh_publish": {
-      "title": "Through the Professional Body",
-      "narrative": "The Chartered Institute of Environmental Health (CIEH) publishes your framework as a practice guidance document. It carries their professional endorsement, which gives it authority with local authority environmental health teams across the country.\n\nThe CIEH promotes it through their professional development programme. Your framework becomes a recommended resource for environmental health officers dealing with animal hoarding cases.\n\nYour research has gone from an academic paper to a nationally endorsed practice guide.",
-      "choices": [
-        {
-          "text": "Document the national adoption as REF impact evidence",
-          "next": "ah_ending_framework"
-        },
-        {
-          "text": "Use the CIEH endorsement to push for the framework to become statutory guidance",
-          "next": "ah_ending_policy"
-        }
-      ],
-      "scoreEffect": {
-        "reach": 6,
-        "significance": 5,
-        "stakeholders": 2
-      },
-      "categories": [
-        "significance",
-        "reach",
-        "evidence"
-      ],
-      "impactTypes": [
-        "practice",
-        "health"
-      ],
-      "phase": "evidence"
-    },
     "ah_defra_engage": {
       "title": "Inside the Department",
       "narrative": "You build a relationship with Defra's animal welfare policy team. They invite you to present at an internal seminar  -  a rare opportunity to brief the civil servants who write the legislation.\n\nThe presentation goes well. Officials ask sharp questions about the evidence base, the cost of inaction, and what a legal definition would actually look like operationally.\n\nGovernment wheels turn slowly. But you're now on the inside of the policy machine.",
       "choices": [
         {
-          "text": "Maintain the relationship and provide additional evidence as requested",
+          "text": "Maintain the relationship and provide evidence as requested",
           "next": "ah_ending_policy"
         },
         {
-          "text": "Run a parallel track  -  keep building practitioner adoption while Defra deliberates",
+          "text": "Run a parallel track - practitioner adoption while Defra deliberates",
           "next": "ah_ending_framework"
+        },
+        {
+          "text": "Play the long game across policy, practice, and public awareness",
+          "next": "ah_ending_longterm"
         }
       ],
       "scoreEffect": {
-        "significance": 6,
-        "stakeholders": 5,
-        "strategy": 5
+        "significance": 10,
+        "stakeholders": 7,
+        "strategy": 7
       },
       "categories": [
         "strategy",
@@ -2293,65 +1922,6 @@
         "policy",
         "educational",
         "societal"
-      ],
-      "phase": "evidence"
-    },
-    "ah_training": {
-      "title": "Professionalising the Response",
-      "narrative": "You develop a certified training programme: \"Understanding and Responding to Animal Hoarding.\" It's accredited through Northumbria University's continuing professional development framework and co-designed with practitioners.\n\nThe programme trains environmental health officers, RSPCA inspectors, social workers, and housing officers to recognise animal hoarding, coordinate multi-agency responses, and understand the mental health dimensions.\n\nYour research has become embedded in professional education  -  a powerful and sustainable form of impact.",
-      "choices": [
-        {
-          "text": "Scale the training nationally and document the practice change",
-          "next": "ah_ending_framework"
-        },
-        {
-          "text": "Use the training programme as evidence of impact alongside the policy work",
-          "next": "ah_ending_policy"
-        }
-      ],
-      "scoreEffect": {
-        "stakeholders": 5,
-        "reach": 5,
-        "significance": 5
-      },
-      "categories": [
-        "stakeholders",
-        "significance",
-        "reach",
-        "evidence"
-      ],
-      "impactTypes": [
-        "practice",
-        "health"
-      ],
-      "phase": "planning"
-    },
-    "ah_expanded_research": {
-      "title": "Deepening the Evidence",
-      "narrative": "You secure funding for an expanded programme of research. The new studies include a longitudinal follow-up of hoarding cases, an evaluation of different intervention approaches, and an international comparison of how other countries define and manage animal hoarding.\n\nThe international comparison is particularly valuable  -  it shows that countries with legal definitions (like parts of the US and Australia) have significantly better multi-agency coordination and lower recidivism.\n\nYour evidence base is now comprehensive. Combined with your practitioner networks and policy relationships, you have everything needed to make a definitive case.",
-      "choices": [
-        {
-          "text": "Take the full evidence package to Defra and the APPG",
-          "next": "ah_ending_policy"
-        },
-        {
-          "text": "Develop a comprehensive framework informed by international best practice",
-          "next": "ah_ending_framework"
-        }
-      ],
-      "scoreEffect": {
-        "evidence": 6,
-        "strategy": 2,
-        "significance": 2
-      },
-      "categories": [
-        "stakeholders",
-        "significance",
-        "reach",
-        "evidence"
-      ],
-      "impactTypes": [
-        "policy"
       ],
       "phase": "evidence"
     },
@@ -2369,9 +1939,9 @@
         }
       ],
       "scoreEffect": {
-        "evidence": 6,
-        "reach": 5,
-        "significance": 5
+        "evidence": 10,
+        "reach": 7,
+        "significance": 7
       },
       "categories": [
         "stakeholders",
@@ -2391,9 +1961,9 @@
       "narrative": "Your sustained engagement with parliament, Defra, and practitioners has paid off. Working with the APPG, you draft a formal recommendation for a UK legal definition of animal hoarding. The definition draws directly from your research: a pattern of accumulating animals beyond the capacity to provide minimum standards of care, characterised by denial of the inability to provide care, and associated with significant risks to human health, animal welfare, and public safety.\n\nCongratulations! You've achieved policy-level impact.",
       "choices": [],
       "scoreEffect": {
-        "strategy": 8,
-        "significance": 10,
-        "reach": 5
+        "strategy": 12,
+        "significance": 16,
+        "reach": 7
       },
       "isEnding": true,
       "endingType": "policy",
@@ -2416,9 +1986,9 @@
       "narrative": "Your multi-agency framework has been adopted by local authorities across the country. Through the Chartered Institute of Environmental Health, the UK Hoarding Partnership, and your practitioner networks, the framework has become the standard approach to animal hoarding cases.\n\n34 local authorities have formally embedded it in their protocols.\n\nCongratulations! You've built a practice-based impact case study. The law hasn't changed yet  -  but practice has. And in the messy, multi-agency world of animal hoarding, that's where lives are changed: on the doorstep, in the referral, in the conversation between an environmental health officer and a mental health nurse that never used to happen.",
       "choices": [],
       "scoreEffect": {
-        "stakeholders": 9,
-        "significance": 8,
-        "reach": 9
+        "stakeholders": 14,
+        "significance": 12,
+        "reach": 14
       },
       "isEnding": true,
       "endingType": "practitioner",
@@ -2438,10 +2008,10 @@
       "narrative": "Your work has seeded change across multiple fronts. The APPG report recommends a definition. Defra is reviewing the framework. Forty-three MPs signed an Early Day Motion citing your research. Local authorities are piloting your multi-agency approach. The RSPCA, CIEH, and Hoarding UK are all using your evidence.\n\nNo single moment captures the impact  -  it's the accumulation of evidence, relationships, and engagement over years.\n\nCongratulations! You've played the long game  -  building impact across policy, practice, and public awareness simultaneously. This is the virtuous cycle of research impact: evidence drives engagement, engagement drives change, and change drives the demand for more evidence.",
       "choices": [],
       "scoreEffect": {
-        "strategy": 11,
-        "significance": 5,
-        "reach": 5,
-        "stakeholders": 4
+        "strategy": 15,
+        "significance": 6,
+        "reach": 6,
+        "stakeholders": 5
       },
       "isEnding": true,
       "endingType": "cycle",
@@ -2460,7 +2030,7 @@
     },
     "bfr_start": {
       "title": "The Exercise Paradox",
-      "narrative": "You're a researcher at Northumbria University, working in the Aerospace Medicine and Rehabilitation Laboratory. For years, you've been working on Blood Flow Restriction (BFR) research, a technique that uses surgical-grade tourniquet cuffs to partially restrict blood flow to limbs during low-intensity exercise.\n\nThe results are remarkable: BFR produces muscle and bone adaptations comparable to high-intensity training, but at a fraction of the load. In clinical rehabilitation, this is transformative, patients who can't tolerate heavy exercise after surgery or injury can still make meaningful gains.\n\nYour work has attracted attention from unexpected quarters.\n\nYour clinic-based technique could work in microgravity. But getting from rehabilitation room to orbit is a massive leap. Where do you start?",
+      "narrative": "You're an exercise physiologist at Northumbria University, working in the Aerospace Medicine and Rehabilitation Laboratory. For years, you've been developing Blood Flow Restriction Exercise (BFRE)  -  a technique that uses surgical-grade tourniquet cuffs to partially restrict blood flow to limbs during low-intensity exercise.\n\nThe results are remarkable: BFRE produces muscle and bone adaptations comparable to high-intensity training, but at a fraction of the load. In clinical rehabilitation, this is transformative  -  patients who can't tolerate heavy exercise after surgery or injury can still make meaningful gains.\n\nYour work has attracted attention from unexpected quarters.\n\nYour clinic-based technique could work in microgravity. But getting from rehabilitation room to orbit is a massive leap. Where do you start?",
       "choices": [
         {
           "text": "Meet with the Impact Officer to map out a pathway from clinical to space application",
@@ -2471,7 +2041,7 @@
           "next": "bfr_direct_esa"
         },
         {
-          "text": "Focus on strengthening the clinical evidence base, the space agencies will need rock-solid proof",
+          "text": "Focus on strengthening the clinical evidence base  -  the space agencies will need rock-solid proof",
           "next": "bfr_more_evidence"
         }
       ],
@@ -2486,32 +2056,32 @@
       ],
       "phase": "planning",
       "scoreEffect": {
-        "strategy": 4,
-        "evidence": 4
+        "strategy": 7,
+        "evidence": 7
       },
       "image": "images/bfr1.jpg",
       "imageSize": "large"
     },
     "bfr_strategy": {
       "title": "Multiple Orbits",
-      "narrative": "The Impact Officer helps you step back and see the bigger picture. Your BFR research doesn't have one impact pathway. It has several, and they reinforce each other.\n\nYou map them out:\n\n* Clinical rehabilitation: NHS, private clinics, post-surgical recovery\n* Elite sport: Premier League, international football, Olympic sports\n* Military: injury recovery in austere environments with limited equipment\n* Space medicine: NASA, ESA, UK Space Agency (UKSA) - countermeasure for muscle and bone loss\n\nWhich pathway do you prioritise alongside the space opportunity?",
+      "narrative": "The Impact Officer helps you step back and see the bigger picture. Your BFR research doesn't have one impact pathway  -  it has several, and they reinforce each other.\n\nYou map them out:\n\n* Clinical rehabilitation: NHS, private clinics, post-surgical recovery\n* Elite sport: Premier League, international football, Olympic sports\n* Military: MOD  -  injury recovery in austere environments with limited equipment\n* Space medicine: NASA, ESA, UK Space Agency (UKSA)  -  countermeasure for muscle and bone loss\n\nWhich pathway do you prioritise alongside the space opportunity?",
       "choices": [
         {
-          "text": "Military: the MOD has funding and their challenge mirrors space deconditioning",
+          "text": "Military  -  the MOD has funding and their challenge mirrors space deconditioning",
           "next": "bfr_mod"
         },
         {
-          "text": "Elite sport: football clubs are already engaged and can generate evidence quickly",
+          "text": "Elite sport  -  football clubs are already engaged and can generate evidence quickly",
           "next": "bfr_sport"
         },
         {
-          "text": "Go all-in on space: it's the most transformative opportunity and you don't want to dilute focus",
+          "text": "Go all-in on space  -  it's the most transformative opportunity and you don't want to dilute focus",
           "next": "bfr_space_focus"
         }
       ],
       "scoreEffect": {
-        "strategy": 3,
-        "evidence": 2
+        "strategy": 5,
+        "evidence": 3
       },
       "categories": [
         "strategy",
@@ -2529,7 +2099,7 @@
     },
     "bfr_direct_esa": {
       "title": "Shooting for the Stars",
-      "narrative": "You submit a research proposal to ESA's open call for spaceflight countermeasure research. The proposal is scientifically rigorous. You outline the clinical evidence, the proposed mechanism, and a detailed experimental protocol for testing BFR in simulated microgravity.\n\nThe reviewers are interested but identify gaps. \"The science is promising,\" the feedback reads, \"but we have concerns about operational feasibility.\"\n\nThe proposal isn't rejected outright, you're encouraged to resubmit with these gaps addressed. But you need partnerships and operational evidence.",
+      "narrative": "You submit a research proposal to ESA's open call for spaceflight countermeasure research. The proposal is scientifically rigorous  -  you outline the clinical evidence, the proposed mechanism, and a detailed experimental protocol for testing BFR in simulated microgravity.\n\nThe reviewers are interested but identify gaps. The science is promising,\" the feedback reads, \"but we have concerns about operational feasibility.\n\nThe proposal isn't rejected outright  -  you're encouraged to resubmit with these gaps addressed. But you need partnerships and operational evidence.",
       "choices": [
         {
           "text": "Step back and develop a strategic approach with multiple evidence pathways",
@@ -2545,8 +2115,8 @@
         }
       ],
       "scoreEffect": {
-        "reach": 2,
-        "evidence": 2
+        "reach": 3,
+        "evidence": 3
       },
       "categories": [
         "stakeholders",
@@ -2563,14 +2133,14 @@
     },
     "bfr_more_evidence": {
       "title": "Building the Evidence Mountain",
-      "narrative": "You commit to strengthening the evidence base. Over two years, you run three additional clinical trials: one with post-operative knee patients, one with immobilised elderly patients, and one with healthy participants in simulated bed rest (which mimics some effects of spaceflight).\n\nThe bed rest study is particularly significant. Six weeks of bed rest with BFR exercise shows significantly less muscle atrophy and bone mineral loss compared to the control group.\n\nYour evidence is gold-standard. But you need to move faster on translation.",
+      "narrative": "You commit to strengthening the evidence base. Over two years, you run three additional clinical trials: one with post-operative knee patients, one with immobilised elderly patients, and one with healthy participants in simulated bed rest (which mimics some effects of spaceflight).\n\nThe bed rest study is particularly significant  -  six weeks of bed rest with BFR exercise shows significantly less muscle atrophy and bone mineral loss compared to the control group.\n\nYour evidence is gold-standard. But you need to move faster on translation.",
       "choices": [
         {
           "text": "Find a device partner and fast-track hardware development",
           "next": "bfr_device_partner"
         },
         {
-          "text": "Approach the UK Space Agency with your strengthened evidence. They fund UK space capability",
+          "text": "Approach the UK Space Agency with your strengthened evidence  -  they fund UK space capability",
           "next": "bfr_uksa_approach"
         },
         {
@@ -2578,12 +2148,12 @@
           "next": "bfr_strategy"
         },
         {
-          "text": "Run a bed rest study, the closest analogue to spaceflight deconditioning",
+          "text": "Run a bed rest study  -  the closest analogue to spaceflight deconditioning",
           "next": "bfr_bed_rest_study"
         }
       ],
       "scoreEffect": {
-        "evidence": 5
+        "evidence": 8
       },
       "categories": [
         "strategy",
@@ -2599,7 +2169,7 @@
     },
     "bfr_mod": {
       "title": "Military Precision",
-      "narrative": "You engage with the Ministry of Defence through Northumbria's defence research connections. Their challenge is compelling: soldiers sustain musculoskeletal injuries in environments where full rehabilitation equipment isn't available. Forward operating bases, ships, remote training facilities.\n\nThe MOD funds a feasibility study. You test BFR protocols with injured service personnel at a military rehabilitation centre.\n\nThe MOD is impressed. They want to expand the programme. And the dual-use nature of the technology, military and space, makes it attractive to multiple funders.",
+      "narrative": "You engage with the Ministry of Defence through Northumbria's defence research connections. Their challenge is compelling: soldiers sustain musculoskeletal injuries in environments where full rehabilitation equipment isn't available  -  forward operating bases, ships, remote training facilities.\n\nThe MOD funds a feasibility study. You test BFR protocols with injured service personnel at a military rehabilitation centre.\n\nThe MOD is impressed. They want to expand the programme. And the dual-use nature of the technology  -  military and space  -  makes it attractive to multiple funders.",
       "choices": [
         {
           "text": "Use the MOD results to strengthen your UKSA proposal",
@@ -2614,14 +2184,14 @@
           "next": "bfr_device_partner"
         },
         {
-          "text": "Deepen the military integration. Get BFR into the Defence Medical Rehabilitation Centre",
+          "text": "Deepen the military integration  -  get BFR into the Defence Medical Rehabilitation Centre",
           "next": "bfr_mod_deep"
         }
       ],
       "scoreEffect": {
-        "stakeholders": 3,
-        "evidence": 3,
-        "reach": 2
+        "stakeholders": 5,
+        "evidence": 5,
+        "reach": 3
       },
       "categories": [
         "stakeholders",
@@ -2636,10 +2206,10 @@
     },
     "bfr_sport": {
       "title": "Match Day Science",
-      "narrative": "You formalise your relationships with Premier League football clubs. Three clubs agree to participate in a structured study of BFR for post-match recovery and ACL rehabilitation. The physiotherapy teams are enthusiastic. They've been using your informal protocols and want the evidence to back up what they're seeing.\n\nThe results are compelling. Players using BFR protocols return to full training 15-20% faster after ACL reconstruction. Post-match muscle soreness markers are significantly lower with BFR recovery sessions.\n\nHow do you leverage this momentum?",
+      "narrative": "You formalise your relationships with Premier League football clubs. Three clubs agree to participate in a structured study of BFR for post-match recovery and ACL rehabilitation. The physiotherapy teams are enthusiastic  -  they've been using your informal protocols and want the evidence to back up what they're seeing.\n\nThe results are compelling. Players using BFR protocols return to full training 15-20% faster after ACL reconstruction. Post-match muscle soreness markers are significantly lower with BFR recovery sessions.\n\nHow do you leverage this momentum?",
       "choices": [
         {
-          "text": "Connect the sport evidence to your UKSA proposal. Show this works across populations",
+          "text": "Connect the sport evidence to your UKSA proposal  -  show this works across populations",
           "next": "bfr_uksa_approach"
         },
         {
@@ -2647,14 +2217,14 @@
           "next": "bfr_commercial"
         },
         {
-          "text": "Approach international sports bodies (FIFA, IOC) about incorporating BFR into their guidelines",
+          "text": "Approach international sports bodies  -  FIFA, IOC  -  about incorporating BFR into their guidelines",
           "next": "bfr_international_sport"
         }
       ],
       "scoreEffect": {
-        "reach": 5,
-        "stakeholders": 2,
-        "significance": 2
+        "reach": 8,
+        "stakeholders": 3,
+        "significance": 3
       },
       "categories": [
         "reach",
@@ -2669,24 +2239,24 @@
     },
     "bfr_space_focus": {
       "title": "All Eggs in One Rocket",
-      "narrative": "You dedicate your entire research programme to the space application. It's a bold bet. You enter a global space innovation competition run by a South Korean health technology company in partnership with Axiom Space.\n\nYour proposal, developing a space-ready BFR device, wins. The prize includes funding and support from space industry partners including Axiom Space.\n\nWinning the competition makes headlines, but those other sectors represented additional impact pathways you've left unexplored.",
+      "narrative": "You dedicate your entire research programme to the space application. It's a bold bet. You enter a global space innovation competition run by a South Korean health technology company in partnership with Axiom Space.\n\nYour proposal  -  developing a space-ready BFR device  -  wins. The prize includes funding and support from space industry partners including Axiom Space and the Aurelia Institute.\n\nWinning the competition makes headlines, but those other sectors represented additional impact pathways you've left unexplored.",
       "choices": [
         {
           "text": "Bring in collaborators to pursue the clinical and sport pathways simultaneously",
           "next": "bfr_build_team"
         },
         {
-          "text": "Stay focused. Use the competition win to accelerate toward flight hardware",
+          "text": "Stay focused  -  use the competition win to accelerate toward flight hardware",
           "next": "bfr_device_partner"
         },
         {
-          "text": "Enter the Humans in Space Challenge, a global competition for space health innovation",
+          "text": "Enter the Humans in Space Challenge  -  a global competition for space health innovation",
           "next": "bfr_humans_in_space"
         }
       ],
       "scoreEffect": {
-        "significance": 5,
-        "reach": 3
+        "significance": 8,
+        "reach": 5
       },
       "categories": [
         "strategy",
@@ -2714,8 +2284,8 @@
         }
       ],
       "scoreEffect": {
-        "evidence": 5,
-        "strategy": 2
+        "evidence": 8,
+        "strategy": 3
       },
       "categories": [
         "evidence"
@@ -2730,25 +2300,21 @@
     },
     "bfr_device_partner": {
       "title": "Engineering the Solution",
-      "narrative": "You partner with Delfi Medical Innovations, a Vancouver-based company that manufactures the world's leading automatic tourniquet systems. Their Personalised Tourniquet System (PTS) is already the gold-standard equipment for BFR exercise on Earth. It provides automatic, personalised pressure prescription with surgical-grade accuracy.\n\nTogether, you face the engineering challenge of adapting clinical equipment for space.\n\nThe device needs testing. Where and how?",
+      "narrative": "You partner with Delfi Medical Innovations, a Vancouver-based company that manufactures the world's leading automatic tourniquet systems. Their Personalised Tourniquet System (PTS) is already the gold-standard equipment for BFR exercise on Earth  -  it provides automatic, personalised pressure prescription with surgical-grade accuracy.\n\nTogether, you face the engineering challenge of adapting clinical equipment for space.\n\nThe device needs testing. Where and how?",
       "choices": [
         {
-          "text": "Apply to test on a commercial spaceflight mission. The fastest route to orbit",
+          "text": "Apply to test on a commercial spaceflight mission",
           "next": "bfr_commercial_flight"
         },
         {
-          "text": "Propose an ISS experiment through ESA's research programme. The most prestigious route",
+          "text": "Propose an ISS experiment through ESA",
           "next": "bfr_iss_proposal"
-        },
-        {
-          "text": "Test extensively in analogue environments first. Bed rest studies, parabolic flights",
-          "next": "bfr_analogue_testing"
         }
       ],
       "scoreEffect": {
-        "evidence": 3,
-        "stakeholders": 3,
-        "strategy": 2
+        "evidence": 5,
+        "stakeholders": 5,
+        "strategy": 3
       },
       "categories": [
         "stakeholders",
@@ -2766,26 +2332,26 @@
       "narrative": "You approach the UK Space Agency with a compelling case. You present your multi-evidence portfolio: clinical trials proving BFR's efficacy, sport performance data from Premier League clubs, operational feasibility studies, and your partnership with Delfi Medical Innovations for hardware development.\n\nUKSA is excited. They're actively investing in projects that strengthen UK contributions to international space partnerships, develop national space capabilities, and demonstrate economic and societal benefit.\n\nHow do you use this momentum?",
       "choices": [
         {
-          "text": "Focus on getting the device onto an actual spaceflight mission as fast as possible",
+          "text": "Focus on getting the device onto a spaceflight mission",
           "next": "bfr_commercial_flight"
         },
         {
-          "text": "Build the international consortium and pursue a major ISS study",
+          "text": "Build the international consortium for a major ISS study",
           "next": "bfr_consortium"
         },
         {
-          "text": "Use the UKSA backing to also expand the clinical and sport evidence streams",
+          "text": "Maintain all impact pathways and document the multi-sector story",
           "next": "bfr_parallel_impact"
         },
         {
-          "text": "Use UKSA funding to establish a PhD programme in BFR spaceflight countermeasures",
+          "text": "Establish a PhD programme in BFR spaceflight countermeasures",
           "next": "bfr_phd_programme"
         }
       ],
       "scoreEffect": {
-        "significance": 4,
-        "reach": 3,
-        "stakeholders": 2
+        "significance": 7,
+        "reach": 5,
+        "stakeholders": 3
       },
       "categories": [
         "stakeholders",
@@ -2806,17 +2372,17 @@
       "narrative": "You recognise that one person can't pursue four impact pathways. You recruit a postdoctoral researcher to lead the sport collaboration, and a PhD student funded by a military research council to develop the MOD strand.\n\nThe expanded team allows parallel progress. While you focus on the space hardware with Delfi, your postdoc maintains the football club relationships and your PhD student runs military feasibility studies.\n\nAfter six months, all three strands are producing results. The evidence base is becoming formidable.",
       "choices": [
         {
-          "text": "Bring the evidence streams together into a unified UKSA proposal",
+          "text": "Bring the evidence streams together into a UKSA proposal",
           "next": "bfr_uksa_approach"
         },
         {
-          "text": "Focus on the space strand. The device is nearly ready for testing",
-          "next": "bfr_device_partner"
+          "text": "Focus on the device - it is nearly ready for testing",
+          "next": "bfr_ending_multisector"
         }
       ],
       "scoreEffect": {
-        "strategy": 5,
-        "stakeholders": 2
+        "strategy": 8,
+        "stakeholders": 3
       },
       "categories": [
         "strategy",
@@ -2832,24 +2398,28 @@
     },
     "bfr_commercial": {
       "title": "Commercialisation Challenge",
-      "narrative": "You explore commercial partnerships to bring BFR technology to a wider market. Sports performance companies and physiotherapy chains express interest. A university enterprise team helps you map the intellectual property landscape.\n\nBut commercialisation is complex. Patent protection, licensing agreements, quality assurance, regulatory compliance for medical devices, market development. It's a completely different skill set from research.\n\nYou need to decide: do you spend your limited time on commercial development, or focus on what you do best, the research that drives everything?",
+      "narrative": "You explore commercial partnerships to bring BFR technology to a wider market. Sports performance companies and physiotherapy chains express interest. A university enterprise team helps you map the intellectual property landscape.\n\nBut commercialisation is complex. Patent protection, licensing agreements, quality assurance, regulatory compliance for medical devices, market development  -  it's a completely different skill set from research.\n\nYou need to decide: do you spend your limited time on commercial development, or focus on what you do best  -  the research that drives everything?",
       "choices": [
         {
-          "text": "Focus back on the research. Space is where the transformative impact is",
+          "text": "Focus on the research - space is where the transformative impact is",
           "next": "bfr_uksa_approach"
         },
         {
-          "text": "Pursue both. Delegate the commercial strand to the university's enterprise team",
+          "text": "Delegate the commercial strand to the university enterprise team",
+          "next": "bfr_ending_multisector"
+        },
+        {
+          "text": "Delegate commercialisation to the university enterprise team",
           "next": "bfr_enterprise_partnership"
         },
         {
-          "text": "Develop a commercial product alongside the space work. The revenue could fund future research",
+          "text": "Develop a commercial BFR product for clinics and sport",
           "next": "bfr_commercial_product"
         }
       ],
       "scoreEffect": {
-        "reach": 2,
-        "strategy": 2
+        "reach": 3,
+        "strategy": 3
       },
       "categories": [
         "stakeholders"
@@ -2866,22 +2436,22 @@
       "narrative": "You present your BFR research at international sports medicine conferences. The evidence from Premier League clubs attracts attention from football associations, Olympic training centres, and elite sports institutes around the world.\n\nFIFA's medical committee invites you to contribute to their guidelines on post-injury rehabilitation. The IOC's medical and scientific commission cites your research in their review of recovery techniques.\n\nThe sport impact is building rapidly. The question is whether to ride this wave or redirect toward the space application.",
       "choices": [
         {
-          "text": "Use the sport credibility to strengthen the space proposal. Show multi-sector validation",
+          "text": "Use the sport credibility to strengthen the space proposal  -  show multi-sector validation",
           "next": "bfr_uksa_approach"
         },
         {
-          "text": "Develop the sport impact fully. It may be stronger for REF than the space work",
+          "text": "Develop the sport impact fully  -  it may be stronger for REF than the space work",
           "next": "bfr_sport_deep"
         },
         {
-          "text": "Maintain both. The multi-sector narrative is the strongest impact story",
+          "text": "Maintain both  -  the multi-sector narrative is the strongest impact story",
           "next": "bfr_parallel_impact"
         }
       ],
       "scoreEffect": {
-        "reach": 5,
-        "significance": 3,
-        "stakeholders": 2
+        "reach": 8,
+        "significance": 5,
+        "stakeholders": 3
       },
       "categories": [
         "significance",
@@ -2909,15 +2479,11 @@
         {
           "text": "Approach UKSA for funding to bridge from analogue to flight",
           "next": "bfr_uksa_approach"
-        },
-        {
-          "text": "Present the analogue data at the Spaceflight Human Optimisation Summit",
-          "next": "bfr_conference_circuit"
         }
       ],
       "scoreEffect": {
-        "evidence": 5,
-        "strategy": 3
+        "evidence": 8,
+        "strategy": 5
       },
       "categories": [
         "strategy",
@@ -2935,22 +2501,22 @@
       "narrative": "Your device is selected for a commercial spaceflight mission. The SpaceX Fram2 mission will carry your PTSS BFR exercise device as part of a research initiative studying countermeasures for crew health and performance in space.\n\nThe preparation is intense. Every piece of equipment going to space must be tested, certified, and integrated with spacecraft systems. Your engineering partner leads the hardware qualification; you lead the experimental protocol.\n\nThe results make international news. How do you capitalise on this success?",
       "choices": [
         {
-          "text": "Secure further UKSA funding to develop next-generation flight hardware",
-          "next": "bfr_next_gen"
-        },
-        {
-          "text": "Build an international consortium for a full ISS study programme",
+          "text": "Build an international consortium for deep-space missions",
           "next": "bfr_consortium"
         },
         {
-          "text": "Ensure the clinical and sport impact streams are documented alongside the space success",
+          "text": "Document the full multi-sector journey for REF",
           "next": "bfr_ending_multisector"
+        },
+        {
+          "text": "Secure UKSA funding for next-generation flight hardware",
+          "next": "bfr_next_gen"
         }
       ],
       "scoreEffect": {
-        "significance": 4,
-        "reach": 4,
-        "evidence": 3
+        "significance": 6,
+        "reach": 6,
+        "evidence": 4
       },
       "categories": [
         "significance",
@@ -2968,25 +2534,21 @@
     },
     "bfr_iss_proposal": {
       "title": "The ISS Experiment",
-      "narrative": "You submit a comprehensive proposal through ESA's research programme for a dedicated BFR study on the International Space Station. The proposal is backed by your clinical evidence, sport performance data, analogue testing results, and the PTSS hardware developed with your industry partner.\n\nThe review panel is impressed. One reviewer notes: \n\n\"This is the experiment that will provide definitive evidence of whether BFR can protect astronaut health on long-duration spaceflights.\"",
+      "narrative": "You submit a comprehensive proposal through ESA's research programme for a dedicated BFR study on the International Space Station. The proposal is backed by your clinical evidence, sport performance data, analogue testing results, and the PTSS hardware developed with your industry partner.\n\nThe review panel is impressed. One reviewer notes: \"\n\nThis is the experiment that will provide definitive evidence of whether BFR can protect astronaut health on long-duration spaceflights.",
       "choices": [
         {
-          "text": "Focus entirely on making the ISS study a success",
+          "text": "Focus on making the ISS study a success",
           "next": "bfr_ending_iss"
         },
         {
-          "text": "Use the ISS approval to build a broader international consortium for future missions",
-          "next": "bfr_consortium"
-        },
-        {
-          "text": "Ensure the parallel impact streams are maintained and documented",
-          "next": "bfr_ending_multisector"
+          "text": "Build a broader consortium for future missions",
+          "next": "bfr_ending_consortium"
         }
       ],
       "scoreEffect": {
-        "evidence": 5,
-        "significance": 5,
-        "stakeholders": 3
+        "evidence": 8,
+        "significance": 8,
+        "stakeholders": 5
       },
       "categories": [
         "stakeholders",
@@ -3005,25 +2567,21 @@
     },
     "bfr_enterprise_partnership": {
       "title": "University Enterprise",
-      "narrative": "You hand the commercialisation strand to Northumbria's enterprise team. They handle the market analysis, licensing negotiations, and business development, freeing you to focus on research and impact.\n\nA commercial BFR training programme for physiotherapists is developed as a continuing professional development offering through the university. NHS rehabilitation departments begin adopting standardised BFR protocols based on your research.\n\nMeanwhile, the space work continues to progress.",
+      "narrative": "You hand the commercialisation strand to Northumbria's enterprise team. They handle the market analysis, licensing negotiations, and business development  -  freeing you to focus on research and impact.\n\nA commercial BFR training programme for physiotherapists is developed as a continuing professional development offering through the university. NHS rehabilitation departments begin adopting standardised BFR protocols based on your research.\n\nMeanwhile, the space work continues to progress.",
       "choices": [
-        {
-          "text": "Focus on the space application. The clinical adoption is self-sustaining",
-          "next": "bfr_uksa_approach"
-        },
-        {
-          "text": "Document the clinical adoption as a parallel impact stream for REF",
-          "next": "bfr_parallel_impact"
-        },
         {
           "text": "Track NHS adoption as it accelerates nationally",
           "next": "bfr_nhs_adoption"
+        },
+        {
+          "text": "Focus on the space application",
+          "next": "bfr_uksa_approach"
         }
       ],
       "scoreEffect": {
-        "reach": 3,
-        "stakeholders": 2,
-        "significance": 2
+        "reach": 5,
+        "stakeholders": 3,
+        "significance": 3
       },
       "categories": [
         "strategy",
@@ -3040,20 +2598,20 @@
     },
     "bfr_commercial_product": {
       "title": "The Product Path",
-      "narrative": "You develop a commercial BFR product aimed at clinical rehabilitation and sports performance. Working with the device manufacturer, you create a consumer version of the personalised tourniquet system. Simpler than the space-qualified device but based on the same technology.\n\nThe product launches and is adopted by private physiotherapy clinics and sports performance centres. Revenue feeds back into the research programme.\n\nThe commercial success does demonstrate economic impact, but at what cost to the headline space narrative?",
+      "narrative": "You develop a commercial BFR product aimed at clinical rehabilitation and sports performance. Working with the device manufacturer, you create a consumer version of the personalised tourniquet system  -  simpler than the space-qualified device but based on the same technology.\n\nThe product launches and is adopted by private physiotherapy clinics and sports performance centres. Revenue feeds back into the research programme.\n\nThe commercial success does demonstrate economic impact  -  but at what cost to the headline space narrative?",
       "choices": [
         {
-          "text": "Refocus on the space application before the window closes",
-          "next": "bfr_device_partner"
+          "text": "Refocus on the space application",
+          "next": "bfr_uksa_approach"
         },
         {
-          "text": "Balance both. The multi-sector impact story is stronger for including commercial outcomes",
-          "next": "bfr_parallel_impact"
+          "text": "Document the multi-sector impact for REF",
+          "next": "bfr_ending_multisector"
         }
       ],
       "scoreEffect": {
-        "reach": 3,
-        "stakeholders": 2
+        "reach": 5,
+        "stakeholders": 3
       },
       "categories": [
         "reach"
@@ -3069,10 +2627,10 @@
     },
     "bfr_sport_deep": {
       "title": "Deep in Sport Science",
-      "narrative": "You fully develop the sport impact pathway. Your BFR rehabilitation protocols are adopted by twelve Premier League clubs, three international football federations, and two Olympic training centres.\n\nYou publish a landmark systematic review in the British Journal of Sports Medicine. FIFA's medical committee formally incorporates BFR as a recommended rehabilitation modality for anterior cruciate ligament injuries.\n\nBut the space opportunity still beckons, and the sport evidence makes your case to UKSA even stronger.",
+      "narrative": "You fully develop the sport impact pathway. Your BFR rehabilitation protocols are adopted by twelve Premier League clubs, three international football federations, and two Olympic training centres.\n\nYou publish a landmark systematic review in the British Journal of Sports Medicine. FIFA's medical committee formally incorporates BFR as a recommended rehabilitation modality for anterior cruciate ligament injuries.\n\nBut the space opportunity still beckons  -  and the sport evidence makes your case to UKSA even stronger.",
       "choices": [
         {
-          "text": "Pivot to the space application, using sport evidence as the foundation",
+          "text": "Use the sport credibility to strengthen the space case",
           "next": "bfr_uksa_approach"
         },
         {
@@ -3081,9 +2639,9 @@
         }
       ],
       "scoreEffect": {
-        "significance": 5,
-        "reach": 5,
-        "stakeholders": 3
+        "significance": 8,
+        "reach": 8,
+        "stakeholders": 5
       },
       "categories": [
         "strategy",
@@ -3108,14 +2666,14 @@
           "next": "bfr_commercial_flight"
         },
         {
-          "text": "Document everything for REF. The multi-sector narrative is the case study",
+          "text": "Document the multi-sector narrative as the case study",
           "next": "bfr_ending_multisector"
         }
       ],
       "scoreEffect": {
-        "strategy": 5,
-        "significance": 3,
-        "reach": 2
+        "strategy": 8,
+        "significance": 5,
+        "reach": 3
       },
       "categories": [
         "strategy",
@@ -3134,10 +2692,10 @@
     },
     "bfr_consortium": {
       "title": "A Global Alliance",
-      "narrative": "You build an international consortium: Northumbria University, the European Space Agency, NASA, the Canadian Space Agency, Western Clinical Engineering Group, and Delfi Medical Innovations.\n\nThe consortium secures major funding to develop next-generation BFR hardware with integrated biofeedback technology, a system that can automatically adjust pressure based on physiological response during exercise in any gravity environment: micro-gravity, lunar, Martian, or Earth.\n\nBack on Earth, the clinical and sport applications continue to grow organically, sustained by the team you've built.",
+      "narrative": "You build an international consortium: Northumbria University, the European Space Agency, NASA, the Canadian Space Agency, Western Clinical Engineering Group, and Delfi Medical Innovations.\n\nThe consortium secures major funding to develop next-generation BFR hardware with integrated biofeedback technology  -  a system that can automatically adjust pressure based on physiological response during exercise in any gravity environment: micro-gravity, lunar, Martian, or Earth.\n\nBack on Earth, the clinical and sport applications continue to grow organically, sustained by the team you've built.",
       "choices": [
         {
-          "text": "Focus the consortium on Mars mission readiness. That's the ultimate goal",
+          "text": "Focus the consortium on Mars mission readiness  -  that's the ultimate goal",
           "next": "bfr_ending_consortium"
         },
         {
@@ -3146,9 +2704,9 @@
         }
       ],
       "scoreEffect": {
-        "stakeholders": 4,
-        "reach": 4,
-        "strategy": 3
+        "stakeholders": 6,
+        "reach": 6,
+        "strategy": 4
       },
       "categories": [
         "strategy",
@@ -3165,21 +2723,21 @@
     },
     "bfr_next_gen": {
       "title": "Iterating After Flight",
-      "narrative": "Following the successful commercial spaceflight, your research project receives £1.2 million of further funding from UKSA. The funding is part of a batch of 23 projects aimed at strengthening international space partnerships and developing national capabilities.\n\nThe project, working with Western Clinical Engineering Group, Delfi Medical Innovations, the Canadian Space Agency, ESA, and NASA, will resolve technological uncertainties related to future space applications.\n\n\"The UK is at the forefront of space innovation,\" UKSA's Chief Executive says, citing your project as an example of combining home-grown talent with global expertise.",
+      "narrative": "Following the successful commercial spaceflight, your research project receives £287,000 of further funding from UKSA. The funding is part of a batch of 23 projects aimed at strengthening international space partnerships and developing national capabilities.\n\nThe project, working with Western Clinical Engineering Group, Delfi Medical Innovations, the Canadian Space Agency, ESA, and NASA, will resolve technological uncertainties related to future space applications.\n\n\"The UK is at the forefront of space innovation,\" UKSA's Chief Executive says, citing your project as an example of combining home-grown talent with global expertise.",
       "choices": [
         {
           "text": "Build the full international consortium for deep-space missions",
           "next": "bfr_ending_consortium"
         },
         {
-          "text": "Document the full journey from clinic to cosmos for REF",
+          "text": "Document the full journey from clinic to cosmos",
           "next": "bfr_ending_multisector"
         }
       ],
       "scoreEffect": {
-        "significance": 5,
-        "evidence": 3,
-        "stakeholders": 3
+        "significance": 6,
+        "evidence": 4,
+        "stakeholders": 4
       },
       "categories": [
         "stakeholders",
@@ -3196,13 +2754,13 @@
     },
     "bfr_ending_multisector": {
       "title": "Impact Case Study: From Bedside to Orbit",
-      "narrative": "You've built one of the most comprehensive multi-sector impact stories in the REF. Your blood flow restriction exercise research has transformed practice across four domains:\n\nIn clinical rehabilitation, NHS and private physiotherapy services across the UK have adopted your BFR protocols. Patients recovering from surgery and injury are regaining strength faster with less pain.\n\nIn elite sport, Premier League clubs, international football federations, and Olympic training centres use your techniques.\n\nCongratulations! From a rehabilitation clinic in Newcastle to orbit around the Earth, your research has changed how humans maintain physical capability in the most demanding environments on (and off) the planet. This is what multi-sector research impact looks like.",
+      "narrative": "You've built one of the most comprehensive multi-sector impact stories in the REF. Your blood flow restriction exercise research has transformed practice across four domains:\n\nIn clinical rehabilitation, NHS and private physiotherapy services across the UK have adopted your BFR protocols. Patients recovering from surgery and injury are regaining strength faster with less pain.\n\nIn elite sport, Premier League clubs, international football federations, and Olympic training centres use your techniques.\n\nCongratulations! From a rehabilitation clinic in Newcastle to orbit around the Earth  -  your research has changed how humans maintain physical capability in the most demanding environments on (and off) the planet. This is what multi-sector research impact looks like.",
       "choices": [],
       "scoreEffect": {
-        "strategy": 4,
-        "significance": 5,
-        "reach": 5,
-        "evidence": 2
+        "strategy": 6,
+        "significance": 7,
+        "reach": 7,
+        "evidence": 3
       },
       "isEnding": true,
       "endingType": "cycle",
@@ -3223,12 +2781,12 @@
     },
     "bfr_ending_iss": {
       "title": "Impact Case Study: The ISS Study",
-      "narrative": "Your dedicated ISS study produces definitive results. Over a six-month mission, astronauts using BFR exercise alongside standard protocols show significantly less muscle atrophy and bone density loss than historical controls using standard exercise alone.\n\nThe findings are published in Nature Medicine. NASA and ESA formally add BFR to their recommended countermeasure portfolio for long-duration spaceflight.\n\nCongratulations! You've achieved the ultimate validation, your technique works in space. The ISS study represents a landmark in exercise physiology research, and its ripple effects across clinical practice, sport, and military medicine will be felt for decades.",
+      "narrative": "Your dedicated ISS study produces definitive results. Over a six-month mission, astronauts using BFR exercise alongside standard protocols show significantly less muscle atrophy and bone density loss than historical controls using standard exercise alone.\n\nThe findings are published in Nature Medicine. NASA and ESA formally add BFR to their recommended countermeasure portfolio for long-duration spaceflight.\n\nCongratulations! You've achieved the ultimate validation  -  your technique works in space. The ISS study represents a landmark in exercise physiology research, and its ripple effects across clinical practice, sport, and military medicine will be felt for decades.",
       "choices": [],
       "scoreEffect": {
-        "evidence": 5,
-        "significance": 6,
-        "reach": 5
+        "evidence": 8,
+        "significance": 10,
+        "reach": 8
       },
       "isEnding": true,
       "endingType": "policy",
@@ -3248,13 +2806,13 @@
     },
     "bfr_ending_consortium": {
       "title": "Impact Case Study: Beyond Low Earth Orbit",
-      "narrative": "The international consortium you've built is now at the centre of human spaceflight health planning. Northumbria University, ESA, NASA, the Canadian Space Agency, UKSA, and your industry partners are developing the exercise countermeasure systems that will protect astronaut health on missions to the Moon under the Artemis programme, and eventually to Mars.\n\nYour BFR device, which started as a clinical rehabilitation tool, has been adapted into a multi-gravity exercise system.\n\nCongratulations! You've built a research programme that is literally changing how humanity prepares for life beyond Earth. From Newcastle to the cosmos, that's a journey worth mapping for REF.",
+      "narrative": "The international consortium you've built is now at the centre of human spaceflight health planning. Northumbria University, ESA, NASA, the Canadian Space Agency, UKSA, and your industry partners are developing the exercise countermeasure systems that will protect astronaut health on missions to the Moon under the Artemis programme  -  and eventually to Mars.\n\nYour BFR device, which started as a clinical rehabilitation tool, has been adapted into a multi-gravity exercise system.\n\nCongratulations! You've built a research programme that is literally changing how humanity prepares for life beyond Earth. From Newcastle to the cosmos  -  that's a journey worth mapping for REF.",
       "choices": [],
       "scoreEffect": {
-        "strategy": 4,
-        "stakeholders": 6,
-        "significance": 6,
-        "reach": 6
+        "strategy": 6,
+        "stakeholders": 9,
+        "significance": 9,
+        "reach": 9
       },
       "isEnding": true,
       "endingType": "practitioner",
@@ -3277,9 +2835,9 @@
       "narrative": "Your BFR research has transformed sports rehabilitation worldwide. The evidence is comprehensive: twelve Premier League clubs, three international football federations, two Olympic training centres, and FIFA's medical committee have adopted your protocols.\n\nPlayers recovering from ACL injuries return to competition significantly faster with lower re-injury rates. Post-match recovery protocols using BFR reduce markers of muscle damage.\n\nCongratulations! You've demonstrated that a single exercise physiology innovation can transform rehabilitation practice from elite sport to everyday healthcare. The evidence base you've built is unassailable, and the impact is measured in faster recovery times for thousands of athletes and patients.",
       "choices": [],
       "scoreEffect": {
-        "reach": 7,
-        "significance": 6,
-        "stakeholders": 5
+        "reach": 11,
+        "significance": 10,
+        "stakeholders": 8
       },
       "isEnding": true,
       "endingType": "policy",
@@ -3299,7 +2857,7 @@
     },
     "bfr_bed_rest_study": {
       "title": "The Bed Rest Study",
-      "narrative": "You secure access to a dedicated bed rest facility through a European research partner. Bed rest studies are the gold standard for simulating spaceflight deconditioning on Earth, participants spend weeks lying in a head-down tilt position, which causes muscle wasting and bone loss similar to microgravity.\n\nYour study design is elegant: twenty healthy participants, ten using BFR exercise during six weeks of bed rest, ten following standard protocols.\n\nA visiting ESA physician reviews your data and says: \"This is exactly what we need to see. Can you do this with your space-qualified hardware?\"",
+      "narrative": "You secure access to a dedicated bed rest facility through a European research partner. Bed rest studies are the gold standard for simulating spaceflight deconditioning on Earth  -  participants spend weeks lying in a head-down tilt position, which causes muscle wasting and bone loss similar to microgravity.\n\nYour study design is elegant: twenty healthy participants, ten using BFR exercise during six weeks of bed rest, ten following standard protocols.\n\nA visiting ESA physician reviews your data and says: \"This is exactly what we need to see. Can you do this with your space-qualified hardware?\"",
       "choices": [
         {
           "text": "Repeat the study using the PTSS device to validate the space hardware",
@@ -3315,8 +2873,8 @@
         }
       ],
       "scoreEffect": {
-        "evidence": 5,
-        "significance": 2
+        "evidence": 8,
+        "significance": 3
       },
       "categories": [
         "evidence"
@@ -3334,21 +2892,17 @@
       "narrative": "You present your BFR spaceflight countermeasure research at the Spaceflight Human Optimisation and Performance Summit in Texas. The audience includes NASA flight surgeons, ESA medical officers, commercial spaceflight companies, and aerospace medicine researchers from around the world.\n\nYour presentation covers the full journey: from clinical rehabilitation evidence, through sport performance validation, to the bed rest analogue study results.\n\nYou also meet researchers from the Canadian Space Agency who are working on complementary countermeasures. A collaboration could strengthen both programmes.",
       "choices": [
         {
-          "text": "Pursue the NASA collaboration. They have the most ISS time and resources",
+          "text": "Pursue the NASA collaboration for a joint programme",
           "next": "bfr_nasa_collab"
         },
         {
-          "text": "Engage Axiom Space. Commercial missions are launching sooner",
-          "next": "bfr_commercial_flight"
-        },
-        {
-          "text": "Build a multi-agency consortium including NASA, CSA, and ESA",
+          "text": "Build a multi-agency consortium",
           "next": "bfr_consortium"
         }
       ],
       "scoreEffect": {
-        "stakeholders": 3,
-        "reach": 3
+        "stakeholders": 5,
+        "reach": 5
       },
       "categories": [
         "stakeholders",
@@ -3367,22 +2921,18 @@
       "narrative": "You formalise a research collaboration with NASA's Human Research Program at Johnson Space Center. The collaboration gives you access to NASA's extensive spaceflight physiological data, their bed rest facility, and their flight experiment infrastructure.\n\nNASA's exercise countermeasure team has been exploring BFR independently, but your clinical and operational evidence base is far ahead.\n\nNASA's endorsement carries enormous weight. When the world's leading space agency validates your research, every other door opens wider.",
       "choices": [
         {
-          "text": "Push for a joint ISS study through the NASA-ESA collaboration framework",
-          "next": "bfr_iss_proposal"
+          "text": "Push for a joint ISS study",
+          "next": "bfr_ending_iss"
         },
         {
-          "text": "Use the NASA partnership to attract UKSA co-investment",
-          "next": "bfr_uksa_approach"
-        },
-        {
-          "text": "Build the broader consortium including CSA and commercial partners",
-          "next": "bfr_consortium"
+          "text": "Build the broader consortium",
+          "next": "bfr_ending_consortium"
         }
       ],
       "scoreEffect": {
-        "stakeholders": 4,
-        "evidence": 3,
-        "significance": 2
+        "stakeholders": 7,
+        "evidence": 5,
+        "significance": 3
       },
       "categories": [
         "stakeholders",
@@ -3400,22 +2950,18 @@
       "narrative": "While the space work progresses, clinical adoption of BFR accelerates. Your published protocols and the training programme developed through the university enterprise team reach NHS rehabilitation departments across the North East, then nationally.\n\nA major NHS trust conducts an internal audit: patients using BFR rehabilitation protocols show a 25% reduction in time to discharge after knee replacement surgery, and patient-reported outcome measures are significantly better at six months.\n\nBut NICE processes take time, and you need to respond to their evidence requests alongside everything else.",
       "choices": [
         {
-          "text": "Prioritise the NICE engagement. National clinical guidelines would be transformative impact",
+          "text": "Engage with NICE for national clinical guidelines",
           "next": "bfr_nice_engagement"
         },
         {
-          "text": "Delegate the NICE work to a clinical colleague and stay focused on the space strand",
+          "text": "Focus on the space strand - clinical adoption is self-sustaining",
           "next": "bfr_device_partner"
-        },
-        {
-          "text": "Use the NHS evidence to strengthen the multi-sector impact narrative",
-          "next": "bfr_parallel_impact"
         }
       ],
       "scoreEffect": {
-        "significance": 3,
-        "reach": 3,
-        "evidence": 2
+        "significance": 5,
+        "reach": 5,
+        "evidence": 3
       },
       "categories": [
         "stakeholders",
@@ -3433,21 +2979,21 @@
     },
     "bfr_nice_engagement": {
       "title": "Into the Guidelines",
-      "narrative": "You submit evidence to NICE's guideline review on post-surgical rehabilitation. The submission includes your systematic reviews, randomised controlled trials, the NHS trust audit data, and your sport performance evidence.\n\nNICE's evidence review panel is rigorous. They scrutinise methodology, effect sizes, and applicability to the NHS population. Your evidence stands up well.\n\nThis is significant clinical impact: your research is now shaping the standard of care for millions of potential patients.",
+      "narrative": "You submit evidence to NICE's guideline review on post-surgical rehabilitation. The submission includes your systematic reviews, randomised controlled trials, the NHS trust audit data, and your sport performance evidence.\n\nNICE's evidence review panel is rigorous  -  they scrutinise methodology, effect sizes, and applicability to the NHS population. Your evidence stands up well.\n\nThis is significant clinical impact: your research is now shaping the standard of care for millions of potential patients.",
       "choices": [
         {
-          "text": "Document this alongside the space impact for a comprehensive REF case study",
-          "next": "bfr_ending_multisector"
+          "text": "Drive international clinical adoption",
+          "next": "bfr_international_clinical"
         },
         {
-          "text": "Use the NICE recommendation to drive international clinical adoption",
-          "next": "bfr_international_clinical"
+          "text": "Document alongside the space impact for REF",
+          "next": "bfr_ending_multisector"
         }
       ],
       "scoreEffect": {
-        "significance": 5,
-        "reach": 5,
-        "evidence": 2
+        "significance": 7,
+        "reach": 7,
+        "evidence": 3
       },
       "categories": [
         "stakeholders",
@@ -3463,20 +3009,20 @@
     },
     "bfr_international_clinical": {
       "title": "Global Clinical Impact",
-      "narrative": "The NICE guideline recommendation triggers international interest. Clinical rehabilitation bodies in Australia, Canada, and Scandinavia review your evidence and begin developing their own BFR guidelines.\n\nYou're invited to contribute to a World Health Organization technical consultation on post-surgical rehabilitation. Your BFR evidence is included in the background documentation.\n\nMeanwhile, the space programme continues. The two impact streams, clinical rehabilitation and spaceflight countermeasure, reinforce each other perfectly.",
+      "narrative": "The NICE guideline recommendation triggers international interest. Clinical rehabilitation bodies in Australia, Canada, and Scandinavia review your evidence and begin developing their own BFR guidelines.\n\nYou're invited to contribute to a World Health Organization technical consultation on post-surgical rehabilitation. Your BFR evidence is included in the background documentation.\n\nMeanwhile, the space programme continues. The two impact streams  -  clinical rehabilitation and spaceflight countermeasure  -  reinforce each other perfectly.",
       "choices": [
         {
-          "text": "Bring both impact streams together for the definitive REF case study",
+          "text": "Bring both impact streams together for the REF case study",
           "next": "bfr_ending_multisector"
         },
         {
-          "text": "Push for the space mission. Clinical impact is secure, now add the headline",
+          "text": "Push for the space mission to add the headline",
           "next": "bfr_commercial_flight"
         }
       ],
       "scoreEffect": {
-        "reach": 5,
-        "significance": 3
+        "reach": 6,
+        "significance": 4
       },
       "categories": [
         "significance",
@@ -3491,25 +3037,21 @@
     },
     "bfr_mod_deep": {
       "title": "Military Integration",
-      "narrative": "The MOD expands the BFR programme beyond the initial feasibility study. Your protocols are integrated into the Defence Medical Rehabilitation Centre at Stanford Hall, the UK's primary facility for military rehabilitation.\n\nServing personnel recovering from operational injuries use BFR as part of their structured rehabilitation pathway.\n\nA senior military medical officer says: \"This fills a gap we've had for twenty years, effective rehabilitation when you can't fly someone home to a fully equipped gym.\"",
+      "narrative": "The MOD expands the BFR programme beyond the initial feasibility study. Your protocols are integrated into the Defence Medical Rehabilitation Centre at Stanford Hall  -  the UK's primary facility for military rehabilitation.\n\nServing personnel recovering from operational injuries use BFR as part of their structured rehabilitation pathway.\n\nA senior military medical officer says: \"This fills a gap we've had for twenty years  -  effective rehabilitation when you can't fly someone home to a fully equipped gym.\"",
       "choices": [
         {
-          "text": "Use the military evidence to strengthen the space proposal. Both involve constrained environments",
+          "text": "Use the military evidence to strengthen the space proposal",
           "next": "bfr_uksa_approach"
         },
         {
           "text": "Document the military adoption as a parallel impact stream",
-          "next": "bfr_parallel_impact"
-        },
-        {
-          "text": "Explore collaboration between military and space BFR programmes",
-          "next": "bfr_consortium"
+          "next": "bfr_ending_multisector"
         }
       ],
       "scoreEffect": {
-        "stakeholders": 3,
-        "evidence": 3,
-        "significance": 3
+        "stakeholders": 5,
+        "evidence": 5,
+        "significance": 5
       },
       "categories": [
         "strategy",
@@ -3529,18 +3071,18 @@
       "narrative": "UKSA funds a fully-funded PhD studentship to develop BFR exercise as a spaceflight countermeasure, investigating the physiology, biomechanics, and feasibility in simulated micro-gravity, lunar, and Martian gravity. Your PhD student begins building the evidence base for missions beyond the ISS.\n\nThe studentship signals something important: the space agencies see this as a sustained research programme, not a one-off study.\n\nThe research group is growing. What started as your personal research interest is becoming an established field.",
       "choices": [
         {
-          "text": "Use the PhD data to support the flight hardware proposal",
+          "text": "Use the PhD research to support the flight hardware proposal",
           "next": "bfr_device_partner"
         },
         {
-          "text": "Build the team further. Recruit a postdoc to bridge clinical and space research",
-          "next": "bfr_build_team"
+          "text": "Document the sustained research programme for REF",
+          "next": "bfr_ending_multisector"
         }
       ],
       "scoreEffect": {
-        "evidence": 3,
-        "strategy": 3,
-        "stakeholders": 2
+        "evidence": 4,
+        "strategy": 4,
+        "stakeholders": 3
       },
       "categories": [
         "strategy",
@@ -3555,25 +3097,21 @@
     },
     "bfr_humans_in_space": {
       "title": "The Humans in Space Challenge",
-      "narrative": "You and your colleague from the Aerospace Medicine and Rehabilitation Laboratory enter the Humans in Space Challenge, a global competition run by South Korean health technology company Boryung in partnership with Axiom Space and the Aurelia Institute.\n\nThe media coverage is significant: \"Northumbria University scientists win global space health challenge.\" \n\nYour university's communications team is delighted. The Vice-Chancellor mentions your work in a speech about institutional research excellence.",
+      "narrative": "You and your colleague from the Aerospace Medicine and Rehabilitation Laboratory enter the 2023 Humans in Space Challenge, a global competition run by South Korean health technology company Boryung in partnership with Axiom Space and the Aurelia Institute.\n\nThe media coverage is significant: \"Northumbria University scientists win global space health challenge.\" Your university's communications team is delighted. The Vice-Chancellor mentions your work in a speech about institutional research excellence.",
       "choices": [
         {
-          "text": "Use the funding and connections to develop the space-ready device",
+          "text": "Use the funding to develop the space-ready device",
           "next": "bfr_device_partner"
         },
         {
-          "text": "Leverage the visibility to attract additional UKSA investment",
+          "text": "Leverage the visibility to attract UKSA investment",
           "next": "bfr_uksa_approach"
-        },
-        {
-          "text": "Build relationships with the competition partners for long-term collaboration",
-          "next": "bfr_consortium"
         }
       ],
       "scoreEffect": {
-        "significance": 5,
-        "reach": 3,
-        "stakeholders": 3
+        "significance": 8,
+        "reach": 5,
+        "stakeholders": 5
       },
       "categories": [
         "stakeholders",
@@ -3616,8 +3154,8 @@
       ],
       "phase": "planning",
       "scoreEffect": {
-        "strategy": 4,
-        "evidence": 4
+        "strategy": 7,
+        "evidence": 7
       }
     },
     "sbl_pilot": {
@@ -3638,8 +3176,8 @@
         }
       ],
       "scoreEffect": {
-        "evidence": 3,
-        "strategy": 2
+        "evidence": 6,
+        "strategy": 4
       },
       "categories": [
         "reach",
@@ -3669,8 +3207,8 @@
         }
       ],
       "scoreEffect": {
-        "strategy": 3,
-        "evidence": 2
+        "strategy": 6,
+        "evidence": 4
       },
       "categories": [
         "strategy",
@@ -3685,7 +3223,7 @@
     },
     "sbl_big_bid": {
       "title": "Running Before Walking",
-      "narrative": "You write an ambitious funding bid to the Education Endowment Foundation for a ÃÂÃÂ£500,000 national programme of simulation-based learning for Initial Teacher Education. The proposal is well-argued and the need is clear.\n\nThe reviewers are interested but unconvinced. Their feedback is constructive but firm: \"The rationale is compelling and the approach is innovative.\n\nOne positive note: the reviewers explicitly mention that the idea fills a genuine gap and encourage you to resubmit with pilot evidence. They want this to work  -  they just need you to prove it first.",
+      "narrative": "You write an ambitious funding bid to the Education Endowment Foundation for a £500,000 national programme of simulation-based learning for Initial Teacher Education. The proposal is well-argued and the need is clear.\n\nThe reviewers are interested but unconvinced. Their feedback is constructive but firm: \"The rationale is compelling and the approach is innovative.\n\nOne positive note: the reviewers explicitly mention that the idea fills a genuine gap and encourage you to resubmit with pilot evidence. They want this to work  -  they just need you to prove it first.",
       "choices": [
         {
           "text": "Run a rigorous pilot study to generate the evidence the funders need",
@@ -3701,7 +3239,7 @@
         }
       ],
       "scoreEffect": {
-        "reach": 2
+        "reach": 4
       },
       "categories": [
         "strategy",
@@ -3731,9 +3269,9 @@
         }
       ],
       "scoreEffect": {
-        "strategy": 3,
-        "evidence": 2,
-        "significance": 2
+        "strategy": 6,
+        "evidence": 4,
+        "significance": 4
       },
       "categories": [
         "strategy"
@@ -3750,26 +3288,22 @@
       "narrative": "Working with your team  -  a group of experienced teacher educators who between them have decades of classroom experience  -  you develop a suite of simulation scenarios targeting the most challenging aspects of early career teaching:\n\n* A safeguarding disclosure: a child tells you something concerning during a quiet moment\n* Behaviour management: managing disruptive behaviour during a lesson observation by your mentor\n* A difficult parent: a parent is upset about their child's progress report and questions your competence\n* EAL support: welcoming a newly arrived child with no English, communicating with their non-English-speaking parent\n* Staffroom dynamics: a colleague makes an inappropriate comment about a child  -  what do you do?\n\nHow do you expand the impact beyond your own programme?",
       "choices": [
         {
-          "text": "Publish the evidence and share the framework with the national teacher education community",
+          "text": "Publish the evidence and share nationally",
           "next": "sbl_national_share"
         },
         {
-          "text": "Explore using immersive virtual reality to make simulations more scalable",
+          "text": "Explore VR to make simulations more scalable",
           "next": "sbl_vr_explore"
         },
         {
-          "text": "Develop a downloadable toolkit that other universities can adopt",
+          "text": "Develop a toolkit other universities can adopt",
           "next": "sbl_toolkit_dev"
-        },
-        {
-          "text": "Embed it formally in Northumbria's ITE programme and gather longitudinal data",
-          "next": "sbl_embed"
         }
       ],
       "scoreEffect": {
-        "significance": 3,
-        "stakeholders": 2,
-        "evidence": 2
+        "significance": 6,
+        "stakeholders": 4,
+        "evidence": 4
       },
       "categories": [
         "significance",
@@ -3799,8 +3333,8 @@
         }
       ],
       "scoreEffect": {
-        "evidence": 3,
-        "reach": 3
+        "evidence": 6,
+        "reach": 6
       },
       "categories": [
         "reach",
@@ -3817,21 +3351,17 @@
       "narrative": "You present the simulation approach to your Education department colleagues at a teaching and learning away day. The reception is mixed.\n\nThe enthusiasts  -  mostly those with recent classroom experience  -  are immediately on board. They've seen students struggle with exactly the scenarios you're simulating.\n\nBut the enthusiasts become collaborators. Three colleagues volunteer to develop and deliver simulations in their own modules. You now have a small but committed simulation development team within the department.",
       "choices": [
         {
-          "text": "Embed simulation formally into the BA Primary Education programme with your team",
+          "text": "Embed simulation formally into the programme",
           "next": "sbl_embed"
         },
         {
-          "text": "Run a comparative study  -  simulation group vs traditional preparation  -  to convince the sceptics",
+          "text": "Run a comparative study to convince the sceptics",
           "next": "sbl_comparative_study"
-        },
-        {
-          "text": "Start with the willing colleagues and let the results speak for themselves",
-          "next": "sbl_scenario_suite"
         }
       ],
       "scoreEffect": {
-        "stakeholders": 3,
-        "strategy": 2
+        "stakeholders": 6,
+        "strategy": 4
       },
       "categories": [
         "stakeholders",
@@ -3860,8 +3390,8 @@
         }
       ],
       "scoreEffect": {
-        "stakeholders": 5,
-        "strategy": 3
+        "stakeholders": 10,
+        "strategy": 6
       },
       "categories": [
         "strategy",
@@ -3878,21 +3408,17 @@
       "narrative": "As a Senior Associate for the Education Endowment Foundation  -  co-leading a national project on school engagement and evidence use  -  you have an existing relationship with the organisation. You use this to have an informal conversation with the EEF's research team about simulation-based learning.\n\nAn EEF-commissioned evaluation would be transformative. It would put your approach through rigorous independent scrutiny and, if the results hold, give it a credibility stamp that the entire education sector trusts.",
       "choices": [
         {
-          "text": "Run the pilot study quickly so you can submit to the EEF evaluation pipeline",
-          "next": "sbl_pilot"
-        },
-        {
-          "text": "Build a stronger evidence base first  -  the EEF evaluation needs to succeed",
+          "text": "Build a stronger evidence base first",
           "next": "sbl_scenario_suite"
         },
         {
-          "text": "Propose a small-scale EEF feasibility study as an intermediate step",
+          "text": "Propose a small-scale EEF feasibility study",
           "next": "sbl_eef_feasibility"
         }
       ],
       "scoreEffect": {
-        "strategy": 5,
-        "stakeholders": 3
+        "strategy": 10,
+        "stakeholders": 6
       },
       "categories": [
         "strategy",
@@ -3911,22 +3437,18 @@
       "narrative": "Working with your departmental allies, you formally embed simulation-based learning into the BA Primary Education programme at Northumbria. Simulation sessions are integrated at three points in the degree:\n\nYear 1: An introductory simulation focused on basic classroom communication\nYear 2: Behaviour management and parent conversation scenarios, before the main teaching placement\nYear 3: Complex scenarios  -  safeguarding, SEND conversations, EAL support  -  preparing students for their final placement and the ECT year\n\nYou now have a programme-level intervention with emerging evidence. The question is how to scale beyond Northumbria.",
       "choices": [
         {
-          "text": "Publish the programme-level data and build a national network",
-          "next": "sbl_national_share"
+          "text": "Publish the data and build a national network",
+          "next": "sbl_network_launch"
         },
         {
-          "text": "Gather longitudinal data  -  track students into their first teaching posts",
-          "next": "sbl_longitudinal"
-        },
-        {
-          "text": "Develop a toolkit so other universities can replicate the programme structure",
-          "next": "sbl_toolkit_dev"
+          "text": "Develop a toolkit for other universities",
+          "next": "sbl_ending_toolkit"
         }
       ],
       "scoreEffect": {
-        "evidence": 3,
-        "significance": 3,
-        "strategy": 2
+        "evidence": 6,
+        "significance": 6,
+        "strategy": 4
       },
       "categories": [
         "significance",
@@ -3942,12 +3464,8 @@
       "narrative": "You design a comparative study within your own programme. Two parallel cohorts of student teachers: one receives the simulation-based preparation; the other follows the traditional preparation pathway. Both groups complete the same placement.\n\nThe outcome measures include self-efficacy questionnaires, mentor assessments of professional competence, critical incident analyses, and six-month follow-up surveys after qualification.\n\nYou now have robust comparative evidence. This is the kind of data that funders and policymakers need.",
       "choices": [
         {
-          "text": "Publish the comparative study and approach the EEF for a national evaluation",
+          "text": "Approach the EEF for a national evaluation",
           "next": "sbl_eef_feasibility"
-        },
-        {
-          "text": "Use the evidence to embed simulation across the full ITE programme",
-          "next": "sbl_embed"
         },
         {
           "text": "Share the findings nationally to build momentum",
@@ -3955,8 +3473,8 @@
         }
       ],
       "scoreEffect": {
-        "evidence": 5,
-        "significance": 3
+        "evidence": 10,
+        "significance": 6
       },
       "categories": [
         "strategy",
@@ -3974,21 +3492,17 @@
       "narrative": "You draft a university-wide simulation strategy for Northumbria. It proposes simulation as a common pedagogical approach across all professional programmes  -  Education, Nursing, Social Work, Policing, Law.\n\nThe university's Learning and Teaching Committee adopts it. A small budget is allocated for a shared simulation suite.\n\nBut there's a tension: the university strategy is about institutional practice, while your REF impact case study needs to show external impact beyond Northumbria. You need to use the institutional platform to launch outward.",
       "choices": [
         {
-          "text": "Use the institutional platform to host a national simulation conference",
+          "text": "Host a national simulation conference at Northumbria",
           "next": "sbl_national_conference"
         },
         {
-          "text": "Develop externally-facing resources  -  a toolkit other universities can use",
+          "text": "Develop externally-facing resources as a toolkit",
           "next": "sbl_toolkit_dev"
-        },
-        {
-          "text": "Focus on gathering strong evidence from the embedded programme for external publication",
-          "next": "sbl_publish_pilot"
         }
       ],
       "scoreEffect": {
-        "stakeholders": 3,
-        "strategy": 2
+        "stakeholders": 6,
+        "strategy": 4
       },
       "categories": [
         "stakeholders"
@@ -4003,22 +3517,18 @@
       "narrative": "You collaborate with Northumbria's Computer Science department to explore immersive virtual reality (IVR) for teacher simulation. The potential is compelling: VR headsets could allow any student teacher, anywhere, to step into a simulated classroom and practice managing behaviour, communicating with parents, or handling safeguarding situations.\n\nThe VR work generates significant media interest and positions Northumbria as an innovator. But you need to be evidence-based about where VR adds value and where live simulation is still better.",
       "choices": [
         {
-          "text": "Develop VR for behaviour management and keep live actors for relational scenarios",
+          "text": "Develop a hybrid model - VR for behaviour, live actors for relationships",
           "next": "sbl_hybrid_approach"
         },
         {
-          "text": "Publish a realist evaluation comparing VR and live simulation",
-          "next": "sbl_vr_evaluation"
-        },
-        {
-          "text": "Focus on the VR approach  -  it's more scalable and generates more interest",
+          "text": "Focus on the VR approach - it is more scalable",
           "next": "sbl_vr_full"
         }
       ],
       "scoreEffect": {
-        "evidence": 2,
-        "significance": 3,
-        "reach": 2
+        "evidence": 4,
+        "significance": 6,
+        "reach": 4
       },
       "categories": [
         "significance",
@@ -4036,21 +3546,17 @@
       "narrative": "You present your work at national teacher education conferences and write accessible practice articles for the Chartered College of Teaching's Impact journal. The response from teacher educators across the UK is enthusiastic.\n\n\"We've been thinking about this too\" is a common refrain. Several universities are doing informal simulation activities but none have a systematic framework, evidence base, or published approach.\n\nThere's an opportunity here to build something bigger than a single university project.",
       "choices": [
         {
-          "text": "Propose a formal National Simulation Network",
+          "text": "Launch a formal National Simulation Network",
           "next": "sbl_network_launch"
         },
         {
-          "text": "Develop a toolkit that lowers the barrier to entry for other universities",
+          "text": "Develop a practical toolkit for other universities",
           "next": "sbl_toolkit_dev"
-        },
-        {
-          "text": "Organise a national conference to bring everyone together",
-          "next": "sbl_national_conference"
         }
       ],
       "scoreEffect": {
-        "reach": 5,
-        "stakeholders": 3
+        "reach": 10,
+        "stakeholders": 6
       },
       "categories": [
         "stakeholders",
@@ -4081,8 +3587,8 @@
         }
       ],
       "scoreEffect": {
-        "stakeholders": 3,
-        "reach": 2
+        "stakeholders": 6,
+        "reach": 4
       },
       "categories": [
         "stakeholders",
@@ -4099,22 +3605,18 @@
       "narrative": "You develop a comprehensive Simulation-Based Learning Toolkit for Teacher Education. It's designed to be practical, accessible, and usable by any ITE provider regardless of their resources:\n\n* Scenario templates for six core professional challenges\n* Actor/role player briefing cards with responsive improvisation guidance\n* Facilitation guides with step-by-step session plans\n* Debrief protocols aligned to reflective practice frameworks\n* Assessment rubrics linked to the Teachers' Standards\n* A quick-start guide for departments with no prior simulation experience\n* Video exemplars showing how to run each type of session\n\nOne programme director writes: \"Your toolkit gave us permission to try something we'd been talking about for years. It lowered the barrier enough that even our sceptics agreed to pilot one session.\"",
       "choices": [
         {
-          "text": "Track adoption data and gather feedback for a formal impact evaluation",
-          "next": "sbl_toolkit_impact"
+          "text": "Track adoption and document for REF",
+          "next": "sbl_ending_toolkit"
         },
         {
           "text": "Use the adoption to launch a formal national network",
           "next": "sbl_network_launch"
-        },
-        {
-          "text": "Iterate the toolkit based on user feedback and develop version 2.0",
-          "next": "sbl_toolkit_v2"
         }
       ],
       "scoreEffect": {
-        "reach": 5,
-        "significance": 3,
-        "stakeholders": 2
+        "reach": 10,
+        "significance": 6,
+        "stakeholders": 4
       },
       "categories": [
         "significance",
@@ -4136,21 +3638,17 @@
           "next": "sbl_standards"
         },
         {
-          "text": "Use the network to engage DfE about including simulation in ITT guidance",
+          "text": "Engage DfE about including simulation in ITT guidance",
           "next": "sbl_dfe_engage"
         },
         {
           "text": "Commission a multi-site research study through the network",
           "next": "sbl_multisite_study"
-        },
-        {
-          "text": "Develop a VR platform accessible to all network members",
-          "next": "sbl_vr_full"
         }
       ],
       "scoreEffect": {
-        "reach": 4,
-        "stakeholders": 4
+        "reach": 7,
+        "stakeholders": 7
       },
       "categories": [
         "strategy",
@@ -4170,22 +3668,18 @@
       "narrative": "The Education Endowment Foundation commissions a feasibility study of your simulation-based learning approach. This is significant  -  an EEF evaluation is the gold standard in UK education evidence.\n\nThe study design involves six universities: three using your simulation framework, three acting as comparison sites using their existing preparation approaches.\n\nThe EEF report is read by every ITE provider in the country. Your approach now has independent, credible validation.",
       "choices": [
         {
-          "text": "Push for a full-scale randomised controlled trial through the EEF",
+          "text": "Push for a full-scale RCT through the EEF",
           "next": "sbl_rct"
         },
         {
-          "text": "Use the EEF report to engage DfE about recognition in ITT frameworks",
-          "next": "sbl_dfe_engage"
-        },
-        {
-          "text": "Scale adoption through the National Simulation Network using the EEF evidence",
-          "next": "sbl_network_launch"
+          "text": "Use the EEF report to engage DfE about recognition",
+          "next": "sbl_ending_policy"
         }
       ],
       "scoreEffect": {
-        "evidence": 4,
-        "significance": 4,
-        "reach": 2
+        "evidence": 7,
+        "significance": 7,
+        "reach": 4
       },
       "categories": [
         "significance",
@@ -4198,58 +3692,23 @@
       ],
       "phase": "evidence"
     },
-    "sbl_longitudinal": {
-      "title": "Tracking Into Teaching",
-      "narrative": "You design a longitudinal study tracking students from their simulation experiences at Northumbria through their first three years of teaching. The study measures professional confidence, self-efficacy, critical incident management, and  -  crucially  -  retention in the profession.\n\nThe retention data is the headline. If simulation-based learning can demonstrably reduce early career attrition, the economic case alone is compelling  -  it costs approximately ÃÂÃÂ£30,000 to recruit and train a new teacher.",
-      "choices": [
-        {
-          "text": "Publish the retention data and take it to the DfE",
-          "next": "sbl_dfe_engage"
-        },
-        {
-          "text": "Use the data to secure EEF funding for a national evaluation",
-          "next": "sbl_eef_feasibility"
-        },
-        {
-          "text": "Share the findings with the National Simulation Network to drive adoption",
-          "next": "sbl_network_launch"
-        }
-      ],
-      "scoreEffect": {
-        "evidence": 5,
-        "significance": 5
-      },
-      "categories": [
-        "significance",
-        "evidence"
-      ],
-      "impactTypes": [
-        "educational",
-        "economic"
-      ],
-      "phase": "engagement"
-    },
     "sbl_hybrid_approach": {
       "title": "Best of Both Worlds",
       "narrative": "You develop a hybrid simulation model: VR for behaviour management and classroom environment scenarios (where the technology excels at creating immersive, repeatable experiences), and live actors for relational scenarios (parent conversations, safeguarding disclosures, colleague interactions) where emotional authenticity is essential.\n\nThe hybrid approach is more versatile than either method alone.\n\nYou publish the hybrid model in the Journal of Applied Learning and Teaching, including a realist evaluation protocol for further testing.",
       "choices": [
         {
-          "text": "Share the VR component through the National Simulation Network",
-          "next": "sbl_network_launch"
+          "text": "Share the VR component through the network",
+          "next": "sbl_ending_toolkit"
         },
         {
-          "text": "Develop the VR platform into a product that any university can license",
-          "next": "sbl_vr_platform"
-        },
-        {
-          "text": "Focus on the evidence  -  run a formal evaluation of VR vs live vs hybrid",
-          "next": "sbl_vr_evaluation"
+          "text": "Publish the hybrid model evidence",
+          "next": "sbl_ending_standards"
         }
       ],
       "scoreEffect": {
-        "evidence": 3,
-        "significance": 3,
-        "strategy": 2
+        "evidence": 6,
+        "significance": 6,
+        "strategy": 4
       },
       "categories": [
         "significance",
@@ -4267,21 +3726,17 @@
       "narrative": "You publish a realist evaluation comparing three simulation modalities: immersive VR, live actor simulation, and the hybrid approach. The study examines not just effectiveness but the mechanisms  -  what works, for whom, in what circumstances.\n\nThe findings are nuanced. VR is most effective for practising procedural responses (behaviour management steps, safeguarding protocols).\n\nThe paper is published in the Journal of Applied Learning and Teaching and becomes a reference point for the emerging field of simulation in teacher education.",
       "choices": [
         {
-          "text": "Use the evidence to develop national standards for simulation quality",
-          "next": "sbl_standards"
+          "text": "Develop national standards based on the evidence",
+          "next": "sbl_ending_standards"
         },
         {
-          "text": "Focus on training facilitators  -  the debrief finding suggests that's where the real skill lies",
-          "next": "sbl_facilitator_training"
-        },
-        {
-          "text": "Share the comparative evidence to help network members choose the right approach",
-          "next": "sbl_network_launch"
+          "text": "Train facilitators - the debrief finding is the key insight",
+          "next": "sbl_ending_standards"
         }
       ],
       "scoreEffect": {
-        "evidence": 5,
-        "strategy": 3
+        "evidence": 10,
+        "strategy": 6
       },
       "categories": [
         "strategy",
@@ -4303,17 +3758,13 @@
           "next": "sbl_vr_evaluation"
         },
         {
-          "text": "Scale through the network while gathering evidence in parallel",
-          "next": "sbl_vr_platform"
-        },
-        {
-          "text": "Present at DfE to show innovative approaches to teacher preparation",
-          "next": "sbl_dfe_engage"
+          "text": "Present at DfE to show innovative teacher preparation",
+          "next": "sbl_ending_policy"
         }
       ],
       "scoreEffect": {
-        "reach": 3,
-        "significance": 3
+        "reach": 6,
+        "significance": 6
       },
       "categories": [
         "significance",
@@ -4330,21 +3781,17 @@
       "narrative": "You organise a national conference at Northumbria: \"Simulation for Teacher Education: Evidence, Practice, and Policy.\" It brings together teacher educators, simulation specialists from healthcare, Ofsted inspectors, DfE representatives, and EdTech developers.\n\nThe conference is a success. Over 120 delegates attend. Panel discussions reveal a strong consensus: teacher education needs to innovate, and simulation offers a credible, evidence-based approach.\n\nThe conference generates momentum and connections. It's a catalyst for formalising the national network.",
       "choices": [
         {
-          "text": "Use the conference momentum to formally launch the National Simulation Network",
+          "text": "Use the momentum to launch the National Simulation Network",
           "next": "sbl_network_launch"
         },
         {
-          "text": "Follow up with the DfE official to explore policy recognition",
+          "text": "Follow up with the DfE official about policy recognition",
           "next": "sbl_dfe_engage"
-        },
-        {
-          "text": "Develop a post-conference collaborative research bid with interested universities",
-          "next": "sbl_multisite_study"
         }
       ],
       "scoreEffect": {
-        "stakeholders": 5,
-        "reach": 3
+        "stakeholders": 10,
+        "reach": 6
       },
       "categories": [
         "stakeholders",
@@ -4363,21 +3810,17 @@
       "choices": [
         {
           "text": "Take the evidence to the DfE for policy recognition",
-          "next": "sbl_dfe_engage"
+          "next": "sbl_ending_policy"
         },
         {
           "text": "Use it to develop national quality standards",
-          "next": "sbl_standards"
-        },
-        {
-          "text": "Submit the evidence base to the EEF for a full-scale evaluation",
-          "next": "sbl_eef_feasibility"
+          "next": "sbl_ending_standards"
         }
       ],
       "scoreEffect": {
-        "evidence": 5,
-        "reach": 3,
-        "significance": 3
+        "evidence": 10,
+        "reach": 6,
+        "significance": 6
       },
       "categories": [
         "significance",
@@ -4389,69 +3832,6 @@
         "educational"
       ],
       "phase": "evidence"
-    },
-    "sbl_toolkit_impact": {
-      "title": "Measuring Toolkit Adoption",
-      "narrative": "You systematically track adoption of your open-access toolkit. After twelve months, the data tells a compelling story:\n\n* 23 universities have downloaded the toolkit\n* 14 are actively using at least one scenario\n* 8 have embedded simulation into their programmes\n* 3 have adapted and expanded the scenarios for their local context\n* Over 400 student teachers have experienced simulation-based preparation\n\nThe toolkit has created practice change at scale. For REF, this is powerful impact evidence  -  your research is directly shaping teacher preparation across the UK.",
-      "choices": [
-        {
-          "text": "Document this as the primary REF impact evidence",
-          "next": "sbl_ending_toolkit"
-        },
-        {
-          "text": "Address the barriers  -  develop facilitator training to support further adoption",
-          "next": "sbl_facilitator_training"
-        },
-        {
-          "text": "Use the adoption data to make the case to DfE for formal recognition",
-          "next": "sbl_dfe_engage"
-        }
-      ],
-      "scoreEffect": {
-        "reach": 5,
-        "significance": 3
-      },
-      "categories": [
-        "significance",
-        "reach"
-      ],
-      "impactTypes": [
-        "practice",
-        "educational"
-      ],
-      "phase": "translation"
-    },
-    "sbl_toolkit_v2": {
-      "title": "Learning from Users",
-      "narrative": "You gather feedback from toolkit users and develop version 2.0. The improvements are driven by real-world use:\n\n* Simplified scenario cards that work without trained actors (peers can play the roles)\n* A video demonstration library showing facilitation in practice\n* Additional scenarios developed by network members, quality-assured against your framework\n* Assessment rubrics explicitly mapped to the new Teachers' Standards\n* A facilitator self-study guide for educators with no simulation experience\n\nAdoption accelerates. Twenty-seven universities are now using some element of the toolkit.",
-      "choices": [
-        {
-          "text": "Launch the facilitator training as a formal CPD programme",
-          "next": "sbl_facilitator_training"
-        },
-        {
-          "text": "Document the national adoption for REF",
-          "next": "sbl_ending_toolkit"
-        },
-        {
-          "text": "Use the momentum to push for DfE recognition",
-          "next": "sbl_dfe_engage"
-        }
-      ],
-      "scoreEffect": {
-        "reach": 3,
-        "significance": 2,
-        "stakeholders": 2
-      },
-      "categories": [
-        "strategy",
-        "reach"
-      ],
-      "impactTypes": [
-        "practice",
-        "educational"
-      ],
-      "phase": "translation"
     },
     "sbl_rct": {
       "title": "The Gold Standard Trial",
@@ -4462,14 +3842,14 @@
           "next": "sbl_ending_policy"
         },
         {
-          "text": "Use the evidence to drive universal adoption through the network",
+          "text": "Use the evidence to drive universal adoption",
           "next": "sbl_ending_standards"
         }
       ],
       "scoreEffect": {
-        "evidence": 4,
-        "significance": 4,
-        "reach": 4
+        "evidence": 7,
+        "significance": 7,
+        "reach": 7
       },
       "categories": [
         "significance",
@@ -4481,82 +3861,24 @@
       ],
       "phase": "evidence"
     },
-    "sbl_facilitator_training": {
-      "title": "Training the Trainers",
-      "narrative": "You develop a certified Simulation Facilitation Training programme for teacher educators, accredited through Northumbria University's CPD framework. The two-day intensive course covers scenario design, role player management, facilitation skills, and  -  drawing on your research finding that debriefing is the key mechanism  -  advanced debriefing techniques.\n\nThe first three cohorts train 45 teacher educators from across the UK.\n\nSeveral universities now include simulation facilitation in their staff development requirements for ITE tutors.",
-      "choices": [
-        {
-          "text": "Scale the training nationally through the network",
-          "next": "sbl_ending_standards"
-        },
-        {
-          "text": "Use the trained facilitator network to push for formal recognition",
-          "next": "sbl_dfe_engage"
-        }
-      ],
-      "scoreEffect": {
-        "stakeholders": 3,
-        "reach": 3,
-        "significance": 3
-      },
-      "categories": [
-        "stakeholders",
-        "significance",
-        "reach",
-        "evidence"
-      ],
-      "impactTypes": [
-        "practice",
-        "educational"
-      ],
-      "phase": "translation"
-    },
-    "sbl_vr_platform": {
-      "title": "Scaling Through Technology",
-      "narrative": "Working with your EdTech partner, you develop a VR simulation platform that any university can access through a licensing agreement. The platform includes the classroom behaviour management simulations your team developed, with new scenarios being added based on network feedback.\n\nThe technology removes several adoption barriers: universities don't need simulation space, trained actors, or experienced facilitators for the VR component.\n\nThe platform generates modest revenue that feeds back into your research programme. But more importantly, it provides scalable access to simulation for student teachers across the country.",
-      "choices": [
-        {
-          "text": "Document the platform adoption as technology transfer impact",
-          "next": "sbl_ending_toolkit"
-        },
-        {
-          "text": "Combine VR data with live simulation evidence for a comprehensive policy case",
-          "next": "sbl_dfe_engage"
-        }
-      ],
-      "scoreEffect": {
-        "reach": 5,
-        "significance": 3
-      },
-      "categories": [
-        "significance",
-        "reach"
-      ],
-      "impactTypes": [
-        "educational",
-        "economic",
-        "technological"
-      ],
-      "phase": "adoption"
-    },
     "sbl_standards": {
       "title": "Setting the Standard",
       "narrative": "Through the National Simulation Network, you co-develop national quality standards for simulation-based learning in teacher education. The standards draw on your research evidence, cross-sector learning from healthcare simulation, and the collective practice wisdom of network members.\n\nFor the first time, there's a shared language and quality framework for simulation in teacher education. Universities can design, deliver, and evaluate simulation with confidence that they're meeting nationally recognised standards.",
       "choices": [
         {
-          "text": "Push for DfE to include simulation in their ITT curriculum framework",
+          "text": "Push for DfE to include simulation in their ITT framework",
           "next": "sbl_ending_policy"
         },
         {
-          "text": "Document the standards adoption as the core REF impact narrative",
+          "text": "Document the standards adoption as the core REF impact",
           "next": "sbl_ending_standards"
         }
       ],
       "scoreEffect": {
-        "strategy": 3,
-        "significance": 5,
-        "reach": 3,
-        "stakeholders": 3
+        "strategy": 6,
+        "significance": 10,
+        "reach": 6,
+        "stakeholders": 6
       },
       "categories": [
         "strategy",
@@ -4576,22 +3898,18 @@
       "narrative": "You engage with the Department for Education through multiple channels: the National Simulation Network submits a formal response to the ITT Market Review; you present at a DfE-hosted innovation showcase; and your EEF evidence is cited in policy briefings.\n\nThe DfE's response is cautiously encouraging.\n\nIt's not a mandate, but it's recognition. Providers can now cite DfE guidance when justifying simulation in their programmes. For institutions where senior leadership has been reluctant, this removes a significant barrier.",
       "choices": [
         {
-          "text": "Use the DfE recognition to accelerate network adoption",
+          "text": "Use the DfE recognition to accelerate adoption through the network",
           "next": "sbl_ending_policy"
         },
         {
-          "text": "Push further  -  aim for simulation to be a required element in ITT",
-          "next": "sbl_ending_policy"
-        },
-        {
-          "text": "Focus on documenting the full impact journey for REF",
+          "text": "Document the full impact journey for REF",
           "next": "sbl_ending_standards"
         }
       ],
       "scoreEffect": {
-        "significance": 4,
-        "reach": 4,
-        "strategy": 2
+        "significance": 7,
+        "reach": 7,
+        "strategy": 4
       },
       "categories": [
         "strategy",
@@ -4610,9 +3928,9 @@
       "narrative": "Your freely available Simulation-Based Learning Toolkit has been adopted by teacher education programmes across the UK and internationally. Twenty-seven universities use your scenarios and framework. Over 1,200 student teachers have experienced simulation-based preparation using your materials.\n\nThe toolkit's open-access model has demonstrated something important: impact doesn't require commercialisation.\n\nCongratulations! You've achieved practice-based impact at national scale. From a single pilot simulation with drama students playing upset parents, you've built a replicable, evidence-based approach to teacher preparation that's being adopted across the country  -  addressing the preparation gap that contributes to the teaching profession's retention crisis.",
       "choices": [],
       "scoreEffect": {
-        "reach": 6,
-        "significance": 6,
-        "stakeholders": 4
+        "reach": 11,
+        "significance": 11,
+        "stakeholders": 7
       },
       "isEnding": true,
       "endingType": "practitioner",
@@ -4632,10 +3950,10 @@
       "narrative": "From a single pilot simulation in a repurposed seminar room, you've built a national framework that's reshaping how the UK prepares its teachers.\n\nThe National Simulation Network, which you chair, now includes twenty-five universities. The national quality standards you co-developed are referenced by Ofsted in their ITT inspection framework and endorsed by the Chartered College of Teaching and UCET.\n\nCongratulations! You've achieved systemic impact. The teacher retention crisis won't be solved by one intervention alone  -  but giving new teachers safe, supported space to practise the hardest parts of the job before they encounter them for real is a powerful, evidence-based contribution. And you've built the infrastructure to sustain it.",
       "choices": [],
       "scoreEffect": {
-        "strategy": 6,
-        "significance": 6,
-        "reach": 6,
-        "stakeholders": 2
+        "strategy": 11,
+        "significance": 11,
+        "reach": 11,
+        "stakeholders": 4
       },
       "isEnding": true,
       "endingType": "cycle",
@@ -4657,10 +3975,10 @@
       "narrative": "Your sustained engagement with evidence, practice, and policy has achieved something rare: a new pedagogical approach has been recognised in national education policy within a single REF cycle.\n\nThe Department for Education's updated ITT guidance explicitly references simulation-based learning.\n\nCongratulations! You've achieved policy-level impact in education. From an idea borrowed from medical simulation and adapted through rigorous, practice-informed research, you've helped create a nationally recognised approach to teacher preparation that addresses one of education's most pressing challenges. Student teachers across the country are entering the profession better prepared, more confident, and more likely to stay.",
       "choices": [],
       "scoreEffect": {
-        "significance": 6,
-        "reach": 6,
-        "evidence": 6,
-        "strategy": 2
+        "significance": 11,
+        "reach": 11,
+        "evidence": 11,
+        "strategy": 4
       },
       "isEnding": true,
       "endingType": "policy",
@@ -4675,39 +3993,545 @@
         "educational"
       ],
       "phase": "evidence"
+    },
+    "public_benefit_route": {
+      "title": "Public Benefit",
+      "narrative": "Your Impact Officer nods. \"Public benefit is a powerful angle. Your research shows green spaces reduce anxiety and build social cohesion - that's not just an academic finding, it's something that matters to real people in real neighbourhoods.\"\n\nThey sketch out the options: you could work directly with communities to raise awareness and change behaviour, engage with public health campaigns to embed your findings, or build a media and public engagement strategy that puts the evidence into public conversation.\n\n\"The key question is: who benefits, and how do we make sure they know about it?\"",
+      "choices": [
+        {
+          "text": "Community engagement - work directly with residents in the neighbourhoods your research covers",
+          "next": "community_direct"
+        },
+        {
+          "text": "Public health campaigns - get your findings into NHS and local authority health messaging",
+          "next": "public_health_campaign"
+        },
+        {
+          "text": "Public engagement and media - put this into the public conversation so people demand green spaces",
+          "next": "public_media_strategy"
+        }
+      ],
+      "scoreEffect": {
+        "strategy": 10,
+        "stakeholders": 6
+      },
+      "categories": [
+        "strategy",
+        "stakeholders"
+      ],
+      "impactTypes": [
+        "societal",
+        "health"
+      ],
+      "phase": "planning"
+    },
+    "community_direct": {
+      "title": "On the Ground",
+      "narrative": "You visit three neighbourhoods where your research was conducted. You run community workshops explaining your findings in plain language - no jargon, no slides full of p-values. Just: \"We studied what happens when communities like yours get involved in creating and maintaining green spaces. Here's what we found.\"\n\nThe response is powerful. Residents share their own experiences. One woman says: \"I've been saying for years that the park keeps me sane. Now you're telling me the science agrees.\"\n\nA local councillor attends one session and asks if you'd present to the neighbourhood forum. A community health worker wants to use your findings in her wellbeing group.\n\nHow do you build on this?",
+      "choices": [
+        {
+          "text": "Develop a community-facing summary of your research - a leaflet, infographic, or short film",
+          "next": "community_resources"
+        },
+        {
+          "text": "Support the community health worker to embed your findings in her programme",
+          "next": "wellbeing_programme"
+        },
+        {
+          "text": "Present to the neighbourhood forum and push for green space investment",
+          "next": "neighbourhood_forum"
+        }
+      ],
+      "scoreEffect": {
+        "stakeholders": 15,
+        "reach": 10
+      },
+      "categories": [
+        "stakeholders",
+        "reach"
+      ],
+      "impactTypes": [
+        "societal",
+        "health"
+      ],
+      "phase": "engagement"
+    },
+    "community_resources": {
+      "title": "Making Research Accessible",
+      "narrative": "You work with the university's public engagement team to create accessible materials. A graphic designer turns your key findings into an infographic. A media student films short interviews with residents alongside your data visualisations.\n\nThe infographic is distributed through GP surgeries, community centres, and libraries in the study areas. The film is shared on social media and picked up by a local news outlet.\n\nA housing association contacts you - they want to use your materials in their tenant engagement programme. A national mental health charity asks permission to share the infographic on their website.\n\nYour research is reaching people who would never read a journal article.",
+      "choices": [
+        {
+          "text": "Partner with the housing association - they manage estates in deprived areas across the region",
+          "next": "housing_partnership"
+        },
+        {
+          "text": "Work with the mental health charity - national reach and credibility",
+          "next": "charity_partnership"
+        }
+      ],
+      "scoreEffect": {
+        "reach": 15,
+        "significance": 10,
+        "evidence": 6
+      },
+      "categories": [
+        "reach",
+        "significance"
+      ],
+      "impactTypes": [
+        "societal",
+        "health"
+      ],
+      "phase": "translation"
+    },
+    "wellbeing_programme": {
+      "title": "Embedded in Practice",
+      "narrative": "You work with the community health worker to redesign her wellbeing group programme. Instead of indoor sessions only, the group now includes structured outdoor activities in local green spaces, informed by your research on which types of engagement produce the strongest anxiety reduction.\n\nAfter six months, the health worker reports measurable improvements in participants' wellbeing scores. GP referrals to the programme increase. The Clinical Commissioning Group notices and asks for a briefing.\n\nThis is your research changing how health services are delivered at the most local level.",
+      "choices": [
+        {
+          "text": "Present to the CCG and push for the green prescribing model to be adopted across the area",
+          "next": "green_prescribing"
+        },
+        {
+          "text": "Document the programme outcomes carefully as impact evidence",
+          "next": "document_wellbeing"
+        }
+      ],
+      "scoreEffect": {
+        "significance": 15,
+        "stakeholders": 10,
+        "evidence": 6
+      },
+      "categories": [
+        "significance",
+        "stakeholders",
+        "evidence"
+      ],
+      "impactTypes": [
+        "health",
+        "practice"
+      ],
+      "phase": "adoption"
+    },
+    "neighbourhood_forum": {
+      "title": "Local Democracy",
+      "narrative": "You present to the neighbourhood forum - a room of residents, councillors, and local business owners. Your research data shows that the neighbourhoods with community-managed green spaces have measurably lower anxiety levels and stronger social networks.\n\nA resident asks: \"So if the council sells off the allotments for housing, you're saying that will actually make people's health worse?\" You confirm that your data supports exactly that concern.\n\nThe forum passes a motion calling on the council to protect and invest in community green spaces, citing your research by name. A local journalist covers the story.\n\nThe council's planning department contacts you - they want to understand your methodology before their next green space review.",
+      "choices": [
+        {
+          "text": "Engage with the planning department - your research could shape local planning policy",
+          "next": "planning_engagement"
+        },
+        {
+          "text": "Support more neighbourhood forums across the city to build a groundswell of evidence-informed demand",
+          "next": "forum_expansion"
+        }
+      ],
+      "scoreEffect": {
+        "significance": 15,
+        "reach": 10,
+        "stakeholders": 6
+      },
+      "categories": [
+        "significance",
+        "reach",
+        "stakeholders"
+      ],
+      "impactTypes": [
+        "policy",
+        "societal"
+      ],
+      "phase": "engagement"
+    },
+    "public_health_campaign": {
+      "title": "The Public Health Angle",
+      "narrative": "You approach the Director of Public Health through your university's health faculty connections. They're immediately interested - green spaces as a determinant of mental health fits perfectly with the local authority's health inequality strategy.\n\nThe DPH invites you to contribute to the annual public health report. Your findings feature in a chapter on community assets and mental wellbeing, with a recommendation that \"investment in community-led green spaces should be recognised as a public health intervention.\"\n\nThe report is sent to every GP surgery, every councillor, and published online. Your research is now embedded in the official public health narrative.",
+      "choices": [
+        {
+          "text": "Push for a green prescribing pilot - GPs referring patients to green space activities",
+          "next": "green_prescribing"
+        },
+        {
+          "text": "Use the DPH endorsement to approach NHS England about national recognition",
+          "next": "nhs_national"
+        },
+        {
+          "text": "Work with the DPH to develop a community green space quality standard",
+          "next": "green_standard"
+        }
+      ],
+      "scoreEffect": {
+        "significance": 15,
+        "stakeholders": 10,
+        "reach": 6
+      },
+      "categories": [
+        "significance",
+        "stakeholders"
+      ],
+      "impactTypes": [
+        "health",
+        "policy"
+      ],
+      "phase": "engagement"
+    },
+    "public_media_strategy": {
+      "title": "Into the Public Conversation",
+      "narrative": "You develop a public engagement strategy with the university's media team. A piece in The Conversation reaches 40,000 readers. A regional BBC radio interview leads to a phone-in where listeners share their own experiences of green spaces and mental health.\n\nA national newspaper features your work in a weekend supplement piece on \"the science of green spaces.\" Social media picks it up - your research is shared thousands of times.\n\nThe visibility brings unexpected contacts: a national housebuilder's sustainability team, a mental health charity's research director, and a landscape architecture firm working on urban regeneration.\n\nWho do you follow up with?",
+      "choices": [
+        {
+          "text": "The mental health charity - they could amplify your findings nationally",
+          "next": "charity_partnership"
+        },
+        {
+          "text": "The housebuilder - they could embed your research in how new developments are designed",
+          "next": "housebuilder_engage"
+        },
+        {
+          "text": "The landscape architects - they translate research into physical design",
+          "next": "landscape_partnership"
+        }
+      ],
+      "scoreEffect": {
+        "reach": 15,
+        "significance": 6
+      },
+      "categories": [
+        "reach"
+      ],
+      "impactTypes": [
+        "societal"
+      ],
+      "phase": "engagement"
+    },
+    "housing_partnership": {
+      "title": "Scaling Through Housing",
+      "narrative": "The housing association manages 15,000 homes across the region, many in the most deprived areas. They want to use your research to redesign their approach to communal green spaces on their estates.\n\nYou work with their tenant engagement team to develop a community green space programme informed by your findings. Residents are involved in designing, planting, and maintaining shared gardens and green areas.\n\nAfter a year, the housing association's own evaluation shows improved tenant satisfaction, reduced anti-social behaviour reports, and - using your methodology - measurable improvements in resident wellbeing.\n\nThe housing association presents the results at a national conference. Three other housing providers contact you about replicating the approach.",
+      "choices": [
+        {
+          "text": "Support the replication and document the scaling for your impact case study",
+          "next": "ending_public_benefit"
+        },
+        {
+          "text": "Use the housing association data to approach the DPH about a broader public health case",
+          "next": "green_prescribing"
+        }
+      ],
+      "scoreEffect": {
+        "reach": 15,
+        "significance": 10,
+        "evidence": 10
+      },
+      "categories": [
+        "reach",
+        "significance",
+        "evidence"
+      ],
+      "impactTypes": [
+        "societal",
+        "health"
+      ],
+      "phase": "scaling"
+    },
+    "charity_partnership": {
+      "title": "National Reach",
+      "narrative": "The mental health charity has 200,000 supporters and strong media presence. They want to co-produce a campaign around green spaces and mental health, grounded in your research.\n\nThe campaign launches with your data at its core: \"Community green spaces reduce anxiety by X% in deprived neighbourhoods.\" It reaches millions through the charity's channels. Schools use the materials. Workplaces share them. GP surgeries display the posters.\n\nYour research has moved from a journal to the public consciousness. People are using your findings to argue for green spaces in their own communities.",
+      "choices": [
+        {
+          "text": "Document the campaign reach and behaviour change as impact evidence",
+          "next": "ending_public_benefit"
+        },
+        {
+          "text": "Use the campaign momentum to push for policy change on green space protection",
+          "next": "planning_engagement"
+        }
+      ],
+      "scoreEffect": {
+        "reach": 15,
+        "significance": 10,
+        "stakeholders": 6
+      },
+      "categories": [
+        "reach",
+        "significance"
+      ],
+      "impactTypes": [
+        "societal",
+        "health"
+      ],
+      "phase": "scaling"
+    },
+    "green_prescribing": {
+      "title": "Green Prescribing",
+      "narrative": "You work with the CCG and local GPs to pilot a green prescribing programme. Patients with mild-to-moderate anxiety are offered structured green space activities alongside or instead of medication - informed directly by your research on which activities, durations, and group sizes produce the best outcomes.\n\nThe pilot runs for twelve months across four GP surgeries. Results show reduced anxiety medication prescriptions, improved patient-reported outcomes, and high patient satisfaction. The cost per patient is a fraction of traditional interventions.\n\nNHS England's social prescribing team contacts you. They want to understand the evidence base for potential inclusion in national guidance.",
+      "choices": [
+        {
+          "text": "Engage with NHS England - national adoption would be transformative",
+          "next": "nhs_national"
+        },
+        {
+          "text": "Publish the pilot results and document as your primary impact case study",
+          "next": "ending_public_benefit"
+        }
+      ],
+      "scoreEffect": {
+        "significance": 15,
+        "evidence": 10,
+        "stakeholders": 6
+      },
+      "categories": [
+        "significance",
+        "evidence",
+        "stakeholders"
+      ],
+      "impactTypes": [
+        "health",
+        "practice"
+      ],
+      "phase": "adoption"
+    },
+    "nhs_national": {
+      "title": "National Health Impact",
+      "narrative": "You present your pilot data to NHS England's social prescribing team. The evidence is compelling - your green prescribing model shows clinical outcomes comparable to group CBT at a fraction of the cost.\n\nNHS England includes green space activities in their updated social prescribing framework, citing your research. Clinical commissioning groups across the country can now commission green prescribing services using your evidence base.\n\nYour research has gone from a local study to a component of national health policy. The public benefit is measurable: thousands of patients accessing evidence-based green space interventions for anxiety.",
+      "choices": [],
+      "scoreEffect": {
+        "significance": 15,
+        "reach": 10,
+        "evidence": 6
+      },
+      "categories": [
+        "significance",
+        "reach",
+        "evidence"
+      ],
+      "impactTypes": [
+        "health",
+        "policy"
+      ],
+      "phase": "scaling",
+      "isEnding": true,
+      "endingType": "policy"
+    },
+    "green_standard": {
+      "title": "Setting the Standard",
+      "narrative": "Working with the DPH and local authority parks team, you develop a Community Green Space Quality Standard - a set of evidence-based criteria for what makes a green space effective for mental health and social cohesion.\n\nThe standard draws directly on your research: minimum size, community involvement in management, accessibility from deprived areas, and design features that promote social interaction.\n\nNatural England and the National Trust express interest. The standard is piloted in three local authorities and adopted by a national parks charity for their urban green space assessments.\n\nYour research has become the benchmark for what a health-promoting green space looks like.",
+      "choices": [
+        {
+          "text": "Push for the standard to be embedded in planning guidance",
+          "next": "planning_engagement"
+        },
+        {
+          "text": "Document the standard's adoption as your impact case study",
+          "next": "ending_public_benefit"
+        }
+      ],
+      "scoreEffect": {
+        "significance": 10,
+        "stakeholders": 10,
+        "evidence": 6
+      },
+      "categories": [
+        "significance",
+        "stakeholders"
+      ],
+      "impactTypes": [
+        "practice",
+        "societal"
+      ],
+      "phase": "translation"
+    },
+    "housebuilder_engage": {
+      "title": "Designing for Wellbeing",
+      "narrative": "The national housebuilder's sustainability team wants to use your research to inform how they design green spaces in new housing developments. Currently, green space is an afterthought - a patch of grass to meet planning requirements. Your research shows that intentionally designed, community-managed green spaces have dramatically different health outcomes.\n\nYou work with their design team to develop evidence-based green space guidelines for new developments. The guidelines specify community involvement from the design stage, not just a handover of finished spaces.\n\nThe housebuilder adopts the guidelines across their northern region. If it works, they'll roll it out nationally - that's 12,000 new homes a year with evidence-based green spaces.",
+      "choices": [
+        {
+          "text": "Document the adoption and push for industry-wide standards",
+          "next": "ending_public_benefit"
+        },
+        {
+          "text": "Use the housebuilder partnership to engage with planning policy",
+          "next": "planning_engagement"
+        }
+      ],
+      "scoreEffect": {
+        "significance": 10,
+        "reach": 10,
+        "stakeholders": 6
+      },
+      "categories": [
+        "significance",
+        "reach"
+      ],
+      "impactTypes": [
+        "economic",
+        "societal"
+      ],
+      "phase": "adoption"
+    },
+    "landscape_partnership": {
+      "title": "Research Meets Design",
+      "narrative": "The landscape architecture firm is working on three urban regeneration projects. They want your research to inform how green spaces are designed, not as decoration but as health infrastructure.\n\nYou produce a design brief translating your research findings into spatial principles: sight lines that encourage social interaction, planting that reduces stress hormones, walking routes that optimise the dose-response relationship between green space exposure and anxiety reduction.\n\nThe firm wins a major regeneration contract partly on the strength of your evidence-based approach. The completed scheme is featured in architectural press as an example of evidence-informed design.",
+      "choices": [
+        {
+          "text": "Document the design adoption and built environment impact",
+          "next": "ending_public_benefit"
+        },
+        {
+          "text": "Use the partnership to develop a broader evidence-based design toolkit",
+          "next": "green_standard"
+        }
+      ],
+      "scoreEffect": {
+        "significance": 10,
+        "evidence": 6,
+        "stakeholders": 6
+      },
+      "categories": [
+        "significance",
+        "evidence"
+      ],
+      "impactTypes": [
+        "societal",
+        "economic"
+      ],
+      "phase": "translation"
+    },
+    "planning_engagement": {
+      "title": "Shaping the Built Environment",
+      "narrative": "You engage with the council's planning department. Your research provides something they've lacked: evidence that green spaces aren't just amenity but health infrastructure. When a developer applies to build on a community green space, your data quantifies the public health cost.\n\nThe planning department invites you to sit on their green infrastructure advisory panel. Your research is cited in the revised Local Plan as evidence supporting green space protection policies.\n\nA planning inspector references your work when refusing an appeal against a rejected development on green belt land. Your research is now shaping planning decisions that protect green spaces for communities.",
+      "choices": [
+        {
+          "text": "Document the planning influence as your impact case study",
+          "next": "ending_public_benefit"
+        },
+        {
+          "text": "Expand to neighbouring authorities to build regional influence",
+          "next": "forum_expansion"
+        }
+      ],
+      "scoreEffect": {
+        "significance": 15,
+        "stakeholders": 6,
+        "evidence": 6
+      },
+      "categories": [
+        "significance",
+        "stakeholders"
+      ],
+      "impactTypes": [
+        "policy",
+        "societal"
+      ],
+      "phase": "adoption"
+    },
+    "document_wellbeing": {
+      "title": "Capturing the Evidence",
+      "narrative": "You carefully document the wellbeing programme outcomes: patient questionnaires, GP referral data, health worker testimonials, participant stories. The evidence portfolio demonstrates a clear chain from your research to changed practice to improved health outcomes.\n\nThe documentation itself becomes a resource - other community health programmes use your evaluation framework. A public health journal publishes the programme evaluation as a case study of research-informed practice.",
+      "choices": [
+        {
+          "text": "Use this evidence to push for wider adoption through the CCG",
+          "next": "green_prescribing"
+        },
+        {
+          "text": "Write up the full story as your impact case study",
+          "next": "ending_public_benefit"
+        }
+      ],
+      "scoreEffect": {
+        "evidence": 15,
+        "significance": 6
+      },
+      "categories": [
+        "evidence",
+        "significance"
+      ],
+      "impactTypes": [
+        "health",
+        "practice"
+      ],
+      "phase": "evidence"
+    },
+    "forum_expansion": {
+      "title": "A Growing Movement",
+      "narrative": "You support four more neighbourhood forums across the city to engage with your research. Each forum uses your evidence to advocate for local green space protection and investment.\n\nThe combined voice of five neighbourhood forums citing the same research creates political pressure. The council announces a Green Spaces Strategy, informed by your findings. The local paper runs a series on \"the science of our parks.\"\n\nA national community organising charity picks up the model and approaches you about replicating it in other cities.",
+      "choices": [
+        {
+          "text": "Support the national replication and document the scaling story",
+          "next": "ending_public_benefit"
+        },
+        {
+          "text": "Focus on the local council's Green Spaces Strategy as the primary impact",
+          "next": "ending_public_benefit"
+        }
+      ],
+      "scoreEffect": {
+        "reach": 15,
+        "significance": 10,
+        "stakeholders": 6
+      },
+      "categories": [
+        "reach",
+        "significance"
+      ],
+      "impactTypes": [
+        "societal",
+        "policy"
+      ],
+      "phase": "scaling"
+    },
+    "ending_public_benefit": {
+      "title": "Impact Case Study: Public Benefit",
+      "narrative": "Congratulations! You've built an impact case study rooted in genuine public benefit.\n\nYour research on urban green spaces and mental health has moved beyond academia and into people's lives. Whether through community programmes, public health campaigns, housing design, planning policy, or green prescribing, your findings are making a measurable difference to the wellbeing of communities in deprived areas.\n\nThe strength of this case study is its directness: research conducted with communities, translated for communities, and benefiting communities. The evidence chain is clear, the beneficiaries are identifiable, and the outcomes are measurable.\n\nThis is what public benefit impact looks like - research that improves people's lives.",
+      "choices": [],
+      "scoreEffect": {
+        "significance": 10,
+        "reach": 6,
+        "stakeholders": 6
+      },
+      "categories": [
+        "significance",
+        "reach",
+        "stakeholders"
+      ],
+      "impactTypes": [
+        "societal",
+        "health"
+      ],
+      "phase": "scaling",
+      "isEnding": true,
+      "endingType": "practitioner"
     }
   },
   "ieoAdvice": {
     "greetings": {
-      "start": "Good to see you before you dive in. This is exactly what the I&E team is here for, helping you think strategically before you start making moves.",
-      "early": "You're just getting started and that's a great time to check in. The decisions you make early on shape everything that follows.",
+      "start": "Good to see you before you dive in. This is exactly what the I&E team is here for  -  helping you think strategically before you start making moves.",
+      "early": "You're just getting started  -  that's a great time to check in. The decisions you make early on shape everything that follows.",
       "mid": "You're building momentum. Let's make sure you're heading in the right direction and not missing any opportunities.",
       "late": "You've made quite a few decisions now. Let's take stock of where you are and what the strongest next move might be."
     },
     "phaseAdvice": {
-      "planning": "You're still in the planning phase. That's fine, rushing into engagement without a strategy is one of the most common mistakes researchers make. Take your time mapping stakeholders and pathways. A good Theory of Change now saves months of wasted effort later.",
+      "planning": "You're still in the planning phase. That's fine  -  rushing into engagement without a strategy is one of the most common mistakes researchers make. Take your time mapping stakeholders and pathways. A good Theory of Change now saves months of wasted effort later.",
       "evidence": "You're focused on building evidence. Strong evidence is the foundation of everything, but don't forget that the best evidence in the world doesn't create impact on its own. You need people who'll champion it, use it, and act on it. Think about who those people are while you're building the case.",
       "engagement": "You're in active engagement with stakeholders. This is where relationships are built. Remember: listen at least as much as you present. Understanding their priorities is as important as sharing your findings. The best impact stories come from genuine two-way relationships, not one-way presentations.",
-      "translation": "You're translating research into practical outputs, frameworks, toolkits, guidelines. These are what practitioners actually use day-to-day. Make sure they're co-designed with the people who'll use them, not just handed down from the university. Co-production isn't just good practice, it's better impact.",
-      "adoption": "Your work is being adopted by others. This is exciting but fragile, early adoption needs nurturing. Stay close to the people implementing your work, learn from their experience, and be ready to iterate. The first version is rarely the final one.",
-      "scaling": "You're at the scaling stage, this is where individual impact becomes systemic change. Think about sustainability: what happens when you're not personally driving this? Networks, standards, and institutional embedding are what make impact last beyond a single project."
+      "translation": "You're translating research into practical outputs  -  frameworks, toolkits, guidelines. These are what practitioners actually use day-to-day. Make sure they're co-designed with the people who'll use them, not just handed down from the university. Co-production isn't just good practice, it's better impact.",
+      "adoption": "Your work is being adopted by others. This is exciting but fragile  -  early adoption needs nurturing. Stay close to the people implementing your work, learn from their experience, and be ready to iterate. The first version is rarely the final one.",
+      "scaling": "You're at the scaling stage  -  this is where individual impact becomes systemic change. Think about sustainability: what happens when you're not personally driving this? Networks, standards, and institutional embedding are what make impact last beyond a single project."
     },
     "categoryTips": {
       "strategy": "Think about your Theory of Change. Can you draw a clear line from your research to the change you want to see in the world? If you can't explain it in two sentences, it's not sharp enough yet. That's what we can help with.",
-      "stakeholders": "Who are the people with the power to make change happen? Not just who's interested in your research, who can actually act on it? Policymakers, practitioners, commissioners, professional bodies. Map them, understand their priorities, and build relationships before you need them.",
-      "significance": "For REF, significance means the degree of change your research has brought about. A small change affecting many people, or a large change affecting fewer people, are both valid, but you need to be clear which you're aiming for and have evidence to demonstrate it.",
-      "reach": "Reach isn't just about numbers. It's about how far beyond academia your work extends. Media coverage, policy citations, practice adoption, public awareness, each extends your reach in different ways. Think about which channels matter most for your particular research.",
-      "evidence": "Impact evidence needs to be more than 'people liked our workshop.' Think about what actually changed as a result of engaging with your research. Behaviour change, policy change, practice change, new products or services, that's what REF panels are looking for. Start collecting evidence now, not retrospectively."
+      "stakeholders": "Who are the people with the power to make change happen? Not just who's interested in your research  -  who can actually act on it? Policymakers, practitioners, commissioners, professional bodies. Map them, understand their priorities, and build relationships before you need them.",
+      "significance": "For REF, significance means the degree of change your research has brought about. A small change affecting many people, or a large change affecting fewer people, are both valid  -  but you need to be clear which you're aiming for and have evidence to demonstrate it.",
+      "reach": "Reach isn't just about numbers  -  it's about how far beyond academia your work extends. Media coverage, policy citations, practice adoption, public awareness  -  each extends your reach in different ways. Think about which channels matter most for your particular research.",
+      "evidence": "Impact evidence needs to be more than 'people liked our workshop.' Think about what actually changed as a result of engaging with your research. Behaviour change, policy change, practice change, new products or services  -  that's what REF panels are looking for. Start collecting evidence now, not retrospectively."
     },
     "scoreNudges": {
-      "zeroGap": "I notice your {weak} score is still at zero while {strong} is looking healthy. A balanced impact case study needs breadth across multiple dimensions. Think about whether your next move could start addressing that gap.",
+      "zeroGap": "I notice your {weak} score is still at zero while {strong} is looking healthy. A balanced impact case study needs breadth across multiple dimensions  -  think about whether your next move could start addressing that gap.",
       "lowGap": "Your {strong} is your real strength so far, but {weak} could use some attention. REF panels look for impact that demonstrates both depth and breadth. Is there a choice here that could build that weaker dimension?",
-      "balanced": "Your scores are nicely balanced across the dimensions. That's a good sign. It means you're building a well-rounded impact case study. Keep it up."
+      "balanced": "Your scores are nicely balanced across the dimensions  -  that's a good sign. It means you're building a well-rounded impact case study. Keep it up."
     },
     "closingLines": [
       "Remember, you don't have to figure this out alone. That's what the I&E team is here for.",
       "We're always here when you need to think something through. Don't wait until you're stuck.",
-      "Come back any time, even if it's just to think out loud. That's half of what these conversations are for.",
+      "Come back any time  -  even if it's just to think out loud. That's half of what these conversations are for.",
       "The best researchers I work with check in regularly, not just when they hit a wall. Keep it up.",
       "Impact isn't a solo sport. The more you bring us in, the stronger the case study will be."
     ]
