@@ -34,5 +34,23 @@
     "storyTitle": "From Clinic to Cosmos",
     "steps": 7,
     "date": "2026-06-12T11:14:23.192Z"
+  },
+  {
+    "name": "Paul",
+    "dept": "RIS",
+    "score": 136,
+    "scores": {
+      "strategy": 45,
+      "stakeholders": 38,
+      "evidence": 11,
+      "significance": 22,
+      "reach": 20
+    },
+    "ending": "Impact Case Study: The Definition",
+    "endingType": "policy",
+    "storyId": "animal_hoarding",
+    "storyTitle": "The Hoarding Gap",
+    "steps": 7,
+    "date": "2026-06-12T11:15:27.521Z"
   }
 ]
