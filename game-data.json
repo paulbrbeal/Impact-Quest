@@ -2078,7 +2078,7 @@
     },
     "bfr_more_evidence": {
       "title": "Building the Evidence Mountain",
-      "narrative": "You commit to strengthening the evidence base. Over two years, you run three additional clinical trials: one with post-operative knee patients, one with immobilised elderly patients, and one with healthy participants in simulated bed rest (which mimics some effects of spaceflight).\n\nThe bed rest study is particularly significant  -  six weeks of bed rest with BFR exercise shows significantly less muscle atrophy and bone mineral loss compared to the control group.\n\nYour evidence is gold-standard. But you need to move faster on translation.",
+      "narrative": "You commit to strengthening the evidence base. Over two years, you run three additional clinical trials: one with post-operative knee patients, one with immobilised elderly patients, and one with healthy participants in simulated bed rest (which mimics some effects of spaceflight).\n\nThe bed rest study is particularly significant. Six weeks of bed rest with BFR exercise shows significantly less muscle atrophy and bone mineral loss compared to the control group.\n\nYour evidence is gold-standard. But you need to move faster on translation.",
       "choices": [
         {
           "text": "Find a device partner and fast-track hardware development",
@@ -2089,7 +2089,7 @@
           "next": "bfr_uksa_approach"
         },
         {
-          "text": "Run a bed rest study - the closest analogue to spaceflight",
+          "text": "Run a bed rest study. The closest analogue to spaceflight",
           "next": "bfr_bed_rest_study"
         }
       ],
@@ -2111,7 +2111,7 @@
     },
     "bfr_mod": {
       "title": "Military Precision",
-      "narrative": "You engage with the Ministry of Defence through Northumbria's defence research connections. Their challenge is compelling: soldiers sustain musculoskeletal injuries in environments where full rehabilitation equipment isn't available  -  forward operating bases, ships, remote training facilities.\n\nThe MOD funds a feasibility study. You test BFR protocols with injured service personnel at a military rehabilitation centre.\n\nThe MOD is impressed. They want to expand the programme. And the dual-use nature of the technology  -  military and space  -  makes it attractive to multiple funders.",
+      "narrative": "You engage with the Ministry of Defence through Northumbria's defence research connections. Their challenge is compelling: soldiers sustain musculoskeletal injuries in environments where full rehabilitation equipment isn't available, forward operating bases, ships, remote training facilities.\n\nThe MOD funds a feasibility study. You test BFR protocols with injured service personnel at a military rehabilitation centre.\n\nThe MOD is impressed. They want to expand the programme. And the dual-use nature of the technology (military and space) makes it attractive to multiple funders.",
       "choices": [
         {
           "text": "Use the MOD results to strengthen your UKSA proposal",
@@ -2126,7 +2126,7 @@
           "next": "bfr_device_partner"
         },
         {
-          "text": "Deepen the military integration  -  get BFR into the Defence Medical Rehabilitation Centre",
+          "text": "Deepen the military integration. Get BFR into the Defence Medical Rehabilitation Centre",
           "next": "bfr_mod_deep"
         }
       ],
