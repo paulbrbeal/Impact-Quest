@@ -3218,7 +3218,8 @@
         "economic",
         "technological"
       ],
-      "phase": "translation"
+      "phase": "translation",
+      "image": "https://paulbrbeal.github.io/Impact-Quest/images/orbit.jpg"
     },
     "bfr_ending_iss": {
       "title": "Impact Case Study: The ISS Study",
