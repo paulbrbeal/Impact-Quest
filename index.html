@@ -209,6 +209,81 @@ var IQAudio={
       osc.connect(filt); filt.connect(g); g.connect(master);
       osc.start(now); osc.stop(now+1.9);
     });
+  },
+  // --- Adaptive ambient background music ---
+  music:{
+    nodes:[],        // active oscillator voices
+    masterGain:null, // overall music volume
+    currentPhase:null,
+    running:false
+  },
+  // Chord/scale definitions per phase - evolves from sparse/contemplative to warm/full
+  phaseChords:{
+    planning:    {root:130.81, intervals:[1, 1.5],            bright:600,  vol:0.05, wave:"sine"},     // C2, sparse fifth - contemplative
+    evidence:    {root:146.83, intervals:[1, 1.5, 2],         bright:800,  vol:0.055, wave:"sine"},    // D2, adds octave
+    engagement:  {root:164.81, intervals:[1, 1.25, 1.5],      bright:1000, vol:0.06, wave:"triangle"}, // E2, major third - warmer
+    translation: {root:174.61, intervals:[1, 1.25, 1.5, 2],   bright:1200, vol:0.065, wave:"triangle"},// F2, fuller major chord
+    adoption:    {root:196.00, intervals:[1, 1.25, 1.5, 1.875],bright:1500,vol:0.07, wave:"triangle"}, // G2, major + major seventh - hopeful
+    scaling:     {root:196.00, intervals:[1, 1.25, 1.5, 2, 2.5],bright:1800,vol:0.075,wave:"triangle"} // G2, full + bright - triumphant build
+  },
+  startMusic:function(phase){
+    if(!this.enabled)return; this.init(); if(!this.ctx)return; this.resume();
+    var ctx=this.ctx;
+    if(!this.music.masterGain){
+      this.music.masterGain=ctx.createGain();
+      this.music.masterGain.gain.value=0; // fade in
+      this.music.masterGain.connect(ctx.destination);
+    }
+    this.music.running=true;
+    // Fade master up gently
+    var now=ctx.currentTime;
+    this.music.masterGain.gain.cancelScheduledValues(now);
+    this.music.masterGain.gain.setValueAtTime(this.music.masterGain.gain.value,now);
+    this.music.masterGain.gain.linearRampToValueAtTime(1,now+3);
+    this.setPhase(phase||"planning");
+  },
+  setPhase:function(phase){
+    if(!this.music.running||!this.ctx)return;
+    if(this.music.currentPhase===phase)return;
+    var def=this.phaseChords[phase]; if(!def)return;
+    this.music.currentPhase=phase;
+    var ctx=this.ctx, now=ctx.currentTime;
+    var self=this;
+    // Fade out and stop existing voices over 2.5s
+    this.music.nodes.forEach(function(v){
+      try{
+        v.gain.gain.cancelScheduledValues(now);
+        v.gain.gain.setValueAtTime(v.gain.gain.value,now);
+        v.gain.gain.linearRampToValueAtTime(0.0001,now+2.5);
+        v.osc.stop(now+2.8);
+      }catch(e){}
+    });
+    this.music.nodes=[];
+    // Build new pad voices for this phase, crossfading in over 3s
+    def.intervals.forEach(function(mult,i){
+      var osc=ctx.createOscillator(), g=ctx.createGain(), filt=ctx.createBiquadFilter();
+      osc.type=def.wave; osc.frequency.value=def.root*mult;
+      // Slow detune drift via LFO for a living, breathing pad
+      var lfo=ctx.createOscillator(), lfoGain=ctx.createGain();
+      lfo.frequency.value=0.07+i*0.02; lfoGain.gain.value=1.5;
+      lfo.connect(lfoGain); lfoGain.connect(osc.frequency);
+      filt.type="lowpass"; filt.frequency.value=def.bright;
+      var voiceVol=def.vol/def.intervals.length*1.6;
+      g.gain.setValueAtTime(0.0001,now);
+      g.gain.linearRampToValueAtTime(voiceVol,now+3);
+      osc.connect(filt); filt.connect(g); g.connect(self.music.masterGain);
+      osc.start(now); lfo.start(now);
+      self.music.nodes.push({osc:osc, gain:g, lfo:lfo});
+    });
+  },
+  stopMusic:function(){
+    if(!this.ctx||!this.music.masterGain)return;
+    var ctx=this.ctx, now=ctx.currentTime, self=this;
+    this.music.masterGain.gain.cancelScheduledValues(now);
+    this.music.masterGain.gain.setValueAtTime(this.music.masterGain.gain.value,now);
+    this.music.masterGain.gain.linearRampToValueAtTime(0.0001,now+2);
+    this.music.nodes.forEach(function(v){ try{ v.osc.stop(now+2.2); v.lfo.stop(now+2.2); }catch(e){} });
+    setTimeout(function(){ self.music.nodes=[]; self.music.running=false; self.music.currentPhase=null; },2300);
   }
 };
 try{ var _savedSound=localStorage.getItem("iq_sound"); if(_savedSound!==null) IQAudio.enabled=(_savedSound==="on"); }catch(e){}
@@ -499,11 +574,20 @@ function App(props){
   useEffect(function(){
     if(isEnding&&!hasSubmitted.current&&showChoices){
       hasSubmitted.current=true;setSubmitted(true);
+      IQAudio.stopMusic();
       IQAudio.fanfare(node.endingType||"unknown");
       var totalScore=Object.values(scores).reduce(function(a,b){return a+b;},0);
       saveScore({name:player.name,dept:player.dept,score:totalScore,scores:Object.assign({},scores),ending:node.title,endingType:node.endingType||"unknown",storyId:storyId,storyTitle:story?story.title:"Unknown",steps:history.length,date:new Date().toISOString()});
     }
   },[isEnding,showChoices]);
+
+  // Drive ambient music from the current scene's phase
+  useEffect(function(){
+    if(phase==="playing"&&node&&!isEnding&&IQAudio.enabled){
+      if(!IQAudio.music.running){ IQAudio.startMusic(node.phase||"planning"); }
+      else { IQAudio.setPhase(node.phase||"planning"); }
+    }
+  },[currentNode,phase]);
 
   // Backwards compat: if no stories, go straight to register with all scenes as one story
   if(!hasStories&&phase==="select"){
@@ -539,7 +623,7 @@ function App(props){
     setCurrentNode(choice.next);setCardKey(function(k){return k+1;});window.scrollTo({top:0,behavior:"smooth"});
   };
   var restart=function(){hasSubmitted.current=false;var startScene=story?story.startScene:"start";setCurrentNode(startScene);setScores({strategy:0,stakeholders:0,significance:0,reach:0,evidence:0});setHistory([]);setShowChoices(true);setSubmitted(false);setIeoBonusClaimed(false);setCardKey(function(k){return k+1;});window.scrollTo({top:0,behavior:"smooth"});};
-  var restartFull=function(){hasSubmitted.current=false;setPhase(hasStories&&Object.keys(stories).length>1?"select":"register");setStoryId(hasStories&&Object.keys(stories).length===1?Object.keys(stories)[0]:"");setCurrentNode("");setScores({strategy:0,stakeholders:0,significance:0,reach:0,evidence:0});setHistory([]);setShowChoices(true);setSubmitted(false);setIeoBonusClaimed(false);setCardKey(function(k){return k+1;});window.scrollTo({top:0,behavior:"smooth"});};
+  var restartFull=function(){hasSubmitted.current=false;IQAudio.stopMusic();setPhase(hasStories&&Object.keys(stories).length>1?"select":"register");setStoryId(hasStories&&Object.keys(stories).length===1?Object.keys(stories)[0]:"");setCurrentNode("");setScores({strategy:0,stakeholders:0,significance:0,reach:0,evidence:0});setHistory([]);setShowChoices(true);setSubmitted(false);setIeoBonusClaimed(false);setCardKey(function(k){return k+1;});window.scrollTo({top:0,behavior:"smooth"});};
 
   return e("div",{className:"container"},
     e("div",{className:"header"},
@@ -552,8 +636,9 @@ function App(props){
       e("button",{className:"restart-small-btn",style:{marginLeft:8},onClick:function(){
         var v=!soundOn; setSoundOn(v); IQAudio.enabled=v;
         try{localStorage.setItem("iq_sound",v?"on":"off");}catch(e){}
-        if(v){IQAudio.click();}
-      },title:"Toggle sound effects"}, soundOn?"\ud83d\udd0a Sound on":"\ud83d\udd07 Sound off")
+        if(v){IQAudio.click(); if(node&&!isEnding){IQAudio.startMusic(node.phase||"planning");}}
+        else{IQAudio.stopMusic();}
+      },title:"Toggle sound & music"}, soundOn?"\ud83d\udd0a Sound on":"\ud83d\udd07 Sound off")
     ),
     currentNode!==(story?story.startScene:"start")?e("div",{className:"dashboard"},
       e("div",{className:"dashboard-header"},e("span",{className:"dashboard-title"},"Impact Dashboard"),e("span",{className:"dashboard-total"},"Total: "+totalScore)),
