@@ -3000,7 +3000,8 @@
         "educational",
         "technological"
       ],
-      "phase": "translation"
+      "phase": "translation",
+      "image": "https://paulbrbeal.github.io/Impact-Quest/images/iss.jpg"
     },
     "bfr_enterprise_partnership": {
       "title": "University Enterprise",
