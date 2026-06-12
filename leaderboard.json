@@ -16,5 +16,23 @@
     "storyTitle": "From Clinic to Cosmos",
     "steps": 5,
     "date": "2026-06-12T11:09:50.702Z"
+  },
+  {
+    "name": "Paul",
+    "dept": "RIS",
+    "score": 117,
+    "scores": {
+      "strategy": 27,
+      "stakeholders": 30,
+      "significance": 19,
+      "reach": 36,
+      "evidence": 5
+    },
+    "ending": "Impact Case Study: Beyond Low Earth Orbit",
+    "endingType": "practitioner",
+    "storyId": "bfr",
+    "storyTitle": "From Clinic to Cosmos",
+    "steps": 7,
+    "date": "2026-06-12T11:14:23.192Z"
   }
 ]
