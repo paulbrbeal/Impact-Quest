@@ -2525,7 +2525,7 @@
       ],
       "phase": "planning",
       "image": "images/bfr2.jpg",
-      "imageSize": "small"
+      "imageSize": "banner"
     },
     "bfr_direct_esa": {
       "title": "Shooting for the Stars",
@@ -2557,7 +2557,8 @@
         "health",
         "technological"
       ],
-      "phase": "translation"
+      "phase": "translation",
+      "image": "https://paulbrbeal.github.io/Impact-Quest/images/bfr3.jpg"
     },
     "bfr_more_evidence": {
       "title": "Building the Evidence Mountain",
