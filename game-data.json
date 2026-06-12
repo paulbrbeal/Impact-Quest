@@ -3294,7 +3294,8 @@
         "health",
         "educational"
       ],
-      "phase": "evidence"
+      "phase": "evidence",
+      "image": "images/all-sports.jpg"
     },
     "bfr_bed_rest_study": {
       "title": "The Bed Rest Study",
@@ -3325,7 +3326,8 @@
         "health",
         "technological"
       ],
-      "phase": "translation"
+      "phase": "translation",
+      "image": "https://paulbrbeal.github.io/Impact-Quest/images/bed-rest-study.jpg"
     },
     "bfr_conference_circuit": {
       "title": "The Conference Circuit",
