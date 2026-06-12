@@ -205,23 +205,26 @@ function doExportCSV(){
   });
 }
 function doClearBoard(){
-  if(!confirm("Clear all leaderboard data? This will clear local scores and (if a GitHub token is set) the remote leaderboard too."))return;
-  // Mark all currently visible entries as hidden (so remote entries that can't be deleted are suppressed)
+  if(!confirm("Clear all leaderboard data? If a GitHub token is set, this permanently empties the shared leaderboard. Otherwise it only hides entries in this browser."))return;
   loadEntries(function(entries){
     var hidden=[];
     entries.forEach(function(e){hidden.push(e.name+"|"+(e.date||"")+"|"+(e.score||0));});
     localStorage.setItem("iq_lb_hidden",JSON.stringify(hidden));
     localStorage.removeItem("iq_leaderboard");
-    // Also clear remote leaderboard.json if token available
     var token=(localStorage.getItem("iq_gh_token")||"").replace(/[^\x20-\x7E]/g,"").trim();
     if(token){
       var apiUrl="https://api.github.com/repos/"+LB_REPO+"/contents/leaderboard.json";
       fetch(apiUrl,{headers:{"Authorization":"Bearer "+token}}).then(function(r){return r.ok?r.json():null;}).then(function(existing){
-        if(!existing||!existing.sha)return;
+        if(!existing||!existing.sha){alert("Local scores hidden. (No shared leaderboard file found to clear remotely.)");render();return;}
         var b64=btoa("[]");
-        return fetch(apiUrl,{method:"PUT",headers:{"Authorization":"Bearer "+token,"Content-Type":"application/json"},body:JSON.stringify({message:"Clear leaderboard",content:b64,sha:existing.sha})});
-      }).then(function(){render();}).catch(function(){render();});
+        return fetch(apiUrl,{method:"PUT",headers:{"Authorization":"Bearer "+token,"Content-Type":"application/json"},body:JSON.stringify({message:"Clear leaderboard",content:b64,sha:existing.sha})}).then(function(resp){
+          if(resp&&resp.ok){alert("Shared leaderboard cleared for everyone.");}
+          else{alert("Local scores hidden, but the shared leaderboard could not be cleared (token may lack repo access).");}
+          render();
+        });
+      }).catch(function(){alert("Local scores hidden, but the shared leaderboard could not be reached.");render();});
     } else {
+      alert("Scores hidden in this browser only. To clear the shared leaderboard for everyone, set a GitHub token in the editor's Settings first.");
       render();
     }
   });
