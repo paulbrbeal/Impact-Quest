@@ -34,5 +34,23 @@
     "storyTitle": "From Clinic to Cosmos",
     "steps": 6,
     "date": "2026-06-12T09:37:21.808Z"
+  },
+  {
+    "name": "asdcds",
+    "dept": "adscdas",
+    "score": 133,
+    "scores": {
+      "strategy": 32,
+      "stakeholders": 33,
+      "evidence": 17,
+      "significance": 22,
+      "reach": 29
+    },
+    "ending": "Impact Case Study: Beyond Low Earth Orbit",
+    "endingType": "practitioner",
+    "storyId": "bfr",
+    "storyTitle": "From Clinic to Cosmos",
+    "steps": 6,
+    "date": "2026-06-12T09:37:33.439Z"
   }
 ]
