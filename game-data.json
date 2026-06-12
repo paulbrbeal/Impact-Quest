@@ -70,8 +70,9 @@
         }
       ],
       "scoreEffect": {
-        "strategy": 10,
-        "evidence": 6
+        "strategy": 14,
+        "evidence": 6,
+        "stakeholders": 5
       },
       "categories": [
         "strategy",
@@ -103,7 +104,8 @@
       ],
       "scoreEffect": {
         "reach": 10,
-        "significance": -6
+        "significance": -6,
+        "strategy": -3
       },
       "categories": [
         "strategy",
@@ -133,7 +135,7 @@
         }
       ],
       "scoreEffect": {
-        "strategy": -6,
+        "strategy": -8,
         "stakeholders": -6
       },
       "categories": [
@@ -1261,21 +1263,22 @@
       "narrative": "You sit down with the Impact Officer. Together, you map the stakeholder landscape on a whiteboard. It's more complex than you expected.\n\nAnimal hoarding sits at the intersection of multiple domains: animal welfare (RSPCA, local authority animal wardens), public health (environmental health officers, Directors of Public Health), mental health (NHS services, hoarding support groups), housing (local authority housing teams), and policy (Defra, the APPG on Animal Welfare  -  APGAW).\n\n\"You can't do everything at once,\" the Impact Officer says. \"Where do you want to start?\"",
       "choices": [
         {
-          "text": "Build relationships with the APPG  -  they have the power to recommend legislative change",
+          "text": "Build APPG relationships - they have legislative influence",
           "next": "ah_appg_relationship"
         },
         {
-          "text": "Engage practitioners first  -  the environmental health officers and RSPCA inspectors on the frontline",
-          "next": "ah_practitioners"
+          "text": "Engage practitioners and the RSPCA who deal with cases firsthand",
+          "next": "ah_rspca_partner"
         },
         {
-          "text": "Convene a multi-agency working group through the UK Hoarding Partnership",
-          "next": "ah_working_group"
+          "text": "Raise public awareness through a coordinated media strategy",
+          "next": "ah_media_first"
         }
       ],
       "scoreEffect": {
-        "strategy": 7,
-        "evidence": 3
+        "strategy": 13,
+        "evidence": 5,
+        "stakeholders": 6
       },
       "categories": [
         "strategy",
@@ -1308,7 +1311,9 @@
         }
       ],
       "scoreEffect": {
-        "reach": 3
+        "reach": 3,
+        "strategy": -5,
+        "stakeholders": -3
       },
       "categories": [
         "stakeholders",
@@ -1327,20 +1332,17 @@
       "narrative": "You decide the evidence base needs strengthening before engaging with policy. Over the next eighteen months, your team publishes two more papers. The first is a qualitative study of RSPCA inspectors' experiences attending animal hoarding cases  -  their frustrations, the emotional toll, and the systemic gaps they face. The second explores barriers to help-seeking among people who hoard animals, drawing on interviews with mental health professionals.\n\nLesson learned: evidence is necessary but not sufficient. Timing and engagement matter just as much.",
       "choices": [
         {
-          "text": "Use the new publications to approach the APPG about the next inquiry cycle",
-          "next": "ah_strategy"
+          "text": "Use the new publications to approach the APPG",
+          "next": "ah_appg_relationship"
         },
         {
-          "text": "Build a practitioner network so you're positioned when the next window opens",
+          "text": "Build a practitioner network for the next opportunity",
           "next": "ah_practitioners"
-        },
-        {
-          "text": "Try a media strategy to raise public awareness of the issue",
-          "next": "ah_media_first"
         }
       ],
       "scoreEffect": {
-        "evidence": 10
+        "evidence": 9,
+        "strategy": -5
       },
       "categories": [
         "strategy",
@@ -1372,7 +1374,7 @@
         }
       ],
       "scoreEffect": {
-        "reach": 10,
+        "reach": 9,
         "significance": 3
       },
       "categories": [
@@ -1434,7 +1436,7 @@
         }
       ],
       "scoreEffect": {
-        "stakeholders": 10,
+        "stakeholders": 9,
         "significance": 3
       },
       "categories": [
@@ -1444,35 +1446,6 @@
         "policy",
         "practice",
         "health"
-      ],
-      "phase": "engagement"
-    },
-    "ah_working_group": {
-      "title": "Herding Cats (Metaphorically)",
-      "narrative": "Through the UK Hoarding Partnership, you try to convene a multi-agency working group on animal hoarding. The principle is sound  -  you need everyone around the same table.\n\nBut the reality is messy. It takes three months to find a date that works for even half the invitees.\n\nYou realise you tried to build the coalition before establishing a clear, shared purpose. People will turn up for a conversation that has a clear proposition and a realistic goal  -  not for an open-ended talking shop.",
-      "choices": [
-        {
-          "text": "Scale back  -  build bilateral relationships with two or three key stakeholders first",
-          "next": "ah_practitioners"
-        },
-        {
-          "text": "Produce a clear position paper that gives the group a concrete purpose and goal",
-          "next": "ah_position_paper"
-        },
-        {
-          "text": "Focus on the APPG route instead  -  parliament can mandate the coordination you need",
-          "next": "ah_appg_relationship"
-        }
-      ],
-      "scoreEffect": {
-        "stakeholders": 3
-      },
-      "categories": [
-        "stakeholders"
-      ],
-      "impactTypes": [
-        "health",
-        "societal"
       ],
       "phase": "engagement"
     },
@@ -1526,7 +1499,7 @@
         }
       ],
       "scoreEffect": {
-        "stakeholders": 10,
+        "stakeholders": 9,
         "reach": 3,
         "strategy": 3
       },
@@ -1554,7 +1527,7 @@
         }
       ],
       "scoreEffect": {
-        "reach": 10,
+        "reach": 9,
         "significance": 7
       },
       "categories": [
@@ -1611,7 +1584,7 @@
         }
       ],
       "scoreEffect": {
-        "significance": 10,
+        "significance": 9,
         "stakeholders": 3,
         "reach": 7
       },
@@ -1642,7 +1615,7 @@
         }
       ],
       "scoreEffect": {
-        "stakeholders": 10,
+        "stakeholders": 9,
         "significance": 7,
         "reach": 7,
         "evidence": 3
@@ -1657,36 +1630,6 @@
         "educational"
       ],
       "phase": "engagement"
-    },
-    "ah_position_paper": {
-      "title": "Giving the Group a Purpose",
-      "narrative": "Before trying to reconvene the multi-agency group, you produce a clear position paper through the UK Hoarding Partnership. It's titled: \"Animal Hoarding in England: The Case for a Coordinated Response.\"\n\nThe paper sets out three concrete goals the group would work toward:\n1. An agreed working definition of animal hoarding for UK use\n2. A multi-agency referral and response protocol\n3.\n\nThe position paper also attracts attention beyond the group. A local authority Director of Public Health shares it with colleagues across the region.",
-      "choices": [
-        {
-          "text": "Submit the position paper to the APPG",
-          "next": "ah_appg_relationship"
-        },
-        {
-          "text": "Use it to develop the multi-agency framework",
-          "next": "ah_ending_framework"
-        }
-      ],
-      "scoreEffect": {
-        "strategy": 7,
-        "stakeholders": 7,
-        "evidence": 3
-      },
-      "categories": [
-        "strategy",
-        "stakeholders",
-        "evidence"
-      ],
-      "impactTypes": [
-        "practice",
-        "health",
-        "educational"
-      ],
-      "phase": "translation"
     },
     "ah_joint_report": {
       "title": "A Unified Voice",
@@ -1806,7 +1749,7 @@
         }
       ],
       "scoreEffect": {
-        "evidence": 10,
+        "evidence": 9,
         "significance": 7,
         "stakeholders": 3
       },
@@ -1839,7 +1782,7 @@
         }
       ],
       "scoreEffect": {
-        "significance": 10,
+        "significance": 9,
         "reach": 7,
         "stakeholders": 7
       },
@@ -1874,7 +1817,7 @@
         }
       ],
       "scoreEffect": {
-        "significance": 10,
+        "significance": 9,
         "reach": 7,
         "strategy": 3
       },
@@ -1908,7 +1851,7 @@
         }
       ],
       "scoreEffect": {
-        "significance": 10,
+        "significance": 9,
         "stakeholders": 7,
         "strategy": 7
       },
@@ -1939,7 +1882,7 @@
         }
       ],
       "scoreEffect": {
-        "evidence": 10,
+        "evidence": 9,
         "reach": 7,
         "significance": 7
       },
@@ -1961,8 +1904,8 @@
       "narrative": "Your sustained engagement with parliament, Defra, and practitioners has paid off. Working with the APPG, you draft a formal recommendation for a UK legal definition of animal hoarding. The definition draws directly from your research: a pattern of accumulating animals beyond the capacity to provide minimum standards of care, characterised by denial of the inability to provide care, and associated with significant risks to human health, animal welfare, and public safety.\n\nCongratulations! You've achieved policy-level impact.",
       "choices": [],
       "scoreEffect": {
-        "strategy": 12,
-        "significance": 16,
+        "strategy": 11,
+        "significance": 15,
         "reach": 7
       },
       "isEnding": true,
@@ -1986,9 +1929,9 @@
       "narrative": "Your multi-agency framework has been adopted by local authorities across the country. Through the Chartered Institute of Environmental Health, the UK Hoarding Partnership, and your practitioner networks, the framework has become the standard approach to animal hoarding cases.\n\n34 local authorities have formally embedded it in their protocols.\n\nCongratulations! You've built a practice-based impact case study. The law hasn't changed yet  -  but practice has. And in the messy, multi-agency world of animal hoarding, that's where lives are changed: on the doorstep, in the referral, in the conversation between an environmental health officer and a mental health nurse that never used to happen.",
       "choices": [],
       "scoreEffect": {
-        "stakeholders": 14,
-        "significance": 12,
-        "reach": 14
+        "stakeholders": 13,
+        "significance": 11,
+        "reach": 13
       },
       "isEnding": true,
       "endingType": "practitioner",
@@ -2008,7 +1951,7 @@
       "narrative": "Your work has seeded change across multiple fronts. The APPG report recommends a definition. Defra is reviewing the framework. Forty-three MPs signed an Early Day Motion citing your research. Local authorities are piloting your multi-agency approach. The RSPCA, CIEH, and Hoarding UK are all using your evidence.\n\nNo single moment captures the impact  -  it's the accumulation of evidence, relationships, and engagement over years.\n\nCongratulations! You've played the long game  -  building impact across policy, practice, and public awareness simultaneously. This is the virtuous cycle of research impact: evidence drives engagement, engagement drives change, and change drives the demand for more evidence.",
       "choices": [],
       "scoreEffect": {
-        "strategy": 15,
+        "strategy": 14,
         "significance": 6,
         "reach": 6,
         "stakeholders": 5
@@ -2080,8 +2023,9 @@
         }
       ],
       "scoreEffect": {
-        "strategy": 5,
-        "evidence": 3
+        "strategy": 14,
+        "evidence": 5,
+        "stakeholders": 6
       },
       "categories": [
         "strategy",
@@ -2116,7 +2060,8 @@
       ],
       "scoreEffect": {
         "reach": 3,
-        "evidence": 3
+        "evidence": 2,
+        "strategy": -5
       },
       "categories": [
         "stakeholders",
@@ -2140,20 +2085,17 @@
           "next": "bfr_device_partner"
         },
         {
-          "text": "Approach the UK Space Agency with your strengthened evidence  -  they fund UK space capability",
+          "text": "Approach the UK Space Agency with your strengthened evidence",
           "next": "bfr_uksa_approach"
         },
         {
-          "text": "Develop a multi-sector strategy to deploy the evidence across sport, military, and space simultaneously",
-          "next": "bfr_strategy"
-        },
-        {
-          "text": "Run a bed rest study  -  the closest analogue to spaceflight deconditioning",
+          "text": "Run a bed rest study - the closest analogue to spaceflight",
           "next": "bfr_bed_rest_study"
         }
       ],
       "scoreEffect": {
-        "evidence": 8
+        "evidence": 10,
+        "strategy": -5
       },
       "categories": [
         "strategy",
@@ -3131,15 +3073,19 @@
       "narrative": "You're a teacher educator at Northumbria University. Before joining academia, you spent over thirteen years as a classroom teacher and senior leader in primary schools in the North East. You know the reality of the job  -  not from textbooks, but from staffrooms, parents' evenings, and Ofsted inspections.\n\nAnd the reality is this: one-third of teachers in England leave the profession within five years of qualifying. International data shows similar attrition rates across Europe  -  some sources suggest 28%. The reasons are well-documented: workload, behaviour management challenges, and a persistent feeling of being unprepared for what practitioners call \"the bits of the job beyond teaching.\"\n\nThe teaching profession is in crisis. Your research could help. But where do you begin?",
       "choices": [
         {
-          "text": "Start small  -  design a pilot simulation and test it with your own students",
+          "text": "Meet with your Impact & Engagement Officer to develop a strategy",
+          "next": "sbl_strategy"
+        },
+        {
+          "text": "Start small - design a pilot simulation and test it with your own students",
           "next": "sbl_pilot"
         },
         {
-          "text": "Research what other professions do first  -  learn from medical simulation",
+          "text": "Research what other professions do first - learn from medical simulation",
           "next": "sbl_cross_sector"
         },
         {
-          "text": "Go big  -  write a funding bid for a national simulation programme",
+          "text": "Go big - write a funding bid for a national programme",
           "next": "sbl_big_bid"
         }
       ],
@@ -3154,8 +3100,8 @@
       ],
       "phase": "planning",
       "scoreEffect": {
-        "strategy": 7,
-        "evidence": 7
+        "strategy": 6,
+        "evidence": 6
       }
     },
     "sbl_pilot": {
@@ -3177,7 +3123,7 @@
       ],
       "scoreEffect": {
         "evidence": 6,
-        "strategy": 4
+        "strategy": 2
       },
       "categories": [
         "reach",
@@ -3207,7 +3153,7 @@
         }
       ],
       "scoreEffect": {
-        "strategy": 6,
+        "strategy": 4,
         "evidence": 4
       },
       "categories": [
@@ -3239,7 +3185,8 @@
         }
       ],
       "scoreEffect": {
-        "reach": 4
+        "reach": 4,
+        "strategy": -5
       },
       "categories": [
         "strategy",
@@ -3269,7 +3216,7 @@
         }
       ],
       "scoreEffect": {
-        "strategy": 6,
+        "strategy": 5,
         "evidence": 4,
         "significance": 4
       },
@@ -3301,7 +3248,7 @@
         }
       ],
       "scoreEffect": {
-        "significance": 6,
+        "significance": 5,
         "stakeholders": 4,
         "evidence": 4
       },
@@ -3333,8 +3280,8 @@
         }
       ],
       "scoreEffect": {
-        "evidence": 6,
-        "reach": 6
+        "evidence": 5,
+        "reach": 5
       },
       "categories": [
         "reach",
@@ -3360,7 +3307,7 @@
         }
       ],
       "scoreEffect": {
-        "stakeholders": 6,
+        "stakeholders": 5,
         "strategy": 4
       },
       "categories": [
@@ -3390,8 +3337,8 @@
         }
       ],
       "scoreEffect": {
-        "stakeholders": 10,
-        "strategy": 6
+        "stakeholders": 9,
+        "strategy": 5
       },
       "categories": [
         "strategy",
@@ -3417,8 +3364,8 @@
         }
       ],
       "scoreEffect": {
-        "strategy": 10,
-        "stakeholders": 6
+        "strategy": 9,
+        "stakeholders": 5
       },
       "categories": [
         "strategy",
@@ -3446,8 +3393,8 @@
         }
       ],
       "scoreEffect": {
-        "evidence": 6,
-        "significance": 6,
+        "evidence": 5,
+        "significance": 5,
         "strategy": 4
       },
       "categories": [
@@ -3473,8 +3420,8 @@
         }
       ],
       "scoreEffect": {
-        "evidence": 10,
-        "significance": 6
+        "evidence": 9,
+        "significance": 5
       },
       "categories": [
         "strategy",
@@ -3501,7 +3448,7 @@
         }
       ],
       "scoreEffect": {
-        "stakeholders": 6,
+        "stakeholders": 5,
         "strategy": 4
       },
       "categories": [
@@ -3527,7 +3474,7 @@
       ],
       "scoreEffect": {
         "evidence": 4,
-        "significance": 6,
+        "significance": 5,
         "reach": 4
       },
       "categories": [
@@ -3555,8 +3502,8 @@
         }
       ],
       "scoreEffect": {
-        "reach": 10,
-        "stakeholders": 6
+        "reach": 9,
+        "stakeholders": 5
       },
       "categories": [
         "stakeholders",
@@ -3587,7 +3534,7 @@
         }
       ],
       "scoreEffect": {
-        "stakeholders": 6,
+        "stakeholders": 5,
         "reach": 4
       },
       "categories": [
@@ -3614,8 +3561,8 @@
         }
       ],
       "scoreEffect": {
-        "reach": 10,
-        "significance": 6,
+        "reach": 9,
+        "significance": 5,
         "stakeholders": 4
       },
       "categories": [
@@ -3647,8 +3594,8 @@
         }
       ],
       "scoreEffect": {
-        "reach": 7,
-        "stakeholders": 7
+        "reach": 6,
+        "stakeholders": 6
       },
       "categories": [
         "strategy",
@@ -3677,8 +3624,8 @@
         }
       ],
       "scoreEffect": {
-        "evidence": 7,
-        "significance": 7,
+        "evidence": 6,
+        "significance": 6,
         "reach": 4
       },
       "categories": [
@@ -3706,8 +3653,8 @@
         }
       ],
       "scoreEffect": {
-        "evidence": 6,
-        "significance": 6,
+        "evidence": 5,
+        "significance": 5,
         "strategy": 4
       },
       "categories": [
@@ -3735,8 +3682,8 @@
         }
       ],
       "scoreEffect": {
-        "evidence": 10,
-        "strategy": 6
+        "evidence": 9,
+        "strategy": 5
       },
       "categories": [
         "strategy",
@@ -3763,8 +3710,8 @@
         }
       ],
       "scoreEffect": {
-        "reach": 6,
-        "significance": 6
+        "reach": 5,
+        "significance": 5
       },
       "categories": [
         "significance",
@@ -3790,8 +3737,8 @@
         }
       ],
       "scoreEffect": {
-        "stakeholders": 10,
-        "reach": 6
+        "stakeholders": 9,
+        "reach": 5
       },
       "categories": [
         "stakeholders",
@@ -3818,9 +3765,9 @@
         }
       ],
       "scoreEffect": {
-        "evidence": 10,
-        "reach": 6,
-        "significance": 6
+        "evidence": 9,
+        "reach": 5,
+        "significance": 5
       },
       "categories": [
         "significance",
@@ -3847,9 +3794,9 @@
         }
       ],
       "scoreEffect": {
-        "evidence": 7,
-        "significance": 7,
-        "reach": 7
+        "evidence": 6,
+        "significance": 6,
+        "reach": 6
       },
       "categories": [
         "significance",
@@ -3875,10 +3822,10 @@
         }
       ],
       "scoreEffect": {
-        "strategy": 6,
-        "significance": 10,
-        "reach": 6,
-        "stakeholders": 6
+        "strategy": 5,
+        "significance": 9,
+        "reach": 5,
+        "stakeholders": 5
       },
       "categories": [
         "strategy",
@@ -3907,8 +3854,8 @@
         }
       ],
       "scoreEffect": {
-        "significance": 7,
-        "reach": 7,
+        "significance": 6,
+        "reach": 6,
         "strategy": 4
       },
       "categories": [
@@ -3928,9 +3875,9 @@
       "narrative": "Your freely available Simulation-Based Learning Toolkit has been adopted by teacher education programmes across the UK and internationally. Twenty-seven universities use your scenarios and framework. Over 1,200 student teachers have experienced simulation-based preparation using your materials.\n\nThe toolkit's open-access model has demonstrated something important: impact doesn't require commercialisation.\n\nCongratulations! You've achieved practice-based impact at national scale. From a single pilot simulation with drama students playing upset parents, you've built a replicable, evidence-based approach to teacher preparation that's being adopted across the country  -  addressing the preparation gap that contributes to the teaching profession's retention crisis.",
       "choices": [],
       "scoreEffect": {
-        "reach": 11,
-        "significance": 11,
-        "stakeholders": 7
+        "reach": 10,
+        "significance": 10,
+        "stakeholders": 6
       },
       "isEnding": true,
       "endingType": "practitioner",
@@ -3950,9 +3897,9 @@
       "narrative": "From a single pilot simulation in a repurposed seminar room, you've built a national framework that's reshaping how the UK prepares its teachers.\n\nThe National Simulation Network, which you chair, now includes twenty-five universities. The national quality standards you co-developed are referenced by Ofsted in their ITT inspection framework and endorsed by the Chartered College of Teaching and UCET.\n\nCongratulations! You've achieved systemic impact. The teacher retention crisis won't be solved by one intervention alone  -  but giving new teachers safe, supported space to practise the hardest parts of the job before they encounter them for real is a powerful, evidence-based contribution. And you've built the infrastructure to sustain it.",
       "choices": [],
       "scoreEffect": {
-        "strategy": 11,
-        "significance": 11,
-        "reach": 11,
+        "strategy": 10,
+        "significance": 10,
+        "reach": 10,
         "stakeholders": 4
       },
       "isEnding": true,
@@ -3975,9 +3922,9 @@
       "narrative": "Your sustained engagement with evidence, practice, and policy has achieved something rare: a new pedagogical approach has been recognised in national education policy within a single REF cycle.\n\nThe Department for Education's updated ITT guidance explicitly references simulation-based learning.\n\nCongratulations! You've achieved policy-level impact in education. From an idea borrowed from medical simulation and adapted through rigorous, practice-informed research, you've helped create a nationally recognised approach to teacher preparation that addresses one of education's most pressing challenges. Student teachers across the country are entering the profession better prepared, more confident, and more likely to stay.",
       "choices": [],
       "scoreEffect": {
-        "significance": 11,
-        "reach": 11,
-        "evidence": 11,
+        "significance": 10,
+        "reach": 10,
+        "evidence": 10,
         "strategy": 4
       },
       "isEnding": true,
@@ -4499,6 +4446,38 @@
       "phase": "scaling",
       "isEnding": true,
       "endingType": "practitioner"
+    },
+    "sbl_strategy": {
+      "title": "A Conversation with the Impact Officer",
+      "narrative": "Before you rush into designing simulations or writing bids, you sit down with your Impact & Engagement Officer. It proves to be one of the best decisions you make.\n\n\"Simulation-based learning is a great idea,\" they say, \"but the path from a good idea to real impact has some well-worn pitfalls. Let's map this out properly.\"\n\nTogether you sketch a Theory of Change: pilot evidence first, then build a network of other universities, then engage policymakers once you have proof. You identify the key stakeholders - the DfE, Ofsted, the EEF, the Chartered College of Teaching - and discuss which relationships to build early.\n\nYou leave with a clear strategy and a sense that you're not navigating this alone. Where do you start?",
+      "choices": [
+        {
+          "text": "Run a pilot simulation to generate the evidence funders need",
+          "next": "sbl_pilot"
+        },
+        {
+          "text": "Learn from medical and nursing simulation first",
+          "next": "sbl_cross_sector"
+        },
+        {
+          "text": "Build departmental buy-in before going further",
+          "next": "sbl_departmental"
+        }
+      ],
+      "scoreEffect": {
+        "strategy": 14,
+        "evidence": 5,
+        "stakeholders": 6
+      },
+      "categories": [
+        "strategy",
+        "stakeholders"
+      ],
+      "impactTypes": [
+        "educational",
+        "practice"
+      ],
+      "phase": "planning"
     }
   },
   "ieoAdvice": {
