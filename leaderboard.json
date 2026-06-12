@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "name": "erg",
+    "dept": "gregre",
+    "score": 77,
+    "scores": {
+      "strategy": 12,
+      "stakeholders": 13,
+      "significance": 24,
+      "reach": 20,
+      "evidence": 8
+    },
+    "ending": "Impact Case Study: Beyond Low Earth Orbit",
+    "endingType": "practitioner",
+    "storyId": "bfr",
+    "storyTitle": "From Clinic to Cosmos",
+    "steps": 7,
+    "date": "2026-06-12T09:00:26.530Z"
+  }
+]
