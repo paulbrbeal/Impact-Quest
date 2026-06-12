@@ -3064,7 +3064,8 @@
         "economic",
         "technological"
       ],
-      "phase": "adoption"
+      "phase": "adoption",
+      "image": "https://paulbrbeal.github.io/Impact-Quest/images/bfr-product.jpg"
     },
     "bfr_sport_deep": {
       "title": "Deep in Sport Science",
