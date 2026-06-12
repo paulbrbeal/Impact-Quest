@@ -150,6 +150,69 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
 <script>
 var e=React.createElement,useState=React.useState,useEffect=React.useEffect,useRef=React.useRef;
+
+// --- Lightweight audio engine (Web Audio API, no files needed) ---
+var IQAudio={
+  ctx:null,
+  enabled:true,
+  init:function(){
+    if(this.ctx)return;
+    try{var AC=window.AudioContext||window.webkitAudioContext;this.ctx=new AC();}catch(e){this.ctx=null;}
+  },
+  resume:function(){ if(this.ctx&&this.ctx.state==="suspended"){this.ctx.resume();} },
+  // Subtle UI click: a soft, short filtered blip
+  click:function(){
+    if(!this.enabled)return; this.init(); if(!this.ctx)return; this.resume();
+    var ctx=this.ctx, now=ctx.currentTime;
+    var osc=ctx.createOscillator(), gain=ctx.createGain(), filt=ctx.createBiquadFilter();
+    osc.type="sine"; osc.frequency.setValueAtTime(660,now); osc.frequency.exponentialRampToValueAtTime(440,now+0.06);
+    filt.type="lowpass"; filt.frequency.value=2200;
+    gain.gain.setValueAtTime(0.0001,now);
+    gain.gain.exponentialRampToValueAtTime(0.05,now+0.005); // very subtle
+    gain.gain.exponentialRampToValueAtTime(0.0001,now+0.09);
+    osc.connect(filt); filt.connect(gain); gain.connect(ctx.destination);
+    osc.start(now); osc.stop(now+0.1);
+  },
+  // Congratulatory flourish: a gentle rising arpeggio with a warm pad
+  fanfare:function(endingType){
+    if(!this.enabled)return; this.init(); if(!this.ctx)return; this.resume();
+    var ctx=this.ctx, now=ctx.currentTime;
+    // Different chord voicings per ending type for a touch of variety
+    var chords={
+      policy:[523.25,659.25,783.99,1046.50],      // C major (triumphant, bright)
+      practitioner:[440.00,554.37,659.25,880.00], // A major (warm)
+      cycle:[392.00,493.88,587.33,783.99],        // G major (open, hopeful)
+      unknown:[523.25,659.25,783.99,1046.50]
+    };
+    var notes=chords[endingType]||chords.unknown;
+    // Master gain with gentle reverb-ish feel via staggered envelope
+    var master=ctx.createGain(); master.gain.value=0.13; master.connect(ctx.destination);
+    // Rising arpeggio
+    notes.forEach(function(freq,i){
+      var t=now+i*0.13;
+      var osc=ctx.createOscillator(), g=ctx.createGain();
+      osc.type="triangle"; osc.frequency.value=freq;
+      g.gain.setValueAtTime(0.0001,t);
+      g.gain.exponentialRampToValueAtTime(0.9,t+0.04);
+      g.gain.exponentialRampToValueAtTime(0.0001,t+1.1);
+      osc.connect(g); g.connect(master);
+      osc.start(t); osc.stop(t+1.2);
+    });
+    // Soft sustained pad underneath (root + fifth)
+    [notes[0]/2, notes[2]/2].forEach(function(freq){
+      var osc=ctx.createOscillator(), g=ctx.createGain(), filt=ctx.createBiquadFilter();
+      osc.type="sine"; osc.frequency.value=freq;
+      filt.type="lowpass"; filt.frequency.value=1200;
+      g.gain.setValueAtTime(0.0001,now);
+      g.gain.exponentialRampToValueAtTime(0.5,now+0.3);
+      g.gain.exponentialRampToValueAtTime(0.0001,now+1.8);
+      osc.connect(filt); filt.connect(g); g.connect(master);
+      osc.start(now); osc.stop(now+1.9);
+    });
+  }
+};
+try{ var _savedSound=localStorage.getItem("iq_sound"); if(_savedSound!==null) IQAudio.enabled=(_savedSound==="on"); }catch(e){}
+
 var SCORE_LABELS={strategy:"Strategic Thinking",stakeholders:"Stakeholder Relations",significance:"Significance",reach:"Reach",evidence:"Evidence Quality"};
 var SCORE_COLORS={strategy:"#E8A838",stakeholders:"#4a6741",significance:"#c0392b",reach:"#5b7fb5",evidence:"#96CEB4"};
 var ENDING_THEMES={policy:{emoji:"\ud83c\udfdb\ufe0f",color:"#5b7fb5"},practitioner:{emoji:"\ud83e\udd1d",color:"#4a6741"},cycle:{emoji:"\ud83d\udd04",color:"#e8963a"}};
@@ -426,6 +489,7 @@ function App(props){
   var _sub=useState(false),submitted=_sub[0],setSubmitted=_sub[1];
   var _ieo=useState(false),showIEO=_ieo[0],setShowIEO=_ieo[1];
   var _ieoBonus=useState(false),ieoBonusClaimed=_ieoBonus[0],setIeoBonusClaimed=_ieoBonus[1];
+  var _snd=useState(IQAudio.enabled),soundOn=_snd[0],setSoundOn=_snd[1];
   var hasSubmitted=useRef(false);
 
   var story=storyId?stories[storyId]:null;
@@ -435,6 +499,7 @@ function App(props){
   useEffect(function(){
     if(isEnding&&!hasSubmitted.current&&showChoices){
       hasSubmitted.current=true;setSubmitted(true);
+      IQAudio.fanfare(node.endingType||"unknown");
       var totalScore=Object.values(scores).reduce(function(a,b){return a+b;},0);
       saveScore({name:player.name,dept:player.dept,score:totalScore,scores:Object.assign({},scores),ending:node.title,endingType:node.endingType||"unknown",storyId:storyId,storyTitle:story?story.title:"Unknown",steps:history.length,date:new Date().toISOString()});
     }
@@ -467,6 +532,7 @@ function App(props){
 
   var handleChoice=function(choice){
     if(!choice.next||!scenes[choice.next])return;
+    IQAudio.click();
     setShowChoices(true);setShowIEO(false);setHistory(function(h){return h.concat([{node:currentNode,choice:choice.text}]);});
     var nextNode=scenes[choice.next];
     if(nextNode&&nextNode.scoreEffect){setScores(function(s){var ns=Object.assign({},s);Object.keys(nextNode.scoreEffect).forEach(function(k){ns[k]=Math.max(0,(ns[k]||0)+nextNode.scoreEffect[k]);});return ns;});}
@@ -482,7 +548,12 @@ function App(props){
       e("div",{className:"header-meta",style:{marginTop:8}},"Playing as ",e("strong",null,player.name),player.dept?" \u00b7 "+player.dept:""),
       currentNode!==(story?story.startScene:"start")?e("div",{className:"header-meta"},"Chapter "+(history.length+1)+" \u00b7 Decisions made: "+history.length):null,
       currentNode!==(story?story.startScene:"start")?e("button",{className:"restart-small-btn",onClick:restart},"\u2190 Start Again"):null,
-      hasStories&&Object.keys(stories).length>1?e("button",{className:"restart-small-btn",onClick:restartFull,style:{marginLeft:8}},"\u2190 Choose Story"):null
+      hasStories&&Object.keys(stories).length>1?e("button",{className:"restart-small-btn",onClick:restartFull,style:{marginLeft:8}},"\u2190 Choose Story"):null,
+      e("button",{className:"restart-small-btn",style:{marginLeft:8},onClick:function(){
+        var v=!soundOn; setSoundOn(v); IQAudio.enabled=v;
+        try{localStorage.setItem("iq_sound",v?"on":"off");}catch(e){}
+        if(v){IQAudio.click();}
+      },title:"Toggle sound effects"}, soundOn?"\ud83d\udd0a Sound on":"\ud83d\udd07 Sound off")
     ),
     currentNode!==(story?story.startScene:"start")?e("div",{className:"dashboard"},
       e("div",{className:"dashboard-header"},e("span",{className:"dashboard-title"},"Impact Dashboard"),e("span",{className:"dashboard-total"},"Total: "+totalScore)),
@@ -500,6 +571,7 @@ function App(props){
       e("div",{className:"choices-label"},"What do you do?"),
       node.choices.map(function(choice,i){return e("button",{key:i,className:"choice-btn",onClick:function(){handleChoice(choice);}},e("span",{className:"choice-letter"},String.fromCharCode(65+i)),choice.text);}),
       !showIEO?e("button",{className:"ieo-btn",onClick:function(){
+        IQAudio.click();
         setShowIEO(true);
         if(!ieoBonusClaimed){
           setIeoBonusClaimed(true);
