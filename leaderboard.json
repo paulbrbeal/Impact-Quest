@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "name": "Paul Beal",
+    "dept": "RIS",
+    "score": 75,
+    "scores": {
+      "strategy": 17,
+      "stakeholders": 5,
+      "significance": 21,
+      "reach": 17,
+      "evidence": 15
+    },
+    "ending": "Impact Case Study: From Bedside to Orbit",
+    "endingType": "cycle",
+    "storyId": "bfr",
+    "storyTitle": "From Clinic to Cosmos",
+    "steps": 8,
+    "date": "2026-06-12T07:54:15.064Z"
+  }
+]
