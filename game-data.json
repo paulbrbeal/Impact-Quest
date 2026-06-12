@@ -2523,7 +2523,9 @@
         "health",
         "educational"
       ],
-      "phase": "planning"
+      "phase": "planning",
+      "image": "images/bfr2.jpg",
+      "imageSize": "small"
     },
     "bfr_direct_esa": {
       "title": "Shooting for the Stars",
