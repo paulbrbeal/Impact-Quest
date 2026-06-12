@@ -2927,7 +2927,8 @@
         "health",
         "technological"
       ],
-      "phase": "evidence"
+      "phase": "evidence",
+      "image": "https://paulbrbeal.github.io/Impact-Quest/images/space-simulator.jpg"
     },
     "bfr_commercial_flight": {
       "title": "SpaceX and Beyond",
