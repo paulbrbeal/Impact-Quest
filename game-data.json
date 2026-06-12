@@ -3191,7 +3191,8 @@
         "health",
         "economic"
       ],
-      "phase": "engagement"
+      "phase": "engagement",
+      "image": "https://paulbrbeal.github.io/Impact-Quest/images/space-craft-research.jpg"
     },
     "bfr_ending_multisector": {
       "title": "Impact Case Study: From Bedside to Orbit",
