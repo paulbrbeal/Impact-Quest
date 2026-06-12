@@ -2725,7 +2725,8 @@
         "health",
         "technological"
       ],
-      "phase": "translation"
+      "phase": "translation",
+      "image": "https://paulbrbeal.github.io/Impact-Quest/images/gym.jpg"
     },
     "bfr_device_partner": {
       "title": "Engineering the Solution",
@@ -2757,7 +2758,8 @@
         "health",
         "technological"
       ],
-      "phase": "engagement"
+      "phase": "engagement",
+      "image": "https://paulbrbeal.github.io/Impact-Quest/images/engineering-lab.jpg"
     },
     "bfr_uksa_approach": {
       "title": "The National Space Agency",
