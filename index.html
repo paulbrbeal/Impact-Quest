@@ -179,42 +179,105 @@ var IQAudio={
     osc.connect(filt); filt.connect(gain); gain.connect(ctx.destination);
     osc.start(now); osc.stop(now+0.1);
   },
-  // Congratulatory flourish: a gentle rising arpeggio with a warm pad
+  // Congratulatory music: a sustained, looping triumphant piece that plays until stopped
+  fanfareTimer:null,
+  fanfareNodes:[],
+  fanfareMaster:null,
   fanfare:function(endingType){
-    if(!this.enabled)return; this.init(); if(!this.ctx)return; this.resume();
-    var ctx=this.ctx, now=ctx.currentTime;
-    // Different chord voicings per ending type for a touch of variety
-    var chords={
-      policy:[523.25,659.25,783.99,1046.50],      // C major (triumphant, bright)
-      practitioner:[440.00,554.37,659.25,880.00], // A major (warm)
-      cycle:[392.00,493.88,587.33,783.99],        // G major (open, hopeful)
-      unknown:[523.25,659.25,783.99,1046.50]
-    };
-    var notes=chords[endingType]||chords.unknown;
-    // Master gain with gentle reverb-ish feel via staggered envelope
-    var master=ctx.createGain(); master.gain.value=0.13; master.connect(ctx.destination);
-    // Rising arpeggio
-    notes.forEach(function(freq,i){
-      var t=now+i*0.13;
-      var osc=ctx.createOscillator(), g=ctx.createGain();
-      osc.type="triangle"; osc.frequency.value=freq;
-      g.gain.setValueAtTime(0.0001,t);
-      g.gain.exponentialRampToValueAtTime(0.9,t+0.04);
-      g.gain.exponentialRampToValueAtTime(0.0001,t+1.1);
-      osc.connect(g); g.connect(master);
-      osc.start(t); osc.stop(t+1.2);
+    if(!this.enabled)return; this.init(); if(!this.ctx)return;
+    var self=this;
+    this.resume(function(){
+      var ctx=self.ctx;
+      // Stop any existing fanfare first
+      self.stopFanfare();
+      self.fanfareMaster=ctx.createGain();
+      self.fanfareMaster.gain.value=0.0001;
+      self.fanfareMaster.connect(ctx.destination);
+      var now=ctx.currentTime;
+      self.fanfareMaster.gain.linearRampToValueAtTime(0.16,now+0.4);
+
+      // Chord progressions per ending type (each is [chord1, chord2, chord3, chord4] of frequencies)
+      var progs={
+        // C major: I - IV - V - I (classic triumphant)
+        policy:[[523.25,659.25,783.99],[698.46,880.00,1046.50],[783.99,987.77,1174.66],[523.25,659.25,1046.50]],
+        // A major: warm, I - vi - IV - V
+        practitioner:[[440.00,554.37,659.25],[659.25,830.61,987.77],[587.33,739.99,880.00],[659.25,830.61,987.77]],
+        // G major: open, hopeful I - V - vi - IV
+        cycle:[[392.00,493.88,587.33],[587.33,739.99,880.00],[659.25,830.61,987.77],[523.25,659.25,783.99]],
+        unknown:[[523.25,659.25,783.99],[698.46,880.00,1046.50],[783.99,987.77,1174.66],[523.25,659.25,1046.50]]
+      };
+      var prog=progs[endingType]||progs.unknown;
+      var bassNotes={policy:[130.81,174.61,196.00,130.81],practitioner:[110.00,164.81,146.83,164.81],cycle:[98.00,146.83,164.81,130.81],unknown:[130.81,174.61,196.00,130.81]}[endingType]||[130.81,174.61,196.00,130.81];
+
+      var chordDur=2.0; // seconds per chord
+      var step=0;
+
+      function playChord(){
+        if(!self.fanfareMaster)return;
+        var t=ctx.currentTime;
+        var chord=prog[step%prog.length];
+        var bass=bassNotes[step%bassNotes.length];
+
+        // Bass note (warm sine)
+        (function(){
+          var osc=ctx.createOscillator(),g=ctx.createGain(),filt=ctx.createBiquadFilter();
+          osc.type="sine"; osc.frequency.value=bass;
+          filt.type="lowpass"; filt.frequency.value=800;
+          g.gain.setValueAtTime(0.0001,t);
+          g.gain.linearRampToValueAtTime(0.35,t+0.15);
+          g.gain.linearRampToValueAtTime(0.2,t+chordDur*0.6);
+          g.gain.linearRampToValueAtTime(0.0001,t+chordDur);
+          osc.connect(filt);filt.connect(g);g.connect(self.fanfareMaster);
+          osc.start(t);osc.stop(t+chordDur+0.1);
+          self.fanfareNodes.push(osc);
+        })();
+
+        // Sustained pad chord
+        chord.forEach(function(freq){
+          var osc=ctx.createOscillator(),g=ctx.createGain(),filt=ctx.createBiquadFilter();
+          osc.type="triangle"; osc.frequency.value=freq;
+          filt.type="lowpass"; filt.frequency.value=2500;
+          g.gain.setValueAtTime(0.0001,t);
+          g.gain.linearRampToValueAtTime(0.18,t+0.2);
+          g.gain.linearRampToValueAtTime(0.12,t+chordDur*0.7);
+          g.gain.linearRampToValueAtTime(0.0001,t+chordDur);
+          osc.connect(filt);filt.connect(g);g.connect(self.fanfareMaster);
+          osc.start(t);osc.stop(t+chordDur+0.1);
+          self.fanfareNodes.push(osc);
+        });
+
+        // Sparkling arpeggio over the top (a bell-like upper voice)
+        chord.concat([chord[0]*2]).forEach(function(freq,ai){
+          var at=t+ai*0.18;
+          var osc=ctx.createOscillator(),g=ctx.createGain();
+          osc.type="sine"; osc.frequency.value=freq*2;
+          g.gain.setValueAtTime(0.0001,at);
+          g.gain.exponentialRampToValueAtTime(0.14,at+0.03);
+          g.gain.exponentialRampToValueAtTime(0.0001,at+0.7);
+          osc.connect(g);g.connect(self.fanfareMaster);
+          osc.start(at);osc.stop(at+0.8);
+          self.fanfareNodes.push(osc);
+        });
+
+        step++;
+        // keep node list from growing unbounded
+        if(self.fanfareNodes.length>120) self.fanfareNodes=self.fanfareNodes.slice(-60);
+      }
+
+      playChord();
+      self.fanfareTimer=setInterval(playChord, chordDur*1000);
     });
-    // Soft sustained pad underneath (root + fifth)
-    [notes[0]/2, notes[2]/2].forEach(function(freq){
-      var osc=ctx.createOscillator(), g=ctx.createGain(), filt=ctx.createBiquadFilter();
-      osc.type="sine"; osc.frequency.value=freq;
-      filt.type="lowpass"; filt.frequency.value=1200;
-      g.gain.setValueAtTime(0.0001,now);
-      g.gain.exponentialRampToValueAtTime(0.5,now+0.3);
-      g.gain.exponentialRampToValueAtTime(0.0001,now+1.8);
-      osc.connect(filt); filt.connect(g); g.connect(master);
-      osc.start(now); osc.stop(now+1.9);
-    });
+  },
+  stopFanfare:function(){
+    if(this.fanfareTimer){ clearInterval(this.fanfareTimer); this.fanfareTimer=null; }
+    var ctx=this.ctx; if(!ctx)return;
+    if(this.fanfareMaster){
+      var now=ctx.currentTime, m=this.fanfareMaster;
+      try{ m.gain.cancelScheduledValues(now); m.gain.setValueAtTime(m.gain.value,now); m.gain.linearRampToValueAtTime(0.0001,now+0.6); }catch(e){}
+      setTimeout(function(){ try{m.disconnect();}catch(e){} },800);
+      this.fanfareMaster=null;
+    }
+    this.fanfareNodes=[];
   },
   // --- Adaptive ambient background music ---
   music:{
@@ -288,8 +351,45 @@ var IQAudio={
         self.music.nodes.push({osc:osc, gain:g, lfo:lfo});
       });
     });
+    // Start the melodic arpeggio layer for this phase
+    this.startArp(def);
+  },
+  // A gentle, slow arpeggio/melody that drifts over the pads for movement
+  arpTimer:null,
+  startArp:function(def){
+    var self=this, ctx=this.ctx;
+    if(this.arpTimer){ clearInterval(this.arpTimer); this.arpTimer=null; }
+    // Build a pentatonic-ish note pool from the chord, two octaves up so it sings over the pad
+    var pool=[];
+    def.intervals.forEach(function(mult){ pool.push(def.root*mult*4); pool.push(def.root*mult*3); });
+    // add a couple of higher colour tones
+    pool.push(def.root*5); pool.push(def.root*6);
+    var seq=[], order=[0,2,1,3,2,4,1,5]; // a wandering, non-repetitive pattern
+    order.forEach(function(idx){ if(pool[idx%pool.length]) seq.push(pool[idx%pool.length]); });
+    var step=0;
+    var noteGap=(def.vol>0.27)?1.1:1.6; // busier as the journey matures
+    function playNote(){
+      if(!self.music.running||!self.music.masterGain)return;
+      var t=ctx.currentTime;
+      var freq=seq[step%seq.length];
+      // occasionally rest for a more natural, less mechanical feel
+      step++;
+      if(step%4===3) return; // skip every 4th -> breathing space
+      var osc=ctx.createOscillator(), g=ctx.createGain(), filt=ctx.createBiquadFilter();
+      osc.type="sine"; osc.frequency.value=freq;
+      filt.type="lowpass"; filt.frequency.value=3000;
+      var peak=0.06; // soft, sits under the pad
+      g.gain.setValueAtTime(0.0001,t);
+      g.gain.exponentialRampToValueAtTime(peak,t+0.08);
+      g.gain.exponentialRampToValueAtTime(0.0001,t+noteGap*0.9);
+      osc.connect(filt); filt.connect(g); g.connect(self.music.masterGain);
+      osc.start(t); osc.stop(t+noteGap);
+    }
+    // slight delay so it enters after the pad has bloomed
+    setTimeout(function(){ if(self.music.running){ playNote(); self.arpTimer=setInterval(playNote, noteGap*1000); } }, 2000);
   },
   stopMusic:function(){
+    if(this.arpTimer){ clearInterval(this.arpTimer); this.arpTimer=null; }
     if(!this.ctx||!this.music.masterGain)return;
     var ctx=this.ctx, now=ctx.currentTime, self=this;
     this.music.masterGain.gain.cancelScheduledValues(now);
@@ -635,8 +735,8 @@ function App(props){
     if(nextNode&&nextNode.scoreEffect){setScores(function(s){var ns=Object.assign({},s);Object.keys(nextNode.scoreEffect).forEach(function(k){ns[k]=Math.max(0,(ns[k]||0)+nextNode.scoreEffect[k]);});return ns;});}
     setCurrentNode(choice.next);setCardKey(function(k){return k+1;});window.scrollTo({top:0,behavior:"smooth"});
   };
-  var restart=function(){hasSubmitted.current=false;var startScene=story?story.startScene:"start";setCurrentNode(startScene);setScores({strategy:0,stakeholders:0,significance:0,reach:0,evidence:0});setHistory([]);setShowChoices(true);setSubmitted(false);setIeoBonusClaimed(false);setCardKey(function(k){return k+1;});window.scrollTo({top:0,behavior:"smooth"});};
-  var restartFull=function(){hasSubmitted.current=false;IQAudio.stopMusic();setPhase(hasStories&&Object.keys(stories).length>1?"select":"register");setStoryId(hasStories&&Object.keys(stories).length===1?Object.keys(stories)[0]:"");setCurrentNode("");setScores({strategy:0,stakeholders:0,significance:0,reach:0,evidence:0});setHistory([]);setShowChoices(true);setSubmitted(false);setIeoBonusClaimed(false);setCardKey(function(k){return k+1;});window.scrollTo({top:0,behavior:"smooth"});};
+  var restart=function(){hasSubmitted.current=false;IQAudio.stopFanfare();var startScene=story?story.startScene:"start";setCurrentNode(startScene);setScores({strategy:0,stakeholders:0,significance:0,reach:0,evidence:0});setHistory([]);setShowChoices(true);setSubmitted(false);setIeoBonusClaimed(false);setCardKey(function(k){return k+1;});window.scrollTo({top:0,behavior:"smooth"});};
+  var restartFull=function(){hasSubmitted.current=false;IQAudio.stopMusic();IQAudio.stopFanfare();setPhase(hasStories&&Object.keys(stories).length>1?"select":"register");setStoryId(hasStories&&Object.keys(stories).length===1?Object.keys(stories)[0]:"");setCurrentNode("");setScores({strategy:0,stakeholders:0,significance:0,reach:0,evidence:0});setHistory([]);setShowChoices(true);setSubmitted(false);setIeoBonusClaimed(false);setCardKey(function(k){return k+1;});window.scrollTo({top:0,behavior:"smooth"});};
 
   return e("div",{className:"container"},
     e("div",{className:"header"},
@@ -649,8 +749,12 @@ function App(props){
       e("button",{className:"restart-small-btn",style:{marginLeft:8},onClick:function(){
         var v=!soundOn; setSoundOn(v); IQAudio.enabled=v;
         try{localStorage.setItem("iq_sound",v?"on":"off");}catch(e){}
-        if(v){IQAudio.click(); if(node&&!isEnding){IQAudio.startMusic(node.phase||"planning");}}
-        else{IQAudio.stopMusic();}
+        if(v){
+          IQAudio.click();
+          if(node&&isEnding){ IQAudio.fanfare(node.endingType||"unknown"); }
+          else if(node){ IQAudio.startMusic(node.phase||"planning"); }
+        }
+        else{ IQAudio.stopMusic(); IQAudio.stopFanfare(); }
       },title:"Toggle sound & music"}, soundOn?"\ud83d\udd0a Sound on":"\ud83d\udd07 Sound off")
     ),
     currentNode!==(story?story.startScene:"start")?e("div",{className:"dashboard"},
