@@ -2476,7 +2476,7 @@
     },
     "bfr_iss_proposal": {
       "title": "The ISS Experiment",
-      "narrative": "You submit a comprehensive proposal through ESA's research programme for a dedicated BFR study on the International Space Station. The proposal is backed by your clinical evidence, sport performance data, analogue testing results, and the PTSS hardware developed with your industry partner.\n\nThe review panel is impressed. One reviewer notes: \"\n\nThis is the experiment that will provide definitive evidence of whether BFR can protect astronaut health on long-duration spaceflights.",
+      "narrative": "You submit a comprehensive proposal through ESA's research programme for a dedicated BFR study on the International Space Station. The proposal is backed by your clinical evidence, sport performance data, analogue testing results, and the PTSS hardware developed with your industry partner.\n\nThe review panel is impressed. One reviewer notes: \n\n\"This is the experiment that will provide definitive evidence of whether BFR can protect astronaut health on long-duration spaceflights.\"",
       "choices": [
         {
           "text": "Focus on making the ISS study a success",
@@ -2509,7 +2509,7 @@
     },
     "bfr_enterprise_partnership": {
       "title": "University Enterprise",
-      "narrative": "You hand the commercialisation strand to Northumbria's enterprise team. They handle the market analysis, licensing negotiations, and business development  -  freeing you to focus on research and impact.\n\nA commercial BFR training programme for physiotherapists is developed as a continuing professional development offering through the university. NHS rehabilitation departments begin adopting standardised BFR protocols based on your research.\n\nMeanwhile, the space work continues to progress.",
+      "narrative": "You hand the commercialisation strand to Northumbria's enterprise team. They handle the market analysis, licensing negotiations, and business development, freeing you to focus on research and impact.\n\nA commercial BFR training programme for physiotherapists is developed as a continuing professional development offering through the university. NHS rehabilitation departments begin adopting standardised BFR protocols based on your research.\n\nMeanwhile, the space work continues to progress.",
       "choices": [
         {
           "text": "Track NHS adoption as it accelerates nationally",
@@ -2540,7 +2540,7 @@
     },
     "bfr_commercial_product": {
       "title": "The Product Path",
-      "narrative": "You develop a commercial BFR product aimed at clinical rehabilitation and sports performance. Working with the device manufacturer, you create a consumer version of the personalised tourniquet system  -  simpler than the space-qualified device but based on the same technology.\n\nThe product launches and is adopted by private physiotherapy clinics and sports performance centres. Revenue feeds back into the research programme.\n\nThe commercial success does demonstrate economic impact  -  but at what cost to the headline space narrative?",
+      "narrative": "You develop a commercial BFR product aimed at clinical rehabilitation and sports performance. Working with the device manufacturer, you create a consumer version of the personalised tourniquet system. Simpler than the space-qualified device but based on the same technology.\n\nThe product launches and is adopted by private physiotherapy clinics and sports performance centres. Revenue feeds back into the research programme.\n\nThe commercial success does demonstrate economic impact, but at what cost to the headline space narrative?",
       "choices": [
         {
           "text": "Refocus on the space application",
@@ -2569,7 +2569,7 @@
     },
     "bfr_sport_deep": {
       "title": "Deep in Sport Science",
-      "narrative": "You fully develop the sport impact pathway. Your BFR rehabilitation protocols are adopted by twelve Premier League clubs, three international football federations, and two Olympic training centres.\n\nYou publish a landmark systematic review in the British Journal of Sports Medicine. FIFA's medical committee formally incorporates BFR as a recommended rehabilitation modality for anterior cruciate ligament injuries.\n\nBut the space opportunity still beckons  -  and the sport evidence makes your case to UKSA even stronger.",
+      "narrative": "You fully develop the sport impact pathway. Your BFR rehabilitation protocols are adopted by twelve Premier League clubs, three international football federations, and two Olympic training centres.\n\nYou publish a landmark systematic review in the British Journal of Sports Medicine. FIFA's medical committee formally incorporates BFR as a recommended rehabilitation modality for anterior cruciate ligament injuries.\n\nBut the space opportunity still beckons, and the sport evidence makes your case to UKSA even stronger.",
       "choices": [
         {
           "text": "Use the sport credibility to strengthen the space case",
@@ -2634,10 +2634,10 @@
     },
     "bfr_consortium": {
       "title": "A Global Alliance",
-      "narrative": "You build an international consortium: Northumbria University, the European Space Agency, NASA, the Canadian Space Agency, Western Clinical Engineering Group, and Delfi Medical Innovations.\n\nThe consortium secures major funding to develop next-generation BFR hardware with integrated biofeedback technology  -  a system that can automatically adjust pressure based on physiological response during exercise in any gravity environment: micro-gravity, lunar, Martian, or Earth.\n\nBack on Earth, the clinical and sport applications continue to grow organically, sustained by the team you've built.",
+      "narrative": "You build an international consortium: Northumbria University, the European Space Agency, NASA, the Canadian Space Agency, Western Clinical Engineering Group, and Delfi Medical Innovations.\n\nThe consortium secures major funding to develop next-generation BFR hardware with integrated biofeedback technology, a system that can automatically adjust pressure based on physiological response during exercise in any gravity environment: micro-gravity, lunar, Martian, or Earth.\n\nBack on Earth, the clinical and sport applications continue to grow organically, sustained by the team you've built.",
       "choices": [
         {
-          "text": "Focus the consortium on Mars mission readiness  -  that's the ultimate goal",
+          "text": "Focus the consortium on Mars mission readiness. That's the ultimate goal",
           "next": "bfr_ending_consortium"
         },
         {
@@ -2696,7 +2696,7 @@
     },
     "bfr_ending_multisector": {
       "title": "Impact Case Study: From Bedside to Orbit",
-      "narrative": "You've built one of the most comprehensive multi-sector impact stories in the REF. Your blood flow restriction exercise research has transformed practice across four domains:\n\nIn clinical rehabilitation, NHS and private physiotherapy services across the UK have adopted your BFR protocols. Patients recovering from surgery and injury are regaining strength faster with less pain.\n\nIn elite sport, Premier League clubs, international football federations, and Olympic training centres use your techniques.\n\nCongratulations! From a rehabilitation clinic in Newcastle to orbit around the Earth  -  your research has changed how humans maintain physical capability in the most demanding environments on (and off) the planet. This is what multi-sector research impact looks like.",
+      "narrative": "You've built one of the most comprehensive multi-sector impact stories in the REF. Your blood flow restriction exercise research has transformed practice across four domains:\n\nIn clinical rehabilitation, NHS and private physiotherapy services across the UK have adopted your BFR protocols. Patients recovering from surgery and injury are regaining strength faster with less pain.\n\nIn elite sport, Premier League clubs, international football federations, and Olympic training centres use your techniques.\n\nCongratulations! From a rehabilitation clinic in Newcastle to orbit around the Earth, your research has changed how humans maintain physical capability in the most demanding environments on (and off) the planet. This is what multi-sector research impact looks like.",
       "choices": [],
       "scoreEffect": {
         "strategy": 6,
@@ -2723,7 +2723,7 @@
     },
     "bfr_ending_iss": {
       "title": "Impact Case Study: The ISS Study",
-      "narrative": "Your dedicated ISS study produces definitive results. Over a six-month mission, astronauts using BFR exercise alongside standard protocols show significantly less muscle atrophy and bone density loss than historical controls using standard exercise alone.\n\nThe findings are published in Nature Medicine. NASA and ESA formally add BFR to their recommended countermeasure portfolio for long-duration spaceflight.\n\nCongratulations! You've achieved the ultimate validation  -  your technique works in space. The ISS study represents a landmark in exercise physiology research, and its ripple effects across clinical practice, sport, and military medicine will be felt for decades.",
+      "narrative": "Your dedicated ISS study produces definitive results. Over a six-month mission, astronauts using BFR exercise alongside standard protocols show significantly less muscle atrophy and bone density loss than historical controls using standard exercise alone.\n\nThe findings are published in Nature Medicine. NASA and ESA formally add BFR to their recommended countermeasure portfolio for long-duration spaceflight.\n\nCongratulations! You've achieved the ultimate validation, your technique works in space. The ISS study represents a landmark in exercise physiology research, and its ripple effects across clinical practice, sport, and military medicine will be felt for decades.",
       "choices": [],
       "scoreEffect": {
         "evidence": 8,
@@ -2748,7 +2748,7 @@
     },
     "bfr_ending_consortium": {
       "title": "Impact Case Study: Beyond Low Earth Orbit",
-      "narrative": "The international consortium you've built is now at the centre of human spaceflight health planning. Northumbria University, ESA, NASA, the Canadian Space Agency, UKSA, and your industry partners are developing the exercise countermeasure systems that will protect astronaut health on missions to the Moon under the Artemis programme  -  and eventually to Mars.\n\nYour BFR device, which started as a clinical rehabilitation tool, has been adapted into a multi-gravity exercise system.\n\nCongratulations! You've built a research programme that is literally changing how humanity prepares for life beyond Earth. From Newcastle to the cosmos  -  that's a journey worth mapping for REF.",
+      "narrative": "The international consortium you've built is now at the centre of human spaceflight health planning. Northumbria University, ESA, NASA, the Canadian Space Agency, UKSA, and your industry partners are developing the exercise countermeasure systems that will protect astronaut health on missions to the Moon under the Artemis programme  -  and eventually to Mars.\n\nYour BFR device, which started as a clinical rehabilitation tool, has been adapted into a multi-gravity exercise system.\n\nCongratulations! You've built a research programme that is literally changing how humanity prepares for life beyond Earth. From Newcastle to the cosmos, that's a journey worth mapping for REF.",
       "choices": [],
       "scoreEffect": {
         "strategy": 6,
@@ -2799,7 +2799,7 @@
     },
     "bfr_bed_rest_study": {
       "title": "The Bed Rest Study",
-      "narrative": "You secure access to a dedicated bed rest facility through a European research partner. Bed rest studies are the gold standard for simulating spaceflight deconditioning on Earth  -  participants spend weeks lying in a head-down tilt position, which causes muscle wasting and bone loss similar to microgravity.\n\nYour study design is elegant: twenty healthy participants, ten using BFR exercise during six weeks of bed rest, ten following standard protocols.\n\nA visiting ESA physician reviews your data and says: \"This is exactly what we need to see. Can you do this with your space-qualified hardware?\"",
+      "narrative": "You secure access to a dedicated bed rest facility through a European research partner. Bed rest studies are the gold standard for simulating spaceflight deconditioning on Earth, participants spend weeks lying in a head-down tilt position, which causes muscle wasting and bone loss similar to microgravity.\n\nYour study design is elegant: twenty healthy participants, ten using BFR exercise during six weeks of bed rest, ten following standard protocols.\n\nA visiting ESA physician reviews your data and says: \n\n\"This is exactly what we need to see. Can you do this with your space-qualified hardware?\"",
       "choices": [
         {
           "text": "Repeat the study using the PTSS device to validate the space hardware",
@@ -2921,7 +2921,7 @@
     },
     "bfr_nice_engagement": {
       "title": "Into the Guidelines",
-      "narrative": "You submit evidence to NICE's guideline review on post-surgical rehabilitation. The submission includes your systematic reviews, randomised controlled trials, the NHS trust audit data, and your sport performance evidence.\n\nNICE's evidence review panel is rigorous  -  they scrutinise methodology, effect sizes, and applicability to the NHS population. Your evidence stands up well.\n\nThis is significant clinical impact: your research is now shaping the standard of care for millions of potential patients.",
+      "narrative": "You submit evidence to NICE's guideline review on post-surgical rehabilitation. The submission includes your systematic reviews, randomised controlled trials, the NHS trust audit data, and your sport performance evidence.\n\nNICE's evidence review panel is rigorous, they scrutinise methodology, effect sizes, and applicability to the NHS population. Your evidence stands up well.\n\nThis is significant clinical impact: your research is now shaping the standard of care for millions of potential patients.",
       "choices": [
         {
           "text": "Drive international clinical adoption",
@@ -2951,7 +2951,7 @@
     },
     "bfr_international_clinical": {
       "title": "Global Clinical Impact",
-      "narrative": "The NICE guideline recommendation triggers international interest. Clinical rehabilitation bodies in Australia, Canada, and Scandinavia review your evidence and begin developing their own BFR guidelines.\n\nYou're invited to contribute to a World Health Organization technical consultation on post-surgical rehabilitation. Your BFR evidence is included in the background documentation.\n\nMeanwhile, the space programme continues. The two impact streams  -  clinical rehabilitation and spaceflight countermeasure  -  reinforce each other perfectly.",
+      "narrative": "The NICE guideline recommendation triggers international interest. Clinical rehabilitation bodies in Australia, Canada, and Scandinavia review your evidence and begin developing their own BFR guidelines.\n\nYou're invited to contribute to a World Health Organization technical consultation on post-surgical rehabilitation. Your BFR evidence is included in the background documentation.\n\nMeanwhile, the space programme continues. The two impact streams, clinical rehabilitation and spaceflight countermeasure, reinforce each other perfectly.",
       "choices": [
         {
           "text": "Bring both impact streams together for the REF case study",
@@ -2979,7 +2979,7 @@
     },
     "bfr_mod_deep": {
       "title": "Military Integration",
-      "narrative": "The MOD expands the BFR programme beyond the initial feasibility study. Your protocols are integrated into the Defence Medical Rehabilitation Centre at Stanford Hall  -  the UK's primary facility for military rehabilitation.\n\nServing personnel recovering from operational injuries use BFR as part of their structured rehabilitation pathway.\n\nA senior military medical officer says: \"This fills a gap we've had for twenty years  -  effective rehabilitation when you can't fly someone home to a fully equipped gym.\"",
+      "narrative": "The MOD expands the BFR programme beyond the initial feasibility study. Your protocols are integrated into the Defence Medical Rehabilitation Centre at Stanford Hall, the UK's primary facility for military rehabilitation.\n\nServing personnel recovering from operational injuries use BFR as part of their structured rehabilitation pathway.\n\nA senior military medical officer says: \"This fills a gap we've had for twenty years, effective rehabilitation when you can't fly someone home to a fully equipped gym.\"",
       "choices": [
         {
           "text": "Use the military evidence to strengthen the space proposal",
