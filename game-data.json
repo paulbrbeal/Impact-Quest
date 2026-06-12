@@ -3160,7 +3160,8 @@
         "health",
         "technological"
       ],
-      "phase": "translation"
+      "phase": "translation",
+      "image": "https://paulbrbeal.github.io/Impact-Quest/images/global-alliance.jpg"
     },
     "bfr_next_gen": {
       "title": "Iterating After Flight",
