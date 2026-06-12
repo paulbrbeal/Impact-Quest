@@ -159,7 +159,13 @@ var IQAudio={
     if(this.ctx)return;
     try{var AC=window.AudioContext||window.webkitAudioContext;this.ctx=new AC();}catch(e){this.ctx=null;}
   },
-  resume:function(){ if(this.ctx&&this.ctx.state==="suspended"){this.ctx.resume();} },
+  resume:function(cb){
+    if(!this.ctx){ if(cb)cb(); return; }
+    if(this.ctx.state==="suspended"){
+      var p=this.ctx.resume();
+      if(p&&p.then){ p.then(function(){ if(cb)cb(); }); } else if(cb){ cb(); }
+    } else if(cb){ cb(); }
+  },
   // Subtle UI click: a soft, short filtered blip
   click:function(){
     if(!this.enabled)return; this.init(); if(!this.ctx)return; this.resume();
@@ -219,28 +225,31 @@ var IQAudio={
   },
   // Chord/scale definitions per phase - evolves from sparse/contemplative to warm/full
   phaseChords:{
-    planning:    {root:130.81, intervals:[1, 1.5],            bright:600,  vol:0.05, wave:"sine"},     // C2, sparse fifth - contemplative
-    evidence:    {root:146.83, intervals:[1, 1.5, 2],         bright:800,  vol:0.055, wave:"sine"},    // D2, adds octave
-    engagement:  {root:164.81, intervals:[1, 1.25, 1.5],      bright:1000, vol:0.06, wave:"triangle"}, // E2, major third - warmer
-    translation: {root:174.61, intervals:[1, 1.25, 1.5, 2],   bright:1200, vol:0.065, wave:"triangle"},// F2, fuller major chord
-    adoption:    {root:196.00, intervals:[1, 1.25, 1.5, 1.875],bright:1500,vol:0.07, wave:"triangle"}, // G2, major + major seventh - hopeful
-    scaling:     {root:196.00, intervals:[1, 1.25, 1.5, 2, 2.5],bright:1800,vol:0.075,wave:"triangle"} // G2, full + bright - triumphant build
+    planning:    {root:130.81, intervals:[1, 1.5],            bright:700,  vol:0.22, wave:"sine"},     // C2, sparse fifth - contemplative
+    evidence:    {root:146.83, intervals:[1, 1.5, 2],         bright:900,  vol:0.24, wave:"sine"},    // D2, adds octave
+    engagement:  {root:164.81, intervals:[1, 1.25, 1.5],      bright:1100, vol:0.26, wave:"triangle"}, // E2, major third - warmer
+    translation: {root:174.61, intervals:[1, 1.25, 1.5, 2],   bright:1300, vol:0.28, wave:"triangle"},// F2, fuller major chord
+    adoption:    {root:196.00, intervals:[1, 1.25, 1.5, 1.875],bright:1600,vol:0.30, wave:"triangle"}, // G2, major + major seventh - hopeful
+    scaling:     {root:196.00, intervals:[1, 1.25, 1.5, 2, 2.5],bright:1900,vol:0.32,wave:"triangle"} // G2, full + bright - triumphant build
   },
   startMusic:function(phase){
-    if(!this.enabled)return; this.init(); if(!this.ctx)return; this.resume();
-    var ctx=this.ctx;
-    if(!this.music.masterGain){
-      this.music.masterGain=ctx.createGain();
-      this.music.masterGain.gain.value=0; // fade in
-      this.music.masterGain.connect(ctx.destination);
-    }
-    this.music.running=true;
-    // Fade master up gently
-    var now=ctx.currentTime;
-    this.music.masterGain.gain.cancelScheduledValues(now);
-    this.music.masterGain.gain.setValueAtTime(this.music.masterGain.gain.value,now);
-    this.music.masterGain.gain.linearRampToValueAtTime(1,now+3);
-    this.setPhase(phase||"planning");
+    if(!this.enabled)return; this.init(); if(!this.ctx)return;
+    var self=this;
+    this.resume(function(){
+      var ctx=self.ctx;
+      if(!self.music.masterGain){
+        self.music.masterGain=ctx.createGain();
+        self.music.masterGain.gain.value=0; // fade in
+        self.music.masterGain.connect(ctx.destination);
+      }
+      self.music.running=true;
+      var now=ctx.currentTime;
+      self.music.masterGain.gain.cancelScheduledValues(now);
+      self.music.masterGain.gain.setValueAtTime(self.music.masterGain.gain.value,now);
+      self.music.masterGain.gain.linearRampToValueAtTime(1,now+3);
+      self.music.currentPhase=null; // force setPhase to build voices
+      self.setPhase(phase||"planning");
+    });
   },
   setPhase:function(phase){
     if(!this.music.running||!this.ctx)return;
@@ -261,19 +270,23 @@ var IQAudio={
     this.music.nodes=[];
     // Build new pad voices for this phase, crossfading in over 3s
     def.intervals.forEach(function(mult,i){
-      var osc=ctx.createOscillator(), g=ctx.createGain(), filt=ctx.createBiquadFilter();
-      osc.type=def.wave; osc.frequency.value=def.root*mult;
-      // Slow detune drift via LFO for a living, breathing pad
-      var lfo=ctx.createOscillator(), lfoGain=ctx.createGain();
-      lfo.frequency.value=0.07+i*0.02; lfoGain.gain.value=1.5;
-      lfo.connect(lfoGain); lfoGain.connect(osc.frequency);
-      filt.type="lowpass"; filt.frequency.value=def.bright;
-      var voiceVol=def.vol/def.intervals.length*1.6;
-      g.gain.setValueAtTime(0.0001,now);
-      g.gain.linearRampToValueAtTime(voiceVol,now+3);
-      osc.connect(filt); filt.connect(g); g.connect(self.music.masterGain);
-      osc.start(now); lfo.start(now);
-      self.music.nodes.push({osc:osc, gain:g, lfo:lfo});
+      // Two oscillators per interval: base + octave up (carries on small speakers)
+      [1, 2].forEach(function(octave,oi){
+        var osc=ctx.createOscillator(), g=ctx.createGain(), filt=ctx.createBiquadFilter();
+        osc.type=def.wave; osc.frequency.value=def.root*mult*octave;
+        // Slow detune drift via LFO for a living, breathing pad
+        var lfo=ctx.createOscillator(), lfoGain=ctx.createGain();
+        lfo.frequency.value=0.07+i*0.02; lfoGain.gain.value=1.5;
+        lfo.connect(lfoGain); lfoGain.connect(osc.frequency);
+        filt.type="lowpass"; filt.frequency.value=def.bright;
+        // octave-up layer quieter than the root
+        var voiceVol=(def.vol/def.intervals.length)*(octave===1?1:0.45);
+        g.gain.setValueAtTime(0.0001,now);
+        g.gain.linearRampToValueAtTime(voiceVol,now+3);
+        osc.connect(filt); filt.connect(g); g.connect(self.music.masterGain);
+        osc.start(now); lfo.start(now);
+        self.music.nodes.push({osc:osc, gain:g, lfo:lfo});
+      });
     });
   },
   stopMusic:function(){
