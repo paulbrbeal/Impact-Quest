@@ -2558,7 +2558,8 @@
         "technological"
       ],
       "phase": "translation",
-      "image": "https://paulbrbeal.github.io/Impact-Quest/images/bfr3.jpg"
+      "image": "https://paulbrbeal.github.io/Impact-Quest/images/bfr3.jpg",
+      "imageSize": "banner"
     },
     "bfr_more_evidence": {
       "title": "Building the Evidence Mountain",
