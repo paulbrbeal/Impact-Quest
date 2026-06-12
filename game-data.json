@@ -2525,7 +2525,7 @@
       ],
       "phase": "planning",
       "image": "images/bfr2.jpg",
-      "imageSize": "banner"
+      "imageSize": "large"
     },
     "bfr_direct_esa": {
       "title": "Shooting for the Stars",
