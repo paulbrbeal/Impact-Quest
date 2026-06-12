@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "name": "ertr",
+    "dept": "retrew",
+    "score": 145,
+    "scores": {
+      "strategy": 40,
+      "stakeholders": 27,
+      "significance": 35,
+      "reach": 34,
+      "evidence": 9
+    },
+    "ending": "Impact Case Study: Beyond Low Earth Orbit",
+    "endingType": "practitioner",
+    "storyId": "bfr",
+    "storyTitle": "From Clinic to Cosmos",
+    "steps": 8,
+    "date": "2026-06-12T09:32:19.916Z"
+  }
+]
