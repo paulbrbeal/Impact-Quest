@@ -164,7 +164,13 @@ var PHASE_COLORS={planning:"#d4a017",evidence:"#7c9885",engagement:"#5b8c8c",tra
 var LB_REPO="paulbrbeal/Impact-Quest";
 
 function saveScore(entry){
-  try{localStorage.removeItem("iq_lb_hidden");}catch(e){}
+  // Only un-hide THIS entry (don't wipe the whole hidden list, or cleared ghosts reappear)
+  try{
+    var key=entry.name+"|"+(entry.date||"")+"|"+(entry.score||0);
+    var hidden=JSON.parse(localStorage.getItem("iq_lb_hidden")||"[]");
+    hidden=hidden.filter(function(h){return h!==key;});
+    localStorage.setItem("iq_lb_hidden",JSON.stringify(hidden));
+  }catch(e){}
   try{var l=JSON.parse(localStorage.getItem("iq_leaderboard")||"[]");l.push(entry);localStorage.setItem("iq_leaderboard",JSON.stringify(l));}catch(err){}
   var token=(localStorage.getItem("iq_gh_token")||"").replace(/[^\x20-\x7E]/g,"").trim();
   if(!token)return;
