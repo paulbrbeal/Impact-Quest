@@ -3585,7 +3585,8 @@
         "economic",
         "technological"
       ],
-      "phase": "engagement"
+      "phase": "engagement",
+      "image": "https://paulbrbeal.github.io/Impact-Quest/images/space.jpg"
     },
     "sbl_start": {
       "title": "The Retention Crisis",
