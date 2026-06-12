@@ -3486,7 +3486,8 @@
       "impactTypes": [
         "health"
       ],
-      "phase": "planning"
+      "phase": "planning",
+      "image": "https://paulbrbeal.github.io/Impact-Quest/images/global-reach.jpg"
     },
     "bfr_mod_deep": {
       "title": "Military Integration",
