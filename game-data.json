@@ -3359,7 +3359,8 @@
         "health",
         "economic"
       ],
-      "phase": "evidence"
+      "phase": "evidence",
+      "image": "https://paulbrbeal.github.io/Impact-Quest/images/conference.jpg"
     },
     "bfr_nasa_collab": {
       "title": "The NASA Connection",
