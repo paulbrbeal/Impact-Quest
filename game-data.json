@@ -666,7 +666,7 @@
     },
     "funding_bid": {
       "title": "Empowering Partners",
-      "narrative": "You help GreenSpace Collective write a funding bid to the National Lottery, using your research as the evidence base. The bid makes a compelling case: here's the research showing this approach works, and here's the community organisation ready to deliver it.\n\nThe bid is successful  -  £150,000 over three years. Priya is ecstatic. Your research has directly enabled this community organisation to expand their life-changing work.\n\nThis is tangible, evidenced impact. The funding decision letter explicitly cites your research as key supporting evidence.",
+      "narrative": "You help GreenSpace Collective write a funding bid to the National Lottery, using your research as the evidence base. The bid makes a compelling case: here's the research showing this approach works, and here's the community organisation ready to deliver it.\n\nThe bid is successful  -  Â£150,000 over three years. Priya is ecstatic. Your research has directly enabled this community organisation to expand their life-changing work.\n\nThis is tangible, evidenced impact. The funding decision letter explicitly cites your research as key supporting evidence.",
       "choices": [
         {
           "text": "Document this carefully  -  the funding letter is gold-standard evidence",
@@ -720,7 +720,7 @@
     },
     "cost_benefit": {
       "title": "Strengthening the Case",
-      "narrative": "Your Health Economics colleague helps produce a cost-benefit analysis showing that every £1 invested in community-led green spaces generates £3.20 in health and social benefits.\n\nThe DPH's eyes light up: \"THIS is what I can take to cabinet. They don't understand wellbeing scores, but they understand return on investment.\"\n\nThe council commits £500,000 to a new Community Green Space Programme, explicitly citing your research and the cost-benefit analysis in the cabinet paper.\n\nThis is major policy impact with clear evidence.",
+      "narrative": "Your Health Economics colleague helps produce a cost-benefit analysis showing that every Â£1 invested in community-led green spaces generates Â£3.20 in health and social benefits.\n\nThe DPH's eyes light up: \"THIS is what I can take to cabinet. They don't understand wellbeing scores, but they understand return on investment.\"\n\nThe council commits Â£500,000 to a new Community Green Space Programme, explicitly citing your research and the cost-benefit analysis in the cabinet paper.\n\nThis is major policy impact with clear evidence.",
       "choices": [
         {
           "text": "Secure copies of the cabinet paper and decision documents",
@@ -778,7 +778,7 @@
     },
     "bold_recommendation": {
       "title": "Fortune Favours the Bold",
-      "narrative": "The DPH pushes back initially: \"Community-led? We can't just hand over money without accountability.\"\n\nBut you're prepared. You present your evidence showing community-led approaches have better outcomes AND better cost-effectiveness than top-down provision. You share the GreenSpace Collective's data.\n\nThree months later, the council announces a £300,000 Community Green Space Fund  -  ring-fenced for community organisations in deprived wards. Your research is cited as the evidence base.\n\nLocal headlines read: \"Council backs community green spaces after university research.\"",
+      "narrative": "The DPH pushes back initially: \"Community-led? We can't just hand over money without accountability.\"\n\nBut you're prepared. You present your evidence showing community-led approaches have better outcomes AND better cost-effectiveness than top-down provision. You share the GreenSpace Collective's data.\n\nThree months later, the council announces a Â£300,000 Community Green Space Fund  -  ring-fenced for community organisations in deprived wards. Your research is cited as the evidence base.\n\nLocal headlines read: \"Council backs community green spaces after university research.\"",
       "choices": [
         {
           "text": "Document everything  -  cabinet papers, press coverage, the funding decision",
@@ -857,7 +857,7 @@
     },
     "advisory_panel": {
       "title": "Embedded Influence",
-      "narrative": "You join the advisory panel. Over 18 months, your research shapes multiple council decisions about green space investment and design. You keep meticulous records of meetings, recommendations made, and actions taken.\n\nThe council's Green Space Action Plan explicitly acknowledges your advisory role and cites your research 14 times. The plan redirects £2 million in capital spending toward community-led projects.\n\nSam is delighted: \"This is textbook policy impact. You've got the evidence trail, the policy documents, the scale  -  this could be a flagship case study.\"",
+      "narrative": "You join the advisory panel. Over 18 months, your research shapes multiple council decisions about green space investment and design. You keep meticulous records of meetings, recommendations made, and actions taken.\n\nThe council's Green Space Action Plan explicitly acknowledges your advisory role and cites your research 14 times. The plan redirects Â£2 million in capital spending toward community-led projects.\n\nSam is delighted: \"This is textbook policy impact. You've got the evidence trail, the policy documents, the scale  -  this could be a flagship case study.\"",
       "choices": [
         {
           "text": "Compile the impact case study with Sam's help",
@@ -984,7 +984,7 @@
     },
     "national_framework": {
       "title": "Systemic Change",
-      "narrative": "You co-develop GreenFutures' new evaluation framework. It's adopted as standard practice across their £10 million annual grants portfolio, meaning every project they fund is now assessed using criteria derived from your research.\n\nThis is systemic impact  -  your research has changed how an entire sector operates. The framework is subsequently picked up by two other national funders.\n\nSam is thrilled: \"National reach, multiple beneficiaries, clear evidence of change in practice. This is REF gold.\"",
+      "narrative": "You co-develop GreenFutures' new evaluation framework. It's adopted as standard practice across their Â£10 million annual grants portfolio, meaning every project they fund is now assessed using criteria derived from your research.\n\nThis is systemic impact  -  your research has changed how an entire sector operates. The framework is subsequently picked up by two other national funders.\n\nSam is thrilled: \"National reach, multiple beneficiaries, clear evidence of change in practice. This is REF gold.\"",
       "choices": [
         {
           "text": "Compile the impact case study",
@@ -1973,7 +1973,7 @@
     },
     "bfr_start": {
       "title": "The Exercise Paradox",
-      "narrative": "You're an exercise physiologist at Northumbria University, working in the Aerospace Medicine and Rehabilitation Laboratory. For years, you've been developing Blood Flow Restriction Exercise (BFRE)  -  a technique that uses surgical-grade tourniquet cuffs to partially restrict blood flow to limbs during low-intensity exercise.\n\nThe results are remarkable: BFRE produces muscle and bone adaptations comparable to high-intensity training, but at a fraction of the load. In clinical rehabilitation, this is transformative  -  patients who can't tolerate heavy exercise after surgery or injury can still make meaningful gains.\n\nYour work has attracted attention from unexpected quarters.\n\nYour clinic-based technique could work in microgravity. But getting from rehabilitation room to orbit is a massive leap. Where do you start?",
+      "narrative": "You're an exercise physiologist at Northumbria University, working in the Aerospace Medicine and Rehabilitation Laboratory. For years, you've been developing Blood Flow Restriction (BFR), a technique that uses surgical-grade tourniquet cuffs to partially restrict blood flow to limbs during low-intensity exercise.\n\nThe results are remarkable: BFRE produces muscle and bone adaptations comparable to high-intensity training, but at a fraction of the load. In clinical rehabilitation, this is transformative,  patients who can't tolerate heavy exercise after surgery or injury can still make meaningful gains.\n\nYour work has attracted attention from unexpected quarters.\n\nYour clinic-based technique could work in microgravity. But getting from rehabilitation room to orbit is a massive leap. Where do you start?",
       "choices": [
         {
           "text": "Meet with the Impact Officer to map out a pathway from clinical to space application",
@@ -1984,7 +1984,7 @@
           "next": "bfr_direct_esa"
         },
         {
-          "text": "Focus on strengthening the clinical evidence base  -  the space agencies will need rock-solid proof",
+          "text": "Focus on strengthening the clinical evidence base, the space agencies will need rock-solid proof",
           "next": "bfr_more_evidence"
         }
       ],
@@ -2007,18 +2007,18 @@
     },
     "bfr_strategy": {
       "title": "Multiple Orbits",
-      "narrative": "The Impact Officer helps you step back and see the bigger picture. Your BFR research doesn't have one impact pathway  -  it has several, and they reinforce each other.\n\nYou map them out:\n\n* Clinical rehabilitation: NHS, private clinics, post-surgical recovery\n* Elite sport: Premier League, international football, Olympic sports\n* Military: MOD  -  injury recovery in austere environments with limited equipment\n* Space medicine: NASA, ESA, UK Space Agency (UKSA)  -  countermeasure for muscle and bone loss\n\nWhich pathway do you prioritise alongside the space opportunity?",
+      "narrative": "The Impact Officer helps you step back and see the bigger picture. Your BFR research doesn't have one impact pathway, it has several, and they reinforce each other.\n\nYou map them out:\n\n* Clinical rehabilitation: NHS, private clinics, post-surgical recovery\n* Elite sport: Premier League, international football, Olympic sports\n* Military: MOD injury recovery in austere environments with limited equipment\n* Space medicine: NASA, ESA, UK Space Agency (UKSA) countermeasure for muscle and bone loss\n\nWhich pathway do you prioritise alongside the space opportunity?",
       "choices": [
         {
-          "text": "Military  -  the MOD has funding and their challenge mirrors space deconditioning",
+          "text": "Military. The MOD has funding and their challenge mirrors space deconditioning",
           "next": "bfr_mod"
         },
         {
-          "text": "Elite sport  -  football clubs are already engaged and can generate evidence quickly",
+          "text": "Elite sport. Football clubs are already engaged and can generate evidence quickly",
           "next": "bfr_sport"
         },
         {
-          "text": "Go all-in on space  -  it's the most transformative opportunity and you don't want to dilute focus",
+          "text": "Go all-in on space. It's the most transformative opportunity and you don't want to dilute focus",
           "next": "bfr_space_focus"
         }
       ],
@@ -2043,7 +2043,7 @@
     },
     "bfr_direct_esa": {
       "title": "Shooting for the Stars",
-      "narrative": "You submit a research proposal to ESA's open call for spaceflight countermeasure research. The proposal is scientifically rigorous  -  you outline the clinical evidence, the proposed mechanism, and a detailed experimental protocol for testing BFR in simulated microgravity.\n\nThe reviewers are interested but identify gaps. The science is promising,\" the feedback reads, \"but we have concerns about operational feasibility.\n\nThe proposal isn't rejected outright  -  you're encouraged to resubmit with these gaps addressed. But you need partnerships and operational evidence.",
+      "narrative": "You submit a research proposal to ESA's open call for spaceflight countermeasure research. The proposal is scientifically rigorous. You outline the clinical evidence, the proposed mechanism, and a detailed experimental protocol for testing BFR in simulated microgravity.\n\nThe reviewers are interested but identify gaps. The science is promising,\" the feedback reads, \"but we have concerns about operational feasibility.\n\nThe proposal isn't rejected outright. You're encouraged to resubmit with these gaps addressed. But you need partnerships and operational evidence.",
       "choices": [
         {
           "text": "Step back and develop a strategic approach with multiple evidence pathways",
@@ -2665,7 +2665,7 @@
     },
     "bfr_next_gen": {
       "title": "Iterating After Flight",
-      "narrative": "Following the successful commercial spaceflight, your research project receives £287,000 of further funding from UKSA. The funding is part of a batch of 23 projects aimed at strengthening international space partnerships and developing national capabilities.\n\nThe project, working with Western Clinical Engineering Group, Delfi Medical Innovations, the Canadian Space Agency, ESA, and NASA, will resolve technological uncertainties related to future space applications.\n\n\"The UK is at the forefront of space innovation,\" UKSA's Chief Executive says, citing your project as an example of combining home-grown talent with global expertise.",
+      "narrative": "Following the successful commercial spaceflight, your research project receives Â£287,000 of further funding from UKSA. The funding is part of a batch of 23 projects aimed at strengthening international space partnerships and developing national capabilities.\n\nThe project, working with Western Clinical Engineering Group, Delfi Medical Innovations, the Canadian Space Agency, ESA, and NASA, will resolve technological uncertainties related to future space applications.\n\n\"The UK is at the forefront of space innovation,\" UKSA's Chief Executive says, citing your project as an example of combining home-grown talent with global expertise.",
       "choices": [
         {
           "text": "Build the full international consortium for deep-space missions",
@@ -3169,7 +3169,7 @@
     },
     "sbl_big_bid": {
       "title": "Running Before Walking",
-      "narrative": "You write an ambitious funding bid to the Education Endowment Foundation for a £500,000 national programme of simulation-based learning for Initial Teacher Education. The proposal is well-argued and the need is clear.\n\nThe reviewers are interested but unconvinced. Their feedback is constructive but firm: \"The rationale is compelling and the approach is innovative.\n\nOne positive note: the reviewers explicitly mention that the idea fills a genuine gap and encourage you to resubmit with pilot evidence. They want this to work  -  they just need you to prove it first.",
+      "narrative": "You write an ambitious funding bid to the Education Endowment Foundation for a Â£500,000 national programme of simulation-based learning for Initial Teacher Education. The proposal is well-argued and the need is clear.\n\nThe reviewers are interested but unconvinced. Their feedback is constructive but firm: \"The rationale is compelling and the approach is innovative.\n\nOne positive note: the reviewers explicitly mention that the idea fills a genuine gap and encourage you to resubmit with pilot evidence. They want this to work  -  they just need you to prove it first.",
       "choices": [
         {
           "text": "Run a rigorous pilot study to generate the evidence the funders need",
