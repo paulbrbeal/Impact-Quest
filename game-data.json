@@ -3269,7 +3269,8 @@
         "health",
         "technological"
       ],
-      "phase": "translation"
+      "phase": "translation",
+      "image": "https://paulbrbeal.github.io/Impact-Quest/images/orbit.jpg"
     },
     "bfr_ending_sport": {
       "title": "Impact Case Study: Changing the Game",
