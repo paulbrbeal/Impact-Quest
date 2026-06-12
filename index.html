@@ -418,6 +418,7 @@ function App(props){
   var _ck=useState(0),cardKey=_ck[0],setCardKey=_ck[1];
   var _sub=useState(false),submitted=_sub[0],setSubmitted=_sub[1];
   var _ieo=useState(false),showIEO=_ieo[0],setShowIEO=_ieo[1];
+  var _ieoBonus=useState(false),ieoBonusClaimed=_ieoBonus[0],setIeoBonusClaimed=_ieoBonus[1];
   var hasSubmitted=useRef(false);
 
   var story=storyId?stories[storyId]:null;
@@ -464,8 +465,8 @@ function App(props){
     if(nextNode&&nextNode.scoreEffect){setScores(function(s){var ns=Object.assign({},s);Object.keys(nextNode.scoreEffect).forEach(function(k){ns[k]=Math.max(0,(ns[k]||0)+nextNode.scoreEffect[k]);});return ns;});}
     setCurrentNode(choice.next);setCardKey(function(k){return k+1;});window.scrollTo({top:0,behavior:"smooth"});
   };
-  var restart=function(){hasSubmitted.current=false;var startScene=story?story.startScene:"start";setCurrentNode(startScene);setScores({strategy:0,stakeholders:0,significance:0,reach:0,evidence:0});setHistory([]);setShowChoices(true);setSubmitted(false);setCardKey(function(k){return k+1;});window.scrollTo({top:0,behavior:"smooth"});};
-  var restartFull=function(){hasSubmitted.current=false;setPhase(hasStories&&Object.keys(stories).length>1?"select":"register");setStoryId(hasStories&&Object.keys(stories).length===1?Object.keys(stories)[0]:"");setCurrentNode("");setScores({strategy:0,stakeholders:0,significance:0,reach:0,evidence:0});setHistory([]);setShowChoices(true);setSubmitted(false);setCardKey(function(k){return k+1;});window.scrollTo({top:0,behavior:"smooth"});};
+  var restart=function(){hasSubmitted.current=false;var startScene=story?story.startScene:"start";setCurrentNode(startScene);setScores({strategy:0,stakeholders:0,significance:0,reach:0,evidence:0});setHistory([]);setShowChoices(true);setSubmitted(false);setIeoBonusClaimed(false);setCardKey(function(k){return k+1;});window.scrollTo({top:0,behavior:"smooth"});};
+  var restartFull=function(){hasSubmitted.current=false;setPhase(hasStories&&Object.keys(stories).length>1?"select":"register");setStoryId(hasStories&&Object.keys(stories).length===1?Object.keys(stories)[0]:"");setCurrentNode("");setScores({strategy:0,stakeholders:0,significance:0,reach:0,evidence:0});setHistory([]);setShowChoices(true);setSubmitted(false);setIeoBonusClaimed(false);setCardKey(function(k){return k+1;});window.scrollTo({top:0,behavior:"smooth"});};
 
   return e("div",{className:"container"},
     e("div",{className:"header"},
@@ -491,7 +492,13 @@ function App(props){
     !isEnding&&showChoices&&node.choices?e("div",{className:"choices-section"},
       e("div",{className:"choices-label"},"What do you do?"),
       node.choices.map(function(choice,i){return e("button",{key:i,className:"choice-btn",onClick:function(){handleChoice(choice);}},e("span",{className:"choice-letter"},String.fromCharCode(65+i)),choice.text);}),
-      !showIEO?e("button",{className:"ieo-btn",onClick:function(){setShowIEO(true);}},e("span",{className:"ieo-icon"},"\ud83d\udcac"),"Check in with your Impact & Engagement Officer"):null
+      !showIEO?e("button",{className:"ieo-btn",onClick:function(){
+        setShowIEO(true);
+        if(!ieoBonusClaimed){
+          setIeoBonusClaimed(true);
+          setScores(function(s){return {strategy:(s.strategy||0)+8,stakeholders:(s.stakeholders||0)+4,evidence:(s.evidence||0)+3,significance:s.significance||0,reach:s.reach||0};});
+        }
+      }},e("span",{className:"ieo-icon"},"\ud83d\udcac"),"Check in with your Impact & Engagement Officer"):null
     ):null,
     showIEO&&showChoices&&!isEnding?e(IEOPanel,{node:node,scores:scores,history:history,scenes:scenes,ieoData:GAME.ieoAdvice||{},onClose:function(){setShowIEO(false);}}):null,
     isEnding&&showChoices?e("div",{className:"ending-box"},
