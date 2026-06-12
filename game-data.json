@@ -3392,7 +3392,8 @@
         "practice",
         "health"
       ],
-      "phase": "evidence"
+      "phase": "evidence",
+      "image": "https://paulbrbeal.github.io/Impact-Quest/images/nasa.jpg"
     },
     "bfr_nhs_adoption": {
       "title": "Clinical Adoption at Scale",
