@@ -98,7 +98,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 .tag-cat[data-cat="stakeholders"]{background:#d1fae5;color:#065f46;border-color:#6ee7b7}
 .tag-cat[data-cat="significance"]{background:#fee2e2;color:#991b1b;border-color:#fca5a5}
 .tag-cat[data-cat="reach"]{background:#dbeafe;color:#1e40af;border-color:#93c5fd}
-.tag-cat[data-cat="evidence"]{background:#e0e7ff;color:#3730a3;border-color:#a5b4fc}
+.tag-cat[data-cat="evidence"]{background:#d8efe0;color:#1f5c3d;border-color:#96CEB4}
 .tag-impact{background:transparent;color:var(--text-muted);border:1px dashed var(--border);font-weight:500}
 .tag-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
 .phase-indicator{display:inline-flex;align-items:center;gap:6px;font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;font-weight:600;margin-top:6px}
@@ -155,10 +155,11 @@ var SCORE_COLORS={strategy:"#E8A838",stakeholders:"#4a6741",significance:"#c0392
 var ENDING_THEMES={policy:{emoji:"\ud83c\udfdb\ufe0f",color:"#5b7fb5"},practitioner:{emoji:"\ud83e\udd1d",color:"#4a6741"},cycle:{emoji:"\ud83d\udd04",color:"#e8963a"}};
 var CAT_LABELS={strategy:"Strategy",stakeholders:"Stakeholders",significance:"Significance",reach:"Reach",evidence:"Evidence"};
 var IMPACT_LABELS={policy:"Policy",practice:"Practice",health:"Health",educational:"Educational",societal:"Societal",economic:"Economic",technological:"Technological"};
+var IMPACT_COLORS={policy:"#5b7fb5",practice:"#4a6741",health:"#c0392b",educational:"#E8A838",societal:"#7c9885",economic:"#b08d57",technological:"#8b6f9e"};
 var IMPACT_ICONS={policy:"\ud83c\udfdb",practice:"\ud83d\udee0",health:"\u2764\ufe0f",educational:"\ud83c\udf93",societal:"\ud83c\udf0d",economic:"\ud83d\udcb0",technological:"\u2699\ufe0f"};
 var PHASE_ORDER=["planning","evidence","engagement","translation","adoption","scaling"];
 var PHASE_LABELS={planning:"Planning",evidence:"Evidence",engagement:"Engagement",translation:"Translation",adoption:"Adoption",scaling:"Scaling"};
-var PHASE_COLORS={planning:"#E8A838",evidence:"#a5b4fc",engagement:"#4a6741",translation:"#5b7fb5",adoption:"#c0392b",scaling:"#96CEB4"};
+var PHASE_COLORS={planning:"#d4a017",evidence:"#7c9885",engagement:"#5b8c8c",translation:"#6a8caf",adoption:"#a86f6f",scaling:"#8b6f9e"};
 
 var LB_REPO="paulbrbeal/Impact-Quest";
 
@@ -332,7 +333,7 @@ function JourneyAnalytics(props){
           var pct=Math.round((val/maxImpact)*100);
           return e("div",{key:key,className:"analytics-bar-row"},
             e("span",{className:"analytics-bar-label"},IMPACT_ICONS[key]||""," ",IMPACT_LABELS[key]),
-            e("div",{className:"analytics-bar-track"},e("div",{className:"analytics-bar-fill",style:{width:pct+"%",background:PHASE_COLORS[key]||"#8c8272"}})),
+            e("div",{className:"analytics-bar-track"},e("div",{className:"analytics-bar-fill",style:{width:pct+"%",background:IMPACT_COLORS[key]||"#8c8272"}})),
             e("span",{className:"analytics-bar-val"},val)
           );
         })
