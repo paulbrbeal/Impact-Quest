@@ -2490,7 +2490,7 @@
         "evidence": 4
       },
       "image": "images/bfr1.jpg",
-      "imageSize": "banner"
+      "imageSize": "large"
     },
     "bfr_strategy": {
       "title": "Multiple Orbits",
