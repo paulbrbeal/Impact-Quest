@@ -674,9 +674,19 @@ function StorySelect(props){
 // Registration screen
 function RegScreen(props){
   var _n=useState(""),name=_n[0],setName=_n[1];var _d=useState(""),dept=_d[0],setDept=_d[1];
+  var _showTok=useState(false),showTok=_showTok[0],setShowTok=_showTok[1];
+  var _tok=useState((function(){try{return localStorage.getItem("iq_gh_token")||"";}catch(e){return "";}})()),tok=_tok[0],setTok=_tok[1];
+  var _saved=useState(false),saved=_saved[0],setSaved=_saved[1];
   var canStart=name.trim().length>0;
   var go=function(){if(canStart)props.onStart(name.trim(),dept.trim());};
   var handleKey=function(ev){if(ev.key==="Enter")go();};
+  var saveTok=function(){
+    try{
+      if(tok.trim()){ localStorage.setItem("iq_gh_token",tok.trim()); }
+      else { localStorage.removeItem("iq_gh_token"); }
+      setSaved(true); setTimeout(function(){setSaved(false);},2500);
+    }catch(e){}
+  };
   return e("div",{className:"container"},
     e("div",{className:"header"},e("div",{className:"header-label"},props.storyTitle),e("h1",null,"THE ",e("em",null,"IMPACT")," QUEST")),
     props.showBack?e("span",{className:"back-link",onClick:props.onBack},"\u2190 Choose a different story"):null,
@@ -687,7 +697,17 @@ function RegScreen(props){
       e("input",{className:"reg-input",value:name,onChange:function(ev){setName(ev.target.value);},onKeyDown:handleKey,placeholder:"e.g. Alex Chen",autoFocus:true}),
       e("label",{className:"reg-label"},"Department / School"),
       e("input",{className:"reg-input",value:dept,onChange:function(ev){setDept(ev.target.value);},onKeyDown:handleKey,placeholder:"e.g. Psychology"}),
-      e("button",{className:"reg-btn",disabled:!canStart,onClick:go},"Start the Quest")
+      e("button",{className:"reg-btn",disabled:!canStart,onClick:go},"Start the Quest"),
+      e("div",{style:{marginTop:18,paddingTop:14,borderTop:"1px solid var(--border)"}},
+        e("span",{style:{fontSize:11,color:"var(--text-muted)",cursor:"pointer",textDecoration:"underline"},onClick:function(){setShowTok(!showTok);}},
+          showTok?"Hide leaderboard sync settings":"Leaderboard sync settings"),
+        showTok?e("div",{style:{marginTop:10}},
+          e("p",{style:{fontSize:11,color:"var(--text-muted)",lineHeight:1.6,marginBottom:8}},
+            "Optional. Paste a shared access key here to let your scores save to the group leaderboard. Leave blank to play and track scores locally only. The key is stored only in this browser and is never shown to other players."),
+          e("input",{className:"reg-input",type:"password",value:tok,onChange:function(ev){setTok(ev.target.value);},placeholder:"Paste leaderboard access key",style:{fontFamily:"monospace",fontSize:12}}),
+          e("button",{className:"restart-small-btn",style:{marginTop:6},onClick:saveTok},saved?"\u2713 Saved":"Save key")
+        ):null
+      )
     )
   );
 }
