@@ -19,7 +19,7 @@
       "image": "https://paulbrbeal.github.io/Impact-Quest/images/bfr.jpg"
     },
     "sbl": {
-      "title": "The Simulation Lab",
+      "title": "The Education Simulation Lab",
       "description": "One-third of teachers leave within five years. Can simulation-based learning transform how we prepare them for the classroom?",
       "startScene": "sbl_start",
       "image": "https://paulbrbeal.github.io/Impact-Quest/images/sbl.jpeg"
@@ -666,7 +666,7 @@
     },
     "funding_bid": {
       "title": "Empowering Partners",
-      "narrative": "You help GreenSpace Collective write a funding bid to the National Lottery, using your research as the evidence base. The bid makes a compelling case: here's the research showing this approach works, and here's the community organisation ready to deliver it.\n\nThe bid is successful. £150,000 over three years. Priya is ecstatic. Your research has directly enabled this community organisation to expand their life-changing work.\n\nThis is tangible, evidenced impact. The funding decision letter explicitly cites your research as key supporting evidence.",
+      "narrative": "You help GreenSpace Collective write a funding bid to the National Lottery, using your research as the evidence base. The bid makes a compelling case: here's the research showing this approach works, and here's the community organisation ready to deliver it.\n\nThe bid is successful. Â£150,000 over three years. Priya is ecstatic. Your research has directly enabled this community organisation to expand their life-changing work.\n\nThis is tangible, evidenced impact. The funding decision letter explicitly cites your research as key supporting evidence.",
       "choices": [
         {
           "text": "Document this carefully. The funding letter is gold-standard evidence",
@@ -720,7 +720,7 @@
     },
     "cost_benefit": {
       "title": "Strengthening the Case",
-      "narrative": "Your Health Economics colleague helps produce a cost-benefit analysis showing that every £1 invested in community-led green spaces generates £3.20 in health and social benefits.\n\nThe DPH's eyes light up: \"THIS is what I can take to cabinet. They don't understand wellbeing scores, but they understand return on investment.\"\n\nThe council commits £500,000 to a new Community Green Space Programme, explicitly citing your research and the cost-benefit analysis in the cabinet paper.\n\nThis is major policy impact with clear evidence.",
+      "narrative": "Your Health Economics colleague helps produce a cost-benefit analysis showing that every Â£1 invested in community-led green spaces generates Â£3.20 in health and social benefits.\n\nThe DPH's eyes light up: \"THIS is what I can take to cabinet. They don't understand wellbeing scores, but they understand return on investment.\"\n\nThe council commits Â£500,000 to a new Community Green Space Programme, explicitly citing your research and the cost-benefit analysis in the cabinet paper.\n\nThis is major policy impact with clear evidence.",
       "choices": [
         {
           "text": "Secure copies of the cabinet paper and decision documents",
@@ -778,7 +778,7 @@
     },
     "bold_recommendation": {
       "title": "Fortune Favours the Bold",
-      "narrative": "The DPH pushes back initially: \"Community-led? We can't just hand over money without accountability.\"\n\nBut you're prepared. You present your evidence showing community-led approaches have better outcomes AND better cost-effectiveness than top-down provision. You share the GreenSpace Collective's data.\n\nThree months later, the council announces a £300,000 Community Green Space Fund, ring-fenced for community organisations in deprived wards. Your research is cited as the evidence base.\n\nLocal headlines read: \"Council backs community green spaces after university research.\"",
+      "narrative": "The DPH pushes back initially: \"Community-led? We can't just hand over money without accountability.\"\n\nBut you're prepared. You present your evidence showing community-led approaches have better outcomes AND better cost-effectiveness than top-down provision. You share the GreenSpace Collective's data.\n\nThree months later, the council announces a Â£300,000 Community Green Space Fund, ring-fenced for community organisations in deprived wards. Your research is cited as the evidence base.\n\nLocal headlines read: \"Council backs community green spaces after university research.\"",
       "choices": [
         {
           "text": "Document everything. Cabinet papers, press coverage, the funding decision",
@@ -857,7 +857,7 @@
     },
     "advisory_panel": {
       "title": "Embedded Influence",
-      "narrative": "You join the advisory panel. Over 18 months, your research shapes multiple council decisions about green space investment and design. You keep meticulous records of meetings, recommendations made, and actions taken.\n\nThe council's Green Space Action Plan explicitly acknowledges your advisory role and cites your research 14 times. The plan redirects £2 million in capital spending toward community-led projects.\n\nYour Impact Officer is delighted: \"This is textbook policy impact. You've got the evidence trail, the policy documents, the scale, this could be a flagship case study.\"",
+      "narrative": "You join the advisory panel. Over 18 months, your research shapes multiple council decisions about green space investment and design. You keep meticulous records of meetings, recommendations made, and actions taken.\n\nThe council's Green Space Action Plan explicitly acknowledges your advisory role and cites your research 14 times. The plan redirects Â£2 million in capital spending toward community-led projects.\n\nYour Impact Officer is delighted: \"This is textbook policy impact. You've got the evidence trail, the policy documents, the scale, this could be a flagship case study.\"",
       "choices": [
         {
           "text": "Compile the impact case study with your Impact Officer's help",
@@ -984,7 +984,7 @@
     },
     "national_framework": {
       "title": "Systemic Change",
-      "narrative": "You co-develop GreenFutures' new evaluation framework. It's adopted as standard practice across their £10 million annual grants portfolio, meaning every project they fund is now assessed using criteria derived from your research.\n\nThis is systemic impact. Your research has changed how an entire sector operates. The framework is subsequently picked up by two other national funders.\n\nYour Impact Officer is thrilled: \"National reach, multiple beneficiaries, clear evidence of change in practice. This is REF gold.\"",
+      "narrative": "You co-develop GreenFutures' new evaluation framework. It's adopted as standard practice across their Â£10 million annual grants portfolio, meaning every project they fund is now assessed using criteria derived from your research.\n\nThis is systemic impact. Your research has changed how an entire sector operates. The framework is subsequently picked up by two other national funders.\n\nYour Impact Officer is thrilled: \"National reach, multiple beneficiaries, clear evidence of change in practice. This is REF gold.\"",
       "choices": [
         {
           "text": "Compile the impact case study",
@@ -2665,7 +2665,7 @@
     },
     "bfr_next_gen": {
       "title": "Iterating After Flight",
-      "narrative": "Following the successful commercial spaceflight, your research project receives £287,000 of further funding from UKSA. The funding is part of a batch of 23 projects aimed at strengthening international space partnerships and developing national capabilities.\n\nThe project, working with Western Clinical Engineering Group, Delfi Medical Innovations, the Canadian Space Agency, ESA, and NASA, will resolve technological uncertainties related to future space applications.\n\n\"The UK is at the forefront of space innovation,\" UKSA's Chief Executive says, citing your project as an example of combining home-grown talent with global expertise.",
+      "narrative": "Following the successful commercial spaceflight, your research project receives Â£287,000 of further funding from UKSA. The funding is part of a batch of 23 projects aimed at strengthening international space partnerships and developing national capabilities.\n\nThe project, working with Western Clinical Engineering Group, Delfi Medical Innovations, the Canadian Space Agency, ESA, and NASA, will resolve technological uncertainties related to future space applications.\n\n\"The UK is at the forefront of space innovation,\" UKSA's Chief Executive says, citing your project as an example of combining home-grown talent with global expertise.",
       "choices": [
         {
           "text": "Build the full international consortium for deep-space missions",
@@ -3070,22 +3070,22 @@
     },
     "sbl_start": {
       "title": "The Retention Crisis",
-      "narrative": "You're a teacher educator at Northumbria University. Before joining academia, you spent over thirteen years as a classroom teacher and senior leader in primary schools in the North East. You know the reality of the job  -  not from textbooks, but from staffrooms, parents' evenings, and Ofsted inspections.\n\nAnd the reality is this: one-third of teachers in England leave the profession within five years of qualifying. International data shows similar attrition rates across Europe  -  some sources suggest 28%. The reasons are well-documented: workload, behaviour management challenges, and a persistent feeling of being unprepared for what practitioners call \"the bits of the job beyond teaching.\"\n\nThe teaching profession is in crisis. Your research could help. But where do you begin?",
+      "narrative": "You're a teacher educator at Northumbria University. Before joining academia, you spent over thirteen years as a classroom teacher and senior leader in primary schools in the North East. You know the reality of the job. Not from textbooks, but from staffrooms, parents' evenings, and Ofsted inspections.\n\nAnd the reality is this: one-third of teachers in England leave the profession within five years of qualifying. International data shows similar attrition rates across Europe, some sources suggest 28%. The reasons are well-documented: workload, behaviour management challenges, and a persistent feeling of being unprepared for what practitioners call \"the bits of the job beyond teaching.\"\n\nThe teaching profession is in crisis. Your research could help. But where do you begin?",
       "choices": [
         {
           "text": "Meet with your Impact & Engagement Officer to develop a strategy",
           "next": "sbl_strategy"
         },
         {
-          "text": "Start small - design a pilot simulation and test it with your own students",
+          "text": "Start small. Design a pilot simulation and test it with your own students",
           "next": "sbl_pilot"
         },
         {
-          "text": "Research what other professions do first - learn from medical simulation",
+          "text": "Research what other professions do first. Learn from medical simulation",
           "next": "sbl_cross_sector"
         },
         {
-          "text": "Go big - write a funding bid for a national programme",
+          "text": "Go big. Write a funding bid for a national programme",
           "next": "sbl_big_bid"
         }
       ],
@@ -3106,7 +3106,7 @@
     },
     "sbl_pilot": {
       "title": "The First Simulation",
-      "narrative": "You design your first simulation scenario. The situation: a parent comes into school upset because their child has been excluded from a class trip due to unpaid contributions. The parent is angry, embarrassed, and feels their child is being punished for the family's financial situation. The student teacher must navigate the conversation  -  balancing empathy with school policy, de-escalating emotion, and finding a resolution.\n\nBut it's one scenario with one cohort. You need to scale this  -  and evidence it properly.",
+      "narrative": "You design your first simulation scenario. The situation: a parent comes into school upset because their child has been excluded from a class trip due to unpaid contributions. The parent is angry, embarrassed, and feels their child is being punished for the family's financial situation. The student teacher must navigate the conversation, balancing empathy with school policy, de-escalating emotion, and finding a resolution.\n\nBut it's one scenario with one cohort. You need to scale this and evidence it properly.",
       "choices": [
         {
           "text": "Develop a full suite of simulation scenarios covering different challenge areas",
@@ -3148,7 +3148,7 @@
           "next": "sbl_cross_faculty"
         },
         {
-          "text": "Go straight to piloting  -  you've learned enough to start",
+          "text": "Go straight to piloting. You've learned enough to start",
           "next": "sbl_pilot"
         }
       ],
@@ -3169,14 +3169,14 @@
     },
     "sbl_big_bid": {
       "title": "Running Before Walking",
-      "narrative": "You write an ambitious funding bid to the Education Endowment Foundation for a £500,000 national programme of simulation-based learning for Initial Teacher Education. The proposal is well-argued and the need is clear.\n\nThe reviewers are interested but unconvinced. Their feedback is constructive but firm: \"The rationale is compelling and the approach is innovative.\n\nOne positive note: the reviewers explicitly mention that the idea fills a genuine gap and encourage you to resubmit with pilot evidence. They want this to work  -  they just need you to prove it first.",
+      "narrative": "You write an ambitious funding bid to the Education Endowment Foundation for a £500,000 national programme of simulation-based learning for Initial Teacher Education. The proposal is well-argued and the need is clear.\n\nThe reviewers are interested but unconvinced. Their feedback is constructive but firm: \"The rationale is compelling and the approach is innovative.\n\nOne positive note: the reviewers explicitly mention that the idea fills a genuine gap and encourage you to resubmit with pilot evidence. They want this to work, they just need you to prove it first.",
       "choices": [
         {
           "text": "Run a rigorous pilot study to generate the evidence the funders need",
           "next": "sbl_pilot"
         },
         {
-          "text": "Start smaller  -  seek departmental support and internal funding to build incrementally",
+          "text": "Start smaller. Seek departmental support and internal funding to build incrementally",
           "next": "sbl_departmental"
         },
         {
@@ -3232,7 +3232,7 @@
     },
     "sbl_scenario_suite": {
       "title": "The Scenario Library",
-      "narrative": "Working with your team  -  a group of experienced teacher educators who between them have decades of classroom experience  -  you develop a suite of simulation scenarios targeting the most challenging aspects of early career teaching:\n\n* A safeguarding disclosure: a child tells you something concerning during a quiet moment\n* Behaviour management: managing disruptive behaviour during a lesson observation by your mentor\n* A difficult parent: a parent is upset about their child's progress report and questions your competence\n* EAL support: welcoming a newly arrived child with no English, communicating with their non-English-speaking parent\n* Staffroom dynamics: a colleague makes an inappropriate comment about a child  -  what do you do?\n\nHow do you expand the impact beyond your own programme?",
+      "narrative": "Working with your team, a group of experienced teacher educators who between them have decades of classroom experience, you develop a suite of simulation scenarios targeting the most challenging aspects of early career teaching:\n\n* A safeguarding disclosure: a child tells you something concerning during a quiet moment\n* Behaviour management: managing disruptive behaviour during a lesson observation by your mentor\n* A difficult parent: a parent is upset about their child's progress report and questions your competence\n* EAL support: welcoming a newly arrived child with no English, communicating with their non-English-speaking parent\n* Staffroom dynamics: a colleague makes an inappropriate comment about a child  -  what do you do?\n\nHow do you expand the impact beyond your own programme?",
       "choices": [
         {
           "text": "Publish the evidence and share nationally",
@@ -3264,7 +3264,7 @@
     },
     "sbl_publish_pilot": {
       "title": "Building the Evidence Base",
-      "narrative": "You write up your pilot findings rigorously. The paper  -  \"Can simulation-based learning in Initial Teacher Education better prepare students for real-life as a teacher?\"  -  reports on student confidence, self-efficacy measures, and qualitative reflections.\n\nThe findings show statistically significant improvements in students' confidence in handling challenging professional situations, and the qualitative data reveals deep reflective learning that traditional lecture-based preparation doesn't achieve.\n\nBut academic impact isn't enough for REF. You need to show that your research is changing practice beyond Northumbria.",
+      "narrative": "You write up your pilot findings rigorously. The paper, \"Can simulation-based learning in Initial Teacher Education better prepare students for real-life as a teacher?\", reports on student confidence, self-efficacy measures, and qualitative reflections.\n\nThe findings show statistically significant improvements in students' confidence in handling challenging professional situations, and the qualitative data reveals deep reflective learning that traditional lecture-based preparation doesn't achieve.\n\nBut academic impact isn't enough for REF. You need to show that your research is changing practice beyond Northumbria.",
       "choices": [
         {
           "text": "Build a national network of universities interested in simulation approaches",
@@ -3295,7 +3295,7 @@
     },
     "sbl_departmental": {
       "title": "Getting the Team On Board",
-      "narrative": "You present the simulation approach to your Education department colleagues at a teaching and learning away day. The reception is mixed.\n\nThe enthusiasts  -  mostly those with recent classroom experience  -  are immediately on board. They've seen students struggle with exactly the scenarios you're simulating.\n\nBut the enthusiasts become collaborators. Three colleagues volunteer to develop and deliver simulations in their own modules. You now have a small but committed simulation development team within the department.",
+      "narrative": "You present the simulation approach to your Education department colleagues at a teaching and learning away day. The reception is mixed.\n\nThe enthusiasts, mostly those with recent classroom experience, are immediately on board. They've seen students struggle with exactly the scenarios you're simulating.\n\nBut the enthusiasts become collaborators. Three colleagues volunteer to develop and deliver simulations in their own modules. You now have a small but committed simulation development team within the department.",
       "choices": [
         {
           "text": "Embed simulation formally into the programme",
@@ -3324,15 +3324,15 @@
       "narrative": "You establish a cross-faculty simulation collaboration between Education, Nursing, Midwifery, and Social Work. Each discipline uses simulation differently, but the core principles are shared: safe practice space, experiential learning, structured debriefing, and building professional confidence before encountering real-world stakes.\n\nThis is both an opportunity and a risk. A university-wide strategy could amplify your impact, but it could also dilute your focus on the teacher education gap that's your core research question.",
       "choices": [
         {
-          "text": "Develop a university-wide simulation strategy  -  the institutional backing is valuable",
+          "text": "Develop a university-wide simulation strategy. The institutional backing is valuable",
           "next": "sbl_uni_strategy"
         },
         {
-          "text": "Stay focused on teacher education  -  that's where the gap is most acute and your evidence is strongest",
+          "text": "Stay focused on teacher education. That's where the gap is most acute and your evidence is strongest",
           "next": "sbl_scenario_suite"
         },
         {
-          "text": "Do both  -  university strategy for institutional support, teacher education for research impact",
+          "text": "Do both. University strategy for institutional support, teacher education for research impact",
           "next": "sbl_embed"
         }
       ],
@@ -3352,7 +3352,7 @@
     },
     "sbl_eef_connection": {
       "title": "The EEF Connection",
-      "narrative": "As a Senior Associate for the Education Endowment Foundation  -  co-leading a national project on school engagement and evidence use  -  you have an existing relationship with the organisation. You use this to have an informal conversation with the EEF's research team about simulation-based learning.\n\nAn EEF-commissioned evaluation would be transformative. It would put your approach through rigorous independent scrutiny and, if the results hold, give it a credibility stamp that the entire education sector trusts.",
+      "narrative": "As a Senior Associate for the Education Endowment Foundation, co-leading a national project on school engagement and evidence use, you have an existing relationship with the organisation. You use this to have an informal conversation with the EEF's research team about simulation-based learning.\n\nAn EEF-commissioned evaluation would be transformative. It would put your approach through rigorous independent scrutiny and, if the results hold, give it a credibility stamp that the entire education sector trusts.",
       "choices": [
         {
           "text": "Build a stronger evidence base first",
@@ -3436,7 +3436,7 @@
     },
     "sbl_uni_strategy": {
       "title": "The University Simulation Strategy",
-      "narrative": "You draft a university-wide simulation strategy for Northumbria. It proposes simulation as a common pedagogical approach across all professional programmes  -  Education, Nursing, Social Work, Policing, Law.\n\nThe university's Learning and Teaching Committee adopts it. A small budget is allocated for a shared simulation suite.\n\nBut there's a tension: the university strategy is about institutional practice, while your REF impact case study needs to show external impact beyond Northumbria. You need to use the institutional platform to launch outward.",
+      "narrative": "You draft a university-wide simulation strategy for Northumbria. It proposes simulation as a common pedagogical approach across all professional programmes, Education, Nursing, Social Work, Policing, Law.\n\nThe university's Learning and Teaching Committee adopts it. A small budget is allocated for a shared simulation suite.\n\nBut there's a tension: the university strategy is about institutional practice, while your REF impact case study needs to show external impact beyond Northumbria. You need to use the institutional platform to launch outward.",
       "choices": [
         {
           "text": "Host a national simulation conference at Northumbria",
@@ -3464,11 +3464,11 @@
       "narrative": "You collaborate with Northumbria's Computer Science department to explore immersive virtual reality (IVR) for teacher simulation. The potential is compelling: VR headsets could allow any student teacher, anywhere, to step into a simulated classroom and practice managing behaviour, communicating with parents, or handling safeguarding situations.\n\nThe VR work generates significant media interest and positions Northumbria as an innovator. But you need to be evidence-based about where VR adds value and where live simulation is still better.",
       "choices": [
         {
-          "text": "Develop a hybrid model - VR for behaviour, live actors for relationships",
+          "text": "Develop a hybrid model. VR for behaviour, live actors for relationships",
           "next": "sbl_hybrid_approach"
         },
         {
-          "text": "Focus on the VR approach - it is more scalable",
+          "text": "Focus on the VR approach. It is more scalable",
           "next": "sbl_vr_full"
         }
       ],
