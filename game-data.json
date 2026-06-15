@@ -582,7 +582,7 @@
     },
     "council_presentation": {
       "title": "Making Your Case",
-      "narrative": "You present your findings to the council's wellbeing team. You've learned from earlier mistakes  -  no jargon, clear recommendations, costs and benefits laid out simply.\n\nThe team is engaged. Two things happen:\n\n1. Your evidence is incorporated into the council's new Green Space Action Plan\n2. Janet asks if you'd sit on an advisory panel for the plan's implementation\n\nThis is significant policy influence. Your research is directly shaping council strategy. But for REF purposes, you'll need written evidence of this influence.",
+      "narrative": "You present your findings to the council's wellbeing team and you've learned from earlier mistakes. No jargon, clear recommendations, costs and benefits laid out simply.\n\nThe team is engaged. Two things happen:\n\n1. Your evidence is incorporated into the council's new Green Space Action Plan\n2. Janet asks if you'd sit on an advisory panel for the plan's implementation\n\nThis is significant policy influence. Your research is directly shaping council strategy. But for REF purposes, you'll need written evidence of this influence.",
       "choices": [
         {
           "text": "Accept the advisory role and request formal documentation of your contribution",
@@ -617,7 +617,7 @@
           "next": "tailored_briefing"
         },
         {
-          "text": "Focus only on what your research covers (points 2 and 3)  -  stay credible",
+          "text": "Focus only on what your research covers (points 2 and 3) and stay credible",
           "next": "stay_focused"
         }
       ],
@@ -639,10 +639,10 @@
     },
     "charity_route": {
       "title": "Following the Money",
-      "narrative": "You approach GreenFutures, a national charity that funds urban greening. Their research lead is interested in your work and invites you to present at their annual conference.\n\nThe conference goes well. GreenFutures asks if you'd co-develop an evidence framework for assessing community green space projects  -  essentially embedding your research into how they evaluate and fund programmes nationally.\n\nThis could mean your research influences dozens of projects across the country.",
+      "narrative": "You approach GreenFutures, a national charity that funds urban greening. Their research lead is interested in your work and invites you to present at their annual conference.\n\nThe conference goes well. GreenFutures asks if you'd co-develop an evidence framework for assessing community green space projects, essentially embedding your research into how they evaluate and fund programmes nationally.\n\nThis could mean your research influences dozens of projects across the country.",
       "choices": [
         {
-          "text": "Accept  -  this is national-scale impact",
+          "text": "Accept. This is national-scale impact",
           "next": "national_framework"
         },
         {
@@ -666,10 +666,10 @@
     },
     "funding_bid": {
       "title": "Empowering Partners",
-      "narrative": "You help GreenSpace Collective write a funding bid to the National Lottery, using your research as the evidence base. The bid makes a compelling case: here's the research showing this approach works, and here's the community organisation ready to deliver it.\n\nThe bid is successful  -  Â£150,000 over three years. Priya is ecstatic. Your research has directly enabled this community organisation to expand their life-changing work.\n\nThis is tangible, evidenced impact. The funding decision letter explicitly cites your research as key supporting evidence.",
+      "narrative": "You help GreenSpace Collective write a funding bid to the National Lottery, using your research as the evidence base. The bid makes a compelling case: here's the research showing this approach works, and here's the community organisation ready to deliver it.\n\nThe bid is successful. £150,000 over three years. Priya is ecstatic. Your research has directly enabled this community organisation to expand their life-changing work.\n\nThis is tangible, evidenced impact. The funding decision letter explicitly cites your research as key supporting evidence.",
       "choices": [
         {
-          "text": "Document this carefully  -  the funding letter is gold-standard evidence",
+          "text": "Document this carefully. The funding letter is gold-standard evidence",
           "next": "strong_evidence"
         },
         {
@@ -695,10 +695,10 @@
     },
     "guest_lecture": {
       "title": "Nice, But...",
-      "narrative": "Priya gives a great guest lecture. Students love hearing from a practitioner. But Sam gently points out:\n\n\"A guest lecture is a lovely thing, but it's not really impact  -  it's just internal university activity. Impact means your research changed something OUT THERE in the world.\n\n\"Priya's visit is actually more valuable as a relationship-building step. What can you do WITH her organisation, not just have them talk TO your students?\"",
+      "narrative": "Priya gives a great guest lecture. Students love hearing from a practitioner. But your Impact Officer gently points out:\n\n\"A guest lecture is a lovely thing, but it's not really impact. It's just internal university activity. Impact means your research changed something OUT THERE in the world.\n\n\"Priya's visit is actually more valuable as a relationship-building step. What can you do WITH her organisation, not just have them talk TO your students?\"",
       "choices": [
         {
-          "text": "You're right  -  let's co-design something with GreenSpace Collective",
+          "text": "You're right. Let's co-design something with GreenSpace Collective",
           "next": "codesign"
         },
         {
@@ -720,14 +720,14 @@
     },
     "cost_benefit": {
       "title": "Strengthening the Case",
-      "narrative": "Your Health Economics colleague helps produce a cost-benefit analysis showing that every Â£1 invested in community-led green spaces generates Â£3.20 in health and social benefits.\n\nThe DPH's eyes light up: \"THIS is what I can take to cabinet. They don't understand wellbeing scores, but they understand return on investment.\"\n\nThe council commits Â£500,000 to a new Community Green Space Programme, explicitly citing your research and the cost-benefit analysis in the cabinet paper.\n\nThis is major policy impact with clear evidence.",
+      "narrative": "Your Health Economics colleague helps produce a cost-benefit analysis showing that every Â£1 invested in community-led green spaces generates Â£3.20 in health and social benefits.\n\nThe DPH's eyes light up: \"THIS is what I can take to cabinet. They don't understand wellbeing scores, but they understand return on investment.\"\n\nThe council commits £500,000 to a new Community Green Space Programme, explicitly citing your research and the cost-benefit analysis in the cabinet paper.\n\nThis is major policy impact with clear evidence.",
       "choices": [
         {
           "text": "Secure copies of the cabinet paper and decision documents",
           "next": "ending_policy_star"
         },
         {
-          "text": "Offer to evaluate the new programme  -  creating a research cycle",
+          "text": "Offer to evaluate the new programme, creating a research cycle",
           "next": "ending_full_circle"
         }
       ],
