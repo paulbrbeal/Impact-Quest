@@ -3518,7 +3518,7 @@
     },
     "sbl_network_build": {
       "title": "Finding Your People",
-      "narrative": "You reach out systematically to teacher educators across the UK. Through conference presentations, direct emails, and word of mouth, you identify a dozen academics who are either already experimenting with simulation or keen to start.\n\nThe interest is genuine but so are the barriers. Most universities have no dedicated simulation space for education.\n\nThese are the problems you need to solve to achieve national impact. But solving them requires collective action  -  no single university can build the infrastructure alone.",
+      "narrative": "You reach out systematically to teacher educators across the UK. Through conference presentations, direct emails, and word of mouth, you identify a dozen academics who are either already experimenting with simulation or keen to start.\n\nThe interest is genuine but so are the barriers. Most universities have no dedicated simulation space for education.\n\nThese are the problems you need to solve to achieve national impact. But solving them requires collective action, no single university can build the infrastructure alone.",
       "choices": [
         {
           "text": "Create a formal national network with shared governance and purpose",
@@ -3578,7 +3578,7 @@
     },
     "sbl_network_launch": {
       "title": "The National Simulation Network",
-      "narrative": "You formally launch the National Simulation Network  -  a collaborative group of academics from universities across the UK dedicated to promoting simulation-based approaches for Initial Teacher Education and teacher professional learning.\n\nThe network launches with twelve member institutions. You're elected as Chair. The founding meeting establishes three working groups:\n\n1. Research: developing a shared evidence framework and collaborative research agenda\n2. Practice: sharing simulation scenarios, resources, and facilitation training across institutions\n3. Policy: making the case to the DfE and Ofsted for simulation in Initial Teacher Education\n\nThis is where individual research becomes systemic change. What do you prioritise through the network?",
+      "narrative": "You formally launch the National Simulation Network, a collaborative group of academics from universities across the UK dedicated to promoting simulation-based approaches for Initial Teacher Education and teacher professional learning.\n\nThe network launches with twelve member institutions. You're elected as Chair. The founding meeting establishes three working groups:\n\n1. Research: developing a shared evidence framework and collaborative research agenda\n2. Practice: sharing simulation scenarios, resources, and facilitation training across institutions\n3. Policy: making the case to the DfE and Ofsted for simulation in Initial Teacher Education\n\nThis is where individual research becomes systemic change. What do you prioritise through the network?",
       "choices": [
         {
           "text": "Develop national standards for simulation in teacher education",
@@ -3612,7 +3612,7 @@
     },
     "sbl_eef_feasibility": {
       "title": "The EEF Study",
-      "narrative": "The Education Endowment Foundation commissions a feasibility study of your simulation-based learning approach. This is significant  -  an EEF evaluation is the gold standard in UK education evidence.\n\nThe study design involves six universities: three using your simulation framework, three acting as comparison sites using their existing preparation approaches.\n\nThe EEF report is read by every ITE provider in the country. Your approach now has independent, credible validation.",
+      "narrative": "The Education Endowment Foundation commissions a feasibility study of your simulation-based learning approach. This is significant. An EEF evaluation is the gold standard in UK education evidence.\n\nThe study design involves six universities: three using your simulation framework, three acting as comparison sites using their existing preparation approaches.\n\nThe EEF report is read by every ITE provider in the country. Your approach now has independent, credible validation.",
       "choices": [
         {
           "text": "Push for a full-scale RCT through the EEF",
@@ -3670,14 +3670,14 @@
     },
     "sbl_vr_evaluation": {
       "title": "The Evidence Comparison",
-      "narrative": "You publish a realist evaluation comparing three simulation modalities: immersive VR, live actor simulation, and the hybrid approach. The study examines not just effectiveness but the mechanisms  -  what works, for whom, in what circumstances.\n\nThe findings are nuanced. VR is most effective for practising procedural responses (behaviour management steps, safeguarding protocols).\n\nThe paper is published in the Journal of Applied Learning and Teaching and becomes a reference point for the emerging field of simulation in teacher education.",
+      "narrative": "You publish a realist evaluation comparing three simulation modalities: immersive VR, live actor simulation, and the hybrid approach. The study examines not just effectiveness but the mechanisms. What works, for whom, in what circumstances.\n\nThe findings are nuanced. VR is most effective for practising procedural responses (behaviour management steps, safeguarding protocols).\n\nThe paper is published in the Journal of Applied Learning and Teaching and becomes a reference point for the emerging field of simulation in teacher education.",
       "choices": [
         {
           "text": "Develop national standards based on the evidence",
           "next": "sbl_ending_standards"
         },
         {
-          "text": "Train facilitators - the debrief finding is the key insight",
+          "text": "Train facilitators. The debrief finding is the key insight",
           "next": "sbl_ending_standards"
         }
       ],
@@ -3872,7 +3872,7 @@
     },
     "sbl_ending_toolkit": {
       "title": "Impact Case Study: Open Source Impact",
-      "narrative": "Your freely available Simulation-Based Learning Toolkit has been adopted by teacher education programmes across the UK and internationally. Twenty-seven universities use your scenarios and framework. Over 1,200 student teachers have experienced simulation-based preparation using your materials.\n\nThe toolkit's open-access model has demonstrated something important: impact doesn't require commercialisation.\n\nCongratulations! You've achieved practice-based impact at national scale. From a single pilot simulation with drama students playing upset parents, you've built a replicable, evidence-based approach to teacher preparation that's being adopted across the country  -  addressing the preparation gap that contributes to the teaching profession's retention crisis.",
+      "narrative": "Your freely available Simulation-Based Learning Toolkit has been adopted by teacher education programmes across the UK and internationally. Twenty-seven universities use your scenarios and framework. Over 1,200 student teachers have experienced simulation-based preparation using your materials.\n\nThe toolkit's open-access model has demonstrated something important: impact doesn't require commercialisation.\n\nCongratulations! You've achieved practice-based impact at national scale. From a single pilot simulation with drama students playing upset parents, you've built a replicable, evidence-based approach to teacher preparation that's being adopted across the country, addressing the preparation gap that contributes to the teaching profession's retention crisis.",
       "choices": [],
       "scoreEffect": {
         "reach": 10,
@@ -3894,7 +3894,7 @@
     },
     "sbl_ending_standards": {
       "title": "Impact Case Study: Setting the Standard",
-      "narrative": "From a single pilot simulation in a repurposed seminar room, you've built a national framework that's reshaping how the UK prepares its teachers.\n\nThe National Simulation Network, which you chair, now includes twenty-five universities. The national quality standards you co-developed are referenced by Ofsted in their ITT inspection framework and endorsed by the Chartered College of Teaching and UCET.\n\nCongratulations! You've achieved systemic impact. The teacher retention crisis won't be solved by one intervention alone  -  but giving new teachers safe, supported space to practise the hardest parts of the job before they encounter them for real is a powerful, evidence-based contribution. And you've built the infrastructure to sustain it.",
+      "narrative": "From a single pilot simulation in a repurposed seminar room, you've built a national framework that's reshaping how the UK prepares its teachers.\n\nThe National Simulation Network, which you chair, now includes twenty-five universities. The national quality standards you co-developed are referenced by Ofsted in their ITT inspection framework and endorsed by the Chartered College of Teaching and UCET.\n\nCongratulations! You've achieved systemic impact. The teacher retention crisis won't be solved by one intervention alone, but giving new teachers safe, supported space to practise the hardest parts of the job before they encounter them for real is a powerful, evidence-based contribution. And you've built the infrastructure to sustain it.",
       "choices": [],
       "scoreEffect": {
         "strategy": 10,
