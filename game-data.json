@@ -778,10 +778,10 @@
     },
     "bold_recommendation": {
       "title": "Fortune Favours the Bold",
-      "narrative": "The DPH pushes back initially: \"Community-led? We can't just hand over money without accountability.\"\n\nBut you're prepared. You present your evidence showing community-led approaches have better outcomes AND better cost-effectiveness than top-down provision. You share the GreenSpace Collective's data.\n\nThree months later, the council announces a Â£300,000 Community Green Space Fund  -  ring-fenced for community organisations in deprived wards. Your research is cited as the evidence base.\n\nLocal headlines read: \"Council backs community green spaces after university research.\"",
+      "narrative": "The DPH pushes back initially: \"Community-led? We can't just hand over money without accountability.\"\n\nBut you're prepared. You present your evidence showing community-led approaches have better outcomes AND better cost-effectiveness than top-down provision. You share the GreenSpace Collective's data.\n\nThree months later, the council announces a £300,000 Community Green Space Fund, ring-fenced for community organisations in deprived wards. Your research is cited as the evidence base.\n\nLocal headlines read: \"Council backs community green spaces after university research.\"",
       "choices": [
         {
-          "text": "Document everything  -  cabinet papers, press coverage, the funding decision",
+          "text": "Document everything. Cabinet papers, press coverage, the funding decision",
           "next": "ending_policy_star"
         }
       ],
@@ -806,7 +806,7 @@
       "narrative": "The DPH likes the pilot idea. It's lower risk and produces fresh evidence. The council agrees to fund a 12-month pilot in one ward, with your team providing the evaluation framework.\n\nThe pilot is a success. Participants show significant improvements in wellbeing, and the community group running it demonstrates it can be delivered cost-effectively.\n\nThe DPH uses the pilot results to secure full council funding for a borough-wide rollout. Your pilot has become a programme.",
       "choices": [
         {
-          "text": "This is perfect  -  document the pilot-to-programme journey as your impact narrative",
+          "text": "This is perfect. Document the pilot-to-programme journey as your impact narrative",
           "next": "ending_full_circle"
         }
       ],
@@ -857,10 +857,10 @@
     },
     "advisory_panel": {
       "title": "Embedded Influence",
-      "narrative": "You join the advisory panel. Over 18 months, your research shapes multiple council decisions about green space investment and design. You keep meticulous records of meetings, recommendations made, and actions taken.\n\nThe council's Green Space Action Plan explicitly acknowledges your advisory role and cites your research 14 times. The plan redirects Â£2 million in capital spending toward community-led projects.\n\nSam is delighted: \"This is textbook policy impact. You've got the evidence trail, the policy documents, the scale  -  this could be a flagship case study.\"",
+      "narrative": "You join the advisory panel. Over 18 months, your research shapes multiple council decisions about green space investment and design. You keep meticulous records of meetings, recommendations made, and actions taken.\n\nThe council's Green Space Action Plan explicitly acknowledges your advisory role and cites your research 14 times. The plan redirects £2 million in capital spending toward community-led projects.\n\nYour Impact Officer is delighted: \"This is textbook policy impact. You've got the evidence trail, the policy documents, the scale, this could be a flagship case study.\"",
       "choices": [
         {
-          "text": "Compile the impact case study with Sam's help",
+          "text": "Compile the impact case study with your Impact Officer's help",
           "next": "ending_policy_star"
         }
       ],
@@ -886,10 +886,10 @@
     },
     "evidence_letter": {
       "title": "Building the Evidence Base",
-      "narrative": "You request a formal letter from the council's Director of Public Health confirming how your research influenced their strategy. The letter is specific and powerful, citing exact recommendations that were adopted.\n\nSam helps you file this alongside the consultation documents, the strategy itself (with your research cited), and the before/after comparison showing what changed.\n\n\"This is solid evidential gold,\" Sam says. \"A REF panel wants to see exactly this kind of documentary evidence  -  third-party confirmation of your research's influence.\"",
+      "narrative": "You request a formal letter from the council's Director of Public Health confirming how your research influenced their strategy. The letter is specific and powerful, citing exact recommendations that were adopted.\n\nYour Impact Officer helps you file this alongside the consultation documents, the strategy itself (with your research cited), and the before/after comparison showing what changed.\n\n\"This is solid evidential gold,\" your Impact Officer says. \"A REF panel wants to see exactly this kind of documentary evidence, third-party confirmation of your research's influence.\"",
       "choices": [
         {
-          "text": "Continue building the case  -  what other evidence should we gather?",
+          "text": "Continue building the case. What other evidence should we gather?",
           "next": "ending_policy_star"
         }
       ],
@@ -909,7 +909,7 @@
     },
     "strong_evidence": {
       "title": "The Evidence Portfolio",
-      "narrative": "You systematically build an evidence portfolio:\n\n* Testimonial letters from partner organisations describing specific changes\n* Before/after data showing improved outcomes\n* The wellbeing toolkit (or funding letter, or programme evaluation) as tangible outputs\n* Records of adoption by other organisations\n* Independent evaluation data\n\nSam reviews it all: \"This is excellent. You've got corroborated evidence from multiple sources, showing a clear causal chain from your research to real-world change. This is exactly what makes a strong impact case study.\"",
+      "narrative": "You systematically build an evidence portfolio:\n\n* Testimonial letters from partner organisations describing specific changes\n* Before/after data showing improved outcomes\n* The wellbeing toolkit (or funding letter, or programme evaluation) as tangible outputs\n* Records of adoption by other organisations\n* Independent evaluation data\n\nYour Impact Officer reviews it all: \"This is excellent. You've got corroborated evidence from multiple sources, showing a clear causal chain from your research to real-world change. This is exactly what makes a strong impact case study.\"",
       "choices": [
         {
           "text": "Write up the impact case study",
@@ -934,7 +934,7 @@
     },
     "track_adoption": {
       "title": "Measuring Spread",
-      "narrative": "You create a simple tracking system for toolkit adoption. Within a year:\n\n* 12 community organisations across the region are using your toolkit\n* Two national charities have incorporated it into their evaluation frameworks\n* A local authority in another city has adopted it as standard practice\n\nThe reach is impressive and growing. Each adopter provides another piece of evidence for your impact case study. Sam helps you map this adoption, showing the \"ripple effect\" from your original research.",
+      "narrative": "You create a simple tracking system for toolkit adoption. Within a year:\n\n* 12 community organisations across the region are using your toolkit\n* Two national charities have incorporated it into their evaluation frameworks\n* A local authority in another city has adopted it as standard practice\n\nThe reach is impressive and growing. Each adopter provides another piece of evidence for your impact case study. Your Impact Officer helps you map this adoption, showing the \"ripple effect\" from your original research.",
       "choices": [
         {
           "text": "Document the full adoption story for the impact case study",
@@ -984,7 +984,7 @@
     },
     "national_framework": {
       "title": "Systemic Change",
-      "narrative": "You co-develop GreenFutures' new evaluation framework. It's adopted as standard practice across their Â£10 million annual grants portfolio, meaning every project they fund is now assessed using criteria derived from your research.\n\nThis is systemic impact  -  your research has changed how an entire sector operates. The framework is subsequently picked up by two other national funders.\n\nSam is thrilled: \"National reach, multiple beneficiaries, clear evidence of change in practice. This is REF gold.\"",
+      "narrative": "You co-develop GreenFutures' new evaluation framework. It's adopted as standard practice across their £10 million annual grants portfolio, meaning every project they fund is now assessed using criteria derived from your research.\n\nThis is systemic impact. Your research has changed how an entire sector operates. The framework is subsequently picked up by two other national funders.\n\nYour Impact Officer is thrilled: \"National reach, multiple beneficiaries, clear evidence of change in practice. This is REF gold.\"",
       "choices": [
         {
           "text": "Compile the impact case study",
@@ -1010,10 +1010,10 @@
     },
     "dual_track": {
       "title": "Balancing Act",
-      "narrative": "You manage to maintain both the national charity work and local community partnerships  -  but only because you get a part-time research assistant funded through the university's Impact Acceleration Account.\n\nThe two tracks complement each other: local partners provide authentic stories and ground-level evidence, while the national work provides reach and systemic change.\n\nAfter two years, you have an impact story that works at both local and national scale.",
+      "narrative": "You manage to maintain both the national charity work and local community partnerships, but only because you get a part-time research assistant funded through the university's Impact Acceleration Account.\n\nThe two tracks complement each other: local partners provide authentic stories and ground-level evidence, while the national work provides reach and systemic change.\n\nAfter two years, you have an impact story that works at both local and national scale.",
       "choices": [
         {
-          "text": "Write the impact case study  -  you've got a compelling dual narrative",
+          "text": "Write the impact case study. You've got a compelling dual narrative",
           "next": "ending_practitioner_star"
         }
       ],
@@ -1039,7 +1039,7 @@
       "narrative": "You negotiate a research partnership within the funded project. This means you can track outcomes in real-time, co-produce knowledge with the community, and generate new research outputs.\n\nThe funded project delivers excellent results. Your embedded evaluation provides new evidence that feeds into your next publication AND strengthens the impact evidence for REF.\n\nYou've created a virtuous cycle: research -> impact -> new research -> greater impact.",
       "choices": [
         {
-          "text": "Document this as your impact case study  -  it's a powerful narrative",
+          "text": "Document this as your impact case study. It's a powerful narrative",
           "next": "ending_full_circle"
         }
       ],
@@ -1061,10 +1061,10 @@
     },
     "ktp_idea": {
       "title": "Thinking Bigger",
-      "narrative": "A Knowledge Transfer Partnership could place a dedicated associate at GreenSpace Collective, embedding your research into their practice over two years. Sam loves the idea and helps you scope it.\n\nThe KTP application is successful. Over 24 months, the associate transforms how GreenSpace Collective operates  -  implementing evidence-based programme design, robust outcomes measurement, and a sustainability strategy.\n\nThe Collective grows from 3 sites to 8, secures three major grants, and becomes a national exemplar of evidence-based community practice. All grounded in your research.",
+      "narrative": "A Knowledge Transfer Partnership could place a dedicated associate at GreenSpace Collective, embedding your research into their practice over two years. Your Impact Officer loves the idea and helps you scope it.\n\nThe KTP application is successful. Over 24 months, the associate transforms how GreenSpace Collective operates. Implementing evidence-based programme design, robust outcomes measurement, and a sustainability strategy.\n\nThe Collective grows from 3 sites to 8, secures three major grants, and becomes a national exemplar of evidence-based community practice. All grounded in your research.",
       "choices": [
         {
-          "text": "This KTP story IS the impact case study  -  write it up",
+          "text": "This KTP story IS the impact case study. Write it up",
           "next": "ending_practitioner_star"
         }
       ],
@@ -1087,7 +1087,7 @@
     },
     "conference_impact": {
       "title": "Amplifying the Story",
-      "narrative": "Park Life presents at a national community health conference to 200 delegates. Their presentation  -  co-authored with you  -  shows the before/after transformation with compelling data and participant stories.\n\nThree other organisations approach Park Life to learn how they redesigned their programme. A public health commissioner in the audience asks for your contact details.\n\nThe ripple effect is growing. Your research is travelling through practitioner networks in ways you couldn't achieve through academic channels alone.",
+      "narrative": "Park Life presents at a national community health conference to 200 delegates. Their presentation, co-authored with you, shows the before/after transformation with compelling data and participant stories.\n\nThree other organisations approach Park Life to learn how they redesigned their programme. A public health commissioner in the audience asks for your contact details.\n\nThe ripple effect is growing. Your research is travelling through practitioner networks in ways you couldn't achieve through academic channels alone.",
       "choices": [
         {
           "text": "Document this spreading influence for the impact case study",
@@ -1116,7 +1116,7 @@
       "narrative": "You engage with the two neighbouring councils. Both adopt elements of your evidence into their own green space strategies. One commissions you to conduct a local evaluation.\n\nYour impact has spread across three local authority areas, reaching a combined population of over 500,000. Each council provides documentary evidence of how your research influenced their decisions.\n\nThe regional story is compelling: one piece of research, multiple policy changes, growing community benefit.",
       "choices": [
         {
-          "text": "Write the impact case study  -  you've got a strong regional narrative",
+          "text": "Write the impact case study. You've got a strong regional narrative",
           "next": "ending_policy_star"
         }
       ],
@@ -1138,7 +1138,7 @@
     },
     "new_research": {
       "title": "The Research Cycle Continues",
-      "narrative": "You secure funding to address the evidence gaps Janet identified. This new research, grounded in real policy needs, produces findings that are immediately useful to practitioners and policymakers.\n\nYour reputation as a researcher who produces actionable, policy-relevant evidence grows. More councils and organisations seek your input.\n\nSam observes: \"You've built something rare  -  a genuine, ongoing relationship between research and practice. The REF impact case study almost writes itself.\"",
+      "narrative": "You secure funding to address the evidence gaps Janet identified. This new research, grounded in real policy needs, produces findings that are immediately useful to practitioners and policymakers.\n\nYour reputation as a researcher who produces actionable, policy-relevant evidence grows. More councils and organisations seek your input.\n\nYour Impact Officer observes: \"You've built something rare. A genuine, ongoing relationship between research and practice. The REF impact case study almost writes itself.\"",
       "choices": [
         {
           "text": "Write up the full impact story",
@@ -1164,7 +1164,7 @@
     },
     "foi_route": {
       "title": "The Paper Trail",
-      "narrative": "The FOI response reveals internal council documents showing your consultation response was flagged as \"key evidence\" and directly informed two of the strategy's priority actions.\n\nThis is strong documentary evidence  -  you can show, in the council's own words, that your research shaped their strategy.\n\nSam nods: \"FOI responses are underused as impact evidence. This is the council confirming your influence in their own internal documents. A REF panel will love this.\"",
+      "narrative": "The FOI response reveals internal council documents showing your consultation response was flagged as \"key evidence\" and directly informed two of the strategy's priority actions.\n\nThis is strong documentary evidence. You can show, in the council's own words, that your research shaped their strategy.\n\nYour Impact Officer nods: \"FOI responses are underused as impact evidence. This is the council confirming your influence in their own internal documents. A REF panel will love this.\"",
       "choices": [
         {
           "text": "Add this to the evidence portfolio and finalise the case study",
@@ -1200,7 +1200,7 @@
     },
     "ending_practitioner_star": {
       "title": "Impact Case Study: Practice Transformer",
-      "narrative": "Congratulations! You've developed a compelling practice-based impact case study.\n\nYour research has genuinely changed how organisations work, leading to better outcomes for communities. You co-produced knowledge with partners, embedded your research into real-world practice, and built evidence of transformative change.\n\nKey lessons from your journey:\n* Co-production with partners creates the strongest impact\n* Deep partnerships beat shallow ones\n* Let practitioners lead  -  your research supports their expertise\n* Tangible outputs (toolkits, frameworks, redesigned programmes) are powerful evidence\n* Impact takes time  -  invest in relationships",
+      "narrative": "Congratulations! You've developed a compelling practice-based impact case study.\n\nYour research has genuinely changed how organisations work, leading to better outcomes for communities. You co-produced knowledge with partners, embedded your research into real-world practice, and built evidence of transformative change.\n\nKey lessons from your journey:\n* Co-production with partners creates the strongest impact\n* Deep partnerships beat shallow ones\n* Let practitioners lead. Your research supports their expertise\n* Tangible outputs (toolkits, frameworks, redesigned programmes) are powerful evidence\n* Impact takes time. Invest in relationships",
       "isEnding": true,
       "endingType": "practitioner",
       "categories": [
@@ -1214,7 +1214,7 @@
     },
     "ending_full_circle": {
       "title": "Impact Case Study: The Virtuous Cycle",
-      "narrative": "Congratulations! You've achieved something remarkable  -  a self-sustaining cycle where research drives impact, and impact drives new research.\n\nYour impact case study shows research that didn't just change the world once  -  it created an ongoing relationship between evidence and practice that continues to generate benefits.\n\nKey lessons from your journey:\n* The best impact isn't a one-off event  -  it's an ongoing relationship\n* Evaluation of your impact can generate new research questions\n* Follow-on funding can amplify your original investment\n* Building trust with partners creates opportunities you can't plan for\n* Impact and research quality reinforce each other",
+      "narrative": "Congratulations! You've achieved something remarkable. A self-sustaining cycle where research drives impact, and impact drives new research.\n\nYour impact case study shows research that didn't just change the world once. It created an ongoing relationship between evidence and practice that continues to generate benefits.\n\nKey lessons from your journey:\n* The best impact isn't a one-off event. It's an ongoing relationship\n* Evaluation of your impact can generate new research questions\n* Follow-on funding can amplify your original investment\n* Building trust with partners creates opportunities you can't plan for\n* Impact and research quality reinforce each other",
       "isEnding": true,
       "endingType": "cycle",
       "categories": [
@@ -3943,18 +3943,18 @@
     },
     "public_benefit_route": {
       "title": "Public Benefit",
-      "narrative": "Your Impact Officer nods. \"Public benefit is a powerful angle. Your research shows green spaces reduce anxiety and build social cohesion - that's not just an academic finding, it's something that matters to real people in real neighbourhoods.\"\n\nThey sketch out the options: you could work directly with communities to raise awareness and change behaviour, engage with public health campaigns to embed your findings, or build a media and public engagement strategy that puts the evidence into public conversation.\n\n\"The key question is: who benefits, and how do we make sure they know about it?\"",
+      "narrative": "Your Impact Officer nods. \"Public benefit is a powerful angle. Your research shows green spaces reduce anxiety and build social cohesion. That's not just an academic finding, it's something that matters to real people in real neighbourhoods.\"\n\nThey sketch out the options: you could work directly with communities to raise awareness and change behaviour, engage with public health campaigns to embed your findings, or build a media and public engagement strategy that puts the evidence into public conversation.\n\n\"The key question is: who benefits, and how do we make sure they know about it?\"",
       "choices": [
         {
-          "text": "Community engagement - work directly with residents in the neighbourhoods your research covers",
+          "text": "Community engagement. Work directly with residents in the neighbourhoods your research covers",
           "next": "community_direct"
         },
         {
-          "text": "Public health campaigns - get your findings into NHS and local authority health messaging",
+          "text": "Public health campaigns. Get your findings into NHS and local authority health messaging",
           "next": "public_health_campaign"
         },
         {
-          "text": "Public engagement and media - put this into the public conversation so people demand green spaces",
+          "text": "Public engagement and media. Put this into the public conversation so people demand green spaces",
           "next": "public_media_strategy"
         }
       ],
@@ -3974,10 +3974,10 @@
     },
     "community_direct": {
       "title": "On the Ground",
-      "narrative": "You visit three neighbourhoods where your research was conducted. You run community workshops explaining your findings in plain language - no jargon, no slides full of p-values. Just: \"We studied what happens when communities like yours get involved in creating and maintaining green spaces. Here's what we found.\"\n\nThe response is powerful. Residents share their own experiences. One woman says: \"I've been saying for years that the park keeps me sane. Now you're telling me the science agrees.\"\n\nA local councillor attends one session and asks if you'd present to the neighbourhood forum. A community health worker wants to use your findings in her wellbeing group.\n\nHow do you build on this?",
+      "narrative": "You visit three neighbourhoods where your research was conducted. You run community workshops explaining your findings in plain language. No jargon, no slides full of p-values. Just: \"We studied what happens when communities like yours get involved in creating and maintaining green spaces. Here's what we found.\"\n\nThe response is powerful. Residents share their own experiences. One woman says: \"I've been saying for years that the park keeps me sane. Now you're telling me the science agrees.\"\n\nA local councillor attends one session and asks if you'd present to the neighbourhood forum. A community health worker wants to use your findings in her wellbeing group.\n\nHow do you build on this?",
       "choices": [
         {
-          "text": "Develop a community-facing summary of your research - a leaflet, infographic, or short film",
+          "text": "Develop a community-facing summary of your research. A leaflet, infographic, or short film",
           "next": "community_resources"
         },
         {
@@ -4005,14 +4005,14 @@
     },
     "community_resources": {
       "title": "Making Research Accessible",
-      "narrative": "You work with the university's public engagement team to create accessible materials. A graphic designer turns your key findings into an infographic. A media student films short interviews with residents alongside your data visualisations.\n\nThe infographic is distributed through GP surgeries, community centres, and libraries in the study areas. The film is shared on social media and picked up by a local news outlet.\n\nA housing association contacts you - they want to use your materials in their tenant engagement programme. A national mental health charity asks permission to share the infographic on their website.\n\nYour research is reaching people who would never read a journal article.",
+      "narrative": "You work with the university's public engagement team to create accessible materials. A graphic designer turns your key findings into an infographic. A media student films short interviews with residents alongside your data visualisations.\n\nThe infographic is distributed through GP surgeries, community centres, and libraries in the study areas. The film is shared on social media and picked up by a local news outlet.\n\nA housing association contacts you. They want to use your materials in their tenant engagement programme. A national mental health charity asks permission to share the infographic on their website.\n\nYour research is reaching people who would never read a journal article.",
       "choices": [
         {
-          "text": "Partner with the housing association - they manage estates in deprived areas across the region",
+          "text": "Partner with the housing association. They manage estates in deprived areas across the region",
           "next": "housing_partnership"
         },
         {
-          "text": "Work with the mental health charity - national reach and credibility",
+          "text": "Work with the mental health charity. National reach and credibility",
           "next": "charity_partnership"
         }
       ],
@@ -4062,10 +4062,10 @@
     },
     "neighbourhood_forum": {
       "title": "Local Democracy",
-      "narrative": "You present to the neighbourhood forum - a room of residents, councillors, and local business owners. Your research data shows that the neighbourhoods with community-managed green spaces have measurably lower anxiety levels and stronger social networks.\n\nA resident asks: \"So if the council sells off the allotments for housing, you're saying that will actually make people's health worse?\" You confirm that your data supports exactly that concern.\n\nThe forum passes a motion calling on the council to protect and invest in community green spaces, citing your research by name. A local journalist covers the story.\n\nThe council's planning department contacts you - they want to understand your methodology before their next green space review.",
+      "narrative": "You present to the neighbourhood forum - a room of residents, councillors, and local business owners. Your research data shows that the neighbourhoods with community-managed green spaces have measurably lower anxiety levels and stronger social networks.\n\nA resident asks: \"So if the council sells off the allotments for housing, you're saying that will actually make people's health worse?\" You confirm that your data supports exactly that concern.\n\nThe forum passes a motion calling on the council to protect and invest in community green spaces, citing your research by name. A local journalist covers the story.\n\nThe council's planning department contacts you. They want to understand your methodology before their next green space review.",
       "choices": [
         {
-          "text": "Engage with the planning department - your research could shape local planning policy",
+          "text": "Engage with the planning department. Your research could shape local planning policy",
           "next": "planning_engagement"
         },
         {
@@ -4091,10 +4091,10 @@
     },
     "public_health_campaign": {
       "title": "The Public Health Angle",
-      "narrative": "You approach the Director of Public Health through your university's health faculty connections. They're immediately interested - green spaces as a determinant of mental health fits perfectly with the local authority's health inequality strategy.\n\nThe DPH invites you to contribute to the annual public health report. Your findings feature in a chapter on community assets and mental wellbeing, with a recommendation that \"investment in community-led green spaces should be recognised as a public health intervention.\"\n\nThe report is sent to every GP surgery, every councillor, and published online. Your research is now embedded in the official public health narrative.",
+      "narrative": "You approach the Director of Public Health through your university's health faculty connections. They're immediately interested. Green spaces as a determinant of mental health fits perfectly with the local authority's health inequality strategy.\n\nThe DPH invites you to contribute to the annual public health report. Your findings feature in a chapter on community assets and mental wellbeing, with a recommendation that \"investment in community-led green spaces should be recognised as a public health intervention.\"\n\nThe report is sent to every GP surgery, every councillor, and published online. Your research is now embedded in the official public health narrative.",
       "choices": [
         {
-          "text": "Push for a green prescribing pilot - GPs referring patients to green space activities",
+          "text": "Push for a green prescribing pilot. GPs referring patients to green space activities",
           "next": "green_prescribing"
         },
         {
@@ -4126,15 +4126,15 @@
       "narrative": "You develop a public engagement strategy with the university's media team. A piece in The Conversation reaches 40,000 readers. A regional BBC radio interview leads to a phone-in where listeners share their own experiences of green spaces and mental health.\n\nA national newspaper features your work in a weekend supplement piece on \"the science of green spaces.\" Social media picks it up - your research is shared thousands of times.\n\nThe visibility brings unexpected contacts: a national housebuilder's sustainability team, a mental health charity's research director, and a landscape architecture firm working on urban regeneration.\n\nWho do you follow up with?",
       "choices": [
         {
-          "text": "The mental health charity - they could amplify your findings nationally",
+          "text": "The mental health charity. They could amplify your findings nationally",
           "next": "charity_partnership"
         },
         {
-          "text": "The housebuilder - they could embed your research in how new developments are designed",
+          "text": "The housebuilder. They could embed your research in how new developments are designed",
           "next": "housebuilder_engage"
         },
         {
-          "text": "The landscape architects - they translate research into physical design",
+          "text": "The landscape architects. They translate research into physical design",
           "next": "landscape_partnership"
         }
       ],
@@ -4152,7 +4152,7 @@
     },
     "housing_partnership": {
       "title": "Scaling Through Housing",
-      "narrative": "The housing association manages 15,000 homes across the region, many in the most deprived areas. They want to use your research to redesign their approach to communal green spaces on their estates.\n\nYou work with their tenant engagement team to develop a community green space programme informed by your findings. Residents are involved in designing, planting, and maintaining shared gardens and green areas.\n\nAfter a year, the housing association's own evaluation shows improved tenant satisfaction, reduced anti-social behaviour reports, and - using your methodology - measurable improvements in resident wellbeing.\n\nThe housing association presents the results at a national conference. Three other housing providers contact you about replicating the approach.",
+      "narrative": "The housing association manages 15,000 homes across the region, many in the most deprived areas. They want to use your research to redesign their approach to communal green spaces on their estates.\n\nYou work with their tenant engagement team to develop a community green space programme informed by your findings. Residents are involved in designing, planting, and maintaining shared gardens and green areas.\n\nAfter a year, the housing association's own evaluation shows improved tenant satisfaction, reduced anti-social behaviour reports and using your methodology, measurable improvements in resident wellbeing.\n\nThe housing association presents the results at a national conference. Three other housing providers contact you about replicating the approach.",
       "choices": [
         {
           "text": "Support the replication and document the scaling for your impact case study",
@@ -4209,10 +4209,10 @@
     },
     "green_prescribing": {
       "title": "Green Prescribing",
-      "narrative": "You work with the CCG and local GPs to pilot a green prescribing programme. Patients with mild-to-moderate anxiety are offered structured green space activities alongside or instead of medication - informed directly by your research on which activities, durations, and group sizes produce the best outcomes.\n\nThe pilot runs for twelve months across four GP surgeries. Results show reduced anxiety medication prescriptions, improved patient-reported outcomes, and high patient satisfaction. The cost per patient is a fraction of traditional interventions.\n\nNHS England's social prescribing team contacts you. They want to understand the evidence base for potential inclusion in national guidance.",
+      "narrative": "You work with the CCG and local GPs to pilot a green prescribing programme. Patients with mild-to-moderate anxiety are offered structured green space activities alongside or instead of medication, informed directly by your research on which activities, durations, and group sizes produce the best outcomes.\n\nThe pilot runs for twelve months across four GP surgeries. Results show reduced anxiety medication prescriptions, improved patient-reported outcomes, and high patient satisfaction. The cost per patient is a fraction of traditional interventions.\n\nNHS England's social prescribing team contacts you. They want to understand the evidence base for potential inclusion in national guidance.",
       "choices": [
         {
-          "text": "Engage with NHS England - national adoption would be transformative",
+          "text": "Engage with NHS England. National adoption would be transformative",
           "next": "nhs_national"
         },
         {
@@ -4238,7 +4238,7 @@
     },
     "nhs_national": {
       "title": "National Health Impact",
-      "narrative": "You present your pilot data to NHS England's social prescribing team. The evidence is compelling - your green prescribing model shows clinical outcomes comparable to group CBT at a fraction of the cost.\n\nNHS England includes green space activities in their updated social prescribing framework, citing your research. Clinical commissioning groups across the country can now commission green prescribing services using your evidence base.\n\nYour research has gone from a local study to a component of national health policy. The public benefit is measurable: thousands of patients accessing evidence-based green space interventions for anxiety.",
+      "narrative": "You present your pilot data to NHS England's social prescribing team. The evidence is compelling. Your green prescribing model shows clinical outcomes comparable to group CBT at a fraction of the cost.\n\nNHS England includes green space activities in their updated social prescribing framework, citing your research. Clinical commissioning groups across the country can now commission green prescribing services using your evidence base.\n\nYour research has gone from a local study to a component of national health policy. The public benefit is measurable: thousands of patients accessing evidence-based green space interventions for anxiety.",
       "choices": [],
       "scoreEffect": {
         "significance": 15,
@@ -4260,7 +4260,7 @@
     },
     "green_standard": {
       "title": "Setting the Standard",
-      "narrative": "Working with the DPH and local authority parks team, you develop a Community Green Space Quality Standard - a set of evidence-based criteria for what makes a green space effective for mental health and social cohesion.\n\nThe standard draws directly on your research: minimum size, community involvement in management, accessibility from deprived areas, and design features that promote social interaction.\n\nNatural England and the National Trust express interest. The standard is piloted in three local authorities and adopted by a national parks charity for their urban green space assessments.\n\nYour research has become the benchmark for what a health-promoting green space looks like.",
+      "narrative": "Working with the DPH and local authority parks team, you develop a Community Green Space Quality Standard, a set of evidence-based criteria for what makes a green space effective for mental health and social cohesion.\n\nThe standard draws directly on your research: minimum size, community involvement in management, accessibility from deprived areas, and design features that promote social interaction.\n\nNatural England and the National Trust express interest. The standard is piloted in three local authorities and adopted by a national parks charity for their urban green space assessments.\n\nYour research has become the benchmark for what a health-promoting green space looks like.",
       "choices": [
         {
           "text": "Push for the standard to be embedded in planning guidance",
@@ -4427,7 +4427,7 @@
     },
     "ending_public_benefit": {
       "title": "Impact Case Study: Public Benefit",
-      "narrative": "Congratulations! You've built an impact case study rooted in genuine public benefit.\n\nYour research on urban green spaces and mental health has moved beyond academia and into people's lives. Whether through community programmes, public health campaigns, housing design, planning policy, or green prescribing, your findings are making a measurable difference to the wellbeing of communities in deprived areas.\n\nThe strength of this case study is its directness: research conducted with communities, translated for communities, and benefiting communities. The evidence chain is clear, the beneficiaries are identifiable, and the outcomes are measurable.\n\nThis is what public benefit impact looks like - research that improves people's lives.",
+      "narrative": "Congratulations! You've built an impact case study rooted in genuine public benefit.\n\nYour research on urban green spaces and mental health has moved beyond academia and into people's lives. Whether through community programmes, public health campaigns, housing design, planning policy, or green prescribing, your findings are making a measurable difference to the wellbeing of communities in deprived areas.\n\nThe strength of this case study is its directness: research conducted with communities, translated for communities, and benefiting communities. The evidence chain is clear, the beneficiaries are identifiable, and the outcomes are measurable.\n\nThis is what public benefit impact looks like. Research that improves people's lives.",
       "choices": [],
       "scoreEffect": {
         "significance": 10,
