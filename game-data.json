@@ -8,7 +8,7 @@
     },
     "animal_hoarding": {
       "title": "The Hoarding Gap",
-      "description": "The UK has no legal definition of animal hoarding. Your research could change that  -  if you can navigate the right stakeholders.",
+      "description": "The UK has no legal definition of animal hoarding. Your research could change that, if you can navigate the right stakeholders.",
       "startScene": "ah_start",
       "image": "https://paulbrbeal.github.io/Impact-Quest/images/hoarding.jpg"
     },
@@ -666,7 +666,7 @@
     },
     "funding_bid": {
       "title": "Empowering Partners",
-      "narrative": "You help GreenSpace Collective write a funding bid to the National Lottery, using your research as the evidence base. The bid makes a compelling case: here's the research showing this approach works, and here's the community organisation ready to deliver it.\n\nThe bid is successful. £150,000 over three years. Priya is ecstatic. Your research has directly enabled this community organisation to expand their life-changing work.\n\nThis is tangible, evidenced impact. The funding decision letter explicitly cites your research as key supporting evidence.",
+      "narrative": "You help GreenSpace Collective write a funding bid to the National Lottery, using your research as the evidence base. The bid makes a compelling case: here's the research showing this approach works, and here's the community organisation ready to deliver it.\n\nThe bid is successful. Â£150,000 over three years. Priya is ecstatic. Your research has directly enabled this community organisation to expand their life-changing work.\n\nThis is tangible, evidenced impact. The funding decision letter explicitly cites your research as key supporting evidence.",
       "choices": [
         {
           "text": "Document this carefully. The funding letter is gold-standard evidence",
@@ -720,7 +720,7 @@
     },
     "cost_benefit": {
       "title": "Strengthening the Case",
-      "narrative": "Your Health Economics colleague helps produce a cost-benefit analysis showing that every Â£1 invested in community-led green spaces generates Â£3.20 in health and social benefits.\n\nThe DPH's eyes light up: \"THIS is what I can take to cabinet. They don't understand wellbeing scores, but they understand return on investment.\"\n\nThe council commits £500,000 to a new Community Green Space Programme, explicitly citing your research and the cost-benefit analysis in the cabinet paper.\n\nThis is major policy impact with clear evidence.",
+      "narrative": "Your Health Economics colleague helps produce a cost-benefit analysis showing that every ÃÂ£1 invested in community-led green spaces generates ÃÂ£3.20 in health and social benefits.\n\nThe DPH's eyes light up: \"THIS is what I can take to cabinet. They don't understand wellbeing scores, but they understand return on investment.\"\n\nThe council commits Â£500,000 to a new Community Green Space Programme, explicitly citing your research and the cost-benefit analysis in the cabinet paper.\n\nThis is major policy impact with clear evidence.",
       "choices": [
         {
           "text": "Secure copies of the cabinet paper and decision documents",
@@ -778,7 +778,7 @@
     },
     "bold_recommendation": {
       "title": "Fortune Favours the Bold",
-      "narrative": "The DPH pushes back initially: \"Community-led? We can't just hand over money without accountability.\"\n\nBut you're prepared. You present your evidence showing community-led approaches have better outcomes AND better cost-effectiveness than top-down provision. You share the GreenSpace Collective's data.\n\nThree months later, the council announces a £300,000 Community Green Space Fund, ring-fenced for community organisations in deprived wards. Your research is cited as the evidence base.\n\nLocal headlines read: \"Council backs community green spaces after university research.\"",
+      "narrative": "The DPH pushes back initially: \"Community-led? We can't just hand over money without accountability.\"\n\nBut you're prepared. You present your evidence showing community-led approaches have better outcomes AND better cost-effectiveness than top-down provision. You share the GreenSpace Collective's data.\n\nThree months later, the council announces a Â£300,000 Community Green Space Fund, ring-fenced for community organisations in deprived wards. Your research is cited as the evidence base.\n\nLocal headlines read: \"Council backs community green spaces after university research.\"",
       "choices": [
         {
           "text": "Document everything. Cabinet papers, press coverage, the funding decision",
@@ -857,7 +857,7 @@
     },
     "advisory_panel": {
       "title": "Embedded Influence",
-      "narrative": "You join the advisory panel. Over 18 months, your research shapes multiple council decisions about green space investment and design. You keep meticulous records of meetings, recommendations made, and actions taken.\n\nThe council's Green Space Action Plan explicitly acknowledges your advisory role and cites your research 14 times. The plan redirects £2 million in capital spending toward community-led projects.\n\nYour Impact Officer is delighted: \"This is textbook policy impact. You've got the evidence trail, the policy documents, the scale, this could be a flagship case study.\"",
+      "narrative": "You join the advisory panel. Over 18 months, your research shapes multiple council decisions about green space investment and design. You keep meticulous records of meetings, recommendations made, and actions taken.\n\nThe council's Green Space Action Plan explicitly acknowledges your advisory role and cites your research 14 times. The plan redirects Â£2 million in capital spending toward community-led projects.\n\nYour Impact Officer is delighted: \"This is textbook policy impact. You've got the evidence trail, the policy documents, the scale, this could be a flagship case study.\"",
       "choices": [
         {
           "text": "Compile the impact case study with your Impact Officer's help",
@@ -984,7 +984,7 @@
     },
     "national_framework": {
       "title": "Systemic Change",
-      "narrative": "You co-develop GreenFutures' new evaluation framework. It's adopted as standard practice across their £10 million annual grants portfolio, meaning every project they fund is now assessed using criteria derived from your research.\n\nThis is systemic impact. Your research has changed how an entire sector operates. The framework is subsequently picked up by two other national funders.\n\nYour Impact Officer is thrilled: \"National reach, multiple beneficiaries, clear evidence of change in practice. This is REF gold.\"",
+      "narrative": "You co-develop GreenFutures' new evaluation framework. It's adopted as standard practice across their Â£10 million annual grants portfolio, meaning every project they fund is now assessed using criteria derived from your research.\n\nThis is systemic impact. Your research has changed how an entire sector operates. The framework is subsequently picked up by two other national funders.\n\nYour Impact Officer is thrilled: \"National reach, multiple beneficiaries, clear evidence of change in practice. This is REF gold.\"",
       "choices": [
         {
           "text": "Compile the impact case study",
@@ -1227,7 +1227,7 @@
     },
     "ah_start": {
       "title": "The Missing Definition",
-      "narrative": "You're a researcher at Northumbria University. Your team  -  spanning Psychology, Environmental Health, and Nursing  -  has just published the first systematic study of animal hoarding cases in England, in the journal Frontiers in Public Health.\n\nThe findings are striking. You identified 66 cases between 2015 and 2020. Cats and dogs were the most commonly hoarded species, appearing in over 60% of cases. The mean was 44 animals per case. Dead animals or animals requiring euthanasia were found in 53% of cases. And perhaps most troublingly, evidence of recidivism  -  repeat hoarding after prosecution  -  was found in 39% of cases.\n\nYour geospatial analysis revealed that cases clustered in urban, densely populated areas with high levels of deprivation.\n\nThe clock is ticking toward REF 2029. What you do next will determine whether this research changes policy  -  or gathers dust.",
+      "narrative": "You're a researcher at Northumbria University. Your team has just published the first systematic study of animal hoarding cases in England, in the journal Frontiers in Public Health.\n\nThe findings are striking. You identified 66 cases between 2015 and 2020. Cats and dogs were the most commonly hoarded species, appearing in over 60% of cases. The mean was 44 animals per case. Dead animals or animals requiring euthanasia were found in 53% of cases. And perhaps most troublingly, evidence of recidivism, repeat hoarding after prosecution, was found in 39% of cases.\n\nYour geospatial analysis revealed that cases clustered in urban, densely populated areas with high levels of deprivation.\n\nThe clock is ticking toward REF 2029. What you do next will determine whether this research changes policy, or gathers dust.",
       "choices": [
         {
           "text": "Meet with the Impact Officer to develop a stakeholder engagement strategy",
@@ -1260,10 +1260,10 @@
     },
     "ah_strategy": {
       "title": "Mapping the Landscape",
-      "narrative": "You sit down with the Impact Officer. Together, you map the stakeholder landscape on a whiteboard. It's more complex than you expected.\n\nAnimal hoarding sits at the intersection of multiple domains: animal welfare (RSPCA, local authority animal wardens), public health (environmental health officers, Directors of Public Health), mental health (NHS services, hoarding support groups), housing (local authority housing teams), and policy (Defra, the APPG on Animal Welfare  -  APGAW).\n\n\"You can't do everything at once,\" the Impact Officer says. \"Where do you want to start?\"",
+      "narrative": "You sit down with your Impact Officer. Together, you map the stakeholder landscape on a whiteboard. It's more complex than you expected.\n\nAnimal hoarding sits at the intersection of multiple domains: animal welfare (RSPCA, local authority animal wardens), public health (environmental health officers, Directors of Public Health), mental health (NHS services, hoarding support groups), housing (local authority housing teams), and policy (Defra, the APPG on Animal Welfare  -  APGAW).\n\n\"You can't do everything at once,\" the Impact Officer says. \"Where do you want to start?\"",
       "choices": [
         {
-          "text": "Build APPG relationships - they have legislative influence",
+          "text": "Build APPG relationships. They have legislative influence",
           "next": "ah_appg_relationship"
         },
         {
@@ -1358,18 +1358,18 @@
     },
     "ah_media_first": {
       "title": "Making Headlines",
-      "narrative": "You write an article for The Conversation: \"The UK has no legal definition of animal hoarding  -  and that's a problem.\" The piece uses your research data to paint a vivid picture of the issue: 44 animals per case, dead animals in over half of cases, and a 39% recidivism rate.\n\nThe article is picked up by a national newspaper. A regional TV news programme calls asking for an interview. Suddenly your research is getting attention beyond academia.\n\nMedia attention has opened doors that a cold email couldn't. But you need to be strategic about which door to walk through.",
+      "narrative": "You write an article for The Conversation: \"The UK has no legal definition of animal hoarding, and that's a problem.\" The piece uses your research data to paint a vivid picture of the issue: 44 animals per case, dead animals in over half of cases, and a 39% recidivism rate.\n\nThe article is picked up by a national newspaper. A regional TV news programme calls asking for an interview. Suddenly your research is getting attention beyond academia.\n\nMedia attention has opened doors that a cold email couldn't. But you need to be strategic about which door to walk through.",
       "choices": [
         {
           "text": "Follow up with the parliamentary researcher immediately",
           "next": "ah_appg_relationship"
         },
         {
-          "text": "Build the RSPCA relationship first  -  they have permanent parliamentary contacts",
+          "text": "Build the RSPCA relationship first. They have permanent parliamentary contacts",
           "next": "ah_rspca_partner"
         },
         {
-          "text": "Keep the media momentum going  -  more coverage means more pressure for change",
+          "text": "Keep the media momentum going. More coverage means more pressure for change",
           "next": "ah_media_campaign"
         }
       ],
@@ -1392,10 +1392,10 @@
     },
     "ah_appg_relationship": {
       "title": "Getting Into the Room",
-      "narrative": "Through a combination of your UK Hoarding Partnership connections and the interest generated by your research profile, you secure an introduction to the APPG on Animal Welfare secretariat.\n\nYou prepare a two-page policy brief  -  concise, evidence-based, and focused on three key messages:\n\n1. Animal hoarding is a distinct, recognisable pattern  -  not just \"having too many pets\"\n2. The UK has no legal definition, creating a dangerous gap in multi-agency responses\n3.\n\nHow do you approach the session?",
+      "narrative": "Through a combination of your UK Hoarding Partnership connections and the interest generated by your research profile, you secure an introduction to the APPG on Animal Welfare secretariat.\n\nYou prepare a two-page policy brief. Concise, evidence-based, and focused on three key messages:\n\n1. Animal hoarding is a distinct, recognisable pattern, not just \"having too many pets\"\n2. The UK has no legal definition, creating a dangerous gap in multi-agency responses\n3. A clear legal definition would enable earlier intervention, better animal welfare outcomes, and more effective support for the people affected.\n\nHow do you approach the session?",
       "choices": [
         {
-          "text": "Lead with data and statistics  -  let the numbers make the case",
+          "text": "Lead with data and statistics. Let the numbers make the case",
           "next": "ah_data_presentation"
         },
         {
@@ -1451,7 +1451,7 @@
     },
     "ah_ukhp_intro": {
       "title": "The Warm Introduction",
-      "narrative": "As Chair of the UK Hoarding Partnership, your colleague has years of established relationships with policy stakeholders, charity sector leaders, and parliamentary contacts. You ask for an introduction to the APPG on Animal Welfare.\n\nThe difference from your cold email is night and day. Your colleague frames the introduction carefully: \"\n\nThis is the power of warm introductions and established networks. Your research opens the door, but trusted relationships get you through it.",
+      "narrative": "As Chair of the UK Hoarding Partnership, your colleague has years of established relationships with policy stakeholders, charity sector leaders, and parliamentary contacts. You ask for an introduction to the APPG on Animal Welfare.\n\nThe difference from your cold email is night and day. Your colleague frames the introduction carefully:\n\n\"This is the power of warm introductions and established networks. Your research opens the door, but trusted relationships get you through it.\"",
       "choices": [
         {
           "text": "Prepare a comprehensive written submission for the APPG",
@@ -1483,7 +1483,7 @@
     },
     "ah_rspca_partner": {
       "title": "A Powerful Ally",
-      "narrative": "You approach the RSPCA's policy team. They're immediately interested  -  animal hoarding is a persistent operational challenge for their inspectors, and they've been looking for robust research to support their advocacy.\n\nThe RSPCA brings something your university can't: a permanent parliamentary affairs team, media infrastructure, and the public's trust.\n\nThe partnership is genuine and mutually beneficial. But you need to decide how to deploy it.",
+      "narrative": "You approach the RSPCA's policy team. They're immediately interested, animal hoarding is a persistent operational challenge for their inspectors, and they've been looking for robust research to support their advocacy.\n\nThe RSPCA brings something your university can't: a permanent parliamentary affairs team, media infrastructure, and the public's trust.\n\nThe partnership is genuine and mutually beneficial. But you need to decide how to deploy it.",
       "choices": [
         {
           "text": "Submit the joint position to the APPG and request an oral evidence slot",
@@ -1515,10 +1515,10 @@
     },
     "ah_media_campaign": {
       "title": "Into the Public Eye",
-      "narrative": "You and your partners launch a coordinated media campaign. The RSPCA's press office pitches the story; you provide the academic credibility. The angle: \"UK law doesn't recognise animal hoarding  -  here's why that matters.\"\n\nA national newspaper runs a feature. Radio 4's You and Yours covers the issue. A regional BBC news programme films a piece at Northumbria, interviewing you alongside an RSPCA inspector.\n\nMeanwhile, an animal welfare charity asks if you'd contribute to their policy manifesto ahead of the next election.",
+      "narrative": "You and your partners launch a coordinated media campaign. The RSPCA's press office pitches the story; you provide the academic credibility. The angle: \"UK law doesn't recognise animal hoarding. Here's why that matters.\"\n\nA national newspaper runs a feature. Radio 4's You and Yours covers the issue. A regional BBC news programme films a piece at Northumbria, interviewing you alongside an RSPCA inspector.\n\nMeanwhile, an animal welfare charity asks if you'd contribute to their policy manifesto ahead of the next election.",
       "choices": [
         {
-          "text": "Engage the MP - individual parliamentarians can table questions",
+          "text": "Engage the MP. Individual parliamentarians can table questions",
           "next": "ah_mp_engage"
         },
         {
@@ -1572,7 +1572,7 @@
     },
     "ah_case_studies": {
       "title": "Making It Real",
-      "narrative": "You present the data framed by anonymised but vivid case studies. You open with the numbers  -  66 cases, 44 animals on average, 39% recidivism  -  then bring them to life.\n\nCase 14: A woman in her fifties, living alone in a terraced house in the North West. Environmental health were called after neighbours reported a persistent smell. Officers found 47 cats, 12 of which were dead. The woman was prosecuted, the surviving cats rehomed.\n\nThe APPG asks if you'd be willing to contribute directly to their report recommendations.",
+      "narrative": "You present the data framed by anonymised but vivid case studies. You open with the numbers. 66 cases, 44 animals on average, 39% recidivism, then bring them to life.\n\nCase 14: A woman in her fifties, living alone in a terraced house in the North West. Environmental health were called after neighbours reported a persistent smell. Officers found 47 cats, 12 of which were dead. The woman was prosecuted, the surviving cats rehomed.\n\nThe APPG asks if you'd be willing to contribute directly to their report recommendations.",
       "choices": [
         {
           "text": "Draft specific policy recommendations for a legal definition",
@@ -1633,7 +1633,7 @@
     },
     "ah_joint_report": {
       "title": "A Unified Voice",
-      "narrative": "You co-produce a report with practitioners: \"No Definition, No Response: The Case for Recognising Animal Hoarding in UK Law.\"\n\nThe report combines your quantitative evidence  -  the 66 cases, the demographic patterns, the recidivism data  -  with qualitative testimony from environmental health officers, RSPCA inspectors, and housing professionals.\n\nThen a Defra policy official contacts you asking for more information. \"We're reviewing animal welfare enforcement frameworks,\" they write. \"Your report raises issues we hadn't fully considered.\"",
+      "narrative": "You co-produce a report with practitioners: \"No Definition, No Response: The Case for Recognising Animal Hoarding in UK Law.\"\n\nThe report combines your quantitative evidence. The 66 cases, the demographic patterns, the recidivism data, with qualitative testimony from environmental health officers, RSPCA inspectors, and housing professionals.\n\nThen a Defra policy official contacts you asking for more information. \"We're reviewing animal welfare enforcement frameworks,\" they write. \"Your report raises issues we hadn't fully considered.\"",
       "choices": [
         {
           "text": "Pursue the Defra connection",
@@ -1679,7 +1679,7 @@
           "next": "ah_legislative"
         },
         {
-          "text": "Ask them to support a broader policy agenda - play the long game",
+          "text": "Ask them to support a broader policy agenda. Play the long game",
           "next": "ah_ending_longterm"
         }
       ],
@@ -1701,7 +1701,7 @@
     },
     "ah_defra_early": {
       "title": "Going to the Source",
-      "narrative": "Through the RSPCA's government affairs contacts, you secure an informal briefing with Defra policy officials. They're interested  -  animal hoarding has been flagged in several recent enforcement reviews  -  but they're also cautious.\n\nThere's a recognition that the current framework has gaps,\" one official tells you. But any legislative change requires a robust evidence base, cross-departmental support, and ministerial interest.\n\nThis is useful intelligence. Defra won't act on research alone. You need a broader coalition.",
+      "narrative": "Through the RSPCA's government affairs contacts, you secure an informal briefing with Defra policy officials. They're interested. Animal hoarding has been flagged in several recent enforcement reviews, but they're also cautious.\n\nThere's a recognition that the current framework has gaps,\" one official tells you. But any legislative change requires a robust evidence base, cross-departmental support, and ministerial interest.\n\nThis is useful intelligence. Defra won't act on research alone. You need a broader coalition.",
       "choices": [
         {
           "text": "Build the practitioner coalition Defra is asking for",
@@ -1733,7 +1733,7 @@
     },
     "ah_pilot_programme": {
       "title": "Testing the Alternative",
-      "narrative": "You propose a pilot programme to the APPG: instead of prosecution alone, cases identified as animal hoarding would trigger a coordinated response that includes a mental health assessment, support plan, and ongoing monitoring  -  alongside any necessary enforcement action.\n\nThe pilot combines enforcement with therapeutic support. Early results are promising  -  the one case of recidivism in the pilot group involved someone who disengaged from the support programme. The five who stayed engaged have not reoffended.",
+      "narrative": "You propose a pilot programme to the APPG: instead of prosecution alone, cases identified as animal hoarding would trigger a coordinated response that includes a mental health assessment, support plan, and ongoing monitoring, alongside any necessary enforcement action.\n\nThe pilot combines enforcement with therapeutic support. Early results are promising. The one case of recidivism in the pilot group involved someone who disengaged from the support programme. The five who stayed engaged have not reoffended.",
       "choices": [
         {
           "text": "Write up the pilot results and submit to the APPG for their report",
@@ -1766,7 +1766,7 @@
     },
     "ah_parliamentary_roundtable": {
       "title": "In the Palace of Westminster",
-      "narrative": "The MP hosts a roundtable in a committee room at the House of Commons. The guest list includes your research team, RSPCA representatives, environmental health professionals, Defra officials, and three other parliamentarians with an interest in animal welfare.\n\nYou present your research. The RSPCA presents their operational data. Practitioners share frontline experiences.\n\nFor REF purposes, this is significant  -  you can evidence that your research has directly informed parliamentary activity and prompted governmental consideration.",
+      "narrative": "The MP hosts a roundtable in a committee room at the House of Commons. The guest list includes your research team, RSPCA representatives, environmental health professionals, Defra officials, and three other parliamentarians with an interest in animal welfare.\n\nYou present your research. The RSPCA presents their operational data. Practitioners share frontline experiences.\n\nFor REF purposes, this is significant. You can evidence that your research has directly informed parliamentary activity and prompted governmental consideration.",
       "choices": [
         {
           "text": "Support the MP's letter with additional evidence and expert testimony",
@@ -1801,7 +1801,7 @@
     },
     "ah_legislative": {
       "title": "The Legislative Route",
-      "narrative": "The MP explores legislative options. A full amendment to the Animal Welfare Act would be ambitious  -  it requires government time and cross-party support. But a Private Member's Bill could raise the issue formally even if it doesn't pass immediately.\n\nThe MP tables an Early Day Motion calling on the Government to introduce a legal definition of animal hoarding and a coordinated response framework. Forty-three other MPs sign it.\n\nIt won't become law on its own, but it creates a formal parliamentary record, demonstrates cross-party support, and puts pressure on Defra.\n\nYour research is cited in the EDM text by name.",
+      "narrative": "The MP explores legislative options. A full amendment to the Animal Welfare Act would be ambitious, it requires government time and cross-party support. But a Private Member's Bill could raise the issue formally even if it doesn't pass immediately.\n\nThe MP tables an Early Day Motion calling on the Government to introduce a legal definition of animal hoarding and a coordinated response framework. Forty-three other MPs sign it.\n\nIt won't become law on its own, but it creates a formal parliamentary record, demonstrates cross-party support, and puts pressure on Defra.\n\nYour research is cited in the EDM text by name.",
       "choices": [
         {
           "text": "Use the EDM momentum to press Defra for a formal policy review",
@@ -1835,14 +1835,14 @@
     },
     "ah_defra_engage": {
       "title": "Inside the Department",
-      "narrative": "You build a relationship with Defra's animal welfare policy team. They invite you to present at an internal seminar  -  a rare opportunity to brief the civil servants who write the legislation.\n\nThe presentation goes well. Officials ask sharp questions about the evidence base, the cost of inaction, and what a legal definition would actually look like operationally.\n\nGovernment wheels turn slowly. But you're now on the inside of the policy machine.",
+      "narrative": "You build a relationship with Defra's animal welfare policy team. They invite you to present at an internal seminar, a rare opportunity to brief the civil servants who write the legislation.\n\nThe presentation goes well. Officials ask sharp questions about the evidence base, the cost of inaction, and what a legal definition would actually look like operationally.\n\nGovernment wheels turn slowly. But you're now on the inside of the policy machine.",
       "choices": [
         {
           "text": "Maintain the relationship and provide evidence as requested",
           "next": "ah_ending_policy"
         },
         {
-          "text": "Run a parallel track - practitioner adoption while Defra deliberates",
+          "text": "Run a parallel track. Practitioner adoption while Defra deliberates",
           "next": "ah_ending_framework"
         },
         {
@@ -1870,7 +1870,7 @@
     },
     "ah_expanded_pilot": {
       "title": "Scaling the Evidence",
-      "narrative": "With funding from a public health research council, you expand the pilot to twelve local authority areas. The larger sample provides more robust evidence and captures different local contexts  -  urban and rural, northern and southern, affluent and deprived.\n\nThe expanded evaluation confirms the pilot results: coordinated multi-agency responses lead to better outcomes across every measure.\n\nDefra officials, who've been watching the pilots, acknowledge that your framework is the most developed evidence-based model for managing animal hoarding in the UK.",
+      "narrative": "With funding from a public health research council, you expand the pilot to twelve local authority areas. The larger sample provides more robust evidence and captures different local contexts. Urban and rural, northern and southern, affluent and deprived.\n\nThe expanded evaluation confirms the pilot results: coordinated multi-agency responses lead to better outcomes across every measure.\n\nDefra officials, who've been watching the pilots, acknowledge that your framework is the most developed evidence-based model for managing animal hoarding in the UK.",
       "choices": [
         {
           "text": "Push for the framework to become statutory guidance",
@@ -1926,7 +1926,7 @@
     },
     "ah_ending_framework": {
       "title": "Impact Case Study: Changing Practice",
-      "narrative": "Your multi-agency framework has been adopted by local authorities across the country. Through the Chartered Institute of Environmental Health, the UK Hoarding Partnership, and your practitioner networks, the framework has become the standard approach to animal hoarding cases.\n\n34 local authorities have formally embedded it in their protocols.\n\nCongratulations! You've built a practice-based impact case study. The law hasn't changed yet  -  but practice has. And in the messy, multi-agency world of animal hoarding, that's where lives are changed: on the doorstep, in the referral, in the conversation between an environmental health officer and a mental health nurse that never used to happen.",
+      "narrative": "Your multi-agency framework has been adopted by local authorities across the country. Through the Chartered Institute of Environmental Health, the UK Hoarding Partnership, and your practitioner networks, the framework has become the standard approach to animal hoarding cases.\n\n34 local authorities have formally embedded it in their protocols.\n\nCongratulations! You've built a practice-based impact case study. The law hasn't changed yet, but practice has. And in the messy, multi-agency world of animal hoarding, that's where lives are changed: on the doorstep, in the referral, in the conversation between an environmental health officer and a mental health nurse that never used to happen.",
       "choices": [],
       "scoreEffect": {
         "stakeholders": 13,
@@ -1948,7 +1948,7 @@
     },
     "ah_ending_longterm": {
       "title": "Impact Case Study: The Long Game",
-      "narrative": "Your work has seeded change across multiple fronts. The APPG report recommends a definition. Defra is reviewing the framework. Forty-three MPs signed an Early Day Motion citing your research. Local authorities are piloting your multi-agency approach. The RSPCA, CIEH, and Hoarding UK are all using your evidence.\n\nNo single moment captures the impact  -  it's the accumulation of evidence, relationships, and engagement over years.\n\nCongratulations! You've played the long game  -  building impact across policy, practice, and public awareness simultaneously. This is the virtuous cycle of research impact: evidence drives engagement, engagement drives change, and change drives the demand for more evidence.",
+      "narrative": "Your work has seeded change across multiple fronts. The APPG report recommends a definition. Defra is reviewing the framework. Forty-three MPs signed an Early Day Motion citing your research. Local authorities are piloting your multi-agency approach. The RSPCA, CIEH, and Hoarding UK are all using your evidence.\n\nNo single moment captures the impact  -  it's the accumulation of evidence, relationships, and engagement over years.\n\nCongratulations! You've played the long game. Building impact across policy, practice, and public awareness simultaneously. This is the virtuous cycle of research impact: evidence drives engagement, engagement drives change, and change drives the demand for more evidence.",
       "choices": [],
       "scoreEffect": {
         "strategy": 14,
@@ -2665,7 +2665,7 @@
     },
     "bfr_next_gen": {
       "title": "Iterating After Flight",
-      "narrative": "Following the successful commercial spaceflight, your research project receives Â£287,000 of further funding from UKSA. The funding is part of a batch of 23 projects aimed at strengthening international space partnerships and developing national capabilities.\n\nThe project, working with Western Clinical Engineering Group, Delfi Medical Innovations, the Canadian Space Agency, ESA, and NASA, will resolve technological uncertainties related to future space applications.\n\n\"The UK is at the forefront of space innovation,\" UKSA's Chief Executive says, citing your project as an example of combining home-grown talent with global expertise.",
+      "narrative": "Following the successful commercial spaceflight, your research project receives ÃÂ£287,000 of further funding from UKSA. The funding is part of a batch of 23 projects aimed at strengthening international space partnerships and developing national capabilities.\n\nThe project, working with Western Clinical Engineering Group, Delfi Medical Innovations, the Canadian Space Agency, ESA, and NASA, will resolve technological uncertainties related to future space applications.\n\n\"The UK is at the forefront of space innovation,\" UKSA's Chief Executive says, citing your project as an example of combining home-grown talent with global expertise.",
       "choices": [
         {
           "text": "Build the full international consortium for deep-space missions",
@@ -3169,7 +3169,7 @@
     },
     "sbl_big_bid": {
       "title": "Running Before Walking",
-      "narrative": "You write an ambitious funding bid to the Education Endowment Foundation for a Â£500,000 national programme of simulation-based learning for Initial Teacher Education. The proposal is well-argued and the need is clear.\n\nThe reviewers are interested but unconvinced. Their feedback is constructive but firm: \"The rationale is compelling and the approach is innovative.\n\nOne positive note: the reviewers explicitly mention that the idea fills a genuine gap and encourage you to resubmit with pilot evidence. They want this to work  -  they just need you to prove it first.",
+      "narrative": "You write an ambitious funding bid to the Education Endowment Foundation for a ÃÂ£500,000 national programme of simulation-based learning for Initial Teacher Education. The proposal is well-argued and the need is clear.\n\nThe reviewers are interested but unconvinced. Their feedback is constructive but firm: \"The rationale is compelling and the approach is innovative.\n\nOne positive note: the reviewers explicitly mention that the idea fills a genuine gap and encourage you to resubmit with pilot evidence. They want this to work  -  they just need you to prove it first.",
       "choices": [
         {
           "text": "Run a rigorous pilot study to generate the evidence the funders need",
