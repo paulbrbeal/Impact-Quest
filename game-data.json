@@ -2,7 +2,7 @@
   "stories": {
     "impact_quest": {
       "title": "The Green Corridor",
-      "description": "Your research proves urban green spaces reduce anxiety in deprived neighbourhoods. The paper is published  -  now can you turn it into real-world change before REF 2029?",
+      "description": "Your research proves urban green spaces reduce anxiety in deprived neighbourhoods. The paper is published, now can you turn it into real-world change before REF 2029?",
       "image": "https://paulbrbeal.github.io/Impact-Quest/images/community-garden.jpg",
       "startScene": "start"
     },
@@ -57,15 +57,15 @@
       "narrative": "Smart move. Your Impact Officer is enthusiastic. At your next meeting they help you map out a Theory of Change, connecting your research findings to potential real-world outcomes.\n\n\"We need to think about WHO could use this research, HOW they'd use it, and what EVIDENCE we'd need to prove it made a difference.\"\n\nTogether you identify three potential impact pathways:\n- Policy influence: informing local or national green space policy\n- Practitioner change: helping community organisations design better programmes\n- Public benefit: directly improving wellbeing in target communities\n\nWhich pathway do you want to prioritise first?",
       "choices": [
         {
-          "text": "Policy influence - target policymakers and try to shape council strategy",
+          "text": "Policy influence. Target policymakers and try to shape council strategy",
           "next": "policy_route"
         },
         {
-          "text": "Practitioner change - work with community organisations to change how they operate",
+          "text": "Practitioner change. Work with community organisations to change how they operate",
           "next": "practitioner_route"
         },
         {
-          "text": "Public benefit - focus on getting these findings directly to the communities and people who benefit",
+          "text": "Public benefit. Focus on getting these findings directly to the communities and people who benefit",
           "next": "public_benefit_route"
         }
       ],
@@ -126,11 +126,11 @@
           "next": "policy_training"
         },
         {
-          "text": "Try a different approach  -  find a personal connection at the council",
+          "text": "Try a different approach. Find a personal connection at the council",
           "next": "find_connection"
         },
         {
-          "text": "Forget the council  -  focus on community organisations instead",
+          "text": "Forget the council. Focus on community organisations instead",
           "next": "practitioner_route"
         }
       ],
@@ -150,14 +150,14 @@
     },
     "meet_officer_late": {
       "title": "Better Late Than Never",
-      "narrative": "Sam doesn't judge. \"The media coverage actually gives us something to work with,\" they say. \"But we need to move from awareness to action.\"\n\nSam helps you develop a stakeholder map and a proper engagement plan. You identify that your research is most relevant to:\n\n* The council's Public Health team (not Environment  -  they don't have budget)\n* Three local community organisations already running green space projects\n* A national charity that funds urban greening initiatives\n\n\"The key,\" Sam says, \"is to listen first. Find out what THEY need, then show how your research helps.\"",
+      "narrative": "Your Impact Officer doesn't judge. \"The media coverage actually gives us something to work with,\" they say. \"But we need to move from awareness to action.\"\n\nThey help you develop a stakeholder map and a proper engagement plan. You identify that your research is most relevant to:\n\n* The council's Public Health team (not Environment  -  they don't have budget)\n* Three local community organisations already running green space projects\n* A national charity that funds urban greening initiatives\n\n\"The key,\" your Impact Officer says, \"is to listen first. Find out what THEY need, then show how your research helps.\"",
       "choices": [
         {
-          "text": "Start with the community organisations  -  build from the ground up",
+          "text": "Start with the community organisations. Build from the ground up",
           "next": "practitioner_route"
         },
         {
-          "text": "Target the national charity  -  they could fund a bigger project",
+          "text": "Target the national charity. They could fund a bigger project",
           "next": "charity_route"
         }
       ],
@@ -177,14 +177,14 @@
     },
     "media_blitz": {
       "title": "Diminishing Returns",
-      "narrative": "You pitch to The Guardian, BBC, and several national outlets. One radio station invites you for a 3-minute interview at 6:40am. You do it half-asleep and stumble over the key findings.\n\nA few more articles appear, but they all say roughly the same thing. Your university's comms team is pleased, but when you talk to Sam the Impact Officer, they're candid:\n\n\"Media coverage is great for public engagement, but REF panels want to see your research actually changed behaviour, practice, or policy. A newspaper article isn't evidence of impact  -  it's evidence of dissemination.\"\n\nThis lands hard. You've been busy, but have you been effective?",
+      "narrative": "You pitch to The Guardian, BBC, and several national outlets. One radio station invites you for a 3-minute interview at 6:40am. You do it half-asleep and stumble over the key findings.\n\nA few more articles appear, but they all say roughly the same thing. Your university's comms team is pleased, but when you talk to your Impact Officer, they're candid:\n\n\"Media coverage is great for public engagement, but REF panels want to see your research actually changed behaviour, practice, or policy. A newspaper article isn't evidence of impact,  it's evidence of dissemination.\"\n\nThis lands hard. You've been busy, but have you been effective?",
       "choices": [
         {
           "text": "Regroup with Sam and build a proper impact strategy",
           "next": "meet_officer_late"
         },
         {
-          "text": "A council officer saw the BBC piece and got in touch  -  follow up",
+          "text": "A council officer saw the BBC piece and got in touch, time to follow up",
           "next": "council_inbound"
         }
       ],
@@ -206,7 +206,7 @@
     },
     "community_contact": {
       "title": "A Grassroots Connection",
-      "narrative": "The community group  -  GreenSpace Collective  -  runs urban gardens in three deprived wards. Their coordinator, Priya, is excited about your research.\n\n\"We've been telling the council for years that our gardens help people's mental health, but we never had the evidence. Your study could change everything for us.\"\n\nPriya invites you to visit their sites and meet participants. You spend a Saturday morning pulling weeds and chatting to people whose lives have been genuinely transformed by the green spaces.\n\nThis is powerful. But how do you turn a Saturday morning into REF-quality impact?",
+      "narrative": "The community group, GreenSpace Collective, runs urban gardens in three deprived wards. Their coordinator, Priya, is excited about your research.\n\n\"We've been telling the council for years that our gardens help people's mental health, but we never had the evidence. Your study could change everything for us.\"\n\nPriya invites you to visit their sites and meet participants. You spend a Saturday morning pulling weeds and chatting to people whose lives have been genuinely transformed by the green spaces.\n\nThis is powerful. But how do you turn a Saturday morning into REF-quality impact?",
       "choices": [
         {
           "text": "Co-design a wellbeing measurement tool with GreenSpace Collective",
@@ -237,7 +237,7 @@
     },
     "policy_route": {
       "title": "The Policy Pathway",
-      "narrative": "Sam connects you with the university's Policy Engagement lead, who helps you craft a policy brief  -  a concise, jargon-free summary of your findings with clear recommendations.\n\nYou learn that effective policy engagement means:\n* Understanding the policy cycle and timing your interventions\n* Speaking their language, not yours\n* Offering solutions, not just findings\n* Building relationships over time, not just sending documents\n\nThe policy brief is excellent. Now you need to get it in front of the right people. The local council is refreshing its Health & Wellbeing Strategy, and there's a public consultation opening next month.",
+      "narrative": "Your Impact Officer connects you with the university's Policy Engagement lead, who helps you craft a policy brief. A concise, jargon-free summary of your findings with clear recommendations.\n\nYou learn that effective policy engagement means:\n* Understanding the policy cycle and timing your interventions\n* Speaking their language, not yours\n* Offering solutions, not just findings\n* Building relationships over time, not just sending documents\n\nThe policy brief is excellent. Now you need to get it in front of the right people. The local council is refreshing its Health & Wellbeing Strategy, and there's a public consultation opening next month.",
       "choices": [
         {
           "text": "Submit a formal response to the consultation using your evidence",
@@ -248,7 +248,7 @@
           "next": "dph_meeting"
         },
         {
-          "text": "Both  -  submit the response AND request the meeting",
+          "text": "Both. Submit the response AND request the meeting",
           "next": "consultation_and_meeting"
         }
       ],
@@ -267,10 +267,10 @@
     },
     "practitioner_route": {
       "title": "Working With Communities",
-      "narrative": "You connect with three community organisations running green space projects across the region. Each has different needs:\n\n* GreenSpace Collective wants evidence to support their funding bids\n* Park Life CIC wants to redesign their programme based on what actually works\n* The Neighbourhood Trust wants to train volunteers using evidence-based approaches\n\nAll three are enthusiastic, but you're one person with a full teaching load and two PhD students to supervise. Sam warns: \"Don't overcommit. One deep partnership beats three shallow ones for REF purposes.\"",
+      "narrative": "You connect with three community organisations running green space projects across the region. Each has different needs:\n\n* GreenSpace Collective wants evidence to support their funding bids\n* Park Life CIC wants to redesign their programme based on what actually works\n* The Neighbourhood Trust wants to train volunteers using evidence-based approaches\n\nAll three are enthusiastic, but you're one person with a full teaching load and two PhD students to supervise. Your Impact Officer warns: \"Don't overcommit. One deep partnership beats three shallow ones for REF purposes.\"",
       "choices": [
         {
-          "text": "Go deep with GreenSpace Collective  -  co-produce new resources",
+          "text": "Go deep with GreenSpace Collective. Co-produce new resources",
           "next": "codesign"
         },
         {
@@ -278,7 +278,7 @@
           "next": "programme_redesign"
         },
         {
-          "text": "Try to support all three  -  you can manage it",
+          "text": "Try to support all three. You can manage it",
           "next": "overcommit"
         }
       ],
@@ -296,7 +296,7 @@
     },
     "policy_training": {
       "title": "Learning the Craft",
-      "narrative": "The policy engagement training is a revelation. You learn about:\n\n* How policy is actually made (spoiler: it's messier than you thought)\n* The difference between policy influence and policy change\n* How to write a briefing note that a civil servant will actually read\n* The importance of timing  -  policy windows open and close\n\nCrucially, you learn that the council is about to refresh its Health & Wellbeing Strategy. There's a 12-week public consultation starting next month. This is your window.\n\nYou also meet a colleague from Public Health who has contacts in the council's wellbeing team.",
+      "narrative": "The policy engagement training is a revelation. You learn about:\n\n* How policy is actually made (spoiler: it's messier than you thought)\n* The difference between policy influence and policy change\n* How to write a briefing note that a civil servant will actually read\n* The importance of timing, policy windows open and close\n\nCrucially, you learn that the council is about to refresh its Health & Wellbeing Strategy. There's a 12-week public consultation starting next month. This is your window.\n\nYou also meet a colleague from Public Health who has contacts in the council's wellbeing team.",
       "choices": [
         {
           "text": "Prepare a formal consultation response with your evidence",
@@ -324,14 +324,14 @@
     },
     "find_connection": {
       "title": "The Warm Introduction",
-      "narrative": "You mention your council frustrations at a faculty event, and a colleague in Public Health says: \"Oh, you need to talk to Janet in the council's wellbeing team. We collaborated on a project last year. Let me introduce you.\"\n\nThis is how policy engagement actually works  -  through relationships and trust, not cold emails.\n\nJanet agrees to a coffee meeting. She's frank: \"We get dozens of research papers sent to us. What makes yours different is that you're here, asking what we need, rather than telling us what you've found.\"\n\nJanet reveals that the council is developing a new Green Space Action Plan.",
+      "narrative": "You mention your council frustrations at a faculty event, and a colleague in Public Health says: \"Oh, you need to talk to Janet in the council's wellbeing team. We collaborated on a project last year. Let me introduce you.\"\n\nThis is how policy engagement actually works, through relationships and trust, not cold emails.\n\nJanet agrees to a coffee meeting. She's frank: \"We get dozens of research papers sent to us. What makes yours different is that you're here, asking what we need, rather than telling us what you've found.\"\n\nJanet reveals that the council is developing a new Green Space Action Plan.",
       "choices": [
         {
           "text": "Offer to present your findings to Janet's team",
           "next": "council_presentation"
         },
         {
-          "text": "Ask Janet what evidence gaps the council has  -  tailor your input to their needs",
+          "text": "Ask Janet what evidence gaps the council has. Tailor your input to their needs",
           "next": "needs_led"
         }
       ],
@@ -353,7 +353,7 @@
     },
     "warm_intro": {
       "title": "The Warm Introduction",
-      "narrative": "Your colleague introduces you to Janet, a senior officer in the council's wellbeing team. Janet agrees to meet for coffee.\n\nShe's refreshingly direct: \"Academics usually tell us what they've found and expect us to be grateful. What would actually help is if you could tell us what WORKS and for WHOM  -  in plain English, with costs.\"\n\nShe mentions the council is developing a new Green Space Action Plan and they're short on evidence about mental health outcomes.",
+      "narrative": "Your colleague introduces you to Janet, a senior officer in the council's wellbeing team. Janet agrees to meet for coffee.\n\nShe's refreshingly direct: \"Academics usually tell us what they've found and expect us to be grateful. What would actually help is if you could tell us what WORKS and for WHOM,  in plain English, with costs.\"\n\nShe mentions the council is developing a new Green Space Action Plan and they're short on evidence about mental health outcomes.",
       "choices": [
         {
           "text": "Offer to present your findings to Janet's team",
@@ -380,7 +380,7 @@
     },
     "consultation": {
       "title": "The Formal Response",
-      "narrative": "You submit a detailed, evidence-based response to the Health & Wellbeing Strategy consultation. It's well-crafted, citing your research and making clear, actionable recommendations about green space investment.\n\nTwo months later, the final strategy is published. Buried in the evidence annex, your paper is cited. One of your recommendations about \"community-led green space programmes\" appears in the action plan, though reworded.\n\nThis is genuine policy influence! But the evidence trail is thin  -  how do you prove your research specifically contributed to this change?",
+      "narrative": "You submit a detailed, evidence-based response to the Health & Wellbeing Strategy consultation. It's well-crafted, citing your research and making clear, actionable recommendations about green space investment.\n\nTwo months later, the final strategy is published. Buried in the evidence annex, your paper is cited. One of your recommendations about \"community-led green space programmes\" appears in the action plan, though reworded.\n\nThis is genuine policy influence! But the evidence trail is thin. How do you prove your research specifically contributed to this change?",
       "choices": [
         {
           "text": "Request a letter from the council acknowledging your research contribution",
@@ -412,14 +412,14 @@
     },
     "consultation_and_meeting": {
       "title": "Belt and Braces",
-      "narrative": "Excellent instinct. You submit the consultation response AND secure a meeting with the Director of Public Health (DPH).\n\nThe DPH is interested: \"We know green spaces matter, but we've struggled to make the economic case. Can your research help us model the cost-benefit?\"\n\nThis is a golden opportunity  -  but it's also scope creep. Cost-benefit analysis wasn't part of your original study. However, your colleague in Health Economics might be able to help.\n\nMeanwhile, your consultation response is logged formally, creating a paper trail.",
+      "narrative": "Excellent instinct. You submit the consultation response AND secure a meeting with the Director of Public Health (DPH).\n\nThe DPH is interested: \"We know green spaces matter, but we've struggled to make the economic case. Can your research help us model the cost-benefit?\"\n\nThis is a golden opportunity, but it's also scope creep. Cost-benefit analysis wasn't part of your original study. However, your colleague in Health Economics might be able to help.\n\nMeanwhile, your consultation response is logged formally, creating a paper trail.",
       "choices": [
         {
           "text": "Collaborate with Health Economics to produce the cost-benefit analysis",
           "next": "cost_benefit"
         },
         {
-          "text": "Stick to what your research actually shows  -  don't overreach",
+          "text": "Stick to what your research actually shows. Don't overreach",
           "next": "stay_focused"
         }
       ],
@@ -442,7 +442,7 @@
     },
     "dph_meeting": {
       "title": "Aiming High",
-      "narrative": "Getting a meeting with the Director of Public Health takes some persistence, but your Impact Officer Sam uses a university contact to broker an introduction.\n\nThe DPH gives you 30 minutes. You present your findings clearly. They're engaged but pragmatic: \"This is interesting, but I need to know: what would you recommend we actually DO differently based on this?\"\n\nThis is the moment. Policy makers don't want data dumps  -  they want actionable recommendations.",
+      "narrative": "Getting a meeting with the Director of Public Health takes some persistence, but your Impact Officer uses a university contact to broker an introduction.\n\nThe DPH gives you 30 minutes. You present your findings clearly. They're engaged but pragmatic: \"This is interesting, but I need to know: what would you recommend we actually DO differently based on this?\"\n\nThis is the moment. Policy makers don't want data dumps, they want actionable recommendations.",
       "choices": [
         {
           "text": "Recommend the council funds community-led green space programmes in deprived wards",
@@ -475,7 +475,7 @@
           "next": "strong_evidence"
         },
         {
-          "text": "Track the toolkit's adoption  -  how many organisations are using it?",
+          "text": "Track the toolkit's adoption. How many organisations are using it?",
           "next": "track_adoption"
         },
         {
