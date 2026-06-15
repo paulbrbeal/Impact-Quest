@@ -468,7 +468,7 @@
     },
     "codesign": {
       "title": "Co-Production Gold",
-      "narrative": "You work with GreenSpace Collective over six months to co-design a wellbeing measurement toolkit. It's based on your research but shaped by the community's own language and priorities.\n\nThe toolkit is practical, accessible, and genuinely useful. GreenSpace Collective starts using it across their three sites. Other organisations hear about it and want copies.\n\nPriya says: \"For the first time, we can actually show funders what difference we make. This has transformed how we work.\"\n\nThis is strong impact evidence  -  practice change driven by your research. But you need to document it properly.",
+      "narrative": "You work with GreenSpace Collective over six months to co-design a wellbeing measurement toolkit. It's based on your research but shaped by the community's own language and priorities.\n\nThe toolkit is practical, accessible, and genuinely useful. GreenSpace Collective starts using it across their three sites. Other organisations hear about it and want copies.\n\nPriya says: \"For the first time, we can actually show funders what difference we make. This has transformed how we work.\"\n\nThis is strong impact evidence. Practice change driven by your research. But you need to document it properly.",
       "choices": [
         {
           "text": "Commission independent testimonials and a case study from GreenSpace Collective",
@@ -529,14 +529,14 @@
     },
     "overcommit": {
       "title": "Stretched Too Thin",
-      "narrative": "You try to support all three organisations simultaneously. For two months, you're racing between meetings, missing deadlines, and sending rushed emails.\n\nGreenSpace Collective's Priya sends a carefully worded message: \"We really value the partnership, but we haven't seen the draft toolkit you promised in January. We need it for our March funding bid.\"\n\nPark Life stops replying to your emails. The Neighbourhood Trust moves on and finds a consultant instead.\n\nSam checks in: \"How's it going?\" You're honest: it's not going well.\n\n\"It's not too late to refocus,\" Sam says. \"Pick one and do it properly.\"",
+      "narrative": "You try to support all three organisations simultaneously. For two months, you're racing between meetings, missing deadlines, and sending rushed emails.\n\nGreenSpace Collective's Priya sends a carefully worded message: \"We really value the partnership, but we haven't seen the draft toolkit you promised in January. We need it for our March funding bid.\"\n\nPark Life stops replying to your emails. The Neighbourhood Trust moves on and finds a consultant instead.\n\nYour Impact Officer checks in: \"How's it going?\" You're honest: it's not going well.\n\n\"It's not too late to refocus,\" Sam says. \"Pick one and do it properly.\"",
       "choices": [
         {
-          "text": "Recommit to GreenSpace Collective  -  apologise and deliver",
+          "text": "Recommit to GreenSpace Collective. Apologise and deliver",
           "next": "codesign"
         },
         {
-          "text": "Reconnect with Park Life CIC  -  they had the clearest need",
+          "text": "Reconnect with Park Life CIC. They had the clearest need",
           "next": "programme_redesign"
         }
       ],
@@ -555,7 +555,7 @@
     },
     "council_inbound": {
       "title": "An Unexpected Ally",
-      "narrative": "A council officer named Janet saw your BBC interview and reaches out: \"We're developing a new Green Space Action Plan and your research is exactly what we need. Could we meet?\"\n\nThis is the dream scenario  -  a policy maker coming to YOU. But you need to handle it well. Janet's interest is genuine but time-limited; if you don't deliver value quickly, the moment will pass.",
+      "narrative": "A council officer named Janet saw your BBC interview and reaches out: \"We're developing a new Green Space Action Plan and your research is exactly what we need. Could we meet?\"\n\nThis is the dream scenario. A policy maker coming to YOU. But you need to handle it well. Janet's interest is genuine but time-limited; if you don't deliver value quickly, the moment will pass.",
       "choices": [
         {
           "text": "Meet Janet immediately and ask what evidence she needs",
