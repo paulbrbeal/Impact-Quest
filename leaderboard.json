@@ -106,5 +106,23 @@
     "storyTitle": "The Green Corridor",
     "steps": 5,
     "date": "2026-07-06T14:37:19.546Z"
+  },
+  {
+    "name": "Dimana Kardzhieva",
+    "dept": "Psychology",
+    "score": 140,
+    "scores": {
+      "strategy": 38,
+      "stakeholders": 19,
+      "evidence": 46,
+      "significance": 31,
+      "reach": 6
+    },
+    "ending": "Impact Case Study: Practice Transformer",
+    "endingType": "practitioner",
+    "storyId": "impact_quest",
+    "storyTitle": "The Green Corridor",
+    "steps": 5,
+    "date": "2026-07-06T14:46:25.678Z"
   }
 ]
