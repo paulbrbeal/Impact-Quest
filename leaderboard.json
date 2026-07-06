@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "name": "f",
+    "dept": "f",
+    "score": 138,
+    "scores": {
+      "strategy": 22,
+      "stakeholders": 20,
+      "evidence": 23,
+      "significance": 36,
+      "reach": 37
+    },
+    "ending": "Impact Case Study: Practice Transformer",
+    "endingType": "practitioner",
+    "storyId": "impact_quest",
+    "storyTitle": "The Green Corridor",
+    "steps": 6,
+    "date": "2026-07-06T12:04:14.343Z"
+  }
+]
