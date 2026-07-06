@@ -88,5 +88,23 @@
     "storyTitle": "The Education Simulation Lab",
     "steps": 5,
     "date": "2026-07-06T14:29:42.722Z"
+  },
+  {
+    "name": "Bahriye Jones",
+    "dept": "Architecture and Built Environment",
+    "score": 139,
+    "scores": {
+      "strategy": 39,
+      "stakeholders": 21,
+      "significance": 27,
+      "reach": 15,
+      "evidence": 37
+    },
+    "ending": "Impact Case Study: The Virtuous Cycle",
+    "endingType": "cycle",
+    "storyId": "impact_quest",
+    "storyTitle": "The Green Corridor",
+    "steps": 5,
+    "date": "2026-07-06T14:37:19.546Z"
   }
 ]
