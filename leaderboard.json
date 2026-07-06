@@ -34,5 +34,23 @@
     "storyTitle": "From Clinic to Cosmos",
     "steps": 6,
     "date": "2026-07-06T13:18:13.709Z"
+  },
+  {
+    "name": "Tom Jones",
+    "dept": "SER",
+    "score": 109,
+    "scores": {
+      "strategy": 23,
+      "stakeholders": 28,
+      "significance": 13,
+      "reach": 25,
+      "evidence": 20
+    },
+    "ending": "Impact Case Study: A Global Conversation",
+    "endingType": "policy",
+    "storyId": "sbl",
+    "storyTitle": "The Education Simulation Lab",
+    "steps": 7,
+    "date": "2026-07-06T13:23:30.229Z"
   }
 ]
