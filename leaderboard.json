@@ -52,5 +52,23 @@
     "storyTitle": "The Education Simulation Lab",
     "steps": 7,
     "date": "2026-07-06T13:23:30.229Z"
+  },
+  {
+    "name": "Katie Oven",
+    "dept": "Geography and Natural Sciences",
+    "score": 195,
+    "scores": {
+      "strategy": 32,
+      "stakeholders": 46,
+      "evidence": 46,
+      "significance": 51,
+      "reach": 20
+    },
+    "ending": "National Health Impact",
+    "endingType": "policy",
+    "storyId": "impact_quest",
+    "storyTitle": "The Green Corridor",
+    "steps": 7,
+    "date": "2026-07-06T14:00:18.760Z"
   }
 ]
