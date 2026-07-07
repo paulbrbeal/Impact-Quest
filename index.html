@@ -820,6 +820,45 @@ function App(props){
   var restart=function(){hasSubmitted.current=false;IQAudio.stopFanfare();var startScene=story?story.startScene:"start";setCurrentNode(startScene);setScores({strategy:0,stakeholders:0,significance:0,reach:0,evidence:0});setHistory([]);setShowChoices(true);setSubmitted(false);setIeoBonusClaimed(false);setCardKey(function(k){return k+1;});window.scrollTo({top:0,behavior:"smooth"});};
   var restartFull=function(){hasSubmitted.current=false;IQAudio.stopMusic();IQAudio.stopFanfare();setPhase(hasStories&&Object.keys(stories).length>1?"select":"register");setStoryId(hasStories&&Object.keys(stories).length===1?Object.keys(stories)[0]:"");setCurrentNode("");setScores({strategy:0,stakeholders:0,significance:0,reach:0,evidence:0});setHistory([]);setShowChoices(true);setSubmitted(false);setIeoBonusClaimed(false);setCardKey(function(k){return k+1;});window.scrollTo({top:0,behavior:"smooth"});};
 
+  var exportEndingToWord=function(){
+    function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+    var total=Object.values(scores).reduce(function(a,b){return a+b;},0);
+    var now=new Date();
+    var dateLabel=now.toLocaleDateString(undefined,{year:"numeric",month:"long",day:"numeric"});
+    // Score breakdown rows
+    var dimRows="";
+    Object.keys(SCORE_LABELS).forEach(function(k){
+      dimRows+='<tr><td style="border:1px solid #d8d2c4;padding:6px 10px;font-size:11pt;">'+esc(SCORE_LABELS[k])+'</td>'+
+        '<td style="border:1px solid #d8d2c4;padding:6px 10px;font-size:11pt;font-weight:bold;text-align:right;">'+(scores[k]||0)+'</td></tr>';
+    });
+    // Ending narrative as paragraphs
+    var narrHtml=(node.narrative||"").split("\n").filter(function(l){return l.trim();}).map(function(l){return '<p style="margin:0 0 8pt 0;font-size:11pt;line-height:1.5;">'+esc(l)+'</p>';}).join("");
+    var endType=(node.endingType&&node.endingType!=="unknown")?node.endingType+" ending":"";
+    var doc='<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">'+
+      '<head><meta charset="utf-8"><title>Impact Quest Result</title>'+
+      '<!--[if gte mso 9]><xml><w:WordDocument><w:View>Print</w:View></w:WordDocument></xml><![endif]-->'+
+      '<style>@page{size:A4;margin:2cm;} body{font-family:Calibri,Arial,sans-serif;color:#0f0e0d;} h1{font-size:22pt;margin:0 0 2pt 0;} h2{font-size:14pt;color:#c4782a;margin:18pt 0 6pt 0;} .sub{font-size:11pt;color:#8c8272;margin-bottom:4pt;} .score-big{font-size:40pt;color:#c4782a;font-weight:bold;margin:10pt 0 0 0;} .score-lbl{font-size:10pt;text-transform:uppercase;letter-spacing:2px;color:#8c8272;} table{border-collapse:collapse;width:60%;margin-top:4pt;} .ending-title{font-size:14pt;font-weight:bold;margin-top:4pt;}</style>'+
+      '</head><body>'+
+      '<h1>Impact Quest &mdash; Player Result</h1>'+
+      '<div class="sub"><b>'+esc(player.name||"Player")+'</b>'+(player.dept?" &middot; "+esc(player.dept):"")+'</div>'+
+      '<div class="sub">'+esc(story?story.title:"")+' &middot; Exported '+esc(dateLabel)+'</div>'+
+      '<div class="score-big">'+total+'</div><div class="score-lbl">Total Impact Score</div>'+
+      '<h2>Score Breakdown</h2>'+
+      '<table>'+
+      '<tr><td style="border:1px solid #0f0e0d;padding:6px 10px;background:#0f0e0d;color:#fff;font-size:10pt;font-weight:bold;">REF Dimension</td><td style="border:1px solid #0f0e0d;padding:6px 10px;background:#0f0e0d;color:#fff;font-size:10pt;font-weight:bold;text-align:right;">Score</td></tr>'+
+      dimRows+
+      '</table>'+
+      '<h2>'+esc(node.title)+'</h2>'+
+      (endType?'<div class="sub" style="margin-bottom:8pt;text-transform:uppercase;letter-spacing:1px;">'+esc(endType)+'</div>':'')+
+      narrHtml+
+      '</body></html>';
+    var blob=new Blob(['\ufeff'+doc],{type:"application/msword"});
+    var safeName=(player.name||"player").replace(/[^a-z0-9]+/gi,"-").toLowerCase();
+    var a=document.createElement("a");a.href=URL.createObjectURL(blob);
+    a.download="impact-quest-"+safeName+"-"+now.toISOString().slice(0,10)+".doc";
+    document.body.appendChild(a);a.click();document.body.removeChild(a);
+  };
+
   return e("div",{className:"container"},
     e("div",{className:"header"},
       e("div",{className:"header-label"},story?story.title:"A Research Impact Adventure"),
@@ -869,11 +908,13 @@ function App(props){
       e("div",{className:"ending-score-label"},"Final Score: ",e("span",{className:"ending-score-val"},totalScore)),
       reviewMode?e("div",{className:"ending-summary"},(player.name||"This player")+" reached this ending."):e("div",{className:"ending-summary"},player.name+" \u2014 you made "+history.length+" decisions."+(totalScore>=80?" Outstanding!":totalScore>=50?" Strong foundations.":" Try different choices next time!")),
       reviewMode?e("div",{style:{display:"flex",gap:10,justifyContent:"center",flexWrap:"wrap"}},
+        e("button",{className:"action-btn primary",onClick:exportEndingToWord},"Export to Word"),
         e("a",{className:"action-btn dark",href:"leaderboard.html"},"\u2190 Back to Leaderboard"),
         e("a",{className:"action-btn outline",href:"index.html"},"Play the Game")
       ):e("div",{style:{display:"flex",gap:10,justifyContent:"center",flexWrap:"wrap"}},
         e("button",{className:"action-btn primary",onClick:restart},"Play Again"),
         e("button",{className:"action-btn dark",onClick:restartFull},hasStories&&Object.keys(stories).length>1?"Choose Story":"New Player"),
+        e("button",{className:"action-btn outline",onClick:exportEndingToWord},"Export to Word"),
         e("a",{className:"action-btn outline",href:"leaderboard.html"},"Leaderboard")
       )
     ):null,
