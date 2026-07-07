@@ -730,7 +730,37 @@ function App(props){
   var _ieo=useState(false),showIEO=_ieo[0],setShowIEO=_ieo[1];
   var _ieoBonus=useState(false),ieoBonusClaimed=_ieoBonus[0],setIeoBonusClaimed=_ieoBonus[1];
   var _snd=useState(IQAudio.enabled),soundOn=_snd[0],setSoundOn=_snd[1];
+  var _review=useState(false),reviewMode=_review[0],setReviewMode=_review[1];
   var hasSubmitted=useRef(false);
+  var reviewInit=useRef(false);
+
+  // Deep-link: ?view=storyId:sceneId opens a specific ending in read-only review mode
+  useEffect(function(){
+    if(reviewInit.current)return; reviewInit.current=true;
+    try{
+      var params=new URLSearchParams(window.location.search);
+      var v=params.get("view");
+      if(v&&v.indexOf(":")>-1){
+        var parts=v.split(":");
+        var sid=parts[0], scn=parts[1];
+        if(stories[sid]&&scenes[scn]){
+          hasSubmitted.current=true; // don't re-save the score
+          setReviewMode(true);
+          setStoryId(sid);
+          setPlayer({name:params.get("name")||"",dept:params.get("dept")||""});
+          // Restore the player's final scores from the URL so the dashboard matches
+          var sc={strategy:0,stakeholders:0,significance:0,reach:0,evidence:0};
+          ["strategy","stakeholders","significance","reach","evidence"].forEach(function(k){
+            var val=parseInt(params.get(k),10); if(!isNaN(val))sc[k]=val;
+          });
+          setScores(sc);
+          setCurrentNode(scn);
+          setPhase("playing");
+          setShowChoices(true);
+        }
+      }
+    }catch(e){}
+  },[]);
 
   var story=storyId?stories[storyId]:null;
   var node=currentNode?scenes[currentNode]:null;
@@ -742,7 +772,7 @@ function App(props){
       IQAudio.stopMusic();
       IQAudio.fanfare(node.endingType||"unknown");
       var totalScore=Object.values(scores).reduce(function(a,b){return a+b;},0);
-      saveScore({name:player.name,dept:player.dept,score:totalScore,scores:Object.assign({},scores),ending:node.title,endingType:node.endingType||"unknown",storyId:storyId,storyTitle:story?story.title:"Unknown",steps:history.length,date:new Date().toISOString()});
+      saveScore({name:player.name,dept:player.dept,score:totalScore,scores:Object.assign({},scores),ending:node.title,endingType:node.endingType||"unknown",endingScene:currentNode,storyId:storyId,storyTitle:story?story.title:"Unknown",steps:history.length,date:new Date().toISOString()});
     }
   },[isEnding,showChoices]);
 
@@ -835,17 +865,20 @@ function App(props){
     ):null,
     showIEO&&showChoices&&!isEnding?e(IEOPanel,{node:node,scores:scores,history:history,scenes:scenes,ieoData:GAME.ieoAdvice||{},onClose:function(){setShowIEO(false);}}):null,
     isEnding&&showChoices?e("div",{className:"ending-box"},
-      submitted?e("div",{className:"submitted-badge"},"\u2713 Score submitted to leaderboard"):null,
+      reviewMode?e("div",{className:"submitted-badge"},"\ud83d\udc41 Viewing "+(player.name?player.name+"'s":"a player's")+" final result"):(submitted?e("div",{className:"submitted-badge"},"\u2713 Score submitted to leaderboard"):null),
       e("div",{className:"ending-score-label"},"Final Score: ",e("span",{className:"ending-score-val"},totalScore)),
-      e("div",{className:"ending-summary"},player.name+" \u2014 you made "+history.length+" decisions."+(totalScore>=80?" Outstanding!":totalScore>=50?" Strong foundations.":" Try different choices next time!")),
-      e("div",{style:{display:"flex",gap:10,justifyContent:"center",flexWrap:"wrap"}},
+      reviewMode?e("div",{className:"ending-summary"},(player.name||"This player")+" reached this ending."):e("div",{className:"ending-summary"},player.name+" \u2014 you made "+history.length+" decisions."+(totalScore>=80?" Outstanding!":totalScore>=50?" Strong foundations.":" Try different choices next time!")),
+      reviewMode?e("div",{style:{display:"flex",gap:10,justifyContent:"center",flexWrap:"wrap"}},
+        e("a",{className:"action-btn dark",href:"leaderboard.html"},"\u2190 Back to Leaderboard"),
+        e("a",{className:"action-btn outline",href:"index.html"},"Play the Game")
+      ):e("div",{style:{display:"flex",gap:10,justifyContent:"center",flexWrap:"wrap"}},
         e("button",{className:"action-btn primary",onClick:restart},"Play Again"),
         e("button",{className:"action-btn dark",onClick:restartFull},hasStories&&Object.keys(stories).length>1?"Choose Story":"New Player"),
         e("a",{className:"action-btn outline",href:"leaderboard.html"},"Leaderboard")
       )
     ):null,
-    isEnding&&showChoices?e(JourneyAnalytics,{history:history,scenes:scenes,currentNode:currentNode}):null,
-    history.length>0&&showChoices?e("details",{className:"journey-log"},
+    isEnding&&showChoices&&!reviewMode?e(JourneyAnalytics,{history:history,scenes:scenes,currentNode:currentNode}):null,
+    history.length>0&&showChoices&&!reviewMode?e("details",{className:"journey-log"},
       e("summary",null,"Your Journey ("+history.length+" steps)"),
       e("div",{style:{marginTop:12}},history.map(function(h,i){var sc=scenes[h.node];return e("div",{key:i,className:"journey-step",style:{borderLeftColor:sc&&sc.phase?PHASE_COLORS[sc.phase]:SCORE_COLORS[Object.keys(SCORE_COLORS)[i%5]]}},e("div",{className:"step-title"},sc?sc.title:""),"\u2192 "+h.choice,sc?e("div",{className:"tag-row",style:{marginTop:4}},(sc.categories||[]).map(function(c){return e("span",{key:"c-"+c,className:"tag tag-cat","data-cat":c,style:{fontSize:8,padding:"1px 5px"}},CAT_LABELS[c]||c);})):null);}))
     ):null
