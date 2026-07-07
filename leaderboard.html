@@ -112,6 +112,36 @@ var currentFilter="all";
 var SCORE_LABELS={strategy:"Strategic Thinking",stakeholders:"Stakeholder Relations",significance:"Significance",reach:"Reach",evidence:"Evidence Quality"};
 var SCORE_COLORS={strategy:"#E8A838",stakeholders:"#4a6741",significance:"#c0392b",reach:"#5b7fb5",evidence:"#96CEB4"};
 var _allEntries=[];
+var _gameData=null;       // loaded game-data.json for ending-scene lookup
+var _endingLookup={};     // "storyId|endingTitle" -> sceneId (for older scores without endingScene)
+
+// Load game data once so we can resolve ending scenes for older score entries
+function loadGameData(cb){
+  if(_gameData){cb();return;}
+  fetch("game-data.json?t="+Date.now()).then(function(r){return r.ok?r.json():null;}).catch(function(){return null;}).then(function(data){
+    _gameData=data;
+    if(data&&data.scenes&&data.stories){
+      // Build a map from (storyId, ending title) -> scene id
+      Object.entries(data.stories).forEach(function(pair){
+        var sid=pair[0], story=pair[1];
+        var reachable={}, queue=[story.startScene];
+        while(queue.length){var id=queue.shift();if(!id||reachable[id]||!data.scenes[id])continue;reachable[id]=true;(data.scenes[id].choices||[]).forEach(function(c){if(c.next)queue.push(c.next);});}
+        Object.keys(reachable).forEach(function(id){
+          var sc=data.scenes[id];
+          if(sc.isEnding&&sc.title){_endingLookup[sid+"|"+sc.title]=id;}
+        });
+      });
+    }
+    cb();
+  });
+}
+
+// Resolve the ending scene id for an entry (uses stored endingScene, else matches by title)
+function resolveEndingScene(entry){
+  if(entry.endingScene)return entry.endingScene;
+  if(entry.storyId&&entry.ending&&_endingLookup[entry.storyId+"|"+entry.ending])return _endingLookup[entry.storyId+"|"+entry.ending];
+  return null;
+}
 
 function loadEntries(callback){
   var hidden=[];try{hidden=JSON.parse(localStorage.getItem("iq_lb_hidden")||"[]");}catch(e){}
@@ -257,9 +287,10 @@ function showPlayer(encKey){
   html+='<div class="modal-meta-item"><div class="m-val">'+(entry.score||0)+'</div><div class="m-lbl">Score</div></div>';
   if(dateStr)html+='<div class="modal-meta-item"><div class="m-val" style="font-size:13px;font-family:\'DM Sans\',sans-serif;font-weight:700">'+esc(dateStr)+'</div><div class="m-lbl">Completed</div></div>';
   html+='</div>';
-  // Link to the actual ending page they received (if we know the ending scene)
-  if(entry.endingScene&&entry.storyId){
-    var q="view="+encodeURIComponent(entry.storyId+":"+entry.endingScene);
+  // Link to the actual ending page they received (stored scene, or matched by title for older scores)
+  var endScene=resolveEndingScene(entry);
+  if(endScene&&entry.storyId){
+    var q="view="+encodeURIComponent(entry.storyId+":"+endScene);
     q+="&name="+encodeURIComponent(entry.name||"");
     if(entry.dept)q+="&dept="+encodeURIComponent(entry.dept);
     ["strategy","stakeholders","significance","reach","evidence"].forEach(function(k){q+="&"+k+"="+((entry.scores||{})[k]||0);});
@@ -357,7 +388,7 @@ function doClearBoard(){
     }
   });
 }
-render();
+loadGameData(function(){render();});
 </script>
 </body>
 </html>
