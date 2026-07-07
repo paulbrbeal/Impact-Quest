@@ -246,7 +246,6 @@ function renderBoard(allEntries){
   // Actions
   html+='<div class="action-row">';
   html+='<a href="index.html" class="action-btn outline">Play Again</a>';
-  html+='<button class="action-btn outline" onclick="doExportWord()">Export to Word</button>';
   html+='<button class="action-btn outline" onclick="doExportCSV()">Export CSV</button>';
   html+='<button class="action-btn danger" onclick="doClearBoard()">Clear Local Scores</button>';
   html+='</div>';
@@ -304,52 +303,6 @@ function closePlayer(){var m=document.getElementById("playerModal");if(m)m.remov
 function setFilter(f){currentFilter=f;render();}
 function esc(str){var d=document.createElement("div");d.textContent=str||"";return d.innerHTML;}
 
-function doExportWord(){
-  loadEntries(function(entries){
-    if(!entries.length){alert("No scores to export yet.");return;}
-    entries.sort(function(a,b){return b.score-a.score||new Date(a.date)-new Date(b.date);});
-    var now=new Date();
-    var dateLabel=now.toLocaleDateString(undefined,{year:"numeric",month:"long",day:"numeric"});
-
-    function cell(v){return '<td style="border:1px solid #d8d2c4;padding:6px 8px;font-size:10pt;">'+esc(String(v==null?"":v))+'</td>';}
-    function hcell(v){return '<td style="border:1px solid #0f0e0d;padding:6px 8px;background:#0f0e0d;color:#ffffff;font-size:9pt;font-weight:bold;text-transform:uppercase;">'+esc(v)+'</td>';}
-
-    var rows="";
-    entries.forEach(function(e,i){
-      var s=e.scores||{};
-      var d="";if(e.date){try{d=new Date(e.date).toLocaleDateString();}catch(x){d=e.date;}}
-      rows+='<tr>'+
-        cell(i+1)+cell(e.name||"")+cell(e.dept||"")+cell(e.storyTitle||"")+
-        '<td style="border:1px solid #d8d2c4;padding:6px 8px;font-size:10pt;font-weight:bold;color:#c4782a;">'+(e.score||0)+'</td>'+
-        cell(s.strategy||0)+cell(s.stakeholders||0)+cell(s.significance||0)+cell(s.reach||0)+cell(s.evidence||0)+
-        cell(e.ending||e.endingType||"")+cell(e.steps||0)+cell(d)+
-      '</tr>';
-    });
-
-    var totalPlays=entries.length;
-    var uniquePlayers=[];entries.forEach(function(e){if(uniquePlayers.indexOf(e.name)===-1)uniquePlayers.push(e.name);});
-    var avgScore=Math.round(entries.reduce(function(a,e){return a+(e.score||0);},0)/totalPlays);
-
-    var doc='<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">'+
-      '<head><meta charset="utf-8"><title>Impact Quest Leaderboard</title>'+
-      '<!--[if gte mso 9]><xml><w:WordDocument><w:View>Print</w:View></w:WordDocument></xml><![endif]-->'+
-      '<style>@page{size:A4 landscape;margin:1.5cm;} body{font-family:Calibri,Arial,sans-serif;color:#0f0e0d;} h1{font-size:22pt;margin:0 0 2pt 0;} .sub{font-size:11pt;color:#8c8272;margin-bottom:14pt;} .stats{font-size:10pt;margin-bottom:12pt;} table{border-collapse:collapse;width:100%;}</style>'+
-      '</head><body>'+
-      '<h1>Impact Quest &mdash; Leaderboard</h1>'+
-      '<div class="sub">Research impact training game &middot; Exported '+esc(dateLabel)+'</div>'+
-      '<div class="stats"><b>'+totalPlays+'</b> total plays &nbsp;|&nbsp; <b>'+uniquePlayers.length+'</b> players &nbsp;|&nbsp; High score <b>'+(entries[0].score||0)+'</b> &nbsp;|&nbsp; Average <b>'+avgScore+'</b></div>'+
-      '<table>'+
-      '<tr>'+hcell("#")+hcell("Name")+hcell("Department")+hcell("Story")+hcell("Score")+hcell("Strategy")+hcell("Stakeholders")+hcell("Significance")+hcell("Reach")+hcell("Evidence")+hcell("Ending")+hcell("Decisions")+hcell("Date")+'</tr>'+
-      rows+
-      '</table>'+
-      '</body></html>';
-
-    var blob=new Blob(['\ufeff'+doc],{type:"application/msword"});
-    var a=document.createElement("a");a.href=URL.createObjectURL(blob);
-    a.download="impact-quest-leaderboard-"+now.toISOString().slice(0,10)+".doc";
-    document.body.appendChild(a);a.click();document.body.removeChild(a);
-  });
-}
 function doExportCSV(){
   loadEntries(function(entries){
     if(!entries.length)return;
