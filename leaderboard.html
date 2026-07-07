@@ -68,6 +68,9 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 .lb-row.clickable{cursor:pointer}
 .lb-row.clickable:hover{background:var(--accent-glow)}
 .row-hint{font-size:9px;color:var(--text-muted);text-align:center;margin-top:-16px;margin-bottom:20px;letter-spacing:0.05em;text-transform:uppercase}
+.col-del{width:32px;flex:none;text-align:center}
+.del-btn{background:none;border:1px solid var(--border);color:#c0392b;width:24px;height:24px;border-radius:4px;cursor:pointer;font-size:12px;line-height:1;padding:0;transition:all 0.15s}
+.del-btn:hover{background:#c0392b;color:#fff;border-color:#c0392b}
 /* Player detail modal */
 .modal-overlay{position:fixed;inset:0;background:rgba(15,14,13,0.55);display:flex;align-items:flex-start;justify-content:center;padding:30px 16px;overflow-y:auto;z-index:100}
 .modal-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;max-width:560px;width:100%;padding:0;box-shadow:0 12px 40px rgba(0,0,0,0.2)}
@@ -112,6 +115,8 @@ var currentFilter="all";
 var SCORE_LABELS={strategy:"Strategic Thinking",stakeholders:"Stakeholder Relations",significance:"Significance",reach:"Reach",evidence:"Evidence Quality"};
 var SCORE_COLORS={strategy:"#E8A838",stakeholders:"#4a6741",significance:"#c0392b",reach:"#5b7fb5",evidence:"#96CEB4"};
 var _allEntries=[];
+var _editorMode=false;   // when true (and token present), per-row delete buttons appear
+function hasEditorToken(){return !!((localStorage.getItem("iq_gh_token")||"").replace(/[^\x20-\x7E]/g,"").trim());}
 var _gameData=null;       // loaded game-data.json for ending-scene lookup
 var _endingLookup={};     // "storyId|endingTitle" -> sceneId (for older scores without endingScene)
 
@@ -227,29 +232,73 @@ function renderBoard(allEntries){
 
   // Table
   var showStoryCol=currentFilter==="all"&&storyKeys.length>1;
+  var editing=_editorMode&&hasEditorToken();
   html+='<div class="lb-card">';
-  html+='<div class="lb-header"><span class="col-rank">#</span><span class="col-name">Player</span><span class="col-dept">Department</span>'+(showStoryCol?'<span class="col-story">Story</span>':'')+'<span class="col-ending">Ending</span><span class="col-score">Score</span></div>';
+  html+='<div class="lb-header"><span class="col-rank">#</span><span class="col-name">Player</span><span class="col-dept">Department</span>'+(showStoryCol?'<span class="col-story">Story</span>':'')+'<span class="col-ending">Ending</span><span class="col-score">Score</span>'+(editing?'<span class="col-del"></span>':'')+'</div>';
   entries.forEach(function(entry,i){
     var key=(entry.name||"")+"|"+(entry.date||"")+"|"+(entry.score||0);
-    html+='<div class="lb-row clickable'+(i<3?" highlight":"")+'" onclick="showPlayer(\''+encodeURIComponent(key)+'\')">';
+    html+='<div class="lb-row'+(editing?"":" clickable")+(i<3?" highlight":"")+'"'+(editing?'':' onclick="showPlayer(\''+encodeURIComponent(key)+'\')"')+'>';
     html+='<span class="col-rank">'+(i+1)+'</span>';
-    html+='<span class="col-name">'+esc(entry.name)+'</span>';
+    html+='<span class="col-name"'+(editing?' onclick="showPlayer(\''+encodeURIComponent(key)+'\')" style="cursor:pointer"':'')+'>'+esc(entry.name)+'</span>';
     html+='<span class="col-dept">'+esc(entry.dept||"\u2014")+'</span>';
     if(showStoryCol)html+='<span class="col-story">'+esc(entry.storyTitle||"\u2014")+'</span>';
     html+='<span class="col-ending">'+esc(entry.ending||entry.endingType||"\u2014")+'</span>';
     html+='<span class="col-score">'+(entry.score||0)+'</span>';
+    if(editing)html+='<span class="col-del"><button class="del-btn" title="Remove this score" onclick="deleteEntry(\''+encodeURIComponent(key)+'\')">\u2715</button></span>';
     html+='</div>';
   });
   html+='</div>';
-  html+='<div class="row-hint">Tap a player to see their full results</div>';
+  html+='<div class="row-hint">'+(editing?"Editor mode - click \u2715 to remove a score, or a name to view results":"Tap a player to see their full results")+'</div>';
 
   // Actions
   html+='<div class="action-row">';
   html+='<a href="index.html" class="action-btn outline">Play Again</a>';
   html+='<button class="action-btn outline" onclick="doExportCSV()">Export CSV</button>';
-  html+='<button class="action-btn danger" onclick="doClearBoard()">Clear Local Scores</button>';
+  if(hasEditorToken()){
+    html+='<button class="action-btn '+(_editorMode?"dark":"outline")+'" onclick="toggleEditor()">'+(_editorMode?"Exit Editor Mode":"Editor Mode")+'</button>';
+  }
+  html+='<button class="action-btn danger" onclick="doClearBoard()">Clear All Scores</button>';
   html+='</div>';
   el.innerHTML=html;
+}
+
+function toggleEditor(){ _editorMode=!_editorMode; render(); }
+
+// Remove a single entry: locally hide it AND remove it from the shared leaderboard.json (needs token)
+function deleteEntry(encKey){
+  var key=decodeURIComponent(encKey);
+  var entry=null;
+  for(var i=0;i<_allEntries.length;i++){var e=_allEntries[i];if(((e.name||"")+"|"+(e.date||"")+"|"+(e.score||0))===key){entry=e;break;}}
+  var label=entry?(entry.name+" \u2014 "+(entry.score||0)+" pts"):"this score";
+  if(!confirm("Remove "+label+" from the leaderboard? This cannot be undone."))return;
+
+  // 1. Hide locally (covers both local and remote-origin copies immediately)
+  var hidden=[];try{hidden=JSON.parse(localStorage.getItem("iq_lb_hidden")||"[]");}catch(e){}
+  if(hidden.indexOf(key)===-1)hidden.push(key);
+  try{localStorage.setItem("iq_lb_hidden",JSON.stringify(hidden));}catch(e){}
+  // 2. Remove from local store if present
+  try{
+    var local=JSON.parse(localStorage.getItem("iq_leaderboard")||"[]");
+    local=local.filter(function(e){return ((e.name||"")+"|"+(e.date||"")+"|"+(e.score||0))!==key;});
+    localStorage.setItem("iq_leaderboard",JSON.stringify(local));
+  }catch(e){}
+
+  // 3. Remove from the shared leaderboard.json on GitHub
+  var token=(localStorage.getItem("iq_gh_token")||"").replace(/[^\x20-\x7E]/g,"").trim();
+  if(!token){alert("Removed locally. (No token set, so it may still show for others.)");render();return;}
+  var apiUrl="https://api.github.com/repos/"+LB_REPO+"/contents/leaderboard.json";
+  fetch(apiUrl,{headers:{"Authorization":"Bearer "+token}}).then(function(r){return r.ok?r.json():null;}).then(function(existing){
+    if(!existing||!existing.sha){alert("Removed locally. (No shared leaderboard file found.)");render();return;}
+    var remote=[];try{remote=JSON.parse(decodeURIComponent(escape(atob(existing.content.replace(/\s/g,"")))));}catch(e){remote=[];}
+    if(!Array.isArray(remote))remote=[];
+    var filtered=remote.filter(function(e){return ((e.name||"")+"|"+(e.date||"")+"|"+(e.score||0))!==key;});
+    var b64=btoa(unescape(encodeURIComponent(JSON.stringify(filtered,null,2))));
+    return fetch(apiUrl,{method:"PUT",headers:{"Authorization":"Bearer "+token,"Content-Type":"application/json"},body:JSON.stringify({message:"Remove score: "+(entry?entry.name:"entry"),content:b64,sha:existing.sha})}).then(function(resp){
+      if(resp&&resp.ok){alert("Score removed from the shared leaderboard.");}
+      else{alert("Removed locally, but couldn't update the shared leaderboard (token may lack access).");}
+      render();
+    });
+  }).catch(function(){alert("Removed locally, but couldn't reach the shared leaderboard.");render();});
 }
 
 // ===== Player detail modal =====
