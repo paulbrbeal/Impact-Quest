@@ -143,5 +143,24 @@
     "storyTitle": "From Clinic to Cosmos",
     "steps": 6,
     "date": "2026-07-07T11:50:24.818Z"
+  },
+  {
+    "name": "Test",
+    "dept": "Test",
+    "score": 140,
+    "scores": {
+      "strategy": 32,
+      "stakeholders": 28,
+      "evidence": 26,
+      "significance": 24,
+      "reach": 30
+    },
+    "ending": "Impact Case Study: A Community of Practice",
+    "endingType": "cycle",
+    "endingScene": "sbl_ending_standards",
+    "storyId": "sbl",
+    "storyTitle": "The Education Simulation Lab",
+    "steps": 7,
+    "date": "2026-07-16T15:36:10.793Z"
   }
 ]
