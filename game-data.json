@@ -3485,7 +3485,7 @@
     },
     "sbl_network_build": {
       "title": "Finding Your People",
-      "narrative": "You start gathering the people, not just the institutions. Colleagues who share your conviction that teacher preparation must include the relational, unscripted realities of the job - and that it can be done affordably.\n\nEarly UK adopters come on board: Rachel Fossey at Anglia Ruskin and Katherine Broom at Southampton both begin running the approach with their own cohorts, adapting the scenarios to their contexts. What started as a Northumbria project is becoming a genuine community of practice.\n\nHow do you give it shape?",
+      "narrative": "You start gathering the people, not just the institutions. Colleagues who share your conviction that teacher preparation must include the relational, unscripted realities of the job - and that it can be done affordably.\n\nEarly UK adopters come on board: a number of Universities begin running the approach with their own cohorts, adapting the scenarios to their contexts. What started as a Northumbria project is becoming a genuine community of practice.\n\nHow do you give it shape?",
       "choices": [
         {
           "text": "Create a formal network with shared governance",
@@ -3545,7 +3545,7 @@
     },
     "sbl_network_launch": {
       "title": "The Simulation Network",
-      "narrative": "You formally launch the simulation network - a community of teacher educators committed to evidence-based, accessible, low-tech simulation for initial teacher education and beyond.\n\nIt spans named UK partners - Rachel Fossey at Anglia Ruskin, Katherine Broom at Southampton - and reaches internationally to colleagues in Sweden, Norway, Belgium, the United States, and Israel and Palestine, with emerging interest from Nigeria. The founding aims are practical:\n\n1. Sharing scenarios, resources and facilitator training across institutions\n2. Building a shared evidence base through replication in different contexts\n3. Keeping simulation accessible - proving good practice need not be expensive\n\nThis is where an individual project becomes a movement. What do you prioritise?",
+      "narrative": "You formally launch the simulation network - a community of teacher educators committed to evidence-based, accessible, low-tech simulation for initial teacher education and beyond.\n\nIt spans named UK partners and reaches internationally to colleagues in Sweden, Norway, Belgium, the United States, and Israel and Palestine, with emerging interest from Nigeria. The founding aims are practical:\n\n1. Sharing scenarios, resources and facilitator training across institutions\n2. Building a shared evidence base through replication in different contexts\n3. Keeping simulation accessible - proving good practice need not be expensive\n\nThis is where an individual project becomes a movement. What do you prioritise?",
       "choices": [
         {
           "text": "Deepen international adoption and replication across the network",
@@ -3693,7 +3693,7 @@
     },
     "sbl_multisite_study": {
       "title": "Replication Across Sites",
-      "narrative": "Through the network, partner institutions run the approach with their own cohorts and gather evidence the same way you did. This is not a single grand trial but a growing body of replication across different contexts - UK partners like Anglia Ruskin and Southampton, alongside international colleagues.\n\nThe consistency is what convinces. Across very different settings, the same pattern holds: students feel more confident and better prepared for the relational realities of teaching, and the low-tech approach travels because it is affordable. How do you consolidate this?",
+      "narrative": "Through the network, partner institutions run the approach with their own cohorts and gather evidence the same way you did. This is not a single grand trial but a growing body of replication across different contexts - UK partners alongside international colleagues.\n\nThe consistency is what convinces. Across very different settings, the same pattern holds: students feel more confident and better prepared for the relational realities of teaching, and the low-tech approach travels because it is affordable. How do you consolidate this?",
       "choices": [
         {
           "text": "Develop shared quality principles for the network",
@@ -3754,7 +3754,7 @@
     },
     "sbl_ending_toolkit": {
       "title": "Impact Case Study: Accessible by Design",
-      "narrative": "Congratulations! You've built an impact case study rooted in accessibility and reach.\n\nYour low-tech, low-cost simulation approach has changed how teachers are prepared - first at Northumbria, then across UK partners including Anglia Ruskin and Southampton, and internationally through a network spanning Sweden, Norway, Belgium, the United States, and Israel and Palestine, with emerging interest from Nigeria.\n\nThe strength of this case is its honesty and its breadth: an affordable, evidence-based approach that travels precisely because it does not depend on expensive technology. You resisted the pull of high-tech spectacle and stayed true to what the evidence showed - and as a result, your research is changing practice for trainee teachers in classrooms far beyond your own.",
+      "narrative": "Congratulations! You've built an impact case study rooted in accessibility and reach.\n\nYour low-tech, low-cost simulation approach has changed how teachers are prepared - first at Northumbria, then across UK partners, then internationally through a network spanning Sweden, Norway, Belgium, the United States, and Israel and Palestine, with emerging interest from Nigeria.\n\nThe strength of this case is its honesty and its breadth: an affordable, evidence-based approach that travels precisely because it does not depend on expensive technology. You resisted the pull of high-tech spectacle and stayed true to what the evidence showed - and as a result, your research is changing practice for trainee teachers in classrooms far beyond your own.",
       "choices": [],
       "scoreEffect": {
         "reach": 9,
@@ -3801,7 +3801,7 @@
     },
     "sbl_ending_policy": {
       "title": "Impact Case Study: A Global Conversation",
-      "narrative": "Congratulations! You've taken a Northumbria pilot and turned it into a global conversation.\n\nYour low-tech, evidence-based simulation approach now informs teacher preparation across an international network - Sweden, Norway, Belgium, the United States, and Israel and Palestine, with emerging interest from Nigeria - alongside named UK partners at Anglia Ruskin and Southampton.\n\nThe reach is real and it is principled. Your approach travels because it is affordable and because the evidence is honest: good simulation is about design and reflection, not expensive technology. By keeping the barrier low, you made it possible for teacher educators in very different systems to adopt your work - and changed how teachers are prepared for the human realities of the classroom, far beyond where you began.",
+      "narrative": "Congratulations! You've taken a Northumbria pilot and turned it into a global conversation.\n\nYour low-tech, evidence-based simulation approach now informs teacher preparation across an international network - Sweden, Norway, Belgium, the United States, and Israel and Palestine, with emerging interest from Nigeria - alongside UK partners.\n\nThe reach is real and it is principled. Your approach travels because it is affordable and because the evidence is honest: good simulation is about design and reflection, not expensive technology. By keeping the barrier low, you made it possible for teacher educators in very different systems to adopt your work - and changed how teachers are prepared for the human realities of the classroom, far beyond where you began.",
       "choices": [],
       "scoreEffect": {
         "reach": 9,
