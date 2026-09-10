@@ -124,5 +124,24 @@
     "storyTitle": "The Green Corridor",
     "steps": 5,
     "date": "2026-07-06T14:46:25.678Z"
+  },
+  {
+    "name": "ECR Research Group",
+    "dept": "Psychology",
+    "score": 113,
+    "scores": {
+      "strategy": 31,
+      "stakeholders": 44,
+      "evidence": 8,
+      "significance": 14,
+      "reach": 16
+    },
+    "ending": "Impact Case Study: Changing Practice",
+    "endingType": "practitioner",
+    "endingScene": "ah_ending_framework",
+    "storyId": "animal_hoarding",
+    "storyTitle": "The Hoarding Gap",
+    "steps": 5,
+    "date": "2026-09-10T14:40:11.497Z"
   }
 ]
