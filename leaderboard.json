@@ -143,24 +143,5 @@
     "storyTitle": "The Hoarding Gap",
     "steps": 5,
     "date": "2026-09-10T14:40:11.497Z"
-  },
-  {
-    "name": "Test",
-    "dept": "Test",
-    "score": 141,
-    "scores": {
-      "strategy": 35,
-      "stakeholders": 24,
-      "significance": 34,
-      "reach": 23,
-      "evidence": 25
-    },
-    "ending": "Impact Case Study: From Bedside to Orbit",
-    "endingType": "cycle",
-    "endingScene": "bfr_ending_multisector",
-    "storyId": "bfr",
-    "storyTitle": "From Clinic to Cosmos",
-    "steps": 9,
-    "date": "2026-09-15T10:39:09.298Z"
   }
 ]
